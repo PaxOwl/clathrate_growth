@@ -12,7 +12,7 @@
 #### on charge les modules mpi et gromacs
  
 module load mpi/openmpi/icc/3.0.0
-module load gromacs/mpi/gcc/2019.1-sp
+module load gromacs
  
 ## lancement de l'application
 mpirun -np $NSLOTS gmx_mpi grompp -f grompp_annealing.mdp -c confout.gro -t traj.trr -po output.mdp -o topol.tpr

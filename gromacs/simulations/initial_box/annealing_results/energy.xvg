@@ -1,0 +1,37 @@
+# This file was created Thu Apr 29 11:19:41 2021
+# Created by:
+#                      :-) GROMACS - gmx energy, 2019.1 (-:
+# 
+# Executable:   /Softs/lumiere/gromacs/mpi/gcc/2019.1-sp/bin/gmx_mpi
+# Data prefix:  /Softs/lumiere/gromacs/mpi/gcc/2019.1-sp
+# Working dir:  /Work/Users/ctsilefski/simulations/initial_box/equilibration
+# Command line:
+#   gmx_mpi energy
+# gmx energy is part of G R O M A C S:
+#
+# GROningen Mixture of Alchemy and Childrens' Stories
+#
+@    title "GROMACS Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(K)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Temperature"
+    0.000000  202.088394
+   10.000000    0.008934
+   20.000000    0.018149
+   30.000000    0.005245
+   40.000000    0.002529
+   50.000000    0.002660
+   60.000000    0.005984
+   70.000000    0.001358
+   80.000000    0.008405
+   90.000000    0.000925
+  100.000000    0.000474
+  110.000000    0.001065
+  120.000000    0.000183
