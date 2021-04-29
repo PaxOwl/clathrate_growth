@@ -1,742 +1,0 @@
-                      :-) GROMACS - gmx grompp, 2019.1 (-:
-
-                            GROMACS is written by:
-     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
-    Par Bjelkmar      Christian Blau   Viacheslav Bolnykh     Kevin Boyd    
- Aldert van Buuren   Rudi van Drunen     Anton Feenstra       Alan Gray     
-  Gerrit Groenhof     Anca Hamuraru    Vincent Hindriksen  M. Eric Irrgang  
-  Aleksei Iupinov   Christoph Junghans     Joe Jordan     Dimitrios Karkoulis
-    Peter Kasson        Jiri Kraus      Carsten Kutzner      Per Larsson    
-  Justin A. Lemkul    Viveca Lindahl    Magnus Lundborg     Erik Marklund   
-    Pascal Merz     Pieter Meulenhoff    Teemu Murtola       Szilard Pall   
-    Sander Pronk      Roland Schulz      Michael Shirts    Alexey Shvetsov  
-   Alfons Sijbers     Peter Tieleman      Jon Vincent      Teemu Virolainen 
- Christian Wennberg    Maarten Wolf   
-                           and the project leaders:
-        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
-
-Copyright (c) 1991-2000, University of Groningen, The Netherlands.
-Copyright (c) 2001-2018, The GROMACS development team at
-Uppsala University, Stockholm University and
-the Royal Institute of Technology, Sweden.
-check out http://www.gromacs.org for more information.
-
-GROMACS is free software; you can redistribute it and/or modify it
-under the terms of the GNU Lesser General Public License
-as published by the Free Software Foundation; either version 2.1
-of the License, or (at your option) any later version.
-
-GROMACS:      gmx grompp, version 2019.1
-Executable:   /Softs/lumiere/gromacs/mpi/gcc/2019.1-sp/bin/gmx_mpi
-Data prefix:  /Softs/lumiere/gromacs/mpi/gcc/2019.1-sp
-Working dir:  /Work/Users/ctsilefski/simulations/initial_box/equilibration
-Command line:
-  gmx_mpi grompp -f grompp_equilibration.mdp -c confout.gro -t traj.trr -po output.mdp -o topol.tpr
-
-
-NOTE 1 [file grompp_equilibration.mdp]:
-  You have set rlist larger than the interaction cut-off, but you also have
-  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
-
-
-NOTE 2 [file grompp_equilibration.mdp]:
-  The Berendsen thermostat does not generate the correct kinetic energy
-  distribution. You might want to consider using the V-rescale thermostat.
-
-Setting the LD random seed to 2021523894
-Generated 14 of the 15 non-bonded parameter combinations
-Excluding 2 bonded neighbours molecule type 'SOL'
-Excluding 3 bonded neighbours molecule type 'Methane'
-turning H bonds into constraints...
-turning H bonds into constraints...
-
-NOTE 1 [file grompp_equilibration.mdp]:
-  You have set rlist larger than the interaction cut-off, but you also have
-  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
-
-
-NOTE 2 [file grompp_equilibration.mdp]:
-  The Berendsen thermostat does not generate the correct kinetic energy
-  distribution. You might want to consider using the V-rescale thermostat.
-
-Setting the LD random seed to 108944653
-Generated 14 of the 15 non-bonded parameter combinations
-Excluding 2 bonded neighbours molecule type 'SOL'
-Excluding 3 bonded neighbours molecule type 'Methane'
-turning H bonds into constraints...
-turning H bonds into constraints...
-
-NOTE 1 [file grompp_equilibration.mdp]:
-  You have set rlist larger than the interaction cut-off, but you also have
-  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
-
-
-NOTE 2 [file grompp_equilibration.mdp]:
-  The Berendsen thermostat does not generate the correct kinetic energy
-  distribution. You might want to consider using the V-rescale thermostat.
-
-Setting the LD random seed to 1592176860
-
-NOTE 1 [file grompp_equilibration.mdp]:
-  You have set rlist larger than the interaction cut-off, but you also have
-  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
-
-
-NOTE 2 [file grompp_equilibration.mdp]:
-  The Berendsen thermostat does not generate the correct kinetic energy
-  distribution. You might want to consider using the V-rescale thermostat.
-
-Setting the LD random seed to 1695908475
-
-NOTE 1 [file grompp_equilibration.mdp]:
-  You have set rlist larger than the interaction cut-off, but you also have
-  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
-
-
-NOTE 2 [file grompp_equilibration.mdp]:
-  The Berendsen thermostat does not generate the correct kinetic energy
-  distribution. You might want to consider using the V-rescale thermostat.
-
-Setting the LD random seed to 1211702287
-Generated 14 of the 15 non-bonded parameter combinations
-Generated 14 of the 15 non-bonded parameter combinations
-turning H bonds into constraints...
-turning H bonds into constraints...
-turning H bonds into constraints...
-turning H bonds into constraints...
-turning H bonds into constraints...
-turning H bonds into constraints...
-Generated 14 of the 15 non-bonded parameter combinations
-Excluding 2 bonded neighbours molecule type 'SOL'
-Excluding 3 bonded neighbours molecule type 'Methane'
-Excluding 2 bonded neighbours molecule type 'SOL'
-Excluding 3 bonded neighbours molecule type 'Methane'
-Excluding 2 bonded neighbours molecule type 'SOL'
-Excluding 3 bonded neighbours molecule type 'Methane'
-
-NOTE 1 [file grompp_equilibration.mdp]:
-  You have set rlist larger than the interaction cut-off, but you also have
-  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
-
-
-NOTE 2 [file grompp_equilibration.mdp]:
-  The Berendsen thermostat does not generate the correct kinetic energy
-  distribution. You might want to consider using the V-rescale thermostat.
-
-Setting the LD random seed to 1202712318
-Generated 14 of the 15 non-bonded parameter combinations
-Excluding 2 bonded neighbours molecule type 'SOL'
-Excluding 3 bonded neighbours molecule type 'Methane'
-turning H bonds into constraints...
-turning H bonds into constraints...
-Setting gen_seed to -1335985480
-Velocities were taken from a Maxwell distribution at 200 K
-Cleaning up constraints and constant bonded interactions with virtual sites
-Removing all charge groups because cutoff-scheme=Verlet
-Analysing residue names:
-
-NOTE 1 [file grompp_equilibration.mdp]:
-  You have set rlist larger than the interaction cut-off, but you also have
-  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
-
-
-NOTE 2 [file grompp_equilibration.mdp]:
-  The Berendsen thermostat does not generate the correct kinetic energy
-  distribution. You might want to consider using the V-rescale thermostat.
-
-Setting the LD random seed to -337752823
-Generated 14 of the 15 non-bonded parameter combinations
-
-NOTE 1 [file grompp_equilibration.mdp]:
-  You have set rlist larger than the interaction cut-off, but you also have
-  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
-
-
-NOTE 2 [file grompp_equilibration.mdp]:
-  The Berendsen thermostat does not generate the correct kinetic energy
-  distribution. You might want to consider using the V-rescale thermostat.
-
-Setting the LD random seed to -146120835
-Excluding 2 bonded neighbours molecule type 'SOL'
-Excluding 3 bonded neighbours molecule type 'Methane'
-turning H bonds into constraints...
-turning H bonds into constraints...
-
-NOTE 1 [file grompp_equilibration.mdp]:
-  You have set rlist larger than the interaction cut-off, but you also have
-  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
-
-
-NOTE 2 [file grompp_equilibration.mdp]:
-  The Berendsen thermostat does not generate the correct kinetic energy
-  distribution. You might want to consider using the V-rescale thermostat.
-
-Setting the LD random seed to -2121772152
-Generated 14 of the 15 non-bonded parameter combinations
-Excluding 2 bonded neighbours molecule type 'SOL'
-Excluding 3 bonded neighbours molecule type 'Methane'
-
-NOTE 1 [file grompp_equilibration.mdp]:
-  You have set rlist larger than the interaction cut-off, but you also have
-  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
-
-
-NOTE 2 [file grompp_equilibration.mdp]:
-  The Berendsen thermostat does not generate the correct kinetic energy
-  distribution. You might want to consider using the V-rescale thermostat.
-
-Setting the LD random seed to 1272377736
-Generated 14 of the 15 non-bonded parameter combinations
-Excluding 2 bonded neighbours molecule type 'SOL'
-Excluding 3 bonded neighbours molecule type 'Methane'
-
-NOTE 1 [file grompp_equilibration.mdp]:
-  You have set rlist larger than the interaction cut-off, but you also have
-  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
-
-
-NOTE 2 [file grompp_equilibration.mdp]:
-  The Berendsen thermostat does not generate the correct kinetic energy
-  distribution. You might want to consider using the V-rescale thermostat.
-
-Setting the LD random seed to -324801982
-turning H bonds into constraints...
-turning H bonds into constraints...
-turning H bonds into constraints...
-turning H bonds into constraints...
-Generated 14 of the 15 non-bonded parameter combinations
-Excluding 2 bonded neighbours molecule type 'SOL'
-Excluding 3 bonded neighbours molecule type 'Methane'
-
-NOTE 1 [file grompp_equilibration.mdp]:
-  You have set rlist larger than the interaction cut-off, but you also have
-  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
-
-
-NOTE 2 [file grompp_equilibration.mdp]:
-  The Berendsen thermostat does not generate the correct kinetic energy
-  distribution. You might want to consider using the V-rescale thermostat.
-
-Setting the LD random seed to 176814495
-
-NOTE 1 [file grompp_equilibration.mdp]:
-  You have set rlist larger than the interaction cut-off, but you also have
-  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
-
-
-NOTE 2 [file grompp_equilibration.mdp]:
-  The Berendsen thermostat does not generate the correct kinetic energy
-  distribution. You might want to consider using the V-rescale thermostat.
-
-Setting the LD random seed to 1912898331
-Generated 14 of the 15 non-bonded parameter combinations
-Excluding 2 bonded neighbours molecule type 'SOL'
-Excluding 3 bonded neighbours molecule type 'Methane'
-
-NOTE 1 [file grompp_equilibration.mdp]:
-  You have set rlist larger than the interaction cut-off, but you also have
-  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
-
-
-NOTE 2 [file grompp_equilibration.mdp]:
-  The Berendsen thermostat does not generate the correct kinetic energy
-  distribution. You might want to consider using the V-rescale thermostat.
-
-Setting the LD random seed to 1704202009
-turning H bonds into constraints...
-turning H bonds into constraints...
-turning H bonds into constraints...
-turning H bonds into constraints...
-Generated 14 of the 15 non-bonded parameter combinations
-Excluding 2 bonded neighbours molecule type 'SOL'
-Excluding 3 bonded neighbours molecule type 'Methane'
-
-NOTE 1 [file grompp_equilibration.mdp]:
-  You have set rlist larger than the interaction cut-off, but you also have
-  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
-
-
-NOTE 2 [file grompp_equilibration.mdp]:
-  The Berendsen thermostat does not generate the correct kinetic energy
-  distribution. You might want to consider using the V-rescale thermostat.
-
-Setting the LD random seed to -175466731
-Generated 14 of the 15 non-bonded parameter combinations
-Excluding 2 bonded neighbours molecule type 'SOL'
-Excluding 3 bonded neighbours molecule type 'Methane'
-Generated 14 of the 15 non-bonded parameter combinations
-Excluding 2 bonded neighbours molecule type 'SOL'
-Excluding 3 bonded neighbours molecule type 'Methane'
-Generated 14 of the 15 non-bonded parameter combinations
-Excluding 2 bonded neighbours molecule type 'SOL'
-Excluding 3 bonded neighbours molecule type 'Methane'
-
-NOTE 1 [file grompp_equilibration.mdp]:
-  You have set rlist larger than the interaction cut-off, but you also have
-  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
-
-
-NOTE 2 [file grompp_equilibration.mdp]:
-  The Berendsen thermostat does not generate the correct kinetic energy
-  distribution. You might want to consider using the V-rescale thermostat.
-
-Setting the LD random seed to -1450366527
-turning H bonds into constraints...
-turning H bonds into constraints...
-turning H bonds into constraints...
-turning H bonds into constraints...
-turning H bonds into constraints...
-turning H bonds into constraints...
-turning H bonds into constraints...
-turning H bonds into constraints...
-Setting gen_seed to -596626786
-Velocities were taken from a Maxwell distribution at 200 K
-Cleaning up constraints and constant bonded interactions with virtual sites
-Removing all charge groups because cutoff-scheme=Verlet
-Analysing residue names:
-Generated 14 of the 15 non-bonded parameter combinations
-Excluding 2 bonded neighbours molecule type 'SOL'
-Excluding 3 bonded neighbours molecule type 'Methane'
-turning H bonds into constraints...
-turning H bonds into constraints...
-Setting gen_seed to -1544376668
-Setting gen_seed to 1697394206
-Setting gen_seed to 1127890683
-Velocities were taken from a Maxwell distribution at 200 K
-Cleaning up constraints and constant bonded interactions with virtual sites
-Removing all charge groups because cutoff-scheme=Verlet
-Velocities were taken from a Maxwell distribution at 200 K
-Cleaning up constraints and constant bonded interactions with virtual sites
-Removing all charge groups because cutoff-scheme=Verlet
-Velocities were taken from a Maxwell distribution at 200 K
-Cleaning up constraints and constant bonded interactions with virtual sites
-Removing all charge groups because cutoff-scheme=Verlet
-Analysing residue names:
-Analysing residue names:
-Analysing residue names:
-Setting gen_seed to 109627350
-Velocities were taken from a Maxwell distribution at 200 K
-Cleaning up constraints and constant bonded interactions with virtual sites
-Removing all charge groups because cutoff-scheme=Verlet
-Analysing residue names:
-There are:  1656      Water residues
-There are:   332      Other residues
-There are:  1656      Water residues
-There are:   332      Other residues
-There are:  1656      Water residues
-There are:   332      Other residues
-There are:  1656      Water residues
-There are:   332      Other residues
-There are:  1656      Water residues
-There are:   332      Other residues
-There are:  1656      Water residues
-There are:   332      Other residues
-Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
-Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
-Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
-Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
-Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
-Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
-Analysing residue names:
-Number of degrees of freedom in T-Coupling group System is 13585.00
-Number of degrees of freedom in T-Coupling group System is 13585.00
-Number of degrees of freedom in T-Coupling group System is 13585.00
-Setting gen_seed to -776318428
-Velocities were taken from a Maxwell distribution at 200 K
-Cleaning up constraints and constant bonded interactions with virtual sites
-Removing all charge groups because cutoff-scheme=Verlet
-Number of degrees of freedom in T-Coupling group System is 13585.00
-Number of degrees of freedom in T-Coupling group System is 13585.00
-Reading Coordinates and Box size from old trajectory
-Will read whole trajectory
-Velocities generated: ignoring velocities in input trajectory
-trr version: GMX_trn_file (single precision)
-Reading frame       0 time    0.000   Reading Coordinates and Box size from old trajectory
-Will read whole trajectory
-Velocities generated: ignoring velocities in input trajectory
-trr version: GMX_trn_file (single precision)
-Reading frame       0 time    0.000   Setting gen_seed to -1676224171
-Velocities were taken from a Maxwell distribution at 200 K
-Cleaning up constraints and constant bonded interactions with virtual sites
-Removing all charge groups because cutoff-scheme=Verlet
-Reading Coordinates and Box size from old trajectory
-Will read whole trajectory
-Velocities generated: ignoring velocities in input trajectory
-trr version: GMX_trn_file (single precision)
-Reading frame       0 time    0.000   Reading Coordinates and Box size from old trajectory
-Will read whole trajectory
-Velocities generated: ignoring velocities in input trajectory
-trr version: GMX_trn_file (single precision)
-Reading frame       0 time    0.000   Setting gen_seed to 2133111399
-Velocities were taken from a Maxwell distribution at 200 K
-Cleaning up constraints and constant bonded interactions with virtual sites
-Removing all charge groups because cutoff-scheme=Verlet
-Number of degrees of freedom in T-Coupling group System is 13585.00
-Reading Coordinates and Box size from old trajectory
-Will read whole trajectory
-Velocities generated: ignoring velocities in input trajectory
-trr version: GMX_trn_file (single precision)
-Reading frame       0 time    0.000   Setting gen_seed to 1145650346
-Velocities were taken from a Maxwell distribution at 200 K
-Cleaning up constraints and constant bonded interactions with virtual sites
-Removing all charge groups because cutoff-scheme=Verlet
-Reading Coordinates and Box size from old trajectory
-Will read whole trajectory
-Velocities generated: ignoring velocities in input trajectory
-trr version: GMX_trn_file (single precision)
-Reading frame       0 time    0.000   Reading frame       1 time   10.000   Setting gen_seed to 348466614
-Velocities were taken from a Maxwell distribution at 200 K
-Cleaning up constraints and constant bonded interactions with virtual sites
-Removing all charge groups because cutoff-scheme=Verlet
-Reading frame       1 time   10.000   Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
-Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
-Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
-Note that mdrun will redetermine rlist based on the actual pair-list setup
-Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
-Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
-Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
-Note that mdrun will redetermine rlist based on the actual pair-list setup
-Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
-Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
-Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
-Note that mdrun will redetermine rlist based on the actual pair-list setup
-Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
-Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
-Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
-Note that mdrun will redetermine rlist based on the actual pair-list setup
-Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
-Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
-Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
-Note that mdrun will redetermine rlist based on the actual pair-list setup
-Analysing residue names:
-Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
-Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
-Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
-Note that mdrun will redetermine rlist based on the actual pair-list setup
-There are:  1656      Water residues
-There are:   332      Other residues
-Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
-Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
-Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
-Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
-Note that mdrun will redetermine rlist based on the actual pair-list setup
-Analysing residue names:
-Analysing residue names:
-Analysing residue names:
-Setting gen_seed to 154126208
-Velocities were taken from a Maxwell distribution at 200 K
-Cleaning up constraints and constant bonded interactions with virtual sites
-Removing all charge groups because cutoff-scheme=Verlet
-Setting gen_seed to -298674005
-Velocities were taken from a Maxwell distribution at 200 K
-Cleaning up constraints and constant bonded interactions with virtual sites
-Removing all charge groups because cutoff-scheme=Verlet
-Setting gen_seed to -268026402
-Velocities were taken from a Maxwell distribution at 200 K
-Cleaning up constraints and constant bonded interactions with virtual sites
-Removing all charge groups because cutoff-scheme=Verlet
-Reading frame       1 time   10.000   Reading frame       2 time   20.000   Reading frame       3 time   30.000   Reading frame       4 time   40.000   Reading frame       1 time   10.000   Reading frame       2 time   20.000   Reading frame       3 time   30.000   Reading frame       4 time   40.000   Analysing residue names:
-There are:  1656      Water residues
-There are:   332      Other residues
-Analysing residue names:
-Analysing residue names:
-There are:  1656      Water residues
-There are:   332      Other residues
-There are:  1656      Water residues
-There are:   332      Other residues
-Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
-Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
-Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
-Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
-Note that mdrun will redetermine rlist based on the actual pair-list setup
-Analysing residue names:
-There are:  1656      Water residues
-There are:   332      Other residues
-There are:  1656      Water residues
-There are:   332      Other residues
-Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
-Reading frame       2 time   20.000   Reading frame       3 time   30.000   Reading frame       4 time   40.000   Reading frame       1 time   10.000   Reading frame       2 time   20.000   Reading frame       3 time   30.000   Reading frame       4 time   40.000   Reading frame       1 time   10.000   Reading frame       2 time   20.000   Reading frame       3 time   30.000   Reading frame       4 time   40.000   Reading frame       5 time   50.000   Setting gen_seed to 1693291989
-Velocities were taken from a Maxwell distribution at 200 K
-Cleaning up constraints and constant bonded interactions with virtual sites
-Removing all charge groups because cutoff-scheme=Verlet
-Reading frame       2 time   20.000   Reading frame       3 time   30.000   Reading frame       4 time   40.000   Reading frame       5 time   50.000   Reading frame       6 time   60.000   Number of degrees of freedom in T-Coupling group System is 13585.00
-Reading Coordinates and Box size from old trajectory
-Will read whole trajectory
-Velocities generated: ignoring velocities in input trajectory
-Reading frame       5 time   50.000   Reading frame       5 time   50.000   Reading frame       6 time   60.000   Reading frame       7 time   70.000   Reading frame       8 time   80.000   Reading frame       9 time   90.000   Number of degrees of freedom in T-Coupling group System is 13585.00
-Reading Coordinates and Box size from old trajectory
-Will read whole trajectory
-Velocities generated: ignoring velocities in input trajectory
-trr version: GMX_trn_file (single precision)
-Reading frame       0 time    0.000   Reading frame       5 time   50.000   Reading frame       6 time   60.000   Reading frame       7 time   70.000   Reading frame       8 time   80.000   Reading frame       9 time   90.000   There are:  1656      Water residues
-There are:   332      Other residues
-Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
-Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
-Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
-Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
-Note that mdrun will redetermine rlist based on the actual pair-list setup
-There are:  1656      Water residues
-There are:   332      Other residues
-Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
-Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
-Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
-Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
-Note that mdrun will redetermine rlist based on the actual pair-list setup
-Setting gen_seed to -2112201403
-Velocities were taken from a Maxwell distribution at 200 K
-Cleaning up constraints and constant bonded interactions with virtual sites
-Removing all charge groups because cutoff-scheme=Verlet
-Reading frame       6 time   60.000   Reading frame       7 time   70.000   Reading frame       8 time   80.000   Reading frame       9 time   90.000   Number of degrees of freedom in T-Coupling group System is 13585.00
-Reading Coordinates and Box size from old trajectory
-Will read whole trajectory
-Velocities generated: ignoring velocities in input trajectory
-trr version: GMX_trn_file (single precision)
-Reading frame       0 time    0.000   Reading frame       1 time   10.000   Reading frame       2 time   20.000   Reading frame       3 time   30.000   Reading frame       4 time   40.000   Reading frame       5 time   50.000   Reading frame       6 time   60.000   Reading frame       7 time   70.000   Reading frame       8 time   80.000   Reading frame       9 time   90.000   Number of degrees of freedom in T-Coupling group System is 13585.00
-Reading Coordinates and Box size from old trajectory
-Will read whole trajectory
-Velocities generated: ignoring velocities in input trajectory
-Number of degrees of freedom in T-Coupling group System is 13585.00
-Reading Coordinates and Box size from old trajectory
-Will read whole trajectory
-Velocities generated: ignoring velocities in input trajectory
-trr version: GMX_trn_file (single precision)
-Reading frame       0 time    0.000   Reading frame       1 time   10.000   Reading frame       2 time   20.000   Reading frame       3 time   30.000   Reading frame       6 time   60.000   Reading frame       7 time   70.000   Reading frame       8 time   80.000   Reading frame       9 time   90.000   Number of degrees of freedom in T-Coupling group System is 13585.00
-Reading Coordinates and Box size from old trajectory
-Will read whole trajectory
-Velocities generated: ignoring velocities in input trajectory
-Number of degrees of freedom in T-Coupling group System is 13585.00
-Reading Coordinates and Box size from old trajectory
-Will read whole trajectory
-Velocities generated: ignoring velocities in input trajectory
-trr version: GMX_trn_file (single precision)
-Reading frame       0 time    0.000   Reading frame       1 time   10.000   Reading frame       2 time   20.000   Reading frame       3 time   30.000   Reading frame       4 time   40.000   Number of degrees of freedom in T-Coupling group System is 13585.00
-Reading Coordinates and Box size from old trajectory
-Will read whole trajectory
-Velocities generated: ignoring velocities in input trajectory
-trr version: GMX_trn_file (single precision)
-Reading frame       0 time    0.000   Reading frame       1 time   10.000   Reading frame       2 time   20.000   Reading frame       3 time   30.000   Reading frame       4 time   40.000   Reading frame       7 time   70.000   Reading frame       8 time   80.000   Reading frame       9 time   90.000   Reading frame      10 time  100.000   Reading frame      11 time  110.000   Reading frame      12 time  120.000   Reading frame      13 time  130.000   Reading frame      14 time  140.000   Number of degrees of freedom in T-Coupling group System is 13585.00
-Reading Coordinates and Box size from old trajectory
-Will read whole trajectory
-Velocities generated: ignoring velocities in input trajectory
-trr version: GMX_trn_file (single precision)
-Reading frame       0 time    0.000   Reading frame       1 time   10.000   Reading frame       2 time   20.000   Reading frame       3 time   30.000   Reading frame       4 time   40.000   Reading frame       1 time   10.000   Reading frame       2 time   20.000   Reading frame       3 time   30.000   Reading frame       4 time   40.000   Reading frame       4 time   40.000   Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
-Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
-Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
-Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
-Note that mdrun will redetermine rlist based on the actual pair-list setup
-There are:  1656      Water residues
-There are:   332      Other residues
-Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
-Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
-Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
-Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
-Note that mdrun will redetermine rlist based on the actual pair-list setup
-Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
-Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
-Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
-Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
-Note that mdrun will redetermine rlist based on the actual pair-list setup
-Analysing residue names:
-Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
-Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
-Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
-Note that mdrun will redetermine rlist based on the actual pair-list setup
-Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
-Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
-Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
-Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
-Note that mdrun will redetermine rlist based on the actual pair-list setup
-Reading frame       5 time   50.000   Reading frame       6 time   60.000   Reading frame       7 time   70.000   Reading frame       8 time   80.000   Reading frame       9 time   90.000   Reading frame      10 time  100.000   Reading frame      11 time  110.000   Reading frame      12 time  120.000   Reading frame      13 time  130.000   Reading frame      14 time  140.000   Reading frame      10 time  100.000   Reading frame      11 time  110.000   Reading frame      12 time  120.000   Reading frame      13 time  130.000   Reading frame      14 time  140.000   Reading frame      15 time  150.000   Reading frame      16 time  160.000   Reading frame      17 time  170.000   Reading frame      18 time  180.000   Reading frame      19 time  190.000   Reading frame      20 time  200.000   Reading frame      10 time  100.000   Reading frame      11 time  110.000   Reading frame      12 time  120.000   Reading frame      13 time  130.000   Reading frame      14 time  140.000   Reading frame      15 time  150.000   Reading frame      16 time  160.000   Reading frame      17 time  170.000   Reading frame      18 time  180.000   Reading frame      19 time  190.000   Reading frame      20 time  200.000   trr version: GMX_trn_file (single precision)
-Reading frame       0 time    0.000   Reading frame       1 time   10.000   Reading frame       2 time   20.000   Reading frame       3 time   30.000   Reading frame       4 time   40.000   Reading frame       5 time   50.000   Reading frame       6 time   60.000   Reading frame       7 time   70.000   Reading frame       8 time   80.000   Reading frame       9 time   90.000   Reading frame       5 time   50.000   Reading frame       6 time   60.000   Reading frame       7 time   70.000   Reading frame       8 time   80.000   Reading frame       9 time   90.000   Reading frame      10 time  100.000   Reading frame      11 time  110.000   Reading frame      12 time  120.000   Reading frame      13 time  130.000   Reading frame      10 time  100.000   Reading frame      11 time  110.000   Reading frame      12 time  120.000   Reading frame      13 time  130.000   Reading frame      14 time  140.000   Reading frame      15 time  150.000   Reading frame      16 time  160.000   Reading frame      17 time  170.000   Reading frame      18 time  180.000   Reading frame      19 time  190.000   Reading frame      20 time  200.000   trr version: GMX_trn_file (single precision)
-Reading frame       0 time    0.000   Reading frame       1 time   10.000   Reading frame       2 time   20.000   Reading frame       3 time   30.000   Reading frame       4 time   40.000   Reading frame       5 time   50.000   Reading frame       6 time   60.000   Reading frame       5 time   50.000   Reading frame       6 time   60.000   Reading frame       7 time   70.000   Reading frame       8 time   80.000   Reading frame       9 time   90.000   Reading frame      10 time  100.000   Reading frame      11 time  110.000   trr version: GMX_trn_file (single precision)
-Reading frame       0 time    0.000   Reading frame       1 time   10.000   Reading frame       2 time   20.000   Reading frame       3 time   30.000   Reading frame       4 time   40.000   Reading frame       5 time   50.000   Reading frame       6 time   60.000   Reading frame       7 time   70.000   Reading frame       8 time   80.000   Reading frame       9 time   90.000   Reading frame       5 time   50.000   Reading frame       6 time   60.000   Reading frame       7 time   70.000   Reading frame       8 time   80.000   Reading frame       9 time   90.000   Reading frame      10 time  100.000   Reading frame      11 time  110.000   Reading frame      12 time  120.000   Reading frame      15 time  150.000   Reading frame      16 time  160.000   Reading frame      17 time  170.000   Reading frame      18 time  180.000   Reading frame      19 time  190.000   Reading frame      20 time  200.000   Reading frame       5 time   50.000   Reading frame       6 time   60.000   Reading frame       7 time   70.000   Reading frame       8 time   80.000   Reading frame       9 time   90.000   Reading frame      10 time  100.000   Reading frame      11 time  110.000   Reading frame      12 time  120.000   Reading frame      13 time  130.000   Reading frame       5 time   50.000   Reading frame       6 time   60.000   Reading frame       7 time   70.000   Reading frame       8 time   80.000   Reading frame       9 time   90.000   Reading frame      10 time  100.000   Number of degrees of freedom in T-Coupling group System is 13585.00
-Reading Coordinates and Box size from old trajectory
-Will read whole trajectory
-Velocities generated: ignoring velocities in input trajectory
-Reading frame      10 time  100.000   Reading frame      11 time  110.000   Reading frame      12 time  120.000   Reading frame      13 time  130.000   Reading frame      14 time  140.000   Reading frame      15 time  150.000   Reading frame      16 time  160.000   Reading frame      17 time  170.000   Reading frame      18 time  180.000   Reading frame      19 time  190.000   Reading frame      20 time  200.000   Reading frame      10 time  100.000   Reading frame      11 time  110.000   Reading frame      12 time  120.000   Reading frame      13 time  130.000   Reading frame      14 time  140.000   Reading frame      15 time  150.000   Reading frame      16 time  160.000   Reading frame      17 time  170.000   Reading frame      18 time  180.000   Reading frame      19 time  190.000   Reading frame      20 time  200.000   There are:  1656      Water residues
-There are:   332      Other residues
-Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
-Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
-Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
-Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
-Note that mdrun will redetermine rlist based on the actual pair-list setup
-Reading frame      12 time  120.000   Reading frame      13 time  130.000   Reading frame      14 time  140.000   Reading frame      15 time  150.000   Reading frame      16 time  160.000   Reading frame      17 time  170.000   Reading frame      18 time  180.000   Reading frame      19 time  190.000   Reading frame      20 time  200.000   Reading frame      11 time  110.000   Reading frame      12 time  120.000   Reading frame      13 time  130.000   Reading frame      14 time  140.000   Reading frame      15 time  150.000   Reading frame      16 time  160.000   Reading frame      17 time  170.000   Reading frame      18 time  180.000   Reading frame      19 time  190.000   Reading frame      20 time  200.000   trr version: GMX_trn_file (single precision)
-Reading frame       0 time    0.000   Reading frame       1 time   10.000   Reading frame      30 time  300.000   Reading frame      14 time  140.000   Reading frame      15 time  150.000   Reading frame      16 time  160.000   Reading frame      17 time  170.000   Reading frame      18 time  180.000   Reading frame      19 time  190.000   Reading frame      20 time  200.000   Reading frame      15 time  150.000   Reading frame      16 time  160.000   Reading frame      17 time  170.000   Reading frame      18 time  180.000   Reading frame      19 time  190.000   Reading frame      20 time  200.000   Reading frame      30 time  300.000   Reading frame      10 time  100.000   Reading frame      11 time  110.000   Reading frame      12 time  120.000   Reading frame      13 time  130.000   Reading frame      14 time  140.000   Reading frame      15 time  150.000   Reading frame      16 time  160.000   Reading frame      17 time  170.000   Reading frame      18 time  180.000   Reading frame      19 time  190.000   Reading frame      20 time  200.000   Reading frame      14 time  140.000   Reading frame      15 time  150.000   Reading frame      16 time  160.000   Reading frame      17 time  170.000   Reading frame      18 time  180.000   Reading frame      19 time  190.000   Reading frame      20 time  200.000   Reading frame       7 time   70.000   Reading frame       8 time   80.000   Reading frame       9 time   90.000   Reading frame      10 time  100.000   Reading frame      11 time  110.000   Reading frame      12 time  120.000   Reading frame      13 time  130.000   Reading frame      14 time  140.000   Reading frame      15 time  150.000   Reading frame      10 time  100.000   Reading frame      11 time  110.000   Reading frame      12 time  120.000   Reading frame      13 time  130.000   Reading frame      14 time  140.000   Reading frame      15 time  150.000   Reading frame      16 time  160.000   Reading frame      17 time  170.000   Reading frame      18 time  180.000   Reading frame      19 time  190.000   Reading frame      20 time  200.000   Reading frame      13 time  130.000   Reading frame      14 time  140.000   Reading frame      15 time  150.000   Reading frame      16 time  160.000   Reading frame      17 time  170.000   Reading frame      18 time  180.000   Reading frame      19 time  190.000   Reading frame      20 time  200.000   Reading frame      30 time  300.000   Reading frame      30 time  300.000   Reading frame      30 time  300.000   Reading frame      16 time  160.000   Reading frame      17 time  170.000   Reading frame      18 time  180.000   Reading frame      19 time  190.000   Reading frame      20 time  200.000   Reading frame      30 time  300.000   Reading frame       2 time   20.000   Reading frame       3 time   30.000   Reading frame      30 time  300.000   Reading frame      30 time  300.000   Reading frame      30 time  300.000   Reading frame      40 time  400.000   Reading frame      30 time  300.000   Reading frame      30 time  300.000   Reading frame      40 time  400.000   Reading frame       4 time   40.000   Reading frame      40 time  400.000   Reading frame      30 time  300.000   Reading frame      30 time  300.000   Reading frame      40 time  400.000   Reading frame      40 time  400.000   Reading frame      30 time  300.000   Reading frame      50 time  500.000   Reading frame      40 time  400.000   Reading frame      40 time  400.000   Reading frame       5 time   50.000   Reading frame      30 time  300.000   Reading frame      40 time  400.000   Reading frame       6 time   60.000   Reading frame      40 time  400.000   Reading frame      50 time  500.000   Reading frame      50 time  500.000   Reading frame      40 time  400.000   Reading frame      50 time  500.000   Reading frame      40 time  400.000   Reading frame      40 time  400.000   Reading frame       7 time   70.000   Reading frame      40 time  400.000   Reading frame      40 time  400.000   Reading frame      50 time  500.000   Reading frame       8 time   80.000   Reading frame      40 time  400.000   Reading frame      60 time  600.000   Reading frame      50 time  500.000   Reading frame      50 time  500.000   Reading frame      50 time  500.000   Reading frame       9 time   90.000   Reading frame      60 time  600.000   Reading frame      60 time  600.000   Reading frame      50 time  500.000   Reading frame      50 time  500.000   Reading frame      50 time  500.000   Reading frame      60 time  600.000   Reading frame      50 time  500.000   Reading frame      60 time  600.000   Reading frame      10 time  100.000   Reading frame      50 time  500.000   Reading frame      50 time  500.000   Reading frame      11 time  110.000   Reading frame      60 time  600.000   Reading frame      60 time  600.000   Reading frame      70 time  700.000   Reading frame      70 time  700.000   Reading frame      50 time  500.000   Reading frame      60 time  600.000   Reading frame      12 time  120.000   Reading frame      70 time  700.000   Reading frame      60 time  600.000   Reading frame      70 time  700.000   Reading frame      60 time  600.000   Reading frame      60 time  600.000   Reading frame      60 time  600.000   Reading frame      70 time  700.000   Reading frame      13 time  130.000   Reading frame      60 time  600.000   Reading frame      60 time  600.000   Reading frame      14 time  140.000   Reading frame      80 time  800.000   Reading frame      70 time  700.000   Reading frame      70 time  700.000   Reading frame      15 time  150.000   Reading frame      80 time  800.000   Reading frame      60 time  600.000   Reading frame      70 time  700.000   Reading frame      80 time  800.000   Reading frame      80 time  800.000   Reading frame      70 time  700.000   Reading frame      70 time  700.000   Reading frame      70 time  700.000   Reading frame      16 time  160.000   Reading frame      70 time  700.000   Reading frame      70 time  700.000   Reading frame      80 time  800.000   Reading frame      80 time  800.000   Reading frame      80 time  800.000   Reading frame      17 time  170.000   Reading frame      18 time  180.000   Reading frame      70 time  700.000   Reading frame      80 time  800.000   Reading frame      70 time  700.000   Reading frame      80 time  800.000   Reading frame      90 time  900.000   Reading frame      90 time  900.000   Reading frame      90 time  900.000   Reading frame      90 time  900.000   Reading frame      80 time  800.000   Reading frame      90 time  900.000   Reading frame      80 time  800.000   Reading frame      19 time  190.000   Reading frame      80 time  800.000   Reading frame      90 time  900.000   Reading frame      80 time  800.000   Reading frame      90 time  900.000   Reading frame      80 time  800.000   Reading frame      20 time  200.000   Reading frame      80 time  800.000   Reading frame      90 time  900.000   Reading frame      90 time  900.000   Reading frame     100 time 1000.000   Last frame        100 time 1000.000   
-Reading frame     100 time 1000.000   Last frame        100 time 1000.000   
-Using frame at t = 1000 ps
-Starting time for run is 0 ps
-Estimate for the relative computational load of the PME mesh part: 0.18
-
-There were 2 notes
-
-Back Off! I just backed up topol.tpr to ./#topol.tpr.1#
-Calculating fourier grid dimensions for X Y Z
-Using a fourier grid of 84x20x20, spacing 0.149 0.120 0.120
-This run will generate roughly 1 Mb of data
-Reading frame     100 time 1000.000   Last frame        100 time 1000.000   
-Using frame at t = 1000 ps
-Starting time for run is 0 ps
-Estimate for the relative computational load of the PME mesh part: 0.18
-
-There were 2 notes
-Calculating fourier grid dimensions for X Y Z
-Using a fourier grid of 84x20x20, spacing 0.149 0.120 0.120
-This run will generate roughly 1 Mb of data
-Reading frame     100 time 1000.000   Last frame        100 time 1000.000   
-Using frame at t = 1000 ps
-Starting time for run is 0 ps
-Estimate for the relative computational load of the PME mesh part: 0.18
-
-There were 2 notes
-
-Back Off! I just backed up topol.tpr to ./#topol.tpr.2#
-Reading frame      90 time  900.000   Reading frame     100 time 1000.000   Last frame        100 time 1000.000   
-Calculating fourier grid dimensions for X Y Z
-Using a fourier grid of 84x20x20, spacing 0.149 0.120 0.120
-This run will generate roughly 1 Mb of data
-Calculating fourier grid dimensions for X Y Z
-Using a fourier grid of 84x20x20, spacing 0.149 0.120 0.120
-This run will generate roughly 1 Mb of data
-Calculating fourier grid dimensions for X Y Z
-Using a fourier grid of 84x20x20, spacing 0.149 0.120 0.120
-This run will generate roughly 1 Mb of data
-Reading frame      90 time  900.000   Using frame at t = 1000 ps
-Starting time for run is 0 ps
-Estimate for the relative computational load of the PME mesh part: 0.18
-
-There were 2 notes
-Reading frame      90 time  900.000   Using frame at t = 1000 ps
-Starting time for run is 0 ps
-Estimate for the relative computational load of the PME mesh part: 0.18
-
-There were 2 notes
-
-Back Off! I just backed up topol.tpr to ./#topol.tpr.3#
-Reading frame     100 time 1000.000   Last frame        100 time 1000.000   
-Reading frame      90 time  900.000   Reading frame      90 time  900.000   Calculating fourier grid dimensions for X Y Z
-Using a fourier grid of 84x20x20, spacing 0.149 0.120 0.120
-This run will generate roughly 1 Mb of data
-Calculating fourier grid dimensions for X Y Z
-Using a fourier grid of 84x20x20, spacing 0.149 0.120 0.120
-This run will generate roughly 1 Mb of data
-Calculating fourier grid dimensions for X Y Z
-Using a fourier grid of 84x20x20, spacing 0.149 0.120 0.120
-This run will generate roughly 1 Mb of data
-Calculating fourier grid dimensions for X Y Z
-Using a fourier grid of 84x20x20, spacing 0.149 0.120 0.120
-This run will generate roughly 1 Mb of data
-Using frame at t = 1000 ps
-Starting time for run is 0 ps
-Estimate for the relative computational load of the PME mesh part: 0.18
-
-There were 2 notes
-Reading frame     100 time 1000.000   Last frame        100 time 1000.000   
-Using frame at t = 1000 ps
-Starting time for run is 0 ps
-Estimate for the relative computational load of the PME mesh part: 0.18
-
-There were 2 notes
-Reading frame      90 time  900.000   Reading frame     100 time 1000.000   Last frame        100 time 1000.000   
-Using frame at t = 1000 ps
-Starting time for run is 0 ps
-Estimate for the relative computational load of the PME mesh part: 0.18
-
-There were 2 notes
-
-Back Off! I just backed up topol.tpr to ./#topol.tpr.4#
-Reading frame     100 time 1000.000   Last frame        100 time 1000.000   
-Using frame at t = 1000 ps
-Starting time for run is 0 ps
-Estimate for the relative computational load of the PME mesh part: 0.18
-
-There were 2 notes
-
-Back Off! I just backed up topol.tpr to ./#topol.tpr.5#
-Calculating fourier grid dimensions for X Y Z
-Using a fourier grid of 84x20x20, spacing 0.149 0.120 0.120
-This run will generate roughly 1 Mb of data
-Calculating fourier grid dimensions for X Y Z
-Using a fourier grid of 84x20x20, spacing 0.149 0.120 0.120
-This run will generate roughly 1 Mb of data
-Calculating fourier grid dimensions for X Y Z
-Using a fourier grid of 84x20x20, spacing 0.149 0.120 0.120
-This run will generate roughly 1 Mb of data
-
-Back Off! I just backed up topol.tpr to ./#topol.tpr.6#
-
-Sorry couldn't backup topol.tpr to ./#topol.tpr.6#
-Reading frame     100 time 1000.000   Last frame        100 time 1000.000   
-Using frame at t = 1000 ps
-Starting time for run is 0 ps
-Estimate for the relative computational load of the PME mesh part: 0.18
-
-There were 2 notes
-
-Sorry couldn't backup topol.tpr to ./#topol.tpr.7#
-Reading frame     100 time 1000.000   Last frame        100 time 1000.000   
-Using frame at t = 1000 ps
-Starting time for run is 0 ps
-Estimate for the relative computational load of the PME mesh part: 0.18
-
-There were 2 notes
-Reading frame     100 time 1000.000   Last frame        100 time 1000.000   
-Using frame at t = 1000 ps
-Starting time for run is 0 ps
-Estimate for the relative computational load of the PME mesh part: 0.18
-
-There were 2 notes
-
-Back Off! I just backed up topol.tpr to ./#topol.tpr.7#
-Reading frame     100 time 1000.000   Last frame        100 time 1000.000   
-Using frame at t = 1000 ps
-Starting time for run is 0 ps
-Estimate for the relative computational load of the PME mesh part: 0.18
-
-There were 2 notes
-Reading frame     100 time 1000.000   Last frame        100 time 1000.000   
-Using frame at t = 1000 ps
-Starting time for run is 0 ps
-Estimate for the relative computational load of the PME mesh part: 0.18
-
-There were 2 notes
-Reading frame      30 time  300.000   Reading frame     100 time 1000.000   Last frame        100 time 1000.000   
-Using frame at t = 1000 ps
-Starting time for run is 0 ps
-Estimate for the relative computational load of the PME mesh part: 0.18
-
-There were 2 notes
-
-Back Off! I just backed up topol.tpr to ./#topol.tpr.8#
-Calculating fourier grid dimensions for X Y Z
-Using a fourier grid of 84x20x20, spacing 0.149 0.120 0.120
-This run will generate roughly 1 Mb of data
-Calculating fourier grid dimensions for X Y Z
-Using a fourier grid of 84x20x20, spacing 0.149 0.120 0.120
-This run will generate roughly 1 Mb of data
-Calculating fourier grid dimensions for X Y Z
-Using a fourier grid of 84x20x20, spacing 0.149 0.120 0.120
-This run will generate roughly 1 Mb of data
-Reading frame      40 time  400.000   
-Back Off! I just backed up topol.tpr to ./#topol.tpr.9#
-
-Back Off! I just backed up topol.tpr to ./#topol.tpr.9#
-
-Sorry couldn't backup topol.tpr to ./#topol.tpr.9#
-
-Back Off! I just backed up topol.tpr to ./#topol.tpr.9#
-
-Back Off! I just backed up topol.tpr to ./#topol.tpr.9#
-Reading frame      50 time  500.000   Reading frame      60 time  600.000   Reading frame      70 time  700.000   Reading frame      80 time  800.000   Reading frame      90 time  900.000   Reading frame     100 time 1000.000   Last frame        100 time 1000.000   
-Using frame at t = 1000 ps
-Starting time for run is 0 ps
-Estimate for the relative computational load of the PME mesh part: 0.18
-
-There were 2 notes
-Calculating fourier grid dimensions for X Y Z
-Using a fourier grid of 84x20x20, spacing 0.149 0.120 0.120
-This run will generate roughly 1 Mb of data
-
-Back Off! I just backed up topol.tpr to ./#topol.tpr.10#
-
-GROMACS reminds you: "Welcome to the Power Age" (2 Unlimited)
-

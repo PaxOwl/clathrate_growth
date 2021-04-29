@@ -1,24 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="46c1e133-a383-40f4-a506-ba03ce0b71f6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/methane-distances.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gromacs/computations/clathrate/conf.gro" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/computations/clathrate/conf.gro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gromacs/computations/clathrate/equil.sge" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/computations/clathrate/equil.sge" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gromacs/computations/clathrate/grompp_equilibration.mdp" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/computations/clathrate/grompp_equilibration.mdp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gromacs/computations/clathrate/grompp_minimization.mdp" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/computations/clathrate/grompp_minimization.mdp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gromacs/computations/clathrate/methane-oplsaa.gro" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/computations/clathrate/methane-oplsaa.gro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gromacs/computations/clathrate/methane.itp" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/computations/clathrate/methane.itp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gromacs/computations/clathrate/prod.sge" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/computations/clathrate/prod.sge" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gromacs/computations/clathrate/run_equil.sge" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/computations/clathrate/run_equil.sge" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gromacs/computations/clathrate/run_mini.sge" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/computations/clathrate/run_mini.sge" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gromacs/computations/clathrate/run_prod.sge" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/computations/clathrate/run_prod.sge" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gromacs/computations/clathrate/topol.top" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/computations/clathrate/topol.top" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/master.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/master.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes-gromacs.tex" beforeDir="false" afterPath="$PROJECT_DIR$/notes-gromacs.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSP/master.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../SSP/master.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSP/practicals/Tp_rams" beforeDir="false" afterPath="$PROJECT_DIR$/../SSP/practicals/Tp_rams" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSP/report-practical1.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../SSP/report-practical1.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/cyril.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python/analysis.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python/classes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python/parameters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#conf.gro.2#" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#conf.gro.2#" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#ener.edr.2#" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#ener.edr.2#" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#md.log.1#" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#md.log.1#" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#md.log.2#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.1#" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.1#" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.10#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.11#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.12#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.13#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.14#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.15#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.16#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.17#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.18#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.19#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.2#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.20#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.21#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.22#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.23#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.24#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.25#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.3#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.4#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.5#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.6#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.7#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.8#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#topol.tpr.9#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#traj.trr.1#" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#traj.trr.1#" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/#traj.trr.2#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/anneal.584212.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/anneal.sge" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/anneal.sge" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/conf.gro" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/conf.gro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/confout.gro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/ener.edr" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/ener.edr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/energy.xvg" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/energy.xvg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/equil.584194.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/equil.sge" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/equil.sge" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/grompp_anneal.584210.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/grompp_annealing.mdp" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/grompp_annealing.mdp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/grompp_equil.584193.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/grompp_equilibration.mdp" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/grompp_equilibration.mdp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/md.log" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/md.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/output.mdp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/run_anneal.sge" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/run_anneal.sge" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/run_equil.sge" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/run_equil.sge" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/state.cpt" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/state.cpt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/state_prev.cpt" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/state_prev.cpt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/topol.tpr" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/topol.tpr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/traj.trr" beforeDir="false" afterPath="$PROJECT_DIR$/gromacs/simulations/initial_box/annealing_results/traj.trr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/equilibration/confout.gro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/equilibration/md.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/equilibration/output.mdp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/equilibration/state.cpt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/equilibration/topol.tpr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gromacs/simulations/initial_box/equilibration/traj.trr" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +83,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1qtF7J5xQvEcFXOASTLo6hGiLly" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -46,8 +96,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SSP" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -58,7 +110,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="methane-distances" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="LAB" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -66,11 +118,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="/usr/bin/python3.9" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/methane-distances.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -80,7 +132,7 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="false" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="46c1e133-a383-40f4-a506-ba03ce0b71f6" name="Default Changelist" comment="" />

@@ -35,14 +35,14 @@ tc-grps                  = system
 tau-t                    = 0.1
 ref-t                    = 200
 pcoupl                   = berendsen
-pcoupltype               = isotropic
+pcoupltype               = anisotropic
 tau-p                    = 1.0
-ref-p                    = 300.0
-compressibility          = 1.0e-6
+ref-p                    = 300.0 300.0 300.0 0.0 0.0 0.0
+compressibility          = 1.0e-6 1.0e-6 1.0e-6 0.0 0.0 0.0
 
 ; SIMULATED ANNEALING CONTROL
 annealing                = single
-annealing_npoints        = 2 
+annealing_npoints        = 2
 annealing_time           = 0 120
 annealing_temp           = 200 260
 
