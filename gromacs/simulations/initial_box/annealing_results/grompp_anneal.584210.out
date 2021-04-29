@@ -1,0 +1,806 @@
+                      :-) GROMACS - gmx grompp, 2019.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar      Christian Blau   Viacheslav Bolnykh     Kevin Boyd    
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra       Alan Gray     
+  Gerrit Groenhof     Anca Hamuraru    Vincent Hindriksen  M. Eric Irrgang  
+  Aleksei Iupinov   Christoph Junghans     Joe Jordan     Dimitrios Karkoulis
+    Peter Kasson        Jiri Kraus      Carsten Kutzner      Per Larsson    
+  Justin A. Lemkul    Viveca Lindahl    Magnus Lundborg     Erik Marklund   
+    Pascal Merz     Pieter Meulenhoff    Teemu Murtola       Szilard Pall   
+    Sander Pronk      Roland Schulz      Michael Shirts    Alexey Shvetsov  
+   Alfons Sijbers     Peter Tieleman      Jon Vincent      Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2018, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, version 2019.1
+Executable:   /Softs/lumiere/gromacs/mpi/gcc/2019.1-sp/bin/gmx_mpi
+Data prefix:  /Softs/lumiere/gromacs/mpi/gcc/2019.1-sp
+Working dir:  /Work/Users/ctsilefski/simulations/initial_box/equilibration
+Command line:
+  gmx_mpi grompp -f grompp_annealing.mdp -c confout.gro -t traj.trr -po output.mdp -o topol.tpr
+
+
+NOTE 1 [file grompp_annealing.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_annealing.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to -1607817243
+Generated 14 of the 15 non-bonded parameter combinations
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 3 bonded neighbours molecule type 'Methane'
+turning H bonds into constraints...
+turning H bonds into constraints...
+
+NOTE 1 [file grompp_annealing.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_annealing.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to -1501790269
+Generated 14 of the 15 non-bonded parameter combinations
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 3 bonded neighbours molecule type 'Methane'
+turning H bonds into constraints...
+turning H bonds into constraints...
+
+NOTE 1 [file grompp_annealing.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_annealing.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to 1121190237
+
+NOTE 1 [file grompp_annealing.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_annealing.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to -1520554290
+Generated 14 of the 15 non-bonded parameter combinations
+Generated 14 of the 15 non-bonded parameter combinations
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 3 bonded neighbours molecule type 'Methane'
+turning H bonds into constraints...
+turning H bonds into constraints...
+turning H bonds into constraints...
+turning H bonds into constraints...
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 3 bonded neighbours molecule type 'Methane'
+Setting gen_seed to -606720750
+Velocities were taken from a Maxwell distribution at 200 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+
+NOTE 1 [file grompp_annealing.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_annealing.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to -359063756
+Analysing residue names:
+turning H bonds into constraints...
+turning H bonds into constraints...
+turning H bonds into constraints...
+turning H bonds into constraints...
+Generated 14 of the 15 non-bonded parameter combinations
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 3 bonded neighbours molecule type 'Methane'
+
+NOTE 1 [file grompp_annealing.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_annealing.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to 1709602507
+Generated 14 of the 15 non-bonded parameter combinations
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 3 bonded neighbours molecule type 'Methane'
+
+NOTE 1 [file grompp_annealing.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_annealing.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to -1127752578
+
+NOTE 1 [file grompp_annealing.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_annealing.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to 734071716
+Generated 14 of the 15 non-bonded parameter combinations
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 3 bonded neighbours molecule type 'Methane'
+turning H bonds into constraints...
+turning H bonds into constraints...
+turning H bonds into constraints...
+turning H bonds into constraints...
+Generated 14 of the 15 non-bonded parameter combinations
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 3 bonded neighbours molecule type 'Methane'
+
+NOTE 1 [file grompp_annealing.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_annealing.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to 1874810461
+
+NOTE 1 [file grompp_annealing.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_annealing.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to 748977566
+
+NOTE 1 [file grompp_annealing.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_annealing.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to 1340405986
+
+NOTE 1 [file grompp_annealing.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_annealing.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to 17416743
+
+NOTE 1 [file grompp_annealing.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_annealing.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to 269243901
+
+NOTE 1 [file grompp_annealing.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_annealing.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to -1756290349
+
+NOTE 1 [file grompp_annealing.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_annealing.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to -1996450142
+turning H bonds into constraints...
+turning H bonds into constraints...
+There are:  1656      Water residues
+There are:   332      Other residues
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
+Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+turning H bonds into constraints...
+turning H bonds into constraints...
+Analysing residue names:
+turning H bonds into constraints...
+turning H bonds into constraints...
+turning H bonds into constraints...
+turning H bonds into constraints...
+turning H bonds into constraints...
+turning H bonds into constraints...
+turning H bonds into constraints...
+turning H bonds into constraints...
+turning H bonds into constraints...
+turning H bonds into constraints...
+turning H bonds into constraints...
+turning H bonds into constraints...
+Simulated annealing for group System: Single, 2 timepoints
+Time (ps)   Temperature (K)
+      0.0        0.0
+      0.0-       0.0
+Number of degrees of freedom in T-Coupling group System is 13585.00
+Reading Coordinates and Box size from old trajectory
+Will read whole trajectory
+Velocities generated: ignoring velocities in input trajectory
+Setting gen_seed to -1037797423
+Velocities were taken from a Maxwell distribution at 200 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+
+NOTE 1 [file grompp_annealing.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_annealing.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to 519914471
+Generated 14 of the 15 non-bonded parameter combinations
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 3 bonded neighbours molecule type 'Methane'
+Generated 14 of the 15 non-bonded parameter combinations
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 3 bonded neighbours molecule type 'Methane'
+Generated 14 of the 15 non-bonded parameter combinations
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 3 bonded neighbours molecule type 'Methane'
+Generated 14 of the 15 non-bonded parameter combinations
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 3 bonded neighbours molecule type 'Methane'
+Generated 14 of the 15 non-bonded parameter combinations
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 3 bonded neighbours molecule type 'Methane'
+Generated 14 of the 15 non-bonded parameter combinations
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 3 bonded neighbours molecule type 'Methane'
+Generated 14 of the 15 non-bonded parameter combinations
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 3 bonded neighbours molecule type 'Methane'
+Generated 14 of the 15 non-bonded parameter combinations
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 3 bonded neighbours molecule type 'Methane'
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 84x16x16, spacing 0.149 0.149 0.149
+This run will generate roughly 2 Mb of data
+There are:  1656      Water residues
+There are:   332      Other residues
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
+Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+trr version: GMX_trn_file (single precision)
+Reading frame       0 time    0.000   Reading frame       1 time   10.000   Reading frame       2 time   20.000   Last frame          2 time   20.000   
+Using frame at t = 20 ps
+Starting time for run is 0 ps
+Estimate for the relative computational load of the PME mesh part: 0.17
+
+There were 2 notes
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.11#
+Simulated annealing for group System: Single, 2 timepoints
+Time (ps)   Temperature (K)
+      0.0        0.0
+      0.0-       0.0
+Number of degrees of freedom in T-Coupling group System is 13585.00
+Reading Coordinates and Box size from old trajectory
+Will read whole trajectory
+Velocities generated: ignoring velocities in input trajectory
+trr version: GMX_trn_file (single precision)
+Reading frame       0 time    0.000   Analysing residue names:
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 84x16x16, spacing 0.149 0.149 0.149
+This run will generate roughly 2 Mb of data
+Analysing residue names:
+Setting gen_seed to -1107031003
+Velocities were taken from a Maxwell distribution at 200 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Reading frame       1 time   10.000   Reading frame       2 time   20.000   Last frame          2 time   20.000   
+Using frame at t = 20 ps
+Starting time for run is 0 ps
+Estimate for the relative computational load of the PME mesh part: 0.17
+
+There were 2 notes
+Setting gen_seed to -978886222
+Velocities were taken from a Maxwell distribution at 200 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Analysing residue names:
+Analysing residue names:
+Setting gen_seed to -764813877
+Velocities were taken from a Maxwell distribution at 200 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Setting gen_seed to 1989154619
+Velocities were taken from a Maxwell distribution at 200 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Setting gen_seed to 2146413601
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.12#
+There are:  1656      Water residues
+There are:   332      Other residues
+Velocities were taken from a Maxwell distribution at 200 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Analysing residue names:
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+There are:  1656      Water residues
+There are:   332      Other residues
+Simulated annealing for group System: Single, 2 timepoints
+Time (ps)   Temperature (K)
+      0.0        0.0
+      0.0-       0.0
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
+Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Simulated annealing for group System: Single, 2 timepoints
+Time (ps)   Temperature (K)
+      0.0        0.0
+      0.0-       0.0
+Number of degrees of freedom in T-Coupling group System is 13585.00
+Reading Coordinates and Box size from old trajectory
+Will read whole trajectory
+Velocities generated: ignoring velocities in input trajectory
+Number of degrees of freedom in T-Coupling group System is 13585.00
+Reading Coordinates and Box size from old trajectory
+Will read whole trajectory
+Velocities generated: ignoring velocities in input trajectory
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
+Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+There are:  1656      Water residues
+There are:   332      Other residues
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+There are:  1656      Water residues
+There are:   332      Other residues
+trr version: GMX_trn_file (single precision)
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Simulated annealing for group System: Single, 2 timepoints
+Time (ps)   Temperature (K)
+      0.0        0.0
+      0.0-       0.0
+Reading frame       0 time    0.000   trr version: GMX_trn_file (single precision)
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
+Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+There are:  1656      Water residues
+There are:   332      Other residues
+Number of degrees of freedom in T-Coupling group System is 13585.00
+Reading Coordinates and Box size from old trajectory
+Will read whole trajectory
+Velocities generated: ignoring velocities in input trajectory
+Simulated annealing for group System: Single, 2 timepoints
+Time (ps)   Temperature (K)
+      0.0        0.0
+      0.0-       0.0
+Reading frame       1 time   10.000   Setting gen_seed to -365584978
+Velocities were taken from a Maxwell distribution at 200 K
+trr version: GMX_trn_file (single precision)
+Number of degrees of freedom in T-Coupling group System is 13585.00
+Reading Coordinates and Box size from old trajectory
+Will read whole trajectory
+Velocities generated: ignoring velocities in input trajectory
+Reading frame       2 time   20.000   Reading frame       0 time    0.000   Reading frame       1 time   10.000   Simulated annealing for group System: Single, 2 timepoints
+Time (ps)   Temperature (K)
+      0.0        0.0
+      0.0-       0.0
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
+Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
+Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 84x16x16, spacing 0.149 0.149 0.149
+This run will generate roughly 2 Mb of data
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 84x16x16, spacing 0.149 0.149 0.149
+This run will generate roughly 2 Mb of data
+Analysing residue names:
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 84x16x16, spacing 0.149 0.149 0.149
+This run will generate roughly 2 Mb of data
+Analysing residue names:
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Reading frame       0 time    0.000   Reading frame       1 time   10.000   Reading frame       2 time   20.000   Last frame          2 time   20.000   
+Using frame at t = 20 ps
+Starting time for run is 0 ps
+Estimate for the relative computational load of the PME mesh part: 0.17
+
+There were 2 notes
+trr version: GMX_trn_file (single precision)
+Reading frame       0 time    0.000   Reading frame       1 time   10.000   Setting gen_seed to -428364292
+Setting gen_seed to 651255503
+Velocities were taken from a Maxwell distribution at 200 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Number of degrees of freedom in T-Coupling group System is 13585.00
+Reading Coordinates and Box size from old trajectory
+Will read whole trajectory
+Velocities generated: ignoring velocities in input trajectory
+trr version: GMX_trn_file (single precision)
+Reading frame       0 time    0.000   Last frame          2 time   20.000   
+Using frame at t = 20 ps
+Starting time for run is 0 ps
+Estimate for the relative computational load of the PME mesh part: 0.17
+
+There were 2 notes
+Reading frame       2 time   20.000   Last frame          2 time   20.000   
+Using frame at t = 20 ps
+Starting time for run is 0 ps
+Estimate for the relative computational load of the PME mesh part: 0.17
+
+There were 2 notes
+Analysing residue names:
+Analysing residue names:
+Analysing residue names:
+Analysing residue names:
+There are:  1656      Water residues
+There are:   332      Other residues
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Analysing residue names:
+There are:  1656      Water residues
+There are:   332      Other residues
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 84x16x16, spacing 0.149 0.149 0.149
+This run will generate roughly 2 Mb of data
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 84x16x16, spacing 0.149 0.149 0.149
+This run will generate roughly 2 Mb of data
+Analysing residue names:
+Setting gen_seed to 1889719508
+Velocities were taken from a Maxwell distribution at 200 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Setting gen_seed to -1610164755
+Velocities were taken from a Maxwell distribution at 200 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Velocities were taken from a Maxwell distribution at 200 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Setting gen_seed to -1880455864
+Velocities were taken from a Maxwell distribution at 200 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Setting gen_seed to 286335967
+Velocities were taken from a Maxwell distribution at 200 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.14#
+Reading frame       1 time   10.000   Reading frame       2 time   20.000   Last frame          2 time   20.000   
+Using frame at t = 20 ps
+Starting time for run is 0 ps
+Estimate for the relative computational load of the PME mesh part: 0.17
+
+There were 2 notes
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.13#
+Setting gen_seed to 1964256527
+Velocities were taken from a Maxwell distribution at 200 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Simulated annealing for group System: Single, 2 timepoints
+Time (ps)   Temperature (K)
+      0.0        0.0
+      0.0-       0.0
+Number of degrees of freedom in T-Coupling group System is 13585.00
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.15#
+Reading frame       2 time   20.000   Last frame          2 time   20.000   
+Using frame at t = 20 ps
+Starting time for run is 0 ps
+Estimate for the relative computational load of the PME mesh part: 0.17
+
+There were 2 notes
+There are:  1656      Water residues
+There are:   332      Other residues
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
+Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+There are:  1656      Water residues
+There are:   332      Other residues
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
+Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+There are:  1656      Water residues
+There are:   332      Other residues
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
+Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
+Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 84x16x16, spacing 0.149 0.149 0.149
+This run will generate roughly 2 Mb of data
+There are:  1656      Water residues
+There are:   332      Other residues
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
+Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 84x16x16, spacing 0.149 0.149 0.149
+This run will generate roughly 2 Mb of data
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
+Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 84x16x16, spacing 0.149 0.149 0.149
+This run will generate roughly 2 Mb of data
+There are:  1656      Water residues
+There are:   332      Other residues
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
+Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 84x16x16, spacing 0.149 0.149 0.149
+This run will generate roughly 2 Mb of data
+There are:  1656      Water residues
+There are:   332      Other residues
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
+Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 84x16x16, spacing 0.149 0.149 0.149
+This run will generate roughly 2 Mb of data
+Simulated annealing for group System: Single, 2 timepoints
+Time (ps)   Temperature (K)
+      0.0        0.0
+      0.0-       0.0
+Number of degrees of freedom in T-Coupling group System is 13585.00
+Reading Coordinates and Box size from old trajectory
+Will read whole trajectory
+Velocities generated: ignoring velocities in input trajectory
+trr version: GMX_trn_file (single precision)
+Reading frame       0 time    0.000   Reading frame       1 time   10.000   Reading frame       2 time   20.000   Last frame          2 time   20.000   
+Using frame at t = 20 ps
+Starting time for run is 0 ps
+Estimate for the relative computational load of the PME mesh part: 0.17
+
+There were 2 notes
+Simulated annealing for group System: Single, 2 timepoints
+Time (ps)   Temperature (K)
+      0.0        0.0
+      0.0-       0.0
+Number of degrees of freedom in T-Coupling group System is 13585.00
+Reading Coordinates and Box size from old trajectory
+Will read whole trajectory
+Velocities generated: ignoring velocities in input trajectory
+trr version: GMX_trn_file (single precision)
+Reading frame       0 time    0.000   Reading frame       1 time   10.000   Reading frame       2 time   20.000   Last frame          2 time   20.000   
+Using frame at t = 20 ps
+Starting time for run is 0 ps
+Estimate for the relative computational load of the PME mesh part: 0.17
+
+There were 2 notes
+Simulated annealing for group System: Single, 2 timepoints
+Time (ps)   Temperature (K)
+      0.0        0.0
+      0.0-       0.0
+Number of degrees of freedom in T-Coupling group System is 13585.00
+Reading Coordinates and Box size from old trajectory
+Will read whole trajectory
+Velocities generated: ignoring velocities in input trajectory
+trr version: GMX_trn_file (single precision)
+Reading frame       0 time    0.000   Reading frame       1 time   10.000   Simulated annealing for group System: Single, 2 timepoints
+Time (ps)   Temperature (K)
+      0.0        0.0
+      0.0-       0.0
+Number of degrees of freedom in T-Coupling group System is 13585.00
+Reading Coordinates and Box size from old trajectory
+Will read whole trajectory
+Velocities generated: ignoring velocities in input trajectory
+trr version: GMX_trn_file (single precision)
+Reading frame       0 time    0.000   Reading frame       1 time   10.000   Reading frame       2 time   20.000   Last frame          2 time   20.000   
+Using frame at t = 20 ps
+Starting time for run is 0 ps
+Estimate for the relative computational load of the PME mesh part: 0.17
+
+There were 2 notes
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.17#
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.16#
+Simulated annealing for group System: Single, 2 timepoints
+Time (ps)   Temperature (K)
+      0.0        0.0
+      0.0-       0.0
+Number of degrees of freedom in T-Coupling group System is 13585.00
+Reading Coordinates and Box size from old trajectory
+Will read whole trajectory
+Velocities generated: ignoring velocities in input trajectory
+trr version: GMX_trn_file (single precision)
+Reading frame       0 time    0.000   Reading frame       1 time   10.000   Reading Coordinates and Box size from old trajectory
+Will read whole trajectory
+Velocities generated: ignoring velocities in input trajectory
+trr version: GMX_trn_file (single precision)
+Reading frame       0 time    0.000   Reading frame       1 time   10.000   Reading frame       2 time   20.000   Last frame          2 time   20.000   
+Using frame at t = 20 ps
+Starting time for run is 0 ps
+Estimate for the relative computational load of the PME mesh part: 0.17
+
+There were 2 notes
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.18#
+Setting gen_seed to 84192353
+Velocities were taken from a Maxwell distribution at 200 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Simulated annealing for group System: Single, 2 timepoints
+Time (ps)   Temperature (K)
+      0.0        0.0
+      0.0-       0.0
+Number of degrees of freedom in T-Coupling group System is 13585.00
+Reading Coordinates and Box size from old trajectory
+Will read whole trajectory
+Velocities generated: ignoring velocities in input trajectory
+trr version: GMX_trn_file (single precision)
+Reading frame       0 time    0.000   Reading frame       1 time   10.000   Simulated annealing for group System: Single, 2 timepoints
+Time (ps)   Temperature (K)
+      0.0        0.0
+      0.0-       0.0
+Number of degrees of freedom in T-Coupling group System is 13585.00
+Reading Coordinates and Box size from old trajectory
+Will read whole trajectory
+Velocities generated: ignoring velocities in input trajectory
+trr version: GMX_trn_file (single precision)
+Reading frame       0 time    0.000   Reading frame       1 time   10.000   Reading frame       2 time   20.000   Last frame          2 time   20.000   
+Using frame at t = 20 ps
+Starting time for run is 0 ps
+Estimate for the relative computational load of the PME mesh part: 0.17
+
+There were 2 notes
+Reading frame       2 time   20.000   Last frame          2 time   20.000   
+Using frame at t = 20 ps
+Starting time for run is 0 ps
+Estimate for the relative computational load of the PME mesh part: 0.17
+
+There were 2 notes
+Reading frame       2 time   20.000   Last frame          2 time   20.000   
+Using frame at t = 20 ps
+Starting time for run is 0 ps
+Estimate for the relative computational load of the PME mesh part: 0.17
+
+There were 2 notes
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.19#
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.21#
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.20#
+Reading frame       2 time   20.000   Last frame          2 time   20.000   
+Using frame at t = 20 ps
+Starting time for run is 0 ps
+Estimate for the relative computational load of the PME mesh part: 0.17
+
+There were 2 notes
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 84x16x16, spacing 0.149 0.149 0.149
+This run will generate roughly 2 Mb of data
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 84x16x16, spacing 0.149 0.149 0.149
+This run will generate roughly 2 Mb of data
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 84x16x16, spacing 0.149 0.149 0.149
+This run will generate roughly 2 Mb of data
+Analysing residue names:
+
+Sorry couldn't backup topol.tpr to ./#topol.tpr.22#
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.22#
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.23#
+There are:  1656      Water residues
+There are:   332      Other residues
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Simulated annealing for group System: Single, 2 timepoints
+Time (ps)   Temperature (K)
+      0.0        0.0
+      0.0-       0.0
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.24#
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 200 K
+Calculated rlist for 1x1 atom pair-list as 0.965 nm, buffer size 0.015 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.950 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Number of degrees of freedom in T-Coupling group System is 13585.00
+Reading Coordinates and Box size from old trajectory
+Will read whole trajectory
+Velocities generated: ignoring velocities in input trajectory
+trr version: GMX_trn_file (single precision)
+Reading frame       0 time    0.000   Reading frame       1 time   10.000   Reading frame       2 time   20.000   Last frame          2 time   20.000   
+Using frame at t = 20 ps
+Starting time for run is 0 ps
+Estimate for the relative computational load of the PME mesh part: 0.17
+
+There were 2 notes
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 84x16x16, spacing 0.149 0.149 0.149
+This run will generate roughly 2 Mb of data
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.25#
+
+GROMACS reminds you: "Only entropy comes easy." (Anton Chekov)
+

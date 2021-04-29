@@ -1,0 +1,11 @@
+# Generating a simulation box :
+gmx_mpi insert-molecules -nmol 120 -ci acetic_acid.gro -o ace120.gro -box 6 6 6
+
+# Translating elements in the simulation box :
+gmx_mpi trjconv -s topol.tpr -f confout.gro -o trans.gro -trans 1 1 1 -pbc res
+
+# Resizing the simulation box and centering :
+gmx_mpi editconf -f trans.gro -o agg120.gro -c -box 8 8 8
+
+# Adding water molecules :
+gmx_mpi insert-molecules -nmol 700 -ci TIP4P_2005.gro -f ACE350_FOR350.gro -o conf.gro
