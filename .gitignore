@@ -3,3 +3,5 @@ gromacs/initial_box/production_results/traj.trr
 docs/
 figures/
 latex/
+.idea/
+python/__pycache__/
