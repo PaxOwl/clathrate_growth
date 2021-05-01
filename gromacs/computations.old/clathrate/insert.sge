@@ -1,0 +1,18 @@
+#!/bin/bash 
+ 
+#$ -q parallel.q
+#$ -pe mpi 16
+ 
+#$ -V
+#$ -N test_sge
+#$ -o $JOB_NAME.$JOB_ID.out
+#$ -e $JOB_NAME.$JOB_ID.err
+ 
+ 
+#### on charge les modules mpi et gromacs
+ 
+module load mpi/openmpi/icc/3.0.0
+module load gromacs/mpi/gcc/2019.1-sp
+ 
+## lancement de l'application
+mpirun -np $NSLOTS gmx_mpi insert-molecules -nmol 128 -ci methane-oplsaa.gro -f water.gro -o conf.gro -box 3.5 3.5 3.5

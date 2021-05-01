@@ -1,20 +1,14 @@
+#!/usr/bin/env python
 """
 Core part of the program
 """
+from analysis import *
+from parameters import *
+
+nrows = count_atoms(filename)
+atoms = load_atoms(nrows, filename)
+mols = compute_molecules(nrows, atoms, filename)
 
 
-from analysis import atoms, mols, print_mol
-
-
-wat = 0
-met = 0
-for i in range(len(mols)):
-    if mols[i].name == "WAT":
-        wat += 1
-    elif mols[i].name == "MET":
-        met += 1
-
-print("Water: {}".format(wat))
-print("Methane: {}\n".format(met))
-
-print_mol(mols[0])
+if __name__ == "__main__":
+    print(len(mols))

@@ -1,0 +1,37 @@
+# This file was created Thu Apr 29 17:31:56 2021
+# Created by:
+#                       :-) GROMACS - gmx energy, 2021 (-:
+# 
+# Executable:   /usr/local/gromacs/bin/gmx
+# Data prefix:  /usr/local/gromacs
+# Working dir:  /home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/gromacs/simulations/initial_box/annealing_results
+# Command line:
+#   gmx energy
+# gmx energy is part of G R O M A C S:
+#
+# Good gRace! Old Maple Actually Chews Slate
+#
+@    title "GROMACS Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(K)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Temperature"
+    0.000000  201.253860
+   10.000000  203.439209
+   20.000000  208.580261
+   30.000000  213.123901
+   40.000000  214.796906
+   50.000000  223.844971
+   60.000000  227.956406
+   70.000000  237.691513
+   80.000000  240.374680
+   90.000000  246.873795
+  100.000000  249.872757
+  110.000000  252.807678
+  120.000000  258.792297

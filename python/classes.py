@@ -1,7 +1,6 @@
 """
 This file contains the classes needed to store the data
 """
-
 from dataclasses import dataclass
 
 
@@ -12,6 +11,7 @@ class Atom:
     x: float
     y: float
     z: float
+
 
 @dataclass
 class Molecule:

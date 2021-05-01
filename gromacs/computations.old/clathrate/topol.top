@@ -1,0 +1,23 @@
+[ defaults ]
+; nbfunc      comb-rule
+  1           2
+
+[atomtypes]
+;name     mass      charge   ptype    sigma        epsilon
+IW     0             0.000       D   0.0           0.0
+OW     15.9994       0.000       A   0.31589       0.77490
+HW      1.0079       0.000       A   0.00000E+00   0.00000E+00
+CM     12.0110      -0.240       A   3.50000e-01   2.76144e-01
+HM      1.0080       0.060       A   2.50000e-01   1.25520e-01
+
+; Include TIP4P water topology
+;#include "tip4p_2005-water.itp"
+
+; Include methane topology
+#include "methane.itp"
+
+[ system ]
+  Methane
+
+[ molecules ]
+  MET 128

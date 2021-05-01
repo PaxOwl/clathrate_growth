@@ -1,0 +1,4 @@
+#!/bin/bash
+# This file dumps all the molecules with their respective atoms in the file dump_mols
+
+python3 dump.py > dump_mols

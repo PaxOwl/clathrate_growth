@@ -1,0 +1,283 @@
+                      :-) GROMACS - gmx grompp, 2019.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar      Christian Blau   Viacheslav Bolnykh     Kevin Boyd    
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra       Alan Gray     
+  Gerrit Groenhof     Anca Hamuraru    Vincent Hindriksen  M. Eric Irrgang  
+  Aleksei Iupinov   Christoph Junghans     Joe Jordan     Dimitrios Karkoulis
+    Peter Kasson        Jiri Kraus      Carsten Kutzner      Per Larsson    
+  Justin A. Lemkul    Viveca Lindahl    Magnus Lundborg     Erik Marklund   
+    Pascal Merz     Pieter Meulenhoff    Teemu Murtola       Szilard Pall   
+    Sander Pronk      Roland Schulz      Michael Shirts    Alexey Shvetsov  
+   Alfons Sijbers     Peter Tieleman      Jon Vincent      Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2018, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, version 2019.1
+Executable:   /Softs/lumiere/gromacs/mpi/gcc/2019.1-sp/bin/gmx_mpi
+Data prefix:  /Softs/lumiere/gromacs/mpi/gcc/2019.1-sp
+Working dir:  /Work/Users/ctsilefski/water
+Command line:
+  gmx_mpi grompp -f grompp_production.mdp -c conf.gro -po output.mdp -o topol.tpr
+
+
+NOTE 1 [file grompp_production.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+Setting the LD random seed to 1673185400
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+turning all bonds and angles into constraints...
+
+NOTE 1 [file grompp_production.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+Setting the LD random seed to -738845811
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+turning all bonds and angles into constraints...
+
+NOTE 1 [file grompp_production.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+Setting the LD random seed to -269361066
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+turning all bonds and angles into constraints...
+
+-------------------------------------------------------
+Program:     gmx grompp, version 2019.1
+Source file: src/gromacs/gmxpreprocess/grompp.cpp (line 610)
+MPI rank:    2 (out of 16)
+
+Fatal error:
+number of coordinates in coordinate file (conf.gro, 4564)
+             does not match topology (topol.top, 256)
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+
+NOTE 1 [file grompp_production.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+Setting the LD random seed to 1657495926
+
+NOTE 1 [file grompp_production.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+Setting the LD random seed to -528254862
+
+NOTE 1 [file grompp_production.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+Setting the LD random seed to -524436767
+
+-------------------------------------------------------
+Program:     gmx grompp, version 2019.1
+Source file: src/gromacs/gmxpreprocess/grompp.cpp (line 610)
+MPI rank:    12 (out of 16)
+
+Fatal error:
+number of coordinates in coordinate file (conf.gro, 4564)
+             does not match topology (topol.top, 256)
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 12 in communicator MPI_COMM_WORLD 
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+
+NOTE 1 [file grompp_production.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+Setting the LD random seed to 1392448409
+
+NOTE 1 [file grompp_production.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+Setting the LD random seed to -2025001388
+
+NOTE 1 [file grompp_production.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+Setting the LD random seed to -498863101
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+
+-------------------------------------------------------
+Program:     gmx grompp, version 2019.1
+Source file: src/gromacs/gmxpreprocess/grompp.cpp (line 610)
+MPI rank:    13 (out of 16)
+
+Fatal error:
+number of coordinates in coordinate file (conf.gro, 4564)
+             does not match topology (topol.top, 256)
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+
+NOTE 1 [file grompp_production.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+Setting the LD random seed to 1723154507
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+
+-------------------------------------------------------
+Program:     gmx grompp, version 2019.1
+Source file: src/gromacs/gmxpreprocess/grompp.cpp (line 610)
+MPI rank:    14 (out of 16)
+
+Fatal error:
+number of coordinates in coordinate file (conf.gro, 4564)
+             does not match topology (topol.top, 256)
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+
+NOTE 1 [file grompp_production.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+Setting the LD random seed to -684847298
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+
+-------------------------------------------------------
+Program:     gmx grompp, version 2019.1
+Source file: src/gromacs/gmxpreprocess/grompp.cpp (line 610)
+MPI rank:    15 (out of 16)
+
+Fatal error:
+number of coordinates in coordinate file (conf.gro, 4564)
+             does not match topology (topol.top, 256)
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+
+NOTE 1 [file grompp_production.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+Setting the LD random seed to -1706595635
+Generated 6 of the 6 non-bonded parameter combinations
+
+NOTE 1 [file grompp_production.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+Setting the LD random seed to 948821183
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+
+-------------------------------------------------------
+Program:     gmx grompp, version 2019.1
+Source file: src/gromacs/gmxpreprocess/grompp.cpp (line 610)
+MPI rank:    5 (out of 16)
+
+Fatal error:
+number of coordinates in coordinate file (conf.gro, 4564)
+             does not match topology (topol.top, 256)
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+
+NOTE 1 [file grompp_production.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+Setting the LD random seed to -157527415
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+
+NOTE 1 [file grompp_production.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+Setting the LD random seed to 1656009364
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+
+NOTE 1 [file grompp_production.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+Setting the LD random seed to 1135170317
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+
+-------------------------------------------------------
+Program:     gmx grompp, version 2019.1
+Source file: src/gromacs/gmxpreprocess/grompp.cpp (line 610)
+MPI rank:    11 (out of 16)
+
+Fatal error:
+number of coordinates in coordinate file (conf.gro, 4564)
+             does not match topology (topol.top, 256)
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+
+-------------------------------------------------------
+Program:     gmx grompp, version 2019.1
+Source file: src/gromacs/gmxpreprocess/grompp.cpp (line 610)
+MPI rank:    8 (out of 16)
+
+Fatal error:
+number of coordinates in coordinate file (conf.gro, 4564)
+             does not match topology (topol.top, 256)
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+turning all bonds and angles into constraints...
+turning all bonds and angles into constraints...
+turning all bonds and angles into constraints...
+turning all bonds and angles into constraints...
+turning all bonds and angles into constraints...
+turning all bonds and angles into constraints...
+turning all bonds and angles into constraints...
+turning all bonds and angles into constraints...
+turning all bonds and angles into constraints...
+turning all bonds and angles into constraints...

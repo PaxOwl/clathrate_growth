@@ -1,0 +1,158 @@
+                      :-) GROMACS - gmx mdrun, 2019.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar      Christian Blau   Viacheslav Bolnykh     Kevin Boyd    
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra       Alan Gray     
+  Gerrit Groenhof     Anca Hamuraru    Vincent Hindriksen  M. Eric Irrgang  
+  Aleksei Iupinov   Christoph Junghans     Joe Jordan     Dimitrios Karkoulis
+    Peter Kasson        Jiri Kraus      Carsten Kutzner      Per Larsson    
+  Justin A. Lemkul    Viveca Lindahl    Magnus Lundborg     Erik Marklund   
+    Pascal Merz     Pieter Meulenhoff    Teemu Murtola       Szilard Pall   
+    Sander Pronk      Roland Schulz      Michael Shirts    Alexey Shvetsov  
+   Alfons Sijbers     Peter Tieleman      Jon Vincent      Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2018, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, version 2019.1
+Executable:   /Softs/lumiere/gromacs/mpi/gcc/2019.1-sp/bin/gmx_mpi
+Data prefix:  /Softs/lumiere/gromacs/mpi/gcc/2019.1-sp
+Working dir:  /Work/Users/ctsilefski/water
+Command line:
+  gmx_mpi mdrun -s topol.tpr
+
+
+Back Off! I just backed up md.log to ./#md.log.4#
+Compiled SIMD: AVX_256, but for this host/run AVX2_256 might be better (see
+log).
+Reading file topol.tpr, VERSION 2019.1 (single precision)
+Using 16 MPI processes
+Using 1 OpenMP thread per MPI process
+
+
+Non-default thread affinity set probably by the OpenMP library,
+disabling internal thread affinity
+
+Steepest Descents:
+   Tolerance (Fmax)   =  1.00000e+01
+   Number of steps    =         1000
+
+Step 7, time 0.007 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.001985, max 0.009448 (between atoms 225 and 227)
+
+Step 7, time 0.007 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.005511, max 0.028203 (between atoms 226 and 225)
+bonds that rotated more than 30 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+    225    227   30.6    0.0956   0.0948      0.0957
+bonds that rotated more than 30 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+    225    227   30.6    0.0956   0.0948      0.0957
+
+Step 9, time 0.009 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.011274, max 0.055843 (between atoms 226 and 225)
+bonds that rotated more than 30 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+    226    225   43.6    0.0959   0.1011      0.0957
+    227    225   39.4    0.0957   0.0980      0.0957
+
+Step 10, time 0.01 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.016021, max 0.066370 (between atoms 226 and 225)
+bonds that rotated more than 30 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+    226    225   47.0    0.1011   0.1021      0.0957
+    227    225   45.3    0.0980   0.1010      0.0957
+
+Step 11, time 0.011 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.073971, max 0.311962 (between atoms 227 and 225)
+bonds that rotated more than 30 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+    226    225   78.1    0.1021   0.1194      0.0957
+    227    225   71.0    0.1010   0.1256      0.0957
+
+Step 11, time 0.011 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.005220, max 0.020982 (between atoms 222 and 221)
+bonds that rotated more than 30 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+    223    221   33.6    0.0957   0.0963      0.0957
+
+Step 14, time 0.014 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.004302, max 0.025461 (between atoms 221 and 223)
+bonds that rotated more than 30 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+    221    223   42.4    0.0957   0.0982      0.0957
+    221    222   36.4    0.0958   0.0998      0.0957
+
+Step 14, time 0.014 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.031034, max 0.124446 (between atoms 250 and 249)
+bonds that rotated more than 30 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+    250    249   44.8    0.0951   0.1076      0.0957
+    251    249   55.5    0.0958   0.0982      0.0957
+    222    221   36.4    0.0958   0.0998      0.0957
+    221    223   42.4    0.0957   0.0982      0.0957
+
+Step 17, time 0.017 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.005563, max 0.021099 (between atoms 142 and 141)
+bonds that rotated more than 30 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+    142    141   34.0    0.0958   0.0977      0.0957
+    143    141   30.2    0.0957   0.0968      0.0957
+
+Step 22, time 0.022 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.007645, max 0.030897 (between atoms 142 and 141)
+bonds that rotated more than 30 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+    142    141   36.1    0.0961   0.0987      0.0957
+    143    141   31.7    0.0967   0.0967      0.0957
+
+Step 23, time 0.023 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.012548, max 0.048225 (between atoms 143 and 141)
+bonds that rotated more than 30 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+    142    141   45.6    0.0987   0.0979      0.0957
+    143    141   33.2    0.0967   0.1003      0.0957
+
+Step 27, time 0.027 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.009170, max 0.038248 (between atoms 142 and 141)
+bonds that rotated more than 30 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+    142    141   38.3    0.0959   0.0994      0.0957
+    143    141   32.2    0.0969   0.0964      0.0957
+
+Energy minimization reached the maximum number of steps before the forces
+reached the requested precision Fmax < 10.
+
+writing lowest energy coordinates.
+
+Steepest Descents did not converge to Fmax < 10 in 1001 steps.
+Potential Energy  = -1.2894860e+05
+Maximum force     =  2.3067825e+02 on atom 225
+Norm of force     =  3.9454269e+01
+
+GROMACS reminds you: "All Work and No Play Makes Jack a Dull Boy" (The Shining)
+

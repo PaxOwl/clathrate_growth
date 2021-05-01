@@ -1,0 +1,566 @@
+                      :-) GROMACS - gmx grompp, 2019.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar      Christian Blau   Viacheslav Bolnykh     Kevin Boyd    
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra       Alan Gray     
+  Gerrit Groenhof     Anca Hamuraru    Vincent Hindriksen  M. Eric Irrgang  
+  Aleksei Iupinov   Christoph Junghans     Joe Jordan     Dimitrios Karkoulis
+    Peter Kasson        Jiri Kraus      Carsten Kutzner      Per Larsson    
+  Justin A. Lemkul    Viveca Lindahl    Magnus Lundborg     Erik Marklund   
+    Pascal Merz     Pieter Meulenhoff    Teemu Murtola       Szilard Pall   
+    Sander Pronk      Roland Schulz      Michael Shirts    Alexey Shvetsov  
+   Alfons Sijbers     Peter Tieleman      Jon Vincent      Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2018, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, version 2019.1
+Executable:   /Softs/lumiere/gromacs/mpi/gcc/2019.1-sp/bin/gmx_mpi
+Data prefix:  /Softs/lumiere/gromacs/mpi/gcc/2019.1-sp
+Working dir:  /Work/Users/ctsilefski/water
+Command line:
+  gmx_mpi grompp -f grompp_equilibration.mdp -c confout.gro -po output.mdp -o topol.tpr
+
+
+NOTE 1 [file grompp_equilibration.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_equilibration.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to -1207698185
+Generated 6 of the 6 non-bonded parameter combinations
+turning all bonds and angles into constraints...
+Excluding 3 bonded neighbours molecule type 'WAT'
+Setting gen_seed to 1507089150
+Velocities were taken from a Maxwell distribution at 298 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Analysing residue names:
+There are:    64      Water residues
+Number of degrees of freedom in T-Coupling group System is 381.00
+Estimate for the relative computational load of the PME mesh part: 0.46
+
+There were 2 notes
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 298 K
+Calculated rlist for 1x1 atom pair-list as 0.916 nm, buffer size 0.016 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.900 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 14x14x14, spacing 0.143 0.143 0.143
+This run will generate roughly 1 Mb of data
+
+NOTE 1 [file grompp_equilibration.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_equilibration.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to 242797495
+Generated 6 of the 6 non-bonded parameter combinations
+turning all bonds and angles into constraints...
+Excluding 3 bonded neighbours molecule type 'WAT'
+
+NOTE 1 [file grompp_equilibration.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_equilibration.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to -709389977
+
+NOTE 1 [file grompp_equilibration.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_equilibration.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to -1763776130
+Setting gen_seed to -1917422633
+Velocities were taken from a Maxwell distribution at 298 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Generated 6 of the 6 non-bonded parameter combinations
+
+NOTE 1 [file grompp_equilibration.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_equilibration.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to -311352051
+
+NOTE 1 [file grompp_equilibration.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_equilibration.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to 1177131184
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.16#
+
+NOTE 1 [file grompp_equilibration.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_equilibration.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to 67910369
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+turning all bonds and angles into constraints...
+Analysing residue names:
+turning all bonds and angles into constraints...
+turning all bonds and angles into constraints...
+turning all bonds and angles into constraints...
+turning all bonds and angles into constraints...
+turning all bonds and angles into constraints...
+Analysing residue names:
+turning all bonds and angles into constraints...
+Analysing residue names:
+turning all bonds and angles into constraints...
+
+NOTE 1 [file grompp_equilibration.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_equilibration.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to 688147613
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+
+NOTE 1 [file grompp_equilibration.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_equilibration.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to -226365354
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+Setting gen_seed to -583227679
+Velocities were taken from a Maxwell distribution at 298 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+
+NOTE 1 [file grompp_equilibration.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_equilibration.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to -2041518584
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+Excluding 3 bonded neighbours molecule type 'WAT'
+Setting gen_seed to -1142627501
+Velocities were taken from a Maxwell distribution at 298 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+
+NOTE 1 [file grompp_equilibration.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_equilibration.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to 360006084
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+Setting gen_seed to -1705392989
+Velocities were taken from a Maxwell distribution at 298 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Number of degrees of freedom in T-Coupling group System is 381.00
+Estimate for the relative computational load of the PME mesh part: 0.46
+
+There were 2 notes
+Number of degrees of freedom in T-Coupling group System is 381.00
+Estimate for the relative computational load of the PME mesh part: 0.46
+
+There were 2 notes
+
+NOTE 1 [file grompp_equilibration.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_equilibration.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to 315755745
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+Setting gen_seed to 457162210
+Velocities were taken from a Maxwell distribution at 298 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Number of degrees of freedom in T-Coupling group System is 381.00
+Estimate for the relative computational load of the PME mesh part: 0.46
+
+There were 2 notes
+Number of degrees of freedom in T-Coupling group System is 381.00
+Estimate for the relative computational load of the PME mesh part: 0.46
+
+There were 2 notes
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.17#
+Setting gen_seed to 1354921481
+Velocities were taken from a Maxwell distribution at 298 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Number of degrees of freedom in T-Coupling group System is 381.00
+Estimate for the relative computational load of the PME mesh part: 0.46
+
+There were 2 notes
+Number of degrees of freedom in T-Coupling group System is 381.00
+Estimate for the relative computational load of the PME mesh part: 0.46
+
+There were 2 notes
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.18#
+
+NOTE 1 [file grompp_equilibration.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_equilibration.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to -1853490478
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+
+NOTE 1 [file grompp_equilibration.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_equilibration.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to -1201106715
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+
+NOTE 1 [file grompp_equilibration.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_equilibration.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to -1832198812
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+Setting gen_seed to 1642673835
+Velocities were taken from a Maxwell distribution at 298 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Number of degrees of freedom in T-Coupling group System is 381.00
+Estimate for the relative computational load of the PME mesh part: 0.46
+
+There were 2 notes
+Setting gen_seed to -1627464334
+Velocities were taken from a Maxwell distribution at 298 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Number of degrees of freedom in T-Coupling group System is 381.00
+Estimate for the relative computational load of the PME mesh part: 0.46
+
+There were 2 notes
+
+NOTE 1 [file grompp_equilibration.mdp]:
+  You have set rlist larger than the interaction cut-off, but you also have
+  verlet-buffer-tolerance > 0. Will set rlist using verlet-buffer-tolerance.
+
+
+NOTE 2 [file grompp_equilibration.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to 854244647
+Generated 6 of the 6 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'WAT'
+Setting gen_seed to -1699474092
+Velocities were taken from a Maxwell distribution at 298 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Number of degrees of freedom in T-Coupling group System is 381.00
+Estimate for the relative computational load of the PME mesh part: 0.46
+
+There were 2 notes
+Setting gen_seed to -1766822795
+Velocities were taken from a Maxwell distribution at 298 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Number of degrees of freedom in T-Coupling group System is 381.00
+Estimate for the relative computational load of the PME mesh part: 0.46
+
+There were 2 notes
+Setting gen_seed to -620182405
+Velocities were taken from a Maxwell distribution at 298 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Number of degrees of freedom in T-Coupling group System is 381.00
+Estimate for the relative computational load of the PME mesh part: 0.46
+
+There were 2 notes
+turning all bonds and angles into constraints...
+Analysing residue names:
+There are:    64      Water residues
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 298 K
+Calculated rlist for 1x1 atom pair-list as 0.916 nm, buffer size 0.016 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.900 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 14x14x14, spacing 0.143 0.143 0.143
+This run will generate roughly 1 Mb of data
+There are:    64      Water residues
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 298 K
+Calculated rlist for 1x1 atom pair-list as 0.916 nm, buffer size 0.016 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.900 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 14x14x14, spacing 0.143 0.143 0.143
+This run will generate roughly 1 Mb of data
+Analysing residue names:
+There are:    64      Water residues
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 298 K
+Calculated rlist for 1x1 atom pair-list as 0.916 nm, buffer size 0.016 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.900 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 14x14x14, spacing 0.143 0.143 0.143
+This run will generate roughly 1 Mb of data
+There are:    64      Water residues
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 298 K
+Calculated rlist for 1x1 atom pair-list as 0.916 nm, buffer size 0.016 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.900 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 14x14x14, spacing 0.143 0.143 0.143
+This run will generate roughly 1 Mb of data
+Analysing residue names:
+There are:    64      Water residues
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 298 K
+Calculated rlist for 1x1 atom pair-list as 0.916 nm, buffer size 0.016 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.900 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 14x14x14, spacing 0.143 0.143 0.143
+This run will generate roughly 1 Mb of data
+turning all bonds and angles into constraints...
+Analysing residue names:
+There are:    64      Water residues
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 298 K
+Calculated rlist for 1x1 atom pair-list as 0.916 nm, buffer size 0.016 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.900 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 14x14x14, spacing 0.143 0.143 0.143
+This run will generate roughly 1 Mb of data
+turning all bonds and angles into constraints...
+turning all bonds and angles into constraints...
+turning all bonds and angles into constraints...
+Analysing residue names:
+There are:    64      Water residues
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 298 K
+Calculated rlist for 1x1 atom pair-list as 0.916 nm, buffer size 0.016 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.900 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 14x14x14, spacing 0.143 0.143 0.143
+This run will generate roughly 1 Mb of data
+Analysing residue names:
+There are:    64      Water residues
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 298 K
+Calculated rlist for 1x1 atom pair-list as 0.916 nm, buffer size 0.016 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.900 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 14x14x14, spacing 0.143 0.143 0.143
+This run will generate roughly 1 Mb of data
+turning all bonds and angles into constraints...
+Analysing residue names:
+There are:    64      Water residues
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 298 K
+Calculated rlist for 1x1 atom pair-list as 0.916 nm, buffer size 0.016 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.900 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 14x14x14, spacing 0.143 0.143 0.143
+This run will generate roughly 1 Mb of data
+Analysing residue names:
+There are:    64      Water residues
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 298 K
+Calculated rlist for 1x1 atom pair-list as 0.916 nm, buffer size 0.016 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.900 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 14x14x14, spacing 0.143 0.143 0.143
+This run will generate roughly 1 Mb of data
+There are:    64      Water residues
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 298 K
+Calculated rlist for 1x1 atom pair-list as 0.916 nm, buffer size 0.016 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.900 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 14x14x14, spacing 0.143 0.143 0.143
+This run will generate roughly 1 Mb of data
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.19#
+Setting gen_seed to -1913228816
+Velocities were taken from a Maxwell distribution at 298 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Number of degrees of freedom in T-Coupling group System is 381.00
+Estimate for the relative computational load of the PME mesh part: 0.46
+
+There were 2 notes
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.22#
+Setting gen_seed to -1466477883
+Velocities were taken from a Maxwell distribution at 298 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Number of degrees of freedom in T-Coupling group System is 381.00
+Estimate for the relative computational load of the PME mesh part: 0.46
+
+There were 2 notes
+Setting gen_seed to 289325117
+Velocities were taken from a Maxwell distribution at 298 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Number of degrees of freedom in T-Coupling group System is 381.00
+Estimate for the relative computational load of the PME mesh part: 0.46
+
+There were 2 notes
+Setting gen_seed to -83410205
+Velocities were taken from a Maxwell distribution at 298 K
+Cleaning up constraints and constant bonded interactions with virtual sites
+Removing all charge groups because cutoff-scheme=Verlet
+Number of degrees of freedom in T-Coupling group System is 381.00
+Estimate for the relative computational load of the PME mesh part: 0.46
+
+There were 2 notes
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.20#
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.21#
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.23#
+Analysing residue names:
+There are:    64      Water residues
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 298 K
+Calculated rlist for 1x1 atom pair-list as 0.916 nm, buffer size 0.016 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.900 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 14x14x14, spacing 0.143 0.143 0.143
+This run will generate roughly 1 Mb of data
+Analysing residue names:
+There are:    64      Water residues
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 298 K
+Calculated rlist for 1x1 atom pair-list as 0.916 nm, buffer size 0.016 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.900 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 14x14x14, spacing 0.143 0.143 0.143
+This run will generate roughly 1 Mb of data
+Analysing residue names:
+There are:    64      Water residues
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 298 K
+Calculated rlist for 1x1 atom pair-list as 0.916 nm, buffer size 0.016 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.900 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 14x14x14, spacing 0.143 0.143 0.143
+This run will generate roughly 1 Mb of data
+Analysing residue names:
+There are:    64      Water residues
+Determining Verlet buffer for a tolerance of 0.001 kJ/mol/ps at 298 K
+Calculated rlist for 1x1 atom pair-list as 0.916 nm, buffer size 0.016 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.900 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 14x14x14, spacing 0.143 0.143 0.143
+This run will generate roughly 1 Mb of data
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.26#
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.24#
+
+GROMACS reminds you: "There are only two kinds of programming languages: those people always bitch about and those nobody uses." (Bjarne Stroustrup)
+
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.27#
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.25#
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.28#
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.29#
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.30#
+
+Back Off! I just backed up topol.tpr to ./#topol.tpr.31#

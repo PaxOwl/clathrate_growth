@@ -1,1490 +1,0 @@
-                 :-) GROMACS - gmx insert-molecules, 2019.1 (-:
-
-                            GROMACS is written by:
-     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
-    Par Bjelkmar      Christian Blau   Viacheslav Bolnykh     Kevin Boyd    
- Aldert van Buuren   Rudi van Drunen     Anton Feenstra       Alan Gray     
-  Gerrit Groenhof     Anca Hamuraru    Vincent Hindriksen  M. Eric Irrgang  
-  Aleksei Iupinov   Christoph Junghans     Joe Jordan     Dimitrios Karkoulis
-    Peter Kasson        Jiri Kraus      Carsten Kutzner      Per Larsson    
-  Justin A. Lemkul    Viveca Lindahl    Magnus Lundborg     Erik Marklund   
-    Pascal Merz     Pieter Meulenhoff    Teemu Murtola       Szilard Pall   
-    Sander Pronk      Roland Schulz      Michael Shirts    Alexey Shvetsov  
-   Alfons Sijbers     Peter Tieleman      Jon Vincent      Teemu Virolainen 
- Christian Wennberg    Maarten Wolf   
-                           and the project leaders:
-        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
-
-Copyright (c) 1991-2000, University of Groningen, The Netherlands.
-Copyright (c) 2001-2018, The GROMACS development team at
-Uppsala University, Stockholm University and
-the Royal Institute of Technology, Sweden.
-check out http://www.gromacs.org for more information.
-
-GROMACS is free software; you can redistribute it and/or modify it
-under the terms of the GNU Lesser General Public License
-as published by the Free Software Foundation; either version 2.1
-of the License, or (at your option) any later version.
-
-GROMACS:      gmx insert-molecules, version 2019.1
-Executable:   /Softs/lumiere/gromacs/mpi/gcc/2019.1-sp/bin/gmx_mpi
-Data prefix:  /Softs/lumiere/gromacs/mpi/gcc/2019.1-sp
-Working dir:  /Work/Users/ctsilefski/water
-Command line:
-  gmx_mpi insert-molecules -nmol 64 -ci TIP4P_2005.gro -o water.gro -box 2 2 2
-
-Initialising inter-atomic distances...
-Initialising inter-atomic distances...
-Initialising inter-atomic distances...
-Initialising inter-atomic distances...
-Initialising inter-atomic distances...
-Using random seed -30760101
-Try 1 success (now 4 atoms)!
-Try 2 success (now 8 atoms)!
-Try 3 success (now 12 atoms)!
-Try 4 success (now 16 atoms)!
-Try 5 success (now 20 atoms)!
-Try 6 success (now 24 atoms)!
-Try 7 success (now 28 atoms)!
-Try 8 success (now 32 atoms)!
-Try 9 success (now 36 atoms)!
-Try 10Try 11 success (now 40 atoms)!
-Try 12Try 13 success (now 44 atoms)!
-Try 14 success (now 48 atoms)!
-Try 15Try 16 success (now 52 atoms)!
-Try 17 success (now 56 atoms)!
-Try 18 success (now 60 atoms)!
-Try 19 success (now 64 atoms)!
-Try 20 success (now 68 atoms)!
-Try 21 success (now 72 atoms)!
-Try 22 success (now 76 atoms)!
-Try 23 success (now 80 atoms)!
-Try 24 success (now 84 atoms)!
-Try 25 success (now 88 atoms)!
-Try 26 success (now 92 atoms)!
-Try 27 success (now 96 atoms)!
-Try 28 success (now 100 atoms)!
-Try 29 success (now 104 atoms)!
-Try 30 success (now 108 atoms)!
-Try 31 success (now 112 atoms)!
-Try 32 success (now 116 atoms)!
-Try 33 success (now 120 atoms)!
-Try 34 success (now 124 atoms)!
-Try 35 success (now 128 atoms)!
-Try 36 success (now 132 atoms)!
-Try 37 success (now 136 atoms)!
-Try 38 success (now 140 atoms)!
-Try 39 success (now 144 atoms)!
-Try 40 success (now 148 atoms)!
-Try 41Try 42 success (now 152 atoms)!
-Try 43 success (now 156 atoms)!
-Try 44Try 45 success (now 160 atoms)!
-Try 46Try 47 success (now 164 atoms)!
-Try 48 success (now 168 atoms)!
-Try 49 success (now 172 atoms)!
-Try 50 success (now 176 atoms)!
-Try 51 success (now 180 atoms)!
-Try 52 success (now 184 atoms)!
-Try 53 success (now 188 atoms)!
-Try 54 success (now 192 atoms)!
-Try 55 success (now 196 atoms)!
-Try 56Try 57Try 58 success (now 200 atoms)!
-Try 59 success (now 204 atoms)!
-Try 60 success (now 208 atoms)!
-Try 61 success (now 212 atoms)!
-Try 62Try 63 success (now 216 atoms)!
-Try 64 success (now 220 atoms)!
-Try 65 success (now 224 atoms)!
-Try 66 success (now 228 atoms)!
-Try 67Try 68Try 69Try 70 success (now 232 atoms)!
-Try 71 success (now 236 atoms)!
-Try 72Try 73 success (now 240 atoms)!
-Try 74 success (now 244 atoms)!
-Try 75Try 76Try 77 success (now 248 atoms)!
-Try 78 success (now 252 atoms)!
-Try 79 success (now 256 atoms)!
-
-Added 64 molecules (out of 64 requested)
-Writing generated configuration to water.gro
-Initialising inter-atomic distances...
-Initialising inter-atomic distances...
-Using random seed -1455709238
-Try 1 success (now 4 atoms)!
-Try 2 success (now 8 atoms)!
-Try 3 success (now 12 atoms)!
-Try 4 success (now 16 atoms)!
-Try 5 success (now 20 atoms)!
-Try 6 success (now 24 atoms)!
-Try 7 success (now 28 atoms)!
-Try 8 success (now 32 atoms)!
-Try 9 success (now 36 atoms)!
-Try 10 success (now 40 atoms)!
-Try 11 success (now 44 atoms)!
-Try 12 success (now 48 atoms)!
-Try 13 success (now 52 atoms)!
-Try 14 success (now 56 atoms)!
-Try 15 success (now 60 atoms)!
-Try 16 success (now 64 atoms)!
-Try 17 success (now 68 atoms)!
-Try 18 success (now 72 atoms)!
-Try 19 success (now 76 atoms)!
-Try 20 success (now 80 atoms)!
-Try 21Try 22 success (now 84 atoms)!
-Try 23Try 24 success (now 88 atoms)!
-Try 25 success (now 92 atoms)!
-Try 26 success (now 96 atoms)!
-Try 27 success (now 100 atoms)!
-Try 28 success (now 104 atoms)!
-Try 29 success (now 108 atoms)!
-Try 30 success (now 112 atoms)!
-Try 31 success (now 116 atoms)!
-Try 32 success (now 120 atoms)!
-Try 33 success (now 124 atoms)!
-Try 34Try 35 success (now 128 atoms)!
-Try 36 success (now 132 atoms)!
-Try 37 success (now 136 atoms)!
-Try 38 success (now 140 atoms)!
-Try 39 success (now 144 atoms)!
-Try 40 success (now 148 atoms)!
-Try 41 success (now 152 atoms)!
-Try 42 success (now 156 atoms)!
-Try 43 success (now 160 atoms)!
-Try 44 success (now 164 atoms)!
-Try 45Try 46Try 47Try 48Try 49Try 50Try 51 success (now 168 atoms)!
-Try 52 success (now 172 atoms)!
-Try 53 success (now 176 atoms)!
-Try 54 success (now 180 atoms)!
-Try 55Try 56 success (now 184 atoms)!
-Try 57 success (now 188 atoms)!
-Try 58Try 59Try 60 success (now 192 atoms)!
-Try 61 success (now 196 atoms)!
-Try 62Try 63Try 64 success (now 200 atoms)!
-Try 65 success (now 204 atoms)!
-Try 66 success (now 208 atoms)!
-Try 67 success (now 212 atoms)!
-Try 68 success (now 216 atoms)!
-Try 69 success (now 220 atoms)!
-Try 70Try 71 success (now 224 atoms)!
-Try 72Try 73 success (now 228 atoms)!
-Try 74Try 75Try 76Try 77Try 78 success (now 232 atoms)!
-Try 79 success (now 236 atoms)!
-Try 80 success (now 240 atoms)!
-Try 81 success (now 244 atoms)!
-Try 82 success (now 248 atoms)!
-Try 83Try 84Try 85 success (now 252 atoms)!
-Try 86 success (now 256 atoms)!
-
-Added 64 molecules (out of 64 requested)
-Writing generated configuration to water.gro
-Initialising inter-atomic distances...
-Initialising inter-atomic distances...
-Initialising inter-atomic distances...
-Using random seed 166427819
-Try 1 success (now 4 atoms)!
-Try 2 success (now 8 atoms)!
-Try 3 success (now 12 atoms)!
-Try 4 success (now 16 atoms)!
-Try 5 success (now 20 atoms)!
-Try 6 success (now 24 atoms)!
-Try 7 success (now 28 atoms)!
-Try 8 success (now 32 atoms)!
-Try 9 success (now 36 atoms)!
-Try 10 success (now 40 atoms)!
-Try 11 success (now 44 atoms)!
-Try 12 success (now 48 atoms)!
-Try 13 success (now 52 atoms)!
-Try 14 success (now 56 atoms)!
-Try 15 success (now 60 atoms)!
-Try 16 success (now 64 atoms)!
-Try 17 success (now 68 atoms)!
-Try 18 success (now 72 atoms)!
-Try 19Try 20 success (now 76 atoms)!
-Try 21 success (now 80 atoms)!
-Try 22 success (now 84 atoms)!
-Try 23 success (now 88 atoms)!
-Try 24 success (now 92 atoms)!
-Try 25 success (now 96 atoms)!
-Try 26Try 27 success (now 100 atoms)!
-Try 28 success (now 104 atoms)!
-Try 29 success (now 108 atoms)!
-Try 30 success (now 112 atoms)!
-Try 31 success (now 116 atoms)!
-Try 32 success (now 120 atoms)!
-Try 33 success (now 124 atoms)!
-Try 34 success (now 128 atoms)!
-Try 35Try 36 success (now 132 atoms)!
-Try 37Try 38 success (now 136 atoms)!
-Try 39 success (now 140 atoms)!
-Try 40 success (now 144 atoms)!
-Try 41 success (now 148 atoms)!
-Try 42 success (now 152 atoms)!
-Try 43 success (now 156 atoms)!
-Try 44 success (now 160 atoms)!
-Try 45Try 46 success (now 164 atoms)!
-Try 47 success (now 168 atoms)!
-Try 48 success (now 172 atoms)!
-Try 49 success (now 176 atoms)!
-Try 50Try 51 success (now 180 atoms)!
-Try 52Try 53 success (now 184 atoms)!
-Try 54 success (now 188 atoms)!
-Try 55 success (now 192 atoms)!
-Try 56 success (now 196 atoms)!
-Try 57 success (now 200 atoms)!
-Try 58Try 59 success (now 204 atoms)!
-Try 60 success (now 208 atoms)!
-Try 61Try 62 success (now 212 atoms)!
-Try 63Try 64 success (now 216 atoms)!
-Try 65 success (now 220 atoms)!
-Try 66Try 67 success (now 224 atoms)!
-Try 68 success (now 228 atoms)!
-Try 69Try 70 success (now 232 atoms)!
-Try 71Try 72 success (now 236 atoms)!
-Try 73 success (now 240 atoms)!
-Try 74 success (now 244 atoms)!
-Try 75 success (now 248 atoms)!
-Try 76Try 77 success (now 252 atoms)!
-Try 78 success (now 256 atoms)!
-
-Added 64 molecules (out of 64 requested)
-Writing generated configuration to water.gro
-Initialising inter-atomic distances...
-Initialising inter-atomic distances...
-Using random seed 265434039
-Try 1 success (now 4 atoms)!
-Try 2 success (now 8 atoms)!
-Try 3 success (now 12 atoms)!
-Try 4 success (now 16 atoms)!
-Try 5 success (now 20 atoms)!
-Try 6 success (now 24 atoms)!
-Try 7 success (now 28 atoms)!
-Try 8 success (now 32 atoms)!
-Try 9 success (now 36 atoms)!
-Try 10 success (now 40 atoms)!
-Try 11 success (now 44 atoms)!
-Try 12 success (now 48 atoms)!
-Try 13 success (now 52 atoms)!
-Try 14 success (now 56 atoms)!
-Try 15 success (now 60 atoms)!
-Try 16 success (now 64 atoms)!
-Try 17 success (now 68 atoms)!
-Try 18 success (now 72 atoms)!
-Try 19 success (now 76 atoms)!
-Try 20 success (now 80 atoms)!
-Try 21 success (now 84 atoms)!
-Try 22Try 23 success (now 88 atoms)!
-Try 24 success (now 92 atoms)!
-Try 25 success (now 96 atoms)!
-Try 26 success (now 100 atoms)!
-Try 27 success (now 104 atoms)!
-Try 28 success (now 108 atoms)!
-Try 29 success (now 112 atoms)!
-Try 30 success (now 116 atoms)!
-Try 31Try 32 success (now 120 atoms)!
-Try 33Try 34 success (now 124 atoms)!
-Try 35 success (now 128 atoms)!
-Try 36 success (now 132 atoms)!
-Try 37 success (now 136 atoms)!
-Try 38 success (now 140 atoms)!
-Try 39 success (now 144 atoms)!
-Try 40 success (now 148 atoms)!
-Try 41 success (now 152 atoms)!
-Try 42Try 43 success (now 156 atoms)!
-Try 44Try 45 success (now 160 atoms)!
-Try 46 success (now 164 atoms)!
-Try 47 success (now 168 atoms)!
-Try 48Try 49Try 50Try 51 success (now 172 atoms)!
-Try 52 success (now 176 atoms)!
-Try 53Try 54 success (now 180 atoms)!
-Try 55 success (now 184 atoms)!
-Try 56Try 57Try 58 success (now 188 atoms)!
-Try 59 success (now 192 atoms)!
-Try 60 success (now 196 atoms)!
-Try 61 success (now 200 atoms)!
-Try 62 success (now 204 atoms)!
-Try 63Try 64 success (now 208 atoms)!
-Try 65Try 66 success (now 212 atoms)!
-Try 67Try 68 success (now 216 atoms)!
-Try 69Try 70Try 71 success (now 220 atoms)!
-Try 72 success (now 224 atoms)!
-Try 73 success (now 228 atoms)!
-Try 74 success (now 232 atoms)!
-Try 75 success (now 236 atoms)!
-Try 76 success (now 240 atoms)!
-Try 77Try 78 success (now 244 atoms)!
-Try 79Try 80 success (now 248 atoms)!
-Try 81 success (now 252 atoms)!
-Try 82Try 83Try 84Try 85 success (now 256 atoms)!
-
-Added 64 molecules (out of 64 requested)
-Writing generated configuration to water.gro
-
-Back Off! I just backed up water.gro to ./#water.gro.1#
-Initialising inter-atomic distances...
-Initialising inter-atomic distances...
-Using random seed -184673735
-Try 1 success (now 4 atoms)!
-Try 2 success (now 8 atoms)!
-Try 3 success (now 12 atoms)!
-Try 4 success (now 16 atoms)!
-Try 5 success (now 20 atoms)!
-Try 6 success (now 24 atoms)!
-Try 7 success (now 28 atoms)!
-Try 8 success (now 32 atoms)!
-Try 9 success (now 36 atoms)!
-Try 10 success (now 40 atoms)!
-Try 11 success (now 44 atoms)!
-Try 12 success (now 48 atoms)!
-Try 13 success (now 52 atoms)!
-Try 14 success (now 56 atoms)!
-Try 15 success (now 60 atoms)!
-Try 16 success (now 64 atoms)!
-Try 17 success (now 68 atoms)!
-Try 18 success (now 72 atoms)!
-Try 19 success (now 76 atoms)!
-Try 20 success (now 80 atoms)!
-Try 21 success (now 84 atoms)!
-Try 22 success (now 88 atoms)!
-Try 23 success (now 92 atoms)!
-Try 24 success (now 96 atoms)!
-Try 25 success (now 100 atoms)!
-Try 26 success (now 104 atoms)!
-Try 27Try 28Try 29 success (now 108 atoms)!
-Try 30Try 31 success (now 112 atoms)!
-Try 32 success (now 116 atoms)!
-Try 33Try 34 success (now 120 atoms)!
-Try 35 success (now 124 atoms)!
-Try 36Try 37 success (now 128 atoms)!
-Try 38Try 39 success (now 132 atoms)!
-Try 40 success (now 136 atoms)!
-Try 41 success (now 140 atoms)!
-Try 42 success (now 144 atoms)!
-Try 43 success (now 148 atoms)!
-Try 44Try 45 success (now 152 atoms)!
-Try 46Initialising inter-atomic distances...
-Using random seed 354059528
-Try 1 success (now 4 atoms)!
-Try 2 success (now 8 atoms)!
-Try 3 success (now 12 atoms)!
-Try 4 success (now 16 atoms)!
-Try 5 success (now 20 atoms)!
-Try 6 success (now 24 atoms)!
-Try 7 success (now 28 atoms)!
-Try 8 success (now 32 atoms)!
-Try 9 success (now 36 atoms)!
-Try 10 success (now 40 atoms)!
-Try 11 success (now 44 atoms)!
-Try 12 success (now 48 atoms)!
-Try 13Try 14 success (now 52 atoms)!
-Try 15Try 16 success (now 56 atoms)!
-Try 17 success (now 60 atoms)!
-Try 18 success (now 64 atoms)!
-Try 19 success (now 68 atoms)!
-Try 20 success (now 72 atoms)!
-Try 21 success (now 76 atoms)!
-Try 22Try 23Try 24 success (now 80 atoms)!
-Try 25 success (now 84 atoms)!
-Try 26 success (now 88 atoms)!
-Try 27Try 28 success (now 92 atoms)!
-Try 29 success (now 96 atoms)!
-Try 30 success (now 100 atoms)!
-Try 31 success (now 104 atoms)!
-Try 32 success (now 108 atoms)!
-Try 33 success (now 112 atoms)!
-Try 34Try 35 success (now 116 atoms)!
-Try 36 success (now 120 atoms)!
-Try 37 success (now 124 atoms)!
-Try 38 success (now 128 atoms)!
-Try 39 success (now 132 atoms)!
-Try 40 success (now 136 atoms)!
-Try 41Try 42 success (now 140 atoms)!
-Try 43 success (now 144 atoms)!
-Try 44 success (now 148 atoms)!
-Try 45 success (now 152 atoms)!
-Try 46 success (now 156 atoms)!
-Try 47Try 48 success (now 160 atoms)!
-Try 49 success (now 164 atoms)!
-Try 50 success (now 168 atoms)!
-Try 51 success (now 172 atoms)!
-Try 52 success (now 176 atoms)!
-Try 53 success (now 180 atoms)!
-Try 54 success (now 184 atoms)!
-Try 55 success (now 188 atoms)!
-Try 56 success (now 192 atoms)!
-Try 57Try 58Try 59Try 60 success (now 196 atoms)!
-Try 61 success (now 200 atoms)!
-Try 62 success (now 204 atoms)!
-Try 63 success (now 208 atoms)!
-Try 64 success (now 212 atoms)!
-Try 65Try 66 success (now 216 atoms)!
-Try 67 success (now 220 atoms)!
-Try 68Try 69Try 70Try 71 success (now 224 atoms)!
-Try 72Try 73 success (now 228 atoms)!
-Try 74 success (now 232 atoms)!
-Try 75 success (now 236 atoms)!
-Try 76 success (now 240 atoms)!
-Try 77 success (now 244 atoms)!
-Try 78 success (now 248 atoms)!
-Try 79 success (now 252 atoms)!
-Try 80 success (now 256 atoms)!
-
-Added 64 molecules (out of 64 requested)
-Writing generated configuration to water.gro
-Initialising inter-atomic distances...
-Using random seed 653924574
-Try 1 success (now 4 atoms)!
-Try 2 success (now 8 atoms)!
-Try 3 success (now 12 atoms)!
-Try 4 success (now 16 atoms)!
-Try 5 success (now 20 atoms)!
-Try 6 success (now 24 atoms)!
-Try 7 success (now 28 atoms)!
-Try 8 success (now 32 atoms)!
-Try 9 success (now 36 atoms)!
-Try 10 success (now 40 atoms)!
-Try 11 success (now 44 atoms)!
-Try 12 success (now 48 atoms)!
-Try 13 success (now 52 atoms)!
-Try 14 success (now 56 atoms)!
-Try 15 success (now 60 atoms)!
-Try 16 success (now 64 atoms)!
-Try 17 success (now 68 atoms)!
-Try 18 success (now 72 atoms)!
-Try 19 success (now 76 atoms)!
-Try 20 success (now 80 atoms)!
-Try 21 success (now 84 atoms)!
-Try 22 success (now 88 atoms)!
-Try 23Try 24 success (now 92 atoms)!
-Try 25Try 26Try 27 success (now 96 atoms)!
-Try 28 success (now 100 atoms)!
-Try 29 success (now 104 atoms)!
-Try 30 success (now 108 atoms)!
-Try 31 success (now 112 atoms)!
-Try 32 success (now 116 atoms)!
-Try 33 success (now 120 atoms)!
-Try 34 success (now 124 atoms)!
-Try 35 success (now 128 atoms)!
-Try 36 success (now 132 atoms)!
-Try 37 success (now 136 atoms)!
-Try 38Try 39Try 40 success (now 140 atoms)!
-Try 41Try 42 success (now 144 atoms)!
-Try 43 success (now 148 atoms)!
-Try 44Try 45Try 46 success (now 152 atoms)!
-Try 47 success (now 156 atoms)!
-Try 48 success (now 160 atoms)!
-Try 49 success (now 164 atoms)!
-Try 50Try 51 success (now 168 atoms)!
-Try 52 success (now 172 atoms)!
-Try 53 success (now 176 atoms)!
-Try 54Try 55 success (now 180 atoms)!
-Try 56 success (now 184 atoms)!
-Try 57Try 58 success (now 188 atoms)!
-Try 59 success (now 192 atoms)!
-Try 60 success (now 196 atoms)!
-Try 61 success (now 200 atoms)!
-Try 62 success (now 204 atoms)!
-Try 63Try 64 success (now 208 atoms)!
-Try 65 success (now 212 atoms)!
-Try 66 success (now 216 atoms)!
-Try 67 success (now 220 atoms)!
-Try 68 success (now 224 atoms)!
-Try 69 success (now 228 atoms)!
-Try 70 success (now 232 atoms)!
-Try 71 success (now 236 atoms)!
-Try 72 success (now 240 atoms)!
-Try 73 success (now 244 atoms)!
-Try 74 success (now 248 atoms)!
-Try 75 success (now 252 atoms)!
-Try 76 success (now 256 atoms)!
-
-Added 64 molecules (out of 64 requested)
-Writing generated configuration to water.gro
-
-WARNING: Masses and atomic (Van der Waals) radii will be guessed
-         based on residue and atom names, since they could not be
-         definitively assigned from the information in your input
-         files. These guessed numbers might deviate from the mass
-         and radius of the atom type. Please check the output
-         files if necessary.
-
-NOTE: From version 5.0 gmx insert-molecules uses the Van der Waals radii
-from the source below. This means the results may be different
-compared to previous GROMACS versions.
-
-++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-A. Bondi
-van der Waals Volumes and Radii
-J. Phys. Chem. 68 (1964) pp. 441-451
--------- -------- --- Thank You --- -------- --------
-
-
-WARNING: Masses and atomic (Van der Waals) radii will be guessed
-         based on residue and atom names, since they could not be
-         definitively assigned from the information in your input
-         files. These guessed numbers might deviate from the mass
-         and radius of the atom type. Please check the output
-         files if necessary.
-
-NOTE: From version 5.0 gmx insert-molecules uses the Van der Waals radii
-from the source below. This means the results may be different
-compared to previous GROMACS versions.
-
-++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-A. Bondi
-van der Waals Volumes and Radii
-J. Phys. Chem. 68 (1964) pp. 441-451
--------- -------- --- Thank You --- -------- --------
-
-
-WARNING: Masses and atomic (Van der Waals) radii will be guessed
-         based on residue and atom names, since they could not be
-         definitively assigned from the information in your input
-         files. These guessed numbers might deviate from the mass
-         and radius of the atom type. Please check the output
-         files if necessary.
-
-NOTE: From version 5.0 gmx insert-molecules uses the Van der Waals radii
-from the source below. This means the results may be different
-compared to previous GROMACS versions.
-
-++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-A. Bondi
-van der Waals Volumes and Radii
-J. Phys. Chem. 68 (1964) pp. 441-451
--------- -------- --- Thank You --- -------- --------
-
-
-WARNING: Masses and atomic (Van der Waals) radii will be guessed
-         based on residue and atom names, since they could not be
-         definitively assigned from the information in your input
-         files. These guessed numbers might deviate from the mass
-         and radius of the atom type. Please check the output
-         files if necessary.
-
-NOTE: From version 5.0 gmx insert-molecules uses the Van der Waals radii
-from the source below. This means the results may be different
-compared to previous GROMACS versions.
-
-++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-A. Bondi
-van der Waals Volumes and Radii
-J. Phys. Chem. 68 (1964) pp. 441-451
--------- -------- --- Thank You --- -------- --------
-
-
-WARNING: Masses and atomic (Van der Waals) radii will be guessed
-         based on residue and atom names, since they could not be
-         definitively assigned from the information in your input
-         files. These guessed numbers might deviate from the mass
-         and radius of the atom type. Please check the output
-         files if necessary.
-
-NOTE: From version 5.0 gmx insert-molecules uses the Van der Waals radii
-from the source below. This means the results may be different
-compared to previous GROMACS versions.
-
-++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-A. Bondi
-van der Waals Volumes and Radii
-J. Phys. Chem. 68 (1964) pp. 441-451
--------- -------- --- Thank You --- -------- --------
-
-
-WARNING: Masses and atomic (Van der Waals) radii will be guessed
-         based on residue and atom names, since they could not be
-         definitively assigned from the information in your input
-         files. These guessed numbers might deviate from the mass
-         and radius of the atom type. Please check the output
-         files if necessary.
-
-NOTE: From version 5.0 gmx insert-molecules uses the Van der Waals radii
-from the source below. This means the results may be different
-compared to previous GROMACS versions.
-
-++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-A. Bondi
-van der Waals Volumes and Radii
-J. Phys. Chem. 68 (1964) pp. 441-451
--------- -------- --- Thank You --- -------- --------
-
-
-WARNING: Masses and atomic (Van der Waals) radii will be guessed
-         based on residue and atom names, since they could not be
-         definitively assigned from the information in your input
-         files. These guessed numbers might deviate from the mass
-         and radius of the atom type. Please check the output
-         files if necessary.
-
-NOTE: From version 5.0 gmx insert-molecules uses the Van der Waals radii
-from the source below. This means the results may be different
-compared to previous GROMACS versions.
-
-++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-A. Bondi
-van der Waals Volumes and Radii
-J. Phys. Chem. 68 (1964) pp. 441-451
--------- -------- --- Thank You --- -------- --------
-
- success (now 156 atoms)!
-Try 47 success (now 160 atoms)!
-Try 48 success (now 164 atoms)!
-Try 49 success (now 168 atoms)!
-Try 50 success (now 172 atoms)!
-Try 51 success (now 176 atoms)!
-Try 52Try 53 success (now 180 atoms)!
-Try 54 success (now 184 atoms)!
-Try 55 success (now 188 atoms)!
-Try 56 success (now 192 atoms)!
-Try 57 success (now 196 atoms)!
-Try 58Try 59 success (now 200 atoms)!
-Try 60 success (now 204 atoms)!
-Try 61 success (now 208 atoms)!
-Try 62 success (now 212 atoms)!
-Try 63Try 64 success (now 216 atoms)!
-Try 65 success (now 220 atoms)!
-Try 66Try 67Try 68 success (now 224 atoms)!
-Try 69 success (now 228 atoms)!
-Try 70Try 71 success (now 232 atoms)!
-Try 72 success (now 236 atoms)!
-Try 73Try 74 success (now 240 atoms)!
-Try 75 success (now 244 atoms)!
-Try 76Try 77Try 78 success (now 248 atoms)!
-Try 79 success (now 252 atoms)!
-Try 80 success (now 256 atoms)!
-
-Added 64 molecules (out of 64 requested)
-Writing generated configuration to water.gro
-
-Output configuration contains 256 atoms in 64 residues
-Using random seed 1286321588
-Try 1 success (now 4 atoms)!
-Try 2 success (now 8 atoms)!
-Try 3 success (now 12 atoms)!
-Try 4 success (now 16 atoms)!
-Try 5 success (now 20 atoms)!
-Try 6 success (now 24 atoms)!
-Try 7 success (now 28 atoms)!
-Try 8 success (now 32 atoms)!
-Try 9 success (now 36 atoms)!
-Try 10 success (now 40 atoms)!
-Try 11 success (now 44 atoms)!
-Try 12 success (now 48 atoms)!
-Try 13 success (now 52 atoms)!
-Try 14 success (now 56 atoms)!
-Try 15 success (now 60 atoms)!
-Try 16 success (now 64 atoms)!
-Try 17 success (now 68 atoms)!
-Try 18 success (now 72 atoms)!
-Try 19 success (now 76 atoms)!
-Try 20 success (now 80 atoms)!
-Try 21 success (now 84 atoms)!
-Try 22 success (now 88 atoms)!
-Try 23 success (now 92 atoms)!
-Try 24 success (now 96 atoms)!
-Try 25 success (now 100 atoms)!
-Try 26 success (now 104 atoms)!
-Try 27 success (now 108 atoms)!
-Try 28 success (now 112 atoms)!
-Try 29Try 30Try 31Try 32 success (now 116 atoms)!
-Try 33 success (now 120 atoms)!
-Try 34 success (now 124 atoms)!
-Try 35 success (now 128 atoms)!
-Try 36 success (now 132 atoms)!
-Try 37 success (now 136 atoms)!
-Try 38 success (now 140 atoms)!
-Try 39Try 40 success (now 144 atoms)!
-Try 41 success (now 148 atoms)!
-Try 42 success (now 152 atoms)!
-Try 43 success (now 156 atoms)!
-Try 44 success (now 160 atoms)!
-Try 45Try 46Try 47Try 48 success (now 164 atoms)!
-Try 49 success (now 168 atoms)!
-Try 50Try 51 success (now 172 atoms)!
-Try 52 success (now 176 atoms)!
-Try 53 success (now 180 atoms)!
-Try 54Try 55 success (now 184 atoms)!
-Try 56 success (now 188 atoms)!
-Try 57 success (now 192 atoms)!
-Try 58 success (now 196 atoms)!
-Try 59Try 60 success (now 200 atoms)!
-Try 61 success (now 204 atoms)!
-Try 62 success (now 208 atoms)!
-Try 63 success (now 212 atoms)!
-Try 64 success (now 216 atoms)!
-Try 65Try 66 success (now 220 atoms)!
-Try 67 success (now 224 atoms)!
-Try 68 success (now 228 atoms)!
-Try 69Try 70 success (now 232 atoms)!
-Try 71 success (now 236 atoms)!
-Try 72Try 73 success (now 240 atoms)!
-Try 74 success (now 244 atoms)!
-Try 75Try 76 success (now 248 atoms)!
-Try 77 success (now 252 atoms)!
-Try 78 success (now 256 atoms)!
-
-Added 64 molecules (out of 64 requested)
-Writing generated configuration to water.gro
-Using random seed 722703060
-Try 1 success (now 4 atoms)!
-Try 2 success (now 8 atoms)!
-Try 3 success (now 12 atoms)!
-Try 4 success (now 16 atoms)!
-Try 5 success (now 20 atoms)!
-Try 6 success (now 24 atoms)!
-Try 7 success (now 28 atoms)!
-Try 8 success (now 32 atoms)!
-Try 9 success (now 36 atoms)!
-Try 10 success (now 40 atoms)!
-Try 11 success (now 44 atoms)!
-Try 12 success (now 48 atoms)!
-Try 13 success (now 52 atoms)!
-Try 14Try 15Try 16 success (now 56 atoms)!
-Try 17 success (now 60 atoms)!
-Try 18Try 19 success (now 64 atoms)!
-Try 20 success (now 68 atoms)!
-Try 21 success (now 72 atoms)!
-Try 22 success (now 76 atoms)!
-Try 23 success (now 80 atoms)!
-Try 24 success (now 84 atoms)!
-Try 25 success (now 88 atoms)!
-Try 26 success (now 92 atoms)!
-Try 27 success (now 96 atoms)!
-Try 28 success (now 100 atoms)!
-Try 29 success (now 104 atoms)!
-Try 30 success (now 108 atoms)!
-Try 31 success (now 112 atoms)!
-Try 32 success (now 116 atoms)!
-Try 33 success (now 120 atoms)!
-Try 34Try 35 success (now 124 atoms)!
-Try 36 success (now 128 atoms)!
-Try 37 success (now 132 atoms)!
-Try 38 success (now 136 atoms)!
-Try 39 success (now 140 atoms)!
-Try 40 success (now 144 atoms)!
-Try 41 success (now 148 atoms)!
-Try 42 success (now 152 atoms)!
-Try 43 success (now 156 atoms)!
-Try 44 success (now 160 atoms)!
-Try 45Try 46 success (now 164 atoms)!
-Try 47 success (now 168 atoms)!
-Try 48 success (now 172 atoms)!
-Try 49 success (now 176 atoms)!
-Try 50Try 51 success (now 180 atoms)!
-Try 52 success (now 184 atoms)!
-Try 53 success (now 188 atoms)!
-Try 54 success (now 192 atoms)!
-Try 55Try 56 success (now 196 atoms)!
-Try 57 success (now 200 atoms)!
-Try 58 success (now 204 atoms)!
-Try 59 success (now 208 atoms)!
-Try 60 success (now 212 atoms)!
-Try 61 success (now 216 atoms)!
-Try 62 success (now 220 atoms)!
-Try 63 success (now 224 atoms)!
-Try 64Try 65Try 66Try 67 success (now 228 atoms)!
-Try 68 success (now 232 atoms)!
-Try 69 success (now 236 atoms)!
-Try 70 success (now 240 atoms)!
-Try 71 success (now 244 atoms)!
-Try 72 success (now 248 atoms)!
-Try 73 success (now 252 atoms)!
-Try 74 success (now 256 atoms)!
-
-Added 64 molecules (out of 64 requested)
-Writing generated configuration to water.gro
-
-Back Off! I just backed up water.gro to ./#water.gro.1#
-
-Output configuration contains 256 atoms in 64 residues
-Using random seed 165679387
-Try 1 success (now 4 atoms)!
-Try 2 success (now 8 atoms)!
-Try 3 success (now 12 atoms)!
-Try 4 success (now 16 atoms)!
-Try 5 success (now 20 atoms)!
-Try 6 success (now 24 atoms)!
-Try 7 success (now 28 atoms)!
-Try 8 success (now 32 atoms)!
-Try 9 success (now 36 atoms)!
-Try 10 success (now 40 atoms)!
-Try 11 success (now 44 atoms)!
-Try 12 success (now 48 atoms)!
-Try 13 success (now 52 atoms)!
-Try 14 success (now 56 atoms)!
-Try 15 success (now 60 atoms)!
-Try 16 success (now 64 atoms)!
-Try 17 success (now 68 atoms)!
-Try 18 success (now 72 atoms)!
-Try 19 success (now 76 atoms)!
-Try 20 success (now 80 atoms)!
-Try 21 success (now 84 atoms)!
-Try 22 success (now 88 atoms)!
-Try 23 success (now 92 atoms)!
-Try 24Try 25 success (now 96 atoms)!
-Try 26 success (now 100 atoms)!
-Try 27 success (now 104 atoms)!
-Try 28 success (now 108 atoms)!
-Try 29 success (now 112 atoms)!
-Try 30 success (now 116 atoms)!
-Try 31 success (now 120 atoms)!
-Try 32 success (now 124 atoms)!
-Try 33Try 34 success (now 128 atoms)!
-Try 35 success (now 132 atoms)!
-Try 36 success (now 136 atoms)!
-Try 37Try 38 success (now 140 atoms)!
-Try 39 success (now 144 atoms)!
-Try 40 success (now 148 atoms)!
-Try 41 success (now 152 atoms)!
-Try 42 success (now 156 atoms)!
-Try 43 success (now 160 atoms)!
-Try 44 success (now 164 atoms)!
-Try 45 success (now 168 atoms)!
-Try 46 success (now 172 atoms)!
-Try 47 success (now 176 atoms)!
-Try 48 success (now 180 atoms)!
-Try 49 success (now 184 atoms)!
-Try 50 success (now 188 atoms)!
-Try 51 success (now 192 atoms)!
-Try 52 success (now 196 atoms)!
-Try 53Try 54Try 55Try 56Try 57Try 58 success (now 200 atoms)!
-Try 59Try 60Try 61Try 62Try 63 success (now 204 atoms)!
-Try 64 success (now 208 atoms)!
-Try 65Try 66Try 67 success (now 212 atoms)!
-Try 68Try 69 success (now 216 atoms)!
-Try 70Try 71 success (now 220 atoms)!
-Try 72 success (now 224 atoms)!
-Try 73Try 74 success (now 228 atoms)!
-Try 75Try 76 success (now 232 atoms)!
-Try 77 success (now 236 atoms)!
-Try 78 success (now 240 atoms)!
-Try 79 success (now 244 atoms)!
-Try 80 success (now 248 atoms)!
-Try 81 success (now 252 atoms)!
-Try 82 success (now 256 atoms)!
-
-Added 64 molecules (out of 64 requested)
-Writing generated configuration to water.gro
-
-Back Off! I just backed up water.gro to ./#water.gro.2#
-
-Output configuration contains 256 atoms in 64 residues
-
-GROMACS reminds you: "Physics is like sex: sure, it may give some practical results, but that’s not why we do it" (Richard P. Feynman)
-
-Using random seed 1377357294
-Try 1 success (now 4 atoms)!
-Try 2 success (now 8 atoms)!
-Try 3 success (now 12 atoms)!
-Try 4 success (now 16 atoms)!
-Try 5 success (now 20 atoms)!
-Try 6 success (now 24 atoms)!
-Try 7 success (now 28 atoms)!
-Try 8 success (now 32 atoms)!
-Try 9 success (now 36 atoms)!
-Try 10Try 11 success (now 40 atoms)!
-Try 12 success (now 44 atoms)!
-Try 13 success (now 48 atoms)!
-Try 14 success (now 52 atoms)!
-Try 15 success (now 56 atoms)!
-Try 16 success (now 60 atoms)!
-Try 17 success (now 64 atoms)!
-Try 18Try 19 success (now 68 atoms)!
-Try 20 success (now 72 atoms)!
-Try 21 success (now 76 atoms)!
-Try 22 success (now 80 atoms)!
-Try 23 success (now 84 atoms)!
-Try 24 success (now 88 atoms)!
-Try 25 success (now 92 atoms)!
-Try 26 success (now 96 atoms)!
-Try 27 success (now 100 atoms)!
-Try 28 success (now 104 atoms)!
-Try 29 success (now 108 atoms)!
-Try 30 success (now 112 atoms)!
-Try 31 success (now 116 atoms)!
-Try 32 success (now 120 atoms)!
-Try 33 success (now 124 atoms)!
-Try 34 success (now 128 atoms)!
-Try 35 success (now 132 atoms)!
-Try 36 success (now 136 atoms)!
-Try 37 success (now 140 atoms)!
-Try 38 success (now 144 atoms)!
-Try 39 success (now 148 atoms)!
-Try 40 success (now 152 atoms)!
-Try 41 success (now 156 atoms)!
-Try 42 success (now 160 atoms)!
-Try 43 success (now 164 atoms)!
-Try 44 success (now 168 atoms)!
-Try 45 success (now 172 atoms)!
-Try 46 success (now 176 atoms)!
-Try 47Try 48 success (now 180 atoms)!
-Try 49 success (now 184 atoms)!
-Try 50 success (now 188 atoms)!
-Try 51Try 52 success (now 192 atoms)!
-Try 53Try 54 success (now 196 atoms)!
-Try 55Try 56Try 57 success (now 200 atoms)!
-Try 58 success (now 204 atoms)!
-Try 59 success (now 208 atoms)!
-Try 60 success (now 212 atoms)!
-Try 61Try 62Try 63 success (now 216 atoms)!
-Try 64 success (now 220 atoms)!
-Try 65Try 66 success (now 224 atoms)!
-Try 67 success (now 228 atoms)!
-Try 68Try 69 success (now 232 atoms)!
-Try 70 success (now 236 atoms)!
-Try 71 success (now 240 atoms)!
-Try 72 success (now 244 atoms)!
-Try 73 success (now 248 atoms)!
-Try 74Try 75Try 76 success (now 252 atoms)!
-Try 77 success (now 256 atoms)!
-
-Added 64 molecules (out of 64 requested)
-Writing generated configuration to water.gro
-
-Back Off! I just backed up water.gro to ./#water.gro.1#
-
-Output configuration contains 256 atoms in 64 residues
-Using random seed -2109678758
-Try 1 success (now 4 atoms)!
-Try 2 success (now 8 atoms)!
-Try 3 success (now 12 atoms)!
-Try 4 success (now 16 atoms)!
-Try 5Try 6 success (now 20 atoms)!
-Try 7 success (now 24 atoms)!
-Try 8 success (now 28 atoms)!
-Try 9 success (now 32 atoms)!
-Try 10 success (now 36 atoms)!
-Try 11 success (now 40 atoms)!
-Try 12 success (now 44 atoms)!
-Try 13 success (now 48 atoms)!
-Try 14 success (now 52 atoms)!
-Try 15 success (now 56 atoms)!
-Try 16 success (now 60 atoms)!
-Try 17 success (now 64 atoms)!
-Try 18Try 19 success (now 68 atoms)!
-Try 20 success (now 72 atoms)!
-Try 21 success (now 76 atoms)!
-Try 22 success (now 80 atoms)!
-Try 23 success (now 84 atoms)!
-Try 24 success (now 88 atoms)!
-Try 25 success (now 92 atoms)!
-Try 26 success (now 96 atoms)!
-Try 27 success (now 100 atoms)!
-Try 28 success (now 104 atoms)!
-Try 29 success (now 108 atoms)!
-Try 30 success (now 112 atoms)!
-Try 31 success (now 116 atoms)!
-Try 32 success (now 120 atoms)!
-Try 33 success (now 124 atoms)!
-Try 34 success (now 128 atoms)!
-Try 35 success (now 132 atoms)!
-Try 36 success (now 136 atoms)!
-Try 37 success (now 140 atoms)!
-Try 38 success (now 144 atoms)!
-Try 39 success (now 148 atoms)!
-Try 40 success (now 152 atoms)!
-Try 41Try 42 success (now 156 atoms)!
-Try 43Try 44 success (now 160 atoms)!
-Try 45 success (now 164 atoms)!
-Try 46 success (now 168 atoms)!
-Try 47 success (now 172 atoms)!
-Try 48Try 49Try 50 success (now 176 atoms)!
-Try 51 success (now 180 atoms)!
-Try 52 success (now 184 atoms)!
-Try 53 success (now 188 atoms)!
-Try 54 success (now 192 atoms)!
-Try 55 success (now 196 atoms)!
-Try 56 success (now 200 atoms)!
-Try 57 success (now 204 atoms)!
-Try 58 success (now 208 atoms)!
-Try 59 success (now 212 atoms)!
-Try 60 success (now 216 atoms)!
-Try 61Try 62Try 63 success (now 220 atoms)!
-Try 64 success (now 224 atoms)!
-Try 65Try 66Try 67 success (now 228 atoms)!
-Try 68 success (now 232 atoms)!
-Try 69Try 70Try 71Try 72 success (now 236 atoms)!
-Try 73 success (now 240 atoms)!
-Try 74 success (now 244 atoms)!
-Try 75Try 76 success (now 248 atoms)!
-Try 77 success (now 252 atoms)!
-Try 78 success (now 256 atoms)!
-
-Added 64 molecules (out of 64 requested)
-Writing generated configuration to water.gro
-
-Output configuration contains 256 atoms in 64 residues
-Using random seed -2129714270
-Try 1 success (now 4 atoms)!
-Try 2 success (now 8 atoms)!
-Try 3 success (now 12 atoms)!
-Try 4 success (now 16 atoms)!
-Try 5 success (now 20 atoms)!
-Try 6 success (now 24 atoms)!
-Try 7 success (now 28 atoms)!
-Try 8 success (now 32 atoms)!
-Try 9 success (now 36 atoms)!
-Try 10 success (now 40 atoms)!
-Try 11 success (now 44 atoms)!
-Try 12 success (now 48 atoms)!
-Try 13 success (now 52 atoms)!
-Try 14 success (now 56 atoms)!
-Try 15 success (now 60 atoms)!
-Try 16 success (now 64 atoms)!
-Try 17Try 18 success (now 68 atoms)!
-Try 19 success (now 72 atoms)!
-Try 20 success (now 76 atoms)!
-Try 21 success (now 80 atoms)!
-Try 22 success (now 84 atoms)!
-Try 23 success (now 88 atoms)!
-Try 24 success (now 92 atoms)!
-Try 25 success (now 96 atoms)!
-Try 26 success (now 100 atoms)!
-Try 27 success (now 104 atoms)!
-Try 28 success (now 108 atoms)!
-Try 29 success (now 112 atoms)!
-Try 30 success (now 116 atoms)!
-Try 31Try 32Try 33 success (now 120 atoms)!
-Try 34 success (now 124 atoms)!
-Try 35 success (now 128 atoms)!
-Try 36 success (now 132 atoms)!
-Try 37 success (now 136 atoms)!
-Try 38 success (now 140 atoms)!
-Try 39 success (now 144 atoms)!
-Try 40 success (now 148 atoms)!
-Try 41Try 42 success (now 152 atoms)!
-Try 43 success (now 156 atoms)!
-Try 44 success (now 160 atoms)!
-Try 45Try 46 success (now 164 atoms)!
-Try 47Try 48 success (now 168 atoms)!
-Try 49Try 50 success (now 172 atoms)!
-Try 51 success (now 176 atoms)!
-Try 52 success (now 180 atoms)!
-Try 53 success (now 184 atoms)!
-Try 54 success (now 188 atoms)!
-Try 55 success (now 192 atoms)!
-Try 56 success (now 196 atoms)!
-Try 57 success (now 200 atoms)!
-Try 58Try 59 success (now 204 atoms)!
-Try 60 success (now 208 atoms)!
-Try 61 success (now 212 atoms)!
-Try 62 success (now 216 atoms)!
-Try 63 success (now 220 atoms)!
-Try 64 success (now 224 atoms)!
-Try 65 success (now 228 atoms)!
-Try 66 success (now 232 atoms)!
-Try 67 success (now 236 atoms)!
-Try 68 success (now 240 atoms)!
-Try 69 success (now 244 atoms)!
-Try 70 success (now 248 atoms)!
-Try 71 success (now 252 atoms)!
-Try 72 success (now 256 atoms)!
-
-Added 64 molecules (out of 64 requested)
-Writing generated configuration to water.gro
-
-Sorry couldn't backup water.gro to ./#water.gro.2#
-
-Output configuration contains 256 atoms in 64 residues
-Using random seed -337014063
-Try 1 success (now 4 atoms)!
-Try 2 success (now 8 atoms)!
-Try 3 success (now 12 atoms)!
-Try 4 success (now 16 atoms)!
-Try 5 success (now 20 atoms)!
-Try 6 success (now 24 atoms)!
-Try 7 success (now 28 atoms)!
-Try 8 success (now 32 atoms)!
-Try 9 success (now 36 atoms)!
-Try 10 success (now 40 atoms)!
-Try 11 success (now 44 atoms)!
-Try 12 success (now 48 atoms)!
-Try 13Try 14 success (now 52 atoms)!
-Try 15Try 16 success (now 56 atoms)!
-Try 17 success (now 60 atoms)!
-Try 18 success (now 64 atoms)!
-Try 19 success (now 68 atoms)!
-Try 20Try 21 success (now 72 atoms)!
-Try 22 success (now 76 atoms)!
-Try 23 success (now 80 atoms)!
-Try 24 success (now 84 atoms)!
-Try 25 success (now 88 atoms)!
-Try 26 success (now 92 atoms)!
-Try 27 success (now 96 atoms)!
-Try 28 success (now 100 atoms)!
-Try 29Try 30 success (now 104 atoms)!
-Try 31Try 32 success (now 108 atoms)!
-Try 33Try 34 success (now 112 atoms)!
-Try 35 success (now 116 atoms)!
-Try 36 success (now 120 atoms)!
-Try 37 success (now 124 atoms)!
-Try 38 success (now 128 atoms)!
-Try 39 success (now 132 atoms)!
-Try 40 success (now 136 atoms)!
-Try 41 success (now 140 atoms)!
-Try 42 success (now 144 atoms)!
-Try 43 success (now 148 atoms)!
-Try 44 success (now 152 atoms)!
-Try 45 success (now 156 atoms)!
-Try 46 success (now 160 atoms)!
-Try 47Try 48 success (now 164 atoms)!
-Try 49Try 50 success (now 168 atoms)!
-Try 51 success (now 172 atoms)!
-Try 52 success (now 176 atoms)!
-Try 53 success (now 180 atoms)!
-Try 54 success (now 184 atoms)!
-Try 55Try 56Try 57 success (now 188 atoms)!
-Try 58 success (now 192 atoms)!
-Try 59Try 60 success (now 196 atoms)!
-Try 61 success (now 200 atoms)!
-Try 62 success (now 204 atoms)!
-Try 63 success (now 208 atoms)!
-Try 64Try 65Try 66 success (now 212 atoms)!
-Try 67 success (now 216 atoms)!
-Try 68Try 69Try 70 success (now 220 atoms)!
-Try 71 success (now 224 atoms)!
-Try 72Try 73 success (now 228 atoms)!
-Try 74Try 75 success (now 232 atoms)!
-Try 76 success (now 236 atoms)!
-Try 77Try 78 success (now 240 atoms)!
-Try 79 success (now 244 atoms)!
-Try 80Try 81 success (now 248 atoms)!
-Try 82Try 83 success (now 252 atoms)!
-Try 84 success (now 256 atoms)!
-
-Added 64 molecules (out of 64 requested)
-Writing generated configuration to water.gro
-Using random seed -845537228
-Try 1 success (now 4 atoms)!
-Try 2 success (now 8 atoms)!
-Try 3 success (now 12 atoms)!
-Try 4 success (now 16 atoms)!
-Try 5 success (now 20 atoms)!
-Try 6 success (now 24 atoms)!
-Try 7 success (now 28 atoms)!
-Try 8 success (now 32 atoms)!
-Try 9 success (now 36 atoms)!
-Try 10 success (now 40 atoms)!
-Try 11 success (now 44 atoms)!
-Try 12 success (now 48 atoms)!
-Try 13 success (now 52 atoms)!
-Try 14 success (now 56 atoms)!
-Try 15 success (now 60 atoms)!
-Try 16 success (now 64 atoms)!
-Try 17 success (now 68 atoms)!
-Try 18 success (now 72 atoms)!
-Try 19 success (now 76 atoms)!
-Try 20 success (now 80 atoms)!
-Try 21 success (now 84 atoms)!
-Try 22Try 23 success (now 88 atoms)!
-Try 24Try 25 success (now 92 atoms)!
-Try 26 success (now 96 atoms)!
-Try 27 success (now 100 atoms)!
-Try 28 success (now 104 atoms)!
-Try 29 success (now 108 atoms)!
-Try 30 success (now 112 atoms)!
-Try 31 success (now 116 atoms)!
-Try 32 success (now 120 atoms)!
-Try 33 success (now 124 atoms)!
-Try 34Try 35 success (now 128 atoms)!
-Try 36 success (now 132 atoms)!
-Try 37 success (now 136 atoms)!
-Try 38 success (now 140 atoms)!
-Try 39Try 40Try 41Try 42 success (now 144 atoms)!
-Try 43 success (now 148 atoms)!
-Try 44 success (now 152 atoms)!
-Try 45 success (now 156 atoms)!
-Try 46 success (now 160 atoms)!
-Try 47Try 48 success (now 164 atoms)!
-Try 49 success (now 168 atoms)!
-Try 50 success (now 172 atoms)!
-Try 51Try 52 success (now 176 atoms)!
-Try 53 success (now 180 atoms)!
-Try 54 success (now 184 atoms)!
-Try 55 success (now 188 atoms)!
-Try 56 success (now 192 atoms)!
-Try 57 success (now 196 atoms)!
-Try 58 success (now 200 atoms)!
-Try 59 success (now 204 atoms)!
-Try 60Try 61 success (now 208 atoms)!
-Try 62Try 63 success (now 212 atoms)!
-Try 64Try 65 success (now 216 atoms)!
-Try 66 success (now 220 atoms)!
-Try 67 success (now 224 atoms)!
-Try 68 success (now 228 atoms)!
-Try 69 success (now 232 atoms)!
-Try 70 success (now 236 atoms)!
-Try 71 success (now 240 atoms)!
-Try 72 success (now 244 atoms)!
-Try 73Try 74 success (now 248 atoms)!
-Try 75Try 76 success (now 252 atoms)!
-Try 77Try 78 success (now 256 atoms)!
-
-Added 64 molecules (out of 64 requested)
-Writing generated configuration to water.gro
-
-Back Off! I just backed up water.gro to ./#water.gro.2#
-
-Output configuration contains 256 atoms in 64 residues
-Using random seed -342603078
-Try 1 success (now 4 atoms)!
-Try 2 success (now 8 atoms)!
-Try 3 success (now 12 atoms)!
-Try 4 success (now 16 atoms)!
-Try 5 success (now 20 atoms)!
-Try 6 success (now 24 atoms)!
-Try 7 success (now 28 atoms)!
-Try 8 success (now 32 atoms)!
-Try 9 success (now 36 atoms)!
-Try 10 success (now 40 atoms)!
-Try 11 success (now 44 atoms)!
-Try 12 success (now 48 atoms)!
-Try 13 success (now 52 atoms)!
-Try 14 success (now 56 atoms)!
-Try 15 success (now 60 atoms)!
-Try 16 success (now 64 atoms)!
-Try 17 success (now 68 atoms)!
-Try 18 success (now 72 atoms)!
-Try 19 success (now 76 atoms)!
-Try 20 success (now 80 atoms)!
-Try 21 success (now 84 atoms)!
-Try 22 success (now 88 atoms)!
-Try 23 success (now 92 atoms)!
-Try 24 success (now 96 atoms)!
-Try 25 success (now 100 atoms)!
-Try 26 success (now 104 atoms)!
-Try 27Try 28 success (now 108 atoms)!
-Try 29 success (now 112 atoms)!
-Try 30 success (now 116 atoms)!
-Try 31 success (now 120 atoms)!
-Try 32Try 33 success (now 124 atoms)!
-Try 34 success (now 128 atoms)!
-Try 35Try 36 success (now 132 atoms)!
-Try 37 success (now 136 atoms)!
-Try 38Try 39 success (now 140 atoms)!
-Try 40 success (now 144 atoms)!
-Try 41Try 42Try 43 success (now 148 atoms)!
-Try 44 success (now 152 atoms)!
-Try 45 success (now 156 atoms)!
-Try 46 success (now 160 atoms)!
-Try 47 success (now 164 atoms)!
-Try 48Try 49 success (now 168 atoms)!
-Try 50 success (now 172 atoms)!
-Try 51 success (now 176 atoms)!
-Try 52 success (now 180 atoms)!
-Try 53Try 54 success (now 184 atoms)!
-Try 55 success (now 188 atoms)!
-Try 56 success (now 192 atoms)!
-Try 57Try 58Try 59 success (now 196 atoms)!
-Try 60Try 61Try 62 success (now 200 atoms)!
-Try 63Try 64 success (now 204 atoms)!
-Try 65 success (now 208 atoms)!
-Try 66 success (now 212 atoms)!
-Try 67 success (now 216 atoms)!
-Try 68Try 69 success (now 220 atoms)!
-Try 70Try 71Try 72 success (now 224 atoms)!
-Try 73 success (now 228 atoms)!
-Try 74Try 75 success (now 232 atoms)!
-Try 76Try 77 success (now 236 atoms)!
-Try 78 success (now 240 atoms)!
-Try 79Try 80Try 81Try 82Try 83 success (now 244 atoms)!
-Try 84 success (now 248 atoms)!
-Try 85Try 86 success (now 252 atoms)!
-Try 87 success (now 256 atoms)!
-
-Added 64 molecules (out of 64 requested)
-Writing generated configuration to water.gro
-
-WARNING: Masses and atomic (Van der Waals) radii will be guessed
-         based on residue and atom names, since they could not be
-         definitively assigned from the information in your input
-         files. These guessed numbers might deviate from the mass
-         and radius of the atom type. Please check the output
-         files if necessary.
-
-NOTE: From version 5.0 gmx insert-molecules uses the Van der Waals radii
-from the source below. This means the results may be different
-compared to previous GROMACS versions.
-
-++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-A. Bondi
-van der Waals Volumes and Radii
-J. Phys. Chem. 68 (1964) pp. 441-451
--------- -------- --- Thank You --- -------- --------
-
-
-WARNING: Masses and atomic (Van der Waals) radii will be guessed
-         based on residue and atom names, since they could not be
-         definitively assigned from the information in your input
-         files. These guessed numbers might deviate from the mass
-         and radius of the atom type. Please check the output
-         files if necessary.
-
-NOTE: From version 5.0 gmx insert-molecules uses the Van der Waals radii
-from the source below. This means the results may be different
-compared to previous GROMACS versions.
-
-++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-A. Bondi
-van der Waals Volumes and Radii
-J. Phys. Chem. 68 (1964) pp. 441-451
--------- -------- --- Thank You --- -------- --------
-
-
-WARNING: Masses and atomic (Van der Waals) radii will be guessed
-         based on residue and atom names, since they could not be
-         definitively assigned from the information in your input
-         files. These guessed numbers might deviate from the mass
-         and radius of the atom type. Please check the output
-         files if necessary.
-
-NOTE: From version 5.0 gmx insert-molecules uses the Van der Waals radii
-from the source below. This means the results may be different
-compared to previous GROMACS versions.
-
-++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-A. Bondi
-van der Waals Volumes and Radii
-J. Phys. Chem. 68 (1964) pp. 441-451
--------- -------- --- Thank You --- -------- --------
-
-
-WARNING: Masses and atomic (Van der Waals) radii will be guessed
-         based on residue and atom names, since they could not be
-         definitively assigned from the information in your input
-         files. These guessed numbers might deviate from the mass
-         and radius of the atom type. Please check the output
-         files if necessary.
-
-NOTE: From version 5.0 gmx insert-molecules uses the Van der Waals radii
-from the source below. This means the results may be different
-compared to previous GROMACS versions.
-
-++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-A. Bondi
-van der Waals Volumes and Radii
-J. Phys. Chem. 68 (1964) pp. 441-451
--------- -------- --- Thank You --- -------- --------
-
-
-WARNING: Masses and atomic (Van der Waals) radii will be guessed
-         based on residue and atom names, since they could not be
-         definitively assigned from the information in your input
-         files. These guessed numbers might deviate from the mass
-         and radius of the atom type. Please check the output
-         files if necessary.
-
-NOTE: From version 5.0 gmx insert-molecules uses the Van der Waals radii
-from the source below. This means the results may be different
-compared to previous GROMACS versions.
-
-++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-A. Bondi
-van der Waals Volumes and Radii
-J. Phys. Chem. 68 (1964) pp. 441-451
--------- -------- --- Thank You --- -------- --------
-
-
-WARNING: Masses and atomic (Van der Waals) radii will be guessed
-         based on residue and atom names, since they could not be
-         definitively assigned from the information in your input
-         files. These guessed numbers might deviate from the mass
-         and radius of the atom type. Please check the output
-         files if necessary.
-
-NOTE: From version 5.0 gmx insert-molecules uses the Van der Waals radii
-from the source below. This means the results may be different
-compared to previous GROMACS versions.
-
-++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-A. Bondi
-van der Waals Volumes and Radii
-J. Phys. Chem. 68 (1964) pp. 441-451
--------- -------- --- Thank You --- -------- --------
-
-
-WARNING: Masses and atomic (Van der Waals) radii will be guessed
-         based on residue and atom names, since they could not be
-         definitively assigned from the information in your input
-         files. These guessed numbers might deviate from the mass
-         and radius of the atom type. Please check the output
-         files if necessary.
-
-NOTE: From version 5.0 gmx insert-molecules uses the Van der Waals radii
-from the source below. This means the results may be different
-compared to previous GROMACS versions.
-
-++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-A. Bondi
-van der Waals Volumes and Radii
-J. Phys. Chem. 68 (1964) pp. 441-451
--------- -------- --- Thank You --- -------- --------
-
-
-WARNING: Masses and atomic (Van der Waals) radii will be guessed
-         based on residue and atom names, since they could not be
-         definitively assigned from the information in your input
-         files. These guessed numbers might deviate from the mass
-         and radius of the atom type. Please check the output
-         files if necessary.
-
-NOTE: From version 5.0 gmx insert-molecules uses the Van der Waals radii
-from the source below. This means the results may be different
-compared to previous GROMACS versions.
-
-++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-A. Bondi
-van der Waals Volumes and Radii
-J. Phys. Chem. 68 (1964) pp. 441-451
--------- -------- --- Thank You --- -------- --------
-
-
-WARNING: Masses and atomic (Van der Waals) radii will be guessed
-         based on residue and atom names, since they could not be
-         definitively assigned from the information in your input
-         files. These guessed numbers might deviate from the mass
-         and radius of the atom type. Please check the output
-         files if necessary.
-
-NOTE: From version 5.0 gmx insert-molecules uses the Van der Waals radii
-from the source below. This means the results may be different
-compared to previous GROMACS versions.
-
-++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-A. Bondi
-van der Waals Volumes and Radii
-J. Phys. Chem. 68 (1964) pp. 441-451
--------- -------- --- Thank You --- -------- --------
-
-
-Back Off! I just backed up water.gro to ./#water.gro.2#
-
-Output configuration contains 256 atoms in 64 residues
-
-Back Off! I just backed up water.gro to ./#water.gro.6#
-
-Output configuration contains 256 atoms in 64 residues
-
-Back Off! I just backed up water.gro to ./#water.gro.7#
-
-Output configuration contains 256 atoms in 64 residues
-
-Back Off! I just backed up water.gro to ./#water.gro.6#
-
-Output configuration contains 256 atoms in 64 residues
-
-Back Off! I just backed up water.gro to ./#water.gro.4#
-
-Output configuration contains 256 atoms in 64 residues
-
-Back Off! I just backed up water.gro to ./#water.gro.2#
-
-Output configuration contains 256 atoms in 64 residues
-
-Output configuration contains 256 atoms in 64 residues
-
-Back Off! I just backed up water.gro to ./#water.gro.3#
-
-Output configuration contains 256 atoms in 64 residues
-
-Back Off! I just backed up water.gro to ./#water.gro.5#
-
-Output configuration contains 256 atoms in 64 residues
