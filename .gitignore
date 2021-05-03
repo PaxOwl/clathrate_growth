@@ -1,5 +1,6 @@
 gromacs/initial_box/production_results/dump_traj
 python/dump_traj
+python/trimmed_data
 docs/
 figures/
 latex/

@@ -11,4 +11,4 @@ mols = compute_molecules(nrows, atoms, filename)
 
 
 if __name__ == "__main__":
-    print(len(mols))
+    trajectories_processing(atoms)

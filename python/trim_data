@@ -1,0 +1,3 @@
+#! /usr/bin/bash
+
+cat $1 | grep -E " x\[" | grep -oP "{(.*)}" | sed "s/[{}]//g" | sed "s/\s//g"

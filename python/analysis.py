@@ -1,8 +1,8 @@
 """
 This file sets-up and arranges the data to be used
 """
+import time
 import numpy as np
-import pandas as pd
 from classes import Atom, Molecule
 
 
@@ -136,3 +136,54 @@ def print_mol(mol: Molecule):
           atoms_x.rstrip() + '\n' +
           atoms_y.rstrip() + '\n' +
           atoms_z.rstrip())
+
+def trajectories_processing(atoms: np.ndarray):
+
+    # t = [time.time()]
+    # with open('dump_traj') as file:
+    #     for lines, l in enumerate(file):
+    #         print(lines)
+    #     lines += 1
+    # t.append(time.time())
+    # print("Lines counted in {:.3f} seconds".format(t[1] - t[0]))
+
+    # Initiates the trajectory
+    for i in range(atoms.size):
+        atoms[i].x_traj = np.zeros(atoms.size, dtype=np.float32)
+        atoms[i].y_traj = np.zeros(atoms.size, dtype=np.float32)
+        atoms[i].z_traj = np.zeros(atoms.size, dtype=np.float32)
+
+    current_line = 1
+    step = 0
+    while True:
+
+        # Loads data
+        data_str = np.loadtxt('dump_traj', delimiter=',', dtype=str,
+                              skiprows=(7 * (step + 1) + atoms.size * step),
+                              max_rows=atoms.size)
+        data = np.zeros((atoms.size, 3), dtype=np.float32)
+
+        print("Loading data done")
+        print(np.char.strip(data_str[:, 0], ''))
+        print(np.char.strip(data_str[:, 1], ' '))
+        print(np.char.strip(data_str[:, 2], ' }'))
+        # Truncates data and converts it to floats
+        for i in range(data_str.size // 3):
+            data_str[i, 0] = data_str[i, 0][17:]
+            data_str[i, 1] = data_str[i, 1][2:]
+            data_str[i, 2] = data_str[i, 2][2:-1]
+        data[:, 0] = data_str[:, 0].astype(np.float32)
+        data[:, 1] = data_str[:, 1].astype(np.float32)
+        data[:, 2] = data_str[:, 2].astype(np.float32)
+
+        # Loads the positions in the Atoms
+        for i in range(atoms.size):
+            atoms[i].x_traj[step] = data[i, 0]
+            atoms[i].y_traj[step] = data[i, 1]
+            atoms[i].z_traj[step] = data[i, 2]
+
+        step += 1
+        t[2] = time.time()
+        if step > 2:
+            break
+    pass
