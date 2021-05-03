@@ -1,5 +1,5 @@
 gromacs/initial_box/production_results/dump_traj
-gromacs/initial_box/production_results/traj.trr
+python/dump_traj
 docs/
 figures/
 latex/

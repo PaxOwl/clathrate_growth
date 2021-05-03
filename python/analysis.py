@@ -2,6 +2,7 @@
 This file sets-up and arranges the data to be used
 """
 import numpy as np
+import pandas as pd
 from classes import Atom, Molecule
 
 
