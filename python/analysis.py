@@ -4,6 +4,7 @@ This file sets-up and arranges the data to be used
 import time
 import numpy as np
 from classes import Atom, Molecule
+from parameters import radius
 
 
 def count_atoms(file: str = "conf.gro") -> int:
@@ -43,7 +44,7 @@ def load_atoms(nrow: int, file: str = "conf.gro") -> np.ndarray:
 
 def compute_molecules(nrow: int,
                       atoms_list: np.ndarray,
-                      file: str = "conf.gro") -> np.ndarray:
+                      file: str = "conf.gro") -> dict:
     """
     Reads the first column of a given .gro file containing the names of the
     molecules and sorts them in the Molecule dataclass along with the
@@ -56,7 +57,9 @@ def compute_molecules(nrow: int,
     mol = np.loadtxt(file, skiprows=2, usecols=0, max_rows=nrow,
                      dtype=str)
 
-    mols_list = []
+    met_list = []
+    wat_list = []
+    mols_dic = {}
 
     counter = 0
     wat_count = 1
@@ -64,7 +67,7 @@ def compute_molecules(nrow: int,
 
     while True:
         if "SOL" in mol[counter]:
-            mols_list.append(Molecule("WAT-" + "{:0>4}".format(wat_count),
+            wat_list.append(Molecule("WAT-" + "{:0>4}".format(wat_count),
                                       counter // 4,
                                       (atoms_list[counter],
                                        atoms_list[counter + 1],
@@ -74,7 +77,7 @@ def compute_molecules(nrow: int,
             counter += 4
 
         elif "CH4" in mol[counter]:
-            mols_list.append(Molecule("MET-" + "{:0>4}".format(met_count),
+            met_list.append(Molecule("MET-" + "{:0>4}".format(met_count),
                                       counter // 4,
                                       (atoms_list[counter],
                                        atoms_list[counter + 1],
@@ -87,7 +90,10 @@ def compute_molecules(nrow: int,
         if counter + 4 >= nrow:
             break
 
-    return np.array(mols_list, dtype=Molecule)
+    mols_dic['MET'] = met_list
+    mols_dic['WAT'] = wat_list
+
+    return mols_dic
 
 
 def print_atom(atom: Atom):
@@ -137,53 +143,48 @@ def print_mol(mol: Molecule):
           atoms_y.rstrip() + '\n' +
           atoms_z.rstrip())
 
-def trajectories_processing(atoms: np.ndarray):
+def load_frame(atoms: np.ndarray, frame):
 
-    # t = [time.time()]
-    # with open('dump_traj') as file:
-    #     for lines, l in enumerate(file):
-    #         print(lines)
-    #     lines += 1
-    # t.append(time.time())
-    # print("Lines counted in {:.3f} seconds".format(t[1] - t[0]))
+    # Loads data
+    data = np.loadtxt('trimmed_data', delimiter=',', dtype=np.float32,
+                      skiprows=atoms.size * frame,
+                      max_rows=atoms.size)
 
-    # Initiates the trajectory
+    # Loads the positions in the Atoms
     for i in range(atoms.size):
-        atoms[i].x_traj = np.zeros(atoms.size, dtype=np.float32)
-        atoms[i].y_traj = np.zeros(atoms.size, dtype=np.float32)
-        atoms[i].z_traj = np.zeros(atoms.size, dtype=np.float32)
+        atoms[i].x = data[i, 0]
+        atoms[i].y = data[i, 1]
+        atoms[i].z = data[i, 2]
 
-    current_line = 1
-    step = 0
-    while True:
-
-        # Loads data
-        data_str = np.loadtxt('dump_traj', delimiter=',', dtype=str,
-                              skiprows=(7 * (step + 1) + atoms.size * step),
-                              max_rows=atoms.size)
-        data = np.zeros((atoms.size, 3), dtype=np.float32)
-
-        print("Loading data done")
-        print(np.char.strip(data_str[:, 0], ''))
-        print(np.char.strip(data_str[:, 1], ' '))
-        print(np.char.strip(data_str[:, 2], ' }'))
-        # Truncates data and converts it to floats
-        for i in range(data_str.size // 3):
-            data_str[i, 0] = data_str[i, 0][17:]
-            data_str[i, 1] = data_str[i, 1][2:]
-            data_str[i, 2] = data_str[i, 2][2:-1]
-        data[:, 0] = data_str[:, 0].astype(np.float32)
-        data[:, 1] = data_str[:, 1].astype(np.float32)
-        data[:, 2] = data_str[:, 2].astype(np.float32)
-
-        # Loads the positions in the Atoms
-        for i in range(atoms.size):
-            atoms[i].x_traj[step] = data[i, 0]
-            atoms[i].y_traj[step] = data[i, 1]
-            atoms[i].z_traj[step] = data[i, 2]
-
-        step += 1
-        t[2] = time.time()
-        if step > 2:
-            break
     pass
+
+def compute_rdf(mols: dict, frame: int, met_rdf: dict):
+
+    t_init = time.time()
+    for met in mols['MET']:
+        t0 = time.time()
+        met_rdf[met.name] = []
+        met_rdf[met.name + "-dst"] = []
+        for wat in mols['WAT']:
+            dst0 = np.sqrt((wat.contains[0].x - met.contains[0].x) ** 2
+                           + (wat.contains[0].y - met.contains[0].y) ** 2
+                           + (wat.contains[0].z - met.contains[0].z) ** 2)
+            dst1 = np.sqrt((wat.contains[1].x - met.contains[0].x) ** 2
+                           + (wat.contains[1].y - met.contains[0].y) ** 2
+                           + (wat.contains[1].z - met.contains[0].z) ** 2)
+            dst2 = np.sqrt((wat.contains[2].x - met.contains[0].x) ** 2
+                           + (wat.contains[2].y - met.contains[0].y) ** 2
+                           + (wat.contains[2].z - met.contains[0].z) ** 2)
+            dst3 = np.sqrt((wat.contains[3].x - met.contains[0].x) ** 2
+                           + (wat.contains[3].y - met.contains[0].y) ** 2
+                           + (wat.contains[3].z - met.contains[0].z) ** 2)
+            if (dst0 and dst1 and dst2 and dst3) < radius:
+                met_rdf[met.name].append(wat)
+                met_rdf[met.name + "-dst"].append(dst1)
+        t1 = time.time()
+        print("{:0>2} neighbors in the vicinity of {},"
+              " computed in {:.3f} seconds"
+              .format(len(met_rdf[met.name]), met.name, t1 - t0))
+    t_end = time.time()
+    print("All neighbors computed in {:.3f} seconds".format(t_end - t_init))
+    return met_rdf
