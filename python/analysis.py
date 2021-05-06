@@ -3,6 +3,7 @@ This file sets-up and arranges the data to be used
 """
 import time
 import numpy as np
+from scipy.spatial import cKDTree
 from classes import Atom, Molecule
 from parameters import radius
 
@@ -68,22 +69,22 @@ def compute_molecules(nrow: int,
     while True:
         if "SOL" in mol[counter]:
             wat_list.append(Molecule("WAT-" + "{:0>4}".format(wat_count),
-                                      counter // 4,
-                                      (atoms_list[counter],
-                                       atoms_list[counter + 1],
-                                       atoms_list[counter + 2],
-                                       atoms_list[counter + 3])))
+                                     counter // 4,
+                                     (atoms_list[counter],
+                                      atoms_list[counter + 1],
+                                      atoms_list[counter + 2],
+                                      atoms_list[counter + 3])))
             wat_count += 1
             counter += 4
 
         elif "CH4" in mol[counter]:
             met_list.append(Molecule("MET-" + "{:0>4}".format(met_count),
-                                      counter // 4,
-                                      (atoms_list[counter],
-                                       atoms_list[counter + 1],
-                                       atoms_list[counter + 2],
-                                       atoms_list[counter + 3],
-                                       atoms_list[counter + 4],)))
+                                     counter // 4,
+                                     (atoms_list[counter],
+                                      atoms_list[counter + 1],
+                                      atoms_list[counter + 2],
+                                      atoms_list[counter + 3],
+                                      atoms_list[counter + 4],)))
             met_count += 1
             counter += 5
 
@@ -158,7 +159,49 @@ def load_frame(atoms: np.ndarray, frame):
 
     pass
 
-def compute_rdf(mols: dict, frame: int, met_rdf: dict):
+def compute_aop(atoms: np.ndarray):
+    oxygen = []
+    neighbors = []
+    angles = []
+
+    # Counts the oxygen atoms
+    for a in atoms:
+        if 'OW' in a.name:
+            oxygen.append(a)
+
+    # Iterates on all the oxygen atoms
+    for ox in oxygen:
+        center = [ox.x, ox.y, ox.z]
+        others = []
+
+        # Stores all the atoms except the center
+        for outer in oxygen:
+            if outer.id != ox.id:
+                others.append([outer.x, outer.y, outer.z])
+
+        # Computes and stores its closest neighbours (r <= 0.35 nm)
+        tree = cKDTree(others)
+        count = tree.query_ball_point(center, r=0.35)
+        positions = []
+        for i in count:
+            positions.append(others[i])
+        neighbors.append((center, positions))
+        print("Added neighbours for oxygen {}".format(ox.id))
+
+        # Computes the angles
+        while True:
+            for i in range(len(positions)):
+                v1 = (center[0] - positions[i][0],
+                      center[1] - positions[i][1],
+                      center[2] - positions[i][2])
+                v1 = (center[0] - positions[i + 1][0],
+                      center[1] - positions[i + 1][1],
+                      center[2] - positions[i + 1][2])
+
+    return None
+
+
+def compute_rdf(mols: dict, met_rdf: dict):
 
     t_init = time.time()
     for met in mols['MET']:
