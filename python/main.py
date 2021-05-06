@@ -14,5 +14,6 @@ frame = 0
 
 if __name__ == "__main__":
     load_frame(atoms, frame)
-    compute_aop(atoms)
+    aop = compute_aop(atoms)
+    save_aop(aop)
     # compute_rdf(mols, frame, met_rdf)

@@ -162,7 +162,7 @@ def load_frame(atoms: np.ndarray, frame):
 def compute_aop(atoms: np.ndarray):
     oxygen = []
     neighbors = []
-    angles = []
+    atoms_aop = []
 
     # Counts the oxygen atoms
     for a in atoms:
@@ -189,16 +189,59 @@ def compute_aop(atoms: np.ndarray):
         print("Added neighbours for oxygen {}".format(ox.id))
 
         # Computes the angles
+        angles = []
         while True:
-            for i in range(len(positions)):
-                v1 = (center[0] - positions[i][0],
-                      center[1] - positions[i][1],
-                      center[2] - positions[i][2])
-                v1 = (center[0] - positions[i + 1][0],
+            for i in range(len(positions) - 1):
+                v1 = (center[0] - positions[0][0],
+                      center[1] - positions[0][1],
+                      center[2] - positions[0][2])
+                v2 = (center[0] - positions[i + 1][0],
                       center[1] - positions[i + 1][1],
                       center[2] - positions[i + 1][2])
+                theta = np.arccos(np.dot(v1, v2)
+                                  / (np.linalg.norm(v1) * np.linalg.norm(v2)))
+                angles.append(theta)
 
-    return None
+            positions = positions[1:]
+
+            if len(positions) <= 1:
+                break
+        print("Computed angles for oxygen {}".format(ox.id))
+
+        # Computes the AOP for the oxygen
+        aop = 0
+        for i in range(len(angles)):
+            aop += (np.abs(np.cos(angles[i]))
+                    * np.cos(angles[i])
+                    + np.cos(np.radians(109.47)) ** 2) ** 2
+
+        print("Computed aop for oxygen {}".format(ox.id))
+        atoms_aop.append((ox, aop))
+
+    return atoms_aop
+
+def save_aop(atoms_aop: list):
+    output = []
+    output_moy = []
+    for i in atoms_aop:
+        output.append((i[0].x, i[1]))
+
+    output_moy.append(((atoms_aop[0][0].x + atoms_aop[1][0].x) / 2,
+                      atoms_aop[0][1]))
+    for i in range(len(atoms_aop) - 1):
+        output_moy.append(((atoms_aop[i - 1][0].x
+                            + atoms_aop[i][0].x
+                            + atoms_aop[i + 1][0].x) / 3, atoms_aop[i][1]))
+    output_moy.append(((atoms_aop[len(atoms_aop) - 2][0].x
+                       + atoms_aop[len(atoms_aop) - 1][0].x) / 2,
+                      atoms_aop[len(atoms_aop) - 1][1]))
+
+    dtype = [('x', float), ('aop', float)]
+    output = np.array(output, dtype=dtype)
+    output = np.sort(output, order='x')
+    output_moy = np.array(output_moy, dtype=dtype)
+    output_moy = np.sort(output_moy, order='x')
+    np.savetxt('aop.dat', output_moy)
 
 
 def compute_rdf(mols: dict, met_rdf: dict):
