@@ -6,7 +6,8 @@ from classes import PrettyPrint
 
 
 print("------------------ DUMPED DATA ------------------")
-print("Dumped {} molecules, {} WATER and {} METHANE".format(len(mols),
+print("Dumped {} molecules, {} WATER and {} METHANE".format(len(mols['WAT'])
+                                                            + len(mols['MET']),
                                                             len(mols['WAT']),
                                                             len(mols['MET'])))
 print("-------------------------------------------------\n")

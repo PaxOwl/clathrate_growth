@@ -40,7 +40,7 @@ def load_atoms(nrow: int, file: str = "conf.gro") -> dict:
                   'OW': [], 'HW1': [], 'HW2': [], 'MW': []}
 
     for i in range(nrow):
-        atoms_list.append(Atom(names[i], ids[i] - 1, x[i], y[i], z[i]))
+        atoms_list.append(Atom(names[i], int(ids[i]) - 1, x[i], y[i], z[i]))
 
     for i in atoms_list:
         if i.name == 'C':
@@ -82,7 +82,7 @@ def compute_molecules(nrow: int,
 
     met_list = []
     wat_list = []
-    mols_dic = {}
+    mols_dict = {}
 
     counter = {'C': 0, 'H1': 0, 'H2': 0, 'H3': 0, 'H4': 0,
                'OW': 0, 'HW1': 0, 'HW2': 0, 'MW': 0}
@@ -90,35 +90,41 @@ def compute_molecules(nrow: int,
     met_count = 0
 
     while True:
-        if "SOL" in mol[counter]:
+        if "SOL" in mol[sum(counter.values())]:
             wat_list.append(Molecule("WAT-" + "{:0>4}".format(wat_count),
-                                     counter // 4,
-                                     (atoms_dict[counter],
-                                      atoms_dict[counter + 1],
-                                      atoms_dict[counter + 2],
-                                      atoms_dict[counter + 3])))
+                                     wat_count + met_count,
+                                     (atoms_dict['OW'][wat_count],
+                                      atoms_dict['HW1'][wat_count],
+                                      atoms_dict['HW2'][wat_count],
+                                      atoms_dict['MW'][wat_count])))
             wat_count += 1
-            counter += 4
+            counter['OW'] += 1
+            counter['HW1'] += 1
+            counter['HW2'] += 1
+            counter['MW'] += 1
 
-        elif "CH4" in mol[counter]:
+        elif "CH4" in mol[sum(counter.values())]:
             met_list.append(Molecule("MET-" + "{:0>4}".format(met_count),
-                                     counter // 4,
-                                     (atoms_dict[counter],
-                                      atoms_dict[counter + 1],
-                                      atoms_dict[counter + 2],
-                                      atoms_dict[counter + 3],
-                                      atoms_dict[counter + 4],)))
+                                     wat_count + met_count,
+                                     (atoms_dict['C'][met_count],
+                                      atoms_dict['H1'][met_count],
+                                      atoms_dict['H2'][met_count],
+                                      atoms_dict['H3'][met_count],
+                                      atoms_dict['H4'][met_count],)))
             met_count += 1
-            counter += 5
+            counter['C'] += 1
+            counter['H1'] += 1
+            counter['H2'] += 1
+            counter['H3'] += 1
+            counter['H4'] += 1
 
-        if counter + 4 >= nrow:
+        if sum(counter.values()) >= nrow:
             break
 
-    mols_dic['WAT'] = wat_list
-    mols_dic['MET'] = met_list
+    mols_dict['WAT'] = wat_list
+    mols_dict['MET'] = met_list
 
-
-    return mols_dic
+    return mols_dict
 
 
 def load_frame(atoms: np.ndarray, frame):
