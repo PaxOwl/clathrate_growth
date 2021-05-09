@@ -38,7 +38,7 @@ def load_atoms(nrow: int, file: str = "conf.gro") -> np.ndarray:
     atoms_list = []
 
     for i in range(nrow):
-        atoms_list.append(Atom(names[i], ids[i], x[i], y[i], z[i]))
+        atoms_list.append(Atom(names[i], int(ids[i]) - 1, x[i], y[i], z[i]))
 
     return np.array(atoms_list, dtype=Atom)
 
@@ -63,8 +63,8 @@ def compute_molecules(nrow: int,
     mols_dic = {}
 
     counter = 0
-    wat_count = 1
-    met_count = 1
+    wat_count = 0
+    met_count = 0
 
     while True:
         if "SOL" in mol[counter]:
