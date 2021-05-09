@@ -40,7 +40,7 @@ def load_atoms(nrow: int, file: str = "conf.gro") -> dict:
                   'OW': [], 'HW1': [], 'HW2': [], 'MW': []}
 
     for i in range(nrow):
-        atoms_list.append(Atom(names[i], ids[i], x[i], y[i], z[i]))
+        atoms_list.append(Atom(names[i], ids[i] - 1, x[i], y[i], z[i]))
 
     for i in atoms_list:
         if i.name == 'C':
@@ -86,8 +86,8 @@ def compute_molecules(nrow: int,
 
     counter = {'C': 0, 'H1': 0, 'H2': 0, 'H3': 0, 'H4': 0,
                'OW': 0, 'HW1': 0, 'HW2': 0, 'MW': 0}
-    wat_count = 1
-    met_count = 1
+    wat_count = 0
+    met_count = 0
 
     while True:
         if "SOL" in mol[counter]:
