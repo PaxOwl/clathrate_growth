@@ -91,8 +91,8 @@ def compute_molecules(nrow: int,
         if counter + 4 >= nrow:
             break
 
-    mols_dic['MET'] = met_list
     mols_dic['WAT'] = wat_list
+    mols_dic['MET'] = met_list
 
     return mols_dic
 
