@@ -62,6 +62,9 @@ def load_atoms(nrow: int, file: str = "conf.gro") -> dict:
         elif i.name == 'MW':
             atoms_dict['MW'].append(i)
 
+    for i in atoms_dict.keys():
+        atoms_dict[i] = np.array(atoms_dict[i], dtype=Atom)
+
     return atoms_dict
 
 
@@ -120,6 +123,9 @@ def compute_molecules(nrow: int,
 
         if sum(counter.values()) >= nrow:
             break
+
+    wat_list = np.array(wat_list, dtype=Molecule)
+    met_list = np.array(met_list, dtype=Molecule)
 
     mols_dict['WAT'] = wat_list
     mols_dict['MET'] = met_list
