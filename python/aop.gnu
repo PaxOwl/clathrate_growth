@@ -7,5 +7,5 @@ set key opaque
 set xlabel "x (nm)"
 set ylabel "aop"
 plot\
-    "aop.dat" u 1:2 w l t "aop",\
+    "aop_moy.dat" u 1:2 w l t "aop",\
     

@@ -3,6 +3,7 @@ This file sets-up and arranges the data to be used
 """
 import time
 import numpy as np
+import pandas as pd
 from scipy.spatial import cKDTree
 from classes import Atom, Molecule
 from parameters import radius
@@ -19,7 +20,7 @@ def count_atoms(file: str = "conf.gro") -> int:
     return int(nrow)
 
 
-def load_atoms(nrow: int, file: str = "conf.gro") -> dict:
+def load_atoms(nrow: int, file: str = "conf.gro") -> pd.DataFrame:
     """
     Reads all the atoms and their coordinates in a given .gro file, then sorts
     them in the Atom dataclass
@@ -27,176 +28,90 @@ def load_atoms(nrow: int, file: str = "conf.gro") -> dict:
     :param file: str, name of the file to read (conf.gro by default)
     :return: a ndarray containing all the Atom dataclasses
     """
-    names = np.loadtxt(file, skiprows=2, usecols=1, max_rows=nrow,
-                       dtype=str)
-    ids = np.loadtxt(file, skiprows=2, usecols=2, max_rows=nrow,
-                     dtype=str)
-    x = np.loadtxt(file, skiprows=2, usecols=3, max_rows=nrow)
-    y = np.loadtxt(file, skiprows=2, usecols=4, max_rows=nrow)
-    z = np.loadtxt(file, skiprows=2, usecols=5, max_rows=nrow)
 
-    atoms_list = []
-    atoms_dict = {'C': [], 'H1': [], 'H2': [], 'H3': [], 'H4': [],
-                  'OW': [], 'HW1': [], 'HW2': [], 'MW': []}
+    data = pd.read_csv(file, sep=' ', nrows=nrow,
+                       names=['mol', 'atom', 'x', 'y', 'z'],
+                       usecols=[0, 1, 3, 4, 5], skiprows=[0, 1],
+                       dtype={'mol': str, 'atom': str,
+                              'x': np.float32,
+                              'y': np.float32,
+                              'z': np.float32})
 
-    for i in range(nrow):
-        atoms_list.append(Atom(names[i], int(ids[i]) - 1, x[i], y[i], z[i]))
-
-    for i in atoms_list:
-        if i.name == 'C':
-            atoms_dict['C'].append(i)
-        elif i.name == 'H1':
-            atoms_dict['H1'].append(i)
-        elif i.name == 'H2':
-            atoms_dict['H2'].append(i)
-        elif i.name == 'H3':
-            atoms_dict['H3'].append(i)
-        elif i.name == 'H4':
-            atoms_dict['H4'].append(i)
-        elif i.name == 'OW':
-            atoms_dict['OW'].append(i)
-        elif i.name == 'HW1':
-            atoms_dict['HW1'].append(i)
-        elif i.name == 'HW2':
-            atoms_dict['HW2'].append(i)
-        elif i.name == 'MW':
-            atoms_dict['MW'].append(i)
-
-    for i in atoms_dict.keys():
-        atoms_dict[i] = np.array(atoms_dict[i], dtype=Atom)
-
-    return atoms_dict
+    return data
 
 
-def compute_molecules(nrow: int,
-                      atoms_dict: dict,
-                      file: str = "conf.gro") -> dict:
-    """
-    Reads the first column of a given .gro file containing the names of the
-    molecules and sorts them in the Molecule dataclass along with the
-    corresponding Atoms
-    :param nrow: int, number of atoms contained in the file
-    :param atoms_dict: np.ndarray, contains the Atoms to be sorted in Molecules
-    :param file: str, name of the file to read (conf.gro by default)
-    :return: a ndarray containing the Molecule dataclasses
-    """
-    mol = np.loadtxt(file, skiprows=2, usecols=0, max_rows=nrow,
-                     dtype=str)
-
-    met_list = []
-    wat_list = []
-    mols_dict = {}
-
-    counter = {'C': 0, 'H1': 0, 'H2': 0, 'H3': 0, 'H4': 0,
-               'OW': 0, 'HW1': 0, 'HW2': 0, 'MW': 0}
-    wat_count = 0
-    met_count = 0
-
-    while True:
-        if "SOL" in mol[sum(counter.values())]:
-            wat_list.append(Molecule("WAT-" + "{:0>4}".format(wat_count),
-                                     wat_count + met_count,
-                                     (atoms_dict['OW'][wat_count],
-                                      atoms_dict['HW1'][wat_count],
-                                      atoms_dict['HW2'][wat_count],
-                                      atoms_dict['MW'][wat_count])))
-            wat_count += 1
-            counter['OW'] += 1
-            counter['HW1'] += 1
-            counter['HW2'] += 1
-            counter['MW'] += 1
-
-        elif "CH4" in mol[sum(counter.values())]:
-            met_list.append(Molecule("MET-" + "{:0>4}".format(met_count),
-                                     wat_count + met_count,
-                                     (atoms_dict['C'][met_count],
-                                      atoms_dict['H1'][met_count],
-                                      atoms_dict['H2'][met_count],
-                                      atoms_dict['H3'][met_count],
-                                      atoms_dict['H4'][met_count],)))
-            met_count += 1
-            counter['C'] += 1
-            counter['H1'] += 1
-            counter['H2'] += 1
-            counter['H3'] += 1
-            counter['H4'] += 1
-
-        if sum(counter.values()) >= nrow:
-            break
-
-    wat_list = np.array(wat_list, dtype=Molecule)
-    met_list = np.array(met_list, dtype=Molecule)
-
-    mols_dict['WAT'] = wat_list
-    mols_dict['MET'] = met_list
-
-    return mols_dict
-
-
-def load_frame(atoms: np.ndarray, frame):
+def load_frame(file: str, atoms: pd.DataFrame, frame: int, nrow: int):
 
     # Loads data
-    data = np.loadtxt('trimmed_data', delimiter=',', dtype=np.float32,
-                      skiprows=atoms.size * frame,
-                      max_rows=atoms.size)
+    data = pd.read_csv(file, nrows=nrow, names=['x', 'y', 'z'],
+                       dtype={'x': np.float32,
+                              'y': np.float32,
+                              'z': np.float32})
 
-    # Loads the positions in the Atoms
-    for i in range(atoms.size):
-        atoms[i].x = data[i, 0]
-        atoms[i].y = data[i, 1]
-        atoms[i].z = data[i, 2]
+    # Replaces the old data with the positions from the loaded frame
+    atoms.x = data.x
+    atoms.y = data.y
+    atoms.z = data.z
 
-    return None
+    return atoms
 
 
-def compute_aop(atoms: np.ndarray):
-    oxygen = []
-    neighbors = []
+# noinspection PyArgumentList
+def compute_aop(data: pd.DataFrame):
+
+    # Selects oxygen data
+    oxygen = data[data.atom == 'OW']
     atoms_aop = []
 
-    # Counts the oxygen atoms
-    for a in atoms:
-        if 'OW' in a.name:
-            oxygen.append(a)
+    # Creates an array with the positions alone and initiates a cKDTree
+    # for nearest neighbours search
+    positions = np.zeros((len(oxygen), 3), dtype=np.float32)
+    positions[:, 0] = oxygen.x
+    positions[:, 1] = oxygen.y
+    positions[:, 2] = oxygen.z
+    tree = cKDTree(positions)
 
     # Iterates on all the oxygen atoms
-    for ox in oxygen:
-        center = [ox.x, ox.y, ox.z]
-        others = []
+    for _, ox in oxygen.iterrows():
 
-        # Stores all the atoms except the center
-        for outer in oxygen:
-            if outer.id != ox.id:
-                others.append([outer.x, outer.y, outer.z])
+        # Retrieves the oxygen to use as the center
+        center = (ox.x, ox.y, ox.z)
 
-        # Computes and stores its closest neighbours (r <= 0.35 nm)
-        tree = cKDTree(others)
-        count = tree.query_ball_point(center, r=0.35)
-        positions = []
-        for i in count:
-            positions.append(others[i])
-        neighbors.append((center, positions))
-        print("Added neighbours for oxygen {}".format(ox.id))
+        # Computes and stores its closest neighbours indices (r <= 0.35 nm)
+        neighbours = tree.query_ball_point(center, r=0.35)
+        neighbours.remove(int(ox.mol.replace("SOL", '')) - 1)
+        neigh_pos = []
 
-        # Computes the angles
+        # Retrieves positions of the nearest neighbours
+        for i in neighbours:
+            oxy_temp = oxygen[oxygen['mol'] == str(i + 1) + 'SOL']
+            neigh_pos.append((oxy_temp.x.to_numpy()[0],
+                              oxy_temp.y.to_numpy()[0],
+                              oxy_temp.z.to_numpy()[0]))
+
+        neigh_pos = np.array(neigh_pos, dtype=np.float32)
+
+        # Computes the angles between the central oxygen and any other pair of
+        # oxygen atoms within the range of the nearest neighbours
         angles = []
         while True:
-            for i in range(len(positions) - 1):
-                v1 = (center[0] - positions[0][0],
-                      center[1] - positions[0][1],
-                      center[2] - positions[0][2])
-                v2 = (center[0] - positions[i + 1][0],
-                      center[1] - positions[i + 1][1],
-                      center[2] - positions[i + 1][2])
+            for i in range(len(neigh_pos) - 1):
+                v1 = (center[0] - neigh_pos[0][0],
+                      center[1] - neigh_pos[0][1],
+                      center[2] - neigh_pos[0][2])
+                v2 = (center[0] - neigh_pos[i + 1][0],
+                      center[1] - neigh_pos[i + 1][1],
+                      center[2] - neigh_pos[i + 1][2])
                 theta = np.arccos(np.dot(v1, v2)
                                   / (np.linalg.norm(v1) * np.linalg.norm(v2)))
                 angles.append(theta)
 
-            positions = positions[1:]
+            neigh_pos = neigh_pos[1:]
 
-            if len(positions) <= 1:
+            if len(neigh_pos) <= 1:
                 break
-        print("Computed angles for oxygen {}".format(ox.id))
+        print("Computed angles for oxygen "
+              "{}".format(int(ox.mol.replace("SOL", '')) - 1))
 
         # Computes the AOP for the oxygen
         aop = 0
@@ -205,7 +120,8 @@ def compute_aop(atoms: np.ndarray):
                     * np.cos(angles[i])
                     + np.cos(np.radians(109.47)) ** 2) ** 2
 
-        print("Computed aop for oxygen {}".format(ox.id))
+        print("Computed aop for oxygen "
+              "{}".format(int(ox.mol.replace("SOL", '')) - 1))
         atoms_aop.append((ox, aop))
 
     return atoms_aop
