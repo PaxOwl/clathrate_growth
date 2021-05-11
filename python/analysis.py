@@ -5,7 +5,6 @@ import time
 import numpy as np
 import pandas as pd
 from scipy.spatial import cKDTree
-from classes import Atom, Molecule
 from parameters import radius
 
 
