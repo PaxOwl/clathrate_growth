@@ -1,0 +1,2 @@
+#! /bin/bash
+grep -E "box\[" dump_traj | sed -E -e  's/^.*\{//'  -e 's/0.0{5}e\+00//g' -e 's/[ ,}]//g' > box_sizes

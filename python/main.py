@@ -4,11 +4,17 @@ Core part of the program
 """
 from analysis import *
 from parameters import *
+from resampling import sample
+import sys
 
 
 frame = 0
 
 if __name__ == "__main__":
+
+    sample()
+    sys.exit()
+
     # Read the number of atoms (rows)
     nrows = count_atoms(filename)
 
@@ -17,6 +23,9 @@ if __name__ == "__main__":
 
     # Load the data of the selected frame in the DataFrame
     load_frame(trimmed_data, atoms, frame, nrows)
+
+    # Load the size of the box
+    box = load_box(box_file, frame)
 
     # Retrieves only the oxygen atoms
     oxygen = filter_data(atoms, ['OW'])

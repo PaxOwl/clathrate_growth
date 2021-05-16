@@ -56,6 +56,10 @@ def load_frame(file: str, atoms: pd.DataFrame, frame: int, nrow: int):
     return atoms
 
 
+def load_box(file: str, frame: int) -> np.ndarray:
+    return np.loadtxt(file, max_rows=3, skiprows=3 * frame)
+
+
 def filter_data(data: pd.DataFrame, keep: list):
 
     lst = []
@@ -93,76 +97,6 @@ def nearest_neighbours(data: pd.DataFrame, center: pd.Series,
         pass
 
     return neighbours
-
-
-# def compute_aop(data: pd.DataFrame):
-#
-#     # Selects oxygen data
-#     oxygen = data[data.atom == 'OW']
-#     atoms_aop = []
-#
-#     # Creates an array with the positions alone and initiates a cKDTree
-#     # for nearest neighbours search
-#     positions = np.zeros((len(oxygen), 3), dtype=np.float32)
-#     positions[:, 0] = oxygen.x
-#     positions[:, 1] = oxygen.y
-#     positions[:, 2] = oxygen.z
-#     tree = cKDTree(positions)
-#
-#     # Iterates on all the oxygen atoms
-#     for _, ox in oxygen.iterrows():
-#
-#         # Retrieves the oxygen to use as the center
-#         center = (ox.x, ox.y, ox.z)
-#
-#         # Computes and stores its closest neighbours indices (r <= 0.35 nm)
-#         neighbours = tree.query_ball_point(center, r=0.35)
-#         neighbours.remove(int(ox.mol.replace("SOL", '')) - 1)
-#         neigh_pos = []
-#
-#         # Retrieves positions of the nearest neighbours
-#         for i in neighbours:
-#             oxy_temp = oxygen[oxygen['mol'] == str(i + 1) + 'SOL']
-#             neigh_pos.append((oxy_temp.x.to_numpy()[0],
-#                               oxy_temp.y.to_numpy()[0],
-#                               oxy_temp.z.to_numpy()[0]))
-#
-#         neigh_pos = np.array(neigh_pos, dtype=np.float32)
-#
-#         # Computes the angles between the central oxygen and any other pair of
-#         # oxygen atoms within the range of the nearest neighbours
-#         angles = []
-#         while True:
-#             for i in range(len(neigh_pos) - 1):
-#                 v1 = (center[0] - neigh_pos[0][0],
-#                       center[1] - neigh_pos[0][1],
-#                       center[2] - neigh_pos[0][2])
-#                 v2 = (center[0] - neigh_pos[i + 1][0],
-#                       center[1] - neigh_pos[i + 1][1],
-#                       center[2] - neigh_pos[i + 1][2])
-#                 theta = np.arccos(np.dot(v1, v2)
-#                                   / (np.linalg.norm(v1) * np.linalg.norm(v2)))
-#                 angles.append(theta)
-#
-#             neigh_pos = neigh_pos[1:]
-#
-#             if len(neigh_pos) <= 1:
-#                 break
-#         print("Computed angles for oxygen "
-#               "{}".format(int(ox.mol.replace("SOL", '')) - 1))
-#
-#         # Computes the AOP for the oxygen
-#         aop = 0
-#         for i in range(len(angles)):
-#             aop += (np.abs(np.cos(angles[i]))
-#                     * np.cos(angles[i])
-#                     + np.cos(np.radians(109.47)) ** 2) ** 2
-#
-#         print("Computed aop for oxygen "
-#               "{}".format(int(ox.mol.replace("SOL", '')) - 1))
-#         atoms_aop.append((ox, aop))
-#
-#     return atoms_aop
 
 
 def save_aop(atoms_aop: list):
