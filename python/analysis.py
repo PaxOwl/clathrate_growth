@@ -70,27 +70,30 @@ def filter_data(data: pd.DataFrame, keep: list):
     return output.sort_index()
 
 
-def distance(p1: pd.Series, p2: pd.Series) -> float:
+def distance(p1: pd.Series, p2: pd.Series) -> tuple:
     dx = p1.x - p2.x
     dy = p1.y - p2.y
     dz = p1.z - p2.z
 
     dst = np.sqrt(dx ** 2 + dy ** 2 + dz ** 2)
 
-    return dst
+    return dst, (dx, dy, dz)
 
 
 def nearest_neighbours(data: pd.DataFrame, center: pd.Series,
                        radius: float, periodic: bool = False) -> pd.DataFrame:
-    neighbours = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z'])
-    for _, i in data.iterrows():
+    neighbours = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z',
+                                       'x_dst', 'y_dst', 'z_dst'])
+    for index, i in data.iterrows():
         if i.mol == center.mol:
             pass
         else:
-            dst = distance(center, i)
-            print("oui")
+            dst, details = distance(center, i)
             if dst <= radius:
                 neighbours = neighbours.append(i)
+                neighbours.loc[index, 'x_dst'] = details[0]
+                neighbours.loc[index, 'y_dst'] = details[1]
+                neighbours.loc[index, 'z_dst'] = details[2]
                 print('appended')
 
     if periodic:
@@ -98,6 +101,37 @@ def nearest_neighbours(data: pd.DataFrame, center: pd.Series,
 
     return neighbours
 
+
+def compute_aop(center: pd.DataFrame, neighbours: pd.DataFrame):
+
+    # Computes the angles between the central oxygen and any other pair of
+    # oxygen atoms within the range of the nearest neighbours
+    angles = []
+    while True:
+        for i in range(len(neighbours) - 1):
+            v1 = (neighbours.iloc[0].x_dst,
+                  neighbours.iloc[0].y_dst,
+                  neighbours.iloc[0].z_dst)
+            v2 = (neighbours.iloc[i + 1].x_dst,
+                  neighbours.iloc[i + 1].y_dst,
+                  neighbours.iloc[i + 1].z_dst)
+            theta = np.arccos(np.dot(v1, v2)
+                              / (np.linalg.norm(v1) * np.linalg.norm(v2)))
+            angles.append(theta)
+
+        neighbours = neighbours.drop(neighbours.index[0])
+
+        if len(neighbours) <= 1:
+            break
+
+    # Computes the AOP for the oxygen
+    aop = 0
+    for i in range(len(angles)):
+        aop += (np.abs(np.cos(angles[i]))
+                * np.cos(angles[i])
+                + np.cos(np.radians(109.47)) ** 2) ** 2
+
+    return aop
 
 def save_aop(atoms_aop: list):
     output = []

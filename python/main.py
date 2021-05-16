@@ -11,10 +11,6 @@ import sys
 frame = 0
 
 if __name__ == "__main__":
-
-    sample()
-    sys.exit()
-
     # Read the number of atoms (rows)
     nrows = count_atoms(filename)
 
