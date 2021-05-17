@@ -2,10 +2,9 @@
 """
 Core part of the program
 """
+import time
 from analysis import *
 from parameters import *
-from resampling import sample
-import sys
 
 
 frame = 0
@@ -26,11 +25,20 @@ if __name__ == "__main__":
     # Retrieves only the oxygen atoms
     oxygen = filter_data(atoms, ['OW'])
 
-    # Select an atom of oxygen
-    center = oxygen[oxygen.mol == '1SOL'].loc[0]
+    # Initiates the array storing the AOP numbers
+    aop = np.zeros((oxygen.shape[0], 2), dtype=np.float32)
 
-    # Finds the nearest neighbours under a certain distance of a given atom
-    neighbours = nearest_neighbours(oxygen, center, 0.35)
-    aop = compute_aop(center, neighbours)
-    save_aop(aop)
+    t1 = time.time()
+    for i in range(oxygen.shape[0]):
+        # Select an atom of oxygen
+        center = oxygen.iloc[i]
+
+        # Finds the nearest neighbours under a certain distance of a given atom
+        neighbours = nearest_neighbours(oxygen, center, 0.35)
+
+        # Computes the AOP for the selecter atom
+        aop[i, 1] = compute_aop(center, neighbours)
+    t2 = time.time()
+    print("Elapsed time: {:.4f} s".format(t2 - t1))
+    save_aop(aop, oxygen)
     # compute_rdf(mols, frame, met_rdf)

@@ -14,8 +14,12 @@ def sample():
 
     filtered = signal.sosfilt(sos, ynew)
 
-    new_sig = np.array((xnew, filtered), dtype=np.float).transpose()
+    new_sig = np.array((xnew, filtered), dtype=np.float32).transpose()
 
     np.savetxt('rs_aop.dat', new_sig)
 
     return None
+
+
+if __name__ == '__main__':
+    sample()

@@ -94,7 +94,6 @@ def nearest_neighbours(data: pd.DataFrame, center: pd.Series,
                 neighbours.loc[index, 'x_dst'] = details[0]
                 neighbours.loc[index, 'y_dst'] = details[1]
                 neighbours.loc[index, 'z_dst'] = details[2]
-                print('appended')
 
     if periodic:
         pass
@@ -131,31 +130,16 @@ def compute_aop(center: pd.DataFrame, neighbours: pd.DataFrame):
                 * np.cos(angles[i])
                 + np.cos(np.radians(109.47)) ** 2) ** 2
 
+    print("AOP computed for molecule {}".format(center.mol))
+
     return aop
 
-def save_aop(atoms_aop: list):
-    output = []
-    output_moy = []
-    for i in atoms_aop:
-        output.append((i[0].x, i[1]))
+def save_aop(aop: np.ndarray, oxygen: pd.DataFrame):
+    for i in range(aop.shape[0]):
+        aop[i, 0] = oxygen.iloc[i].x
 
-    output_moy.append(((atoms_aop[0][0].x + atoms_aop[1][0].x) / 2,
-                      atoms_aop[0][1]))
-    for i in range(len(atoms_aop) - 1):
-        output_moy.append(((atoms_aop[i - 1][0].x
-                            + atoms_aop[i][0].x
-                            + atoms_aop[i + 1][0].x) / 3, atoms_aop[i][1]))
-    output_moy.append(((atoms_aop[len(atoms_aop) - 2][0].x
-                       + atoms_aop[len(atoms_aop) - 1][0].x) / 2,
-                      atoms_aop[len(atoms_aop) - 1][1]))
-
-    dtype = [('x', float), ('aop', float)]
-    output = np.array(output, dtype=dtype)
-    output = np.sort(output, order='x')
-    output_moy = np.array(output_moy, dtype=dtype)
-    output_moy = np.sort(output_moy, order='x')
-    np.savetxt('aop.dat', output)
-    np.savetxt('aop_moy.dat', output_moy)
+    aop = aop[aop[:, 0].argsort()]
+    np.savetxt('aop.dat', aop)
 
 
 def compute_rdf(mols: dict, met_rdf: dict):

@@ -8,5 +8,6 @@ set xrange [0:10]
 set xlabel "x (nm)"
 set ylabel "aop"
 plot\
-    "rs_aop.dat" u 1:2 w l t "resampled aop",\
+    "aop.dat" u 1:2 w l t "original aop",\
+    "rs_aop.dat" u 1:2 w l lw 2 t "resampled aop",\
     
