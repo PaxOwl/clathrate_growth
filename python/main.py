@@ -34,11 +34,11 @@ if __name__ == "__main__":
         center = oxygen.iloc[i]
 
         # Finds the nearest neighbours under a certain distance of a given atom
-        neighbours = nearest_neighbours(oxygen, center, 0.35)
+        neighbours = nearest_neighbours(oxygen, center, 0.35, box, periodic)
 
         # Computes the AOP for the selecter atom
         aop[i, 1] = compute_aop(center, neighbours)
     t2 = time.time()
     print("Elapsed time: {:.4f} s".format(t2 - t1))
-    save_aop(aop, oxygen)
+    save_aop(aop, oxygen, periodic)
     # compute_rdf(mols, frame, met_rdf)

@@ -70,33 +70,39 @@ def filter_data(data: pd.DataFrame, keep: list):
     return output.sort_index()
 
 
-def distance(p1: pd.Series, p2: pd.Series) -> tuple:
+def distance(p1: pd.Series, p2: pd.Series, box: np.ndarray,
+             periodic: bool) -> tuple:
     dx = p1.x - p2.x
     dy = p1.y - p2.y
     dz = p1.z - p2.z
 
+    if periodic:
+        dx = dx - int(round(dx / box[0])) * box[0]
+        dy = dy - int(round(dy / box[1])) * box[1]
+        dz = dz - int(round(dz / box[2])) * box[2]
     dst = np.sqrt(dx ** 2 + dy ** 2 + dz ** 2)
 
     return dst, (dx, dy, dz)
 
 
 def nearest_neighbours(data: pd.DataFrame, center: pd.Series,
-                       radius: float, periodic: bool = False) -> pd.DataFrame:
+                       radius: float, box: np.ndarray,
+                       periodic: bool) -> pd.DataFrame:
     neighbours = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z',
                                        'x_dst', 'y_dst', 'z_dst'])
     for index, i in data.iterrows():
         if i.mol == center.mol:
             pass
         else:
-            dst, details = distance(center, i)
+            if periodic:
+                dst, details = distance(center, i, box, True)
+            else:
+                dst, details = distance(center, i, box)
             if dst <= radius:
                 neighbours = neighbours.append(i)
                 neighbours.loc[index, 'x_dst'] = details[0]
                 neighbours.loc[index, 'y_dst'] = details[1]
                 neighbours.loc[index, 'z_dst'] = details[2]
-
-    if periodic:
-        pass
 
     return neighbours
 
@@ -134,12 +140,16 @@ def compute_aop(center: pd.DataFrame, neighbours: pd.DataFrame):
 
     return aop
 
-def save_aop(aop: np.ndarray, oxygen: pd.DataFrame):
+def save_aop(aop: np.ndarray, oxygen: pd.DataFrame, periodic: bool):
     for i in range(aop.shape[0]):
         aop[i, 0] = oxygen.iloc[i].x
 
     aop = aop[aop[:, 0].argsort()]
-    np.savetxt('aop.dat', aop)
+
+    if periodic:
+        np.savetxt('aop_periodic.dat', aop)
+    else:
+        np.savetxt('aop.dat', aop)
 
 
 def compute_rdf(mols: dict, met_rdf: dict):

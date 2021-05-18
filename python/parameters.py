@@ -3,6 +3,7 @@ This file contains the different constants and parameters to be used
 """
 
 
+periodic = True
 filename = "conf.gro"
 box_file = "box_size"
 trimmed_data = 'trimmed_data'
