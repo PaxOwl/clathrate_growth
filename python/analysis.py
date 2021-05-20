@@ -85,6 +85,16 @@ def distance(p1: pd.Series, p2: pd.Series, box: np.ndarray,
     return dst, (dx, dy, dz)
 
 
+def angle(p1: pd.Series, p2: pd.Series, p3: pd.Series) -> np.float64:
+    v1 = (p1.x - p2.x, p1.y - p2.y, p1.z, p2.z)
+    v1 /= np.linalg.norm(v1)
+    v2 = (p1.x - p3.x, p1.y - p3.y, p1.z, p3.z)
+    v2 /= np.linalg.norm(v2)
+    theta = np.arccos(np.dot(v1, v2))
+
+    return np.degrees(theta)
+
+
 def nearest_neighbours(data: pd.DataFrame, center: pd.Series,
                        radius: float, box: np.ndarray,
                        periodic: bool) -> pd.DataFrame:
@@ -152,3 +162,56 @@ def save_aop(aop: np.ndarray, oxygen: pd.DataFrame, periodic: bool):
         np.savetxt('aop_periodic.dat', output)
     else:
         np.savetxt('aop.dat', output)
+
+def hydrogen_bonds():
+    data = pd.read_csv('test_hbonds/out', sep=',',
+                       usecols=[0, 1, 3, 4, 5],
+                       names=['mol', 'atom', 'x', 'y', 'z'])
+    box = np.array([3.12913551, 2.94142906, 3.61460741], dtype=np.double)
+    oxygen = filter_data(data, ['OW'])
+    hydrogen1 = filter_data(data, ['HW1'])
+    hydrogen2 = filter_data(data, ['HW2'])
+    pairs = []
+    for index, i in oxygen.iterrows():
+        center = i
+        for jdex, j in oxygen.iterrows():
+            if center.mol == j.mol:
+                pass
+            else:
+                dst, _ = distance(center, j, box, True)
+                if 0.25 <= dst <= 0.35:
+                    # Finds the closer hydrogen
+                    d1, _ = distance(center,
+                                  hydrogen1.loc[hydrogen1.mol
+                                                == center.mol].squeeze(),
+                                  box, False)
+                    d2, _ = distance(j,
+                                  hydrogen1.loc[hydrogen1.mol
+                                                == center.mol].squeeze(),
+                                  box, False)
+                    d3 = d1 + d2
+                    d4, _ = distance(center,
+                                  hydrogen2.loc[hydrogen2.mol
+                                                == center.mol].squeeze(),
+                                  box, False)
+                    d5, _ = distance(j,
+                                  hydrogen2.loc[hydrogen2.mol
+                                                == center.mol].squeeze(),
+                                  box, False)
+                    d6 = d4 + d5
+
+                    if d3 < d6:
+                        hydrogen_atom = hydrogen1.loc[hydrogen1.mol
+                                                      == center.mol].squeeze()
+                    else:
+                        hydrogen_atom = hydrogen2.loc[hydrogen2.mol
+                                                      == center.mol].squeeze()
+                    # Compute the angle
+                    theta = angle(hydrogen_atom, center, j)
+                    print(theta)
+                    if 90 < theta < 180:
+                        print("{} accepts from {}".format(center.mol, j.mol))
+                        pairs.append((center.mol, j.mol))
+    with open("pairs.dat", 'w') as file:
+        for element in pairs:
+            file.write("{}\n".format(element))

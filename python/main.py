@@ -3,6 +3,7 @@
 Core part of the program
 """
 import time
+import sys
 from analysis import *
 from parameters import *
 
@@ -10,6 +11,9 @@ from parameters import *
 frame = 0
 
 if __name__ == "__main__":
+    hydrogen_bonds()
+    sys.exit("Done")
+
     # Read the number of atoms (rows)
     nrows = count_atoms(filename)
 
