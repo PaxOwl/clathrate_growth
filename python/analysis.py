@@ -97,7 +97,7 @@ def nearest_neighbours(data: pd.DataFrame, center: pd.Series,
             if periodic:
                 dst, details = distance(center, i, box, True)
             else:
-                dst, details = distance(center, i, box)
+                dst, details = distance(center, i, box, False)
             if dst <= radius:
                 neighbours = neighbours.append(i)
                 neighbours.loc[index, 'x_dst'] = details[0]
@@ -141,44 +141,14 @@ def compute_aop(center: pd.DataFrame, neighbours: pd.DataFrame):
     return aop
 
 def save_aop(aop: np.ndarray, oxygen: pd.DataFrame, periodic: bool):
+    output = np.zeros((aop.shape[0], 2))
+    output[:, 1] = aop
     for i in range(aop.shape[0]):
-        aop[i, 0] = oxygen.iloc[i].x
+        output[i, 0] = oxygen.iloc[i].x
 
-    aop = aop[aop[:, 0].argsort()]
+    output = output[output[:, 0].argsort()]
 
     if periodic:
-        np.savetxt('aop_periodic.dat', aop)
+        np.savetxt('aop_periodic.dat', output)
     else:
-        np.savetxt('aop.dat', aop)
-
-
-def compute_rdf(mols: dict, met_rdf: dict):
-
-    t_init = time.time()
-    for met in mols['MET']:
-        t0 = time.time()
-        met_rdf[met.name] = []
-        met_rdf[met.name + "-dst"] = []
-        for wat in mols['WAT']:
-            dst0 = np.sqrt((wat.contains[0].x - met.contains[0].x) ** 2
-                           + (wat.contains[0].y - met.contains[0].y) ** 2
-                           + (wat.contains[0].z - met.contains[0].z) ** 2)
-            dst1 = np.sqrt((wat.contains[1].x - met.contains[0].x) ** 2
-                           + (wat.contains[1].y - met.contains[0].y) ** 2
-                           + (wat.contains[1].z - met.contains[0].z) ** 2)
-            dst2 = np.sqrt((wat.contains[2].x - met.contains[0].x) ** 2
-                           + (wat.contains[2].y - met.contains[0].y) ** 2
-                           + (wat.contains[2].z - met.contains[0].z) ** 2)
-            dst3 = np.sqrt((wat.contains[3].x - met.contains[0].x) ** 2
-                           + (wat.contains[3].y - met.contains[0].y) ** 2
-                           + (wat.contains[3].z - met.contains[0].z) ** 2)
-            if (dst0 and dst1 and dst2 and dst3) < aop_radius:
-                met_rdf[met.name].append(wat)
-                met_rdf[met.name + "-dst"].append(dst1)
-        t1 = time.time()
-        print("{:0>2} neighbors in the vicinity of {},"
-              " computed in {:.3f} seconds"
-              .format(len(met_rdf[met.name]), met.name, t1 - t0))
-    t_end = time.time()
-    print("All neighbors computed in {:.3f} seconds".format(t_end - t_init))
-    return met_rdf
+        np.savetxt('aop.dat', output)
