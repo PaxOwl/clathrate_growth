@@ -85,10 +85,16 @@ def distance(p1: pd.Series, p2: pd.Series, box: np.ndarray,
     return dst, (dx, dy, dz)
 
 
-def angle(p1: pd.Series, p2: pd.Series, p3: pd.Series) -> np.float64:
+def angle(p1: pd.Series, p2: pd.Series, p3: pd.Series, box) -> np.float64:
     v1 = (p1.x - p2.x, p1.y - p2.y, p1.z, p2.z)
+    v1 = (v1[0] - int(round(v1[0] / box[0])) * box[0],
+          v1[1] - int(round(v1[1] / box[1])) * box[1],
+          v1[2] - int(round(v1[2] / box[2])) * box[2])
     v1 /= np.linalg.norm(v1)
     v2 = (p1.x - p3.x, p1.y - p3.y, p1.z, p3.z)
+    v2 = (v2[0] - int(round(v2[0] / box[0])) * box[0],
+          v2[1] - int(round(v2[1] / box[1])) * box[1],
+          v2[2] - int(round(v2[2] / box[2])) * box[2])
     v2 /= np.linalg.norm(v2)
     theta = np.arccos(np.dot(v1, v2))
 
@@ -207,8 +213,7 @@ def hydrogen_bonds():
                         hydrogen_atom = hydrogen2.loc[hydrogen2.mol
                                                       == center.mol].squeeze()
                     # Compute the angle
-                    theta = angle(hydrogen_atom, center, j)
-                    print(theta)
+                    theta = angle(hydrogen_atom, center, j, box)
                     if 90 < theta < 180:
                         print("{} accepts from {}".format(center.mol, j.mol))
                         pairs.append((center.mol, j.mol))
