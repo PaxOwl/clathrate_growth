@@ -4,8 +4,6 @@ This file sets-up and arranges the data to be used
 import time
 import numpy as np
 import pandas as pd
-from scipy.spatial import cKDTree
-from MDAnalysis.lib.pkdtree import PeriodicKDTree
 from parameters import aop_radius
 
 
@@ -69,36 +67,51 @@ def filter_data(data: pd.DataFrame, keep: list):
 
     return output.sort_index()
 
+def periodic_conditions(d: list, box: np.ndarray):
+    d[0] = d[0] - int(round(d[0] / box[0])) * box[0]
+    d[1] = d[1] - int(round(d[1] / box[1])) * box[1]
+    d[2] = d[2] - int(round(d[2] / box[2])) * box[2]
+
+    return d
 
 def distance(p1: pd.Series, p2: pd.Series, box: np.ndarray,
              periodic: bool) -> tuple:
-    dx = p1.x - p2.x
-    dy = p1.y - p2.y
-    dz = p1.z - p2.z
+    dx = p2.x - p1.x
+    dy = p2.y - p1.y
+    dz = p2.z - p1.z
 
     if periodic:
-        dx = dx - int(round(dx / box[0])) * box[0]
-        dy = dy - int(round(dy / box[1])) * box[1]
-        dz = dz - int(round(dz / box[2])) * box[2]
+        dx, dy, dz = periodic_conditions([dx, dy, dz], box)
     dst = np.sqrt(dx ** 2 + dy ** 2 + dz ** 2)
 
     return dst, (dx, dy, dz)
 
 
+def norm_vec(p1: pd.Series, p2: pd.Series, box) -> tuple:
+    _, v = distance(p1, p2, box, True)
+    v /= np.linalg.norm(v)
+
+    return v
+
 def angle(p1: pd.Series, p2: pd.Series, p3: pd.Series, box) -> np.float64:
-    v1 = (p1.x - p2.x, p1.y - p2.y, p1.z, p2.z)
-    v1 = (v1[0] - int(round(v1[0] / box[0])) * box[0],
-          v1[1] - int(round(v1[1] / box[1])) * box[1],
-          v1[2] - int(round(v1[2] / box[2])) * box[2])
-    v1 /= np.linalg.norm(v1)
-    v2 = (p1.x - p3.x, p1.y - p3.y, p1.z, p3.z)
-    v2 = (v2[0] - int(round(v2[0] / box[0])) * box[0],
-          v2[1] - int(round(v2[1] / box[1])) * box[1],
-          v2[2] - int(round(v2[2] / box[2])) * box[2])
-    v2 /= np.linalg.norm(v2)
+    v1 = norm_vec(p1, p2, box)
+    v2 = norm_vec(p1, p3, box)
     theta = np.arccos(np.dot(v1, v2))
 
     return np.degrees(theta)
+
+
+def closest_atom(ox1: pd.Series, ox2: pd.Series,
+                 hy1: pd.Series, hy2: pd.Series, box):
+    d1 = distance(ox1, hy1, box, True)[0]\
+        + distance(ox2, hy1, box, True)[0]
+    d2 = distance(ox1, hy2, box, True)[0]\
+        + distance(ox2, hy2, box, True)[0]
+
+    if d1 > d2:
+        return hy2, d2
+    else:
+        return hy1, d1
 
 
 def nearest_neighbours(data: pd.DataFrame, center: pd.Series,
@@ -169,54 +182,60 @@ def save_aop(aop: np.ndarray, oxygen: pd.DataFrame, periodic: bool):
     else:
         np.savetxt('aop.dat', output)
 
-def hydrogen_bonds():
+
+def hydrogen_bonds(center: pd.Series, oxygen: pd.DataFrame,
+                   hydrogen1: pd.Series, hydrogen2: pd.Series,
+                   box: np.ndarray):
+    bonds = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z', 'ox_mol'])
+    # i is the oxygen atom of the neigbour molecule
+    for index, i in oxygen.iterrows():
+        if center.mol == i.mol:
+            pass
+        else:
+            dst, _ = distance(center, i, box, True)
+            if 0.25 <= dst <= 0.35:
+                # Finds the closest hydrogen
+                hydrogen_atom = closest_atom(center, i,
+                                             hydrogen1, hydrogen2, box)
+                # Compute the angle
+                theta = angle(hydrogen_atom[0], center, i, box)
+                if 90 < theta < 180:
+                    bonds = bonds.append(hydrogen_atom[0],
+                                         ignore_index=True)
+                    bonds.loc[bonds.shape[0] - 1, 'ox_mol'] = i.mol
+
+    return bonds
+
+
+def hydrogen_bonds_test():
     data = pd.read_csv('test_hbonds/out', sep=',',
                        usecols=[0, 1, 3, 4, 5],
                        names=['mol', 'atom', 'x', 'y', 'z'])
-    box = np.array([3.12913551, 2.94142906, 3.61460741], dtype=np.double)
+    box = np.array([3.12913551, 2.94142906, 3.61460741])
     oxygen = filter_data(data, ['OW'])
     hydrogen1 = filter_data(data, ['HW1'])
     hydrogen2 = filter_data(data, ['HW2'])
-    pairs = []
+    bonds = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z', 'ox_mol'])
+    # i is the oxygen atom of the considered molecule
     for index, i in oxygen.iterrows():
-        center = i
+        # j is the oxygen atom of the neigbour molecule
         for jdex, j in oxygen.iterrows():
-            if center.mol == j.mol:
+            if i.mol == j.mol:
                 pass
             else:
-                dst, _ = distance(center, j, box, True)
+                dst, _ = distance(i, j, box, True)
                 if 0.25 <= dst <= 0.35:
-                    # Finds the closer hydrogen
-                    d1, _ = distance(center,
-                                  hydrogen1.loc[hydrogen1.mol
-                                                == center.mol].squeeze(),
-                                  box, False)
-                    d2, _ = distance(j,
-                                  hydrogen1.loc[hydrogen1.mol
-                                                == center.mol].squeeze(),
-                                  box, False)
-                    d3 = d1 + d2
-                    d4, _ = distance(center,
-                                  hydrogen2.loc[hydrogen2.mol
-                                                == center.mol].squeeze(),
-                                  box, False)
-                    d5, _ = distance(j,
-                                  hydrogen2.loc[hydrogen2.mol
-                                                == center.mol].squeeze(),
-                                  box, False)
-                    d6 = d4 + d5
-
-                    if d3 < d6:
-                        hydrogen_atom = hydrogen1.loc[hydrogen1.mol
-                                                      == center.mol].squeeze()
-                    else:
-                        hydrogen_atom = hydrogen2.loc[hydrogen2.mol
-                                                      == center.mol].squeeze()
+                    # Finds the closest hydrogen
+                    hy1 = hydrogen1.loc[hydrogen1.mol == i.mol].squeeze()
+                    hy2 = hydrogen2.loc[hydrogen2.mol == i.mol].squeeze()
+                    hydrogen_atom = closest_atom(i, j, hy1, hy2, box)
                     # Compute the angle
-                    theta = angle(hydrogen_atom, center, j, box)
+                    theta = angle(hydrogen_atom[0], i, j, box)
                     if 90 < theta < 180:
-                        print("{} accepts from {}".format(center.mol, j.mol))
-                        pairs.append((center.mol, j.mol))
-    with open("pairs.dat", 'w') as file:
-        for element in pairs:
-            file.write("{}\n".format(element))
+                        bonds = bonds.append(hydrogen_atom[0],
+                                             ignore_index=True)
+                        bonds.loc[bonds.shape[0] - 1, 'ox_mol'] = j.mol
+                        print("Bond added between {} and {}"
+                              .format(i.mol, j.mol))
+        if index >= 50:
+            break

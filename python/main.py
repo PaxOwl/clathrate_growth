@@ -11,8 +11,8 @@ from parameters import *
 frame = 0
 
 if __name__ == "__main__":
-    hydrogen_bonds()
-    sys.exit("Done")
+    # hydrogen_bonds_test()
+    # sys.exit("Done")
 
     # Read the number of atoms (rows)
     nrows = count_atoms(filename)
@@ -34,7 +34,7 @@ if __name__ == "__main__":
     aop.loc[:, 'aop'] = 0.
 
     t1 = time.time()
-    for i in range(oxygen.shape[0] // 30):
+    for i in range(oxygen.shape[0] // 100):
         # Select an atom of oxygen
         center = oxygen.iloc[i]
 
@@ -50,7 +50,9 @@ if __name__ == "__main__":
     save_aop(aop.aop.values, oxygen, periodic)
 
     methane = filter_data(atoms, ['C'])
+    t_metinit = time.time()
     for i in range(methane.shape[0]):
+        t_met_un = time.time()
         # Select an atom of methane
         center = methane.iloc[i]
 
@@ -59,7 +61,25 @@ if __name__ == "__main__":
         neighbours = nearest_neighbours(oxygen, center, 0.55, box, periodic)
         print("{} neighbours found".format(neighbours.shape[0]))
         low_aop = neighbours.copy()
+
+        # Filter the neighbours to keep the one with an aop < 0.4
         for index, j in low_aop.iterrows():
-            if aop[aop.mol == j.mol].aop > 0.4:
+            if aop.loc[aop.mol == j.mol].aop.values > 0.4:
                 low_aop.drop(index)
-        print("done")
+
+        # Compute the hydrogen bonding of the returned molecules
+        bonds = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z', 'ox_mol'])
+        for index, j in low_aop.iterrows():
+            hy1 = atoms.loc[(atoms.atom == 'HW1') &
+                            (atoms.mol == low_aop.loc[index].mol)].squeeze()
+            hy2 = atoms.loc[(atoms.atom == 'HW2') &
+                            (atoms.mol == low_aop.loc[index].mol)].squeeze()
+            bonds = bonds.append(hydrogen_bonds(j, oxygen, hy1, hy2, box))
+        print("mol = {}, x = {}"
+              .format(methane.iloc[i].mol, methane.iloc[i].x))
+        print("nw = {}, nh = {}, nb = {}"
+              .format(neighbours.shape[0], low_aop.shape[0], bonds.shape[0]))
+        t_met_done = time.time()
+        print("Elapsed time {}".format(t_met_done - t_met_un))
+    print("Total time {}".format(time.time() - t_metinit))
+    print('done')
