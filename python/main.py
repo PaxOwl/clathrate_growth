@@ -31,7 +31,7 @@ if __name__ == "__main__":
     aop = oxygen.copy()
     aop.loc[:, 'aop'] = 0.
 
-    t1 = time.time()
+    # t1 = time.time()
     for i in range(oxygen.shape[0] // 100):
         # Select an atom of oxygen
         center = oxygen.iloc[i]
