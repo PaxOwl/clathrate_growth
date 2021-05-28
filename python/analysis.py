@@ -1,10 +1,8 @@
 """
 This file sets-up and arranges the data to be used
 """
-import time
 import numpy as np
 import pandas as pd
-from parameters import aop_radius
 
 
 def count_atoms(file: str = "conf.gro") -> int:
@@ -67,12 +65,14 @@ def filter_data(data: pd.DataFrame, keep: list):
 
     return output.sort_index()
 
+
 def periodic_conditions(d: list, box: np.ndarray):
     d[0] = d[0] - int(round(d[0] / box[0])) * box[0]
     d[1] = d[1] - int(round(d[1] / box[1])) * box[1]
     d[2] = d[2] - int(round(d[2] / box[2])) * box[2]
 
     return d
+
 
 def distance(p1: pd.Series, p2: pd.Series, box: np.ndarray,
              periodic: bool) -> tuple:
@@ -92,6 +92,7 @@ def norm_vec(p1: pd.Series, p2: pd.Series, box) -> tuple:
     v /= np.linalg.norm(v)
 
     return v
+
 
 def angle(p1: pd.Series, p2: pd.Series, p3: pd.Series, box) -> np.float64:
     v1 = norm_vec(p1, p2, box)
@@ -168,6 +169,7 @@ def compute_aop(center: pd.DataFrame, neighbours: pd.DataFrame):
     print("AOP computed for molecule {}".format(center.mol))
 
     return aop
+
 
 def save_aop(aop: np.ndarray, oxygen: pd.DataFrame, periodic: bool):
     output = np.zeros((aop.shape[0], 2))

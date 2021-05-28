@@ -2,8 +2,6 @@
 """
 Core part of the program
 """
-import time
-import sys
 from analysis import *
 from parameters import *
 
