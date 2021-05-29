@@ -7,20 +7,39 @@ utils = cdll.LoadLibrary(so_file)
 box = np.zeros(3)
 distance = np.zeros(3)
 for i in range(3):
-    box[i] = 3
+    box[i] = 20
     distance[i] = i
 
-print(timeit.timeit('utils.periodic_conditions(c_void_p(distance.ctypes.data),'
-                                              'c_void_p(box.ctypes.data),'
-                                              'c_void_p(distance.ctypes.data))',
-                    'from test import utils, distance, box, c_void_p',
-                    number=1000000))
+p1 = np.zeros(3)
+p2 = np.zeros(3)
+p3 = np.zeros(3)
 
+p1[0] = 2
+p1[1] = 4
+p1[2] = 6
+p2[0] = 5
+p2[1] = 8
+p2[2] = 9
+p3[0] = 4
+p3[1] = 7
+p3[2] = 1
+period = True
+v1 = np.zeros(3)
+v2 = np.zeros(3)
+utils.distance(c_void_p(p1.ctypes.data), c_void_p(p2.ctypes.data),
+               c_void_p(box.ctypes.data), c_void_p(v1.ctypes.data))
+utils.distance(c_void_p(p1.ctypes.data), c_void_p(p3.ctypes.data),
+               c_void_p(box.ctypes.data), c_void_p(v2.ctypes.data))
 
-def periodic_conditions(d: np.ndarray, box: np.ndarray):
-    for i in range(len(d)):
-        d[i] = d[i] - int(round(d[i] / box[i])) * box[i]
-    return d
+print(v1)
+print(v2)
 
+utils.norm_vec(c_void_p(v1.ctypes.data))
+utils.norm_vec(c_void_p(v2.ctypes.data))
 
-print(timeit.timeit('periodic_conditions(distance, box)', 'from test import periodic_conditions, distance, box', number=1000000))
+print(np.sqrt(v1 ** 2))
+
+theta = np.zeros(1)
+utils.angle(c_void_p(v1.ctypes.data), c_void_p(v2.ctypes.data),
+            c_void_p(theta.ctypes.data))
+print(theta[0])
