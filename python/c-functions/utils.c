@@ -4,38 +4,40 @@
 #include "utils.h"
 
 
-void periodic_conditions(double* delta, double* box) {
-    for(int i; i < 3; i++) {
-        delta[i] = delta[i] - round(delta[i] / box[i]) * box[i];
+void periodic_conditions(double *delta, double *box) {
+    size_t i;
+    for(i = 0; i < 3; i++) {
+        delta[i] = delta[i] - round(delta[i] / box[i])  *box[i];
     }
 }
 
-void distance(double* p1, double* p2, double* box, double* out) {
+void distance(double *p1, double *p2, double *box, double *vec) {
     double dx = p2[0] - p1[0];
     double dy = p2[1] - p1[1];
     double dz = p2[2] - p1[2];
-    out[0] = dx;
-    out[1] = dy;
-    out[2] = dz;
-
-    periodic_conditions(out, box);
+    printf("oui");
+    vec[0] = dx;
+    vec[1] = dy;
+    vec[2] = dz;
+    periodic_conditions(vec, box);
 }
 
-void norm_vec(double* vec) {
+void norm_vec(double *vec) {
     double norm = sqrt(pow(vec[0], 2) + pow(vec[1], 2) + pow(vec[2], 2));
-    for (int i; i < 3; i++) {
+    size_t i;
+    for (i = 0; i < 3; i++) {
         vec[i] /= norm;
     }
 }
 
-void angle(double* v1, double* v2, double* theta) {
+void angle(double *v1, double *v2, double *theta) {
     double pi = 3.14159265359;
-    double dot = v1[0] * v2[0] + v1[1] * v2[1] + v1[2] * v2[2];
-    theta[0] = acos(dot) * 180 / pi;
+    double dot = v1[0]  *v2[0] + v1[1]  *v2[1] + v1[2]  *v2[2];
+    theta[0] = acos(dot)  *180 / pi;
 }
 
-void closest_atom(double* names, double* oxygens, double* hydrogens,
-                  double* box, double* out_name) {
+void closest_atom(double *names, double *oxygens, double *hydrogens,
+                  double *box, double *out_name) {
     double do1h1[3] = {0., 0., 0.};
     double do2h1[3] = {0., 0., 0.};
     double do1h2[3] = {0., 0., 0.};
@@ -58,5 +60,31 @@ void closest_atom(double* names, double* oxygens, double* hydrogens,
     }
     else {
         out_name[0] = names[1];
+    }
+}
+
+void nearest_neighbours(double *center, double (*neighbours)[3], double *box,
+                        double limit, int n_size, double *vec, double *out) {
+    double dst;
+    int counter = 0;
+    size_t i;
+    for (i = 0; i < n_size; i++) {
+        distance(center, neighbours[i], box, vec);
+        dst = sqrt(pow(vec[0], 2) + pow(vec[1], 2) + pow(vec[2], 2));
+        if (dst <= limit) {
+            printf("Condition passed for i = %lu\n", i);
+            out[counter] = i;
+            counter++;
+        }
+    }
+}
+
+void neighbours(double (*centers)[3], double (*neighbours)[3], double *box,
+                double limit, int c_size, int n_size,
+                double *vec, double (*out)[c_size]) {
+    size_t i;
+    for (i = 0; i < c_size; i++) {
+        nearest_neighbours(centers[i], neighbours, box,
+                           limit, n_size, vec, out[i]);
     }
 }

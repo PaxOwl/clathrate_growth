@@ -2,15 +2,22 @@
 """
 Core part of the program
 """
+import ctypes
 import time
 import sys
 from analysis import *
 from parameters import *
+from ctypes import *
+from numpy.ctypeslib import ndpointer
 
+
+so_file = "c-functions/utils.so"
+utils = cdll.LoadLibrary(so_file)
 
 frame = 0
 
 if __name__ == "__main__":
+
     # hydrogen_bonds_test()
     # sys.exit("Done")
 
@@ -28,7 +35,36 @@ if __name__ == "__main__":
 
     # Retrieves only the oxygen atoms
     oxygen = filter_data(atoms, ['OW'])
+    carbon = filter_data(atoms, ['C'])
+    np_oxygen = np.ascontiguousarray(np.delete(oxygen.to_numpy(),
+                                               (0, 1), 1).astype(float))
+    np_carbon = np.ascontiguousarray(np.delete(carbon.to_numpy(),
+                                               (0, 1), 1).astype(float))
+    _output = np.ascontiguousarray(np.zeros((oxygen.shape[0],
+                                             oxygen.shape[0])).T)
+    limit = 0.35
+    vec = np.ascontiguousarray(np.zeros(3, dtype=float))
 
+    _1ddoublepp = ndpointer(dtype=float, ndim=1, flags='C')
+    _2ddoublepp = ndpointer(dtype=float, ndim=2, flags='C')
+    utils.neighbours.argtypes = [_1ddoublepp, _2ddoublepp,
+                                 _1ddoublepp, ctypes.c_double,
+                                 ctypes.c_int, ctypes.c_int,
+                                 _1ddoublepp, _1ddoublepp]
+    utils.neighbours.restype = None
+    utils.nearest_neighbours.argtypes = [_1ddoublepp, _2ddoublepp,
+                                         _1ddoublepp, ctypes.c_double,
+                                         ctypes.c_int,
+                                         _1ddoublepp, _1ddoublepp]
+    utils.nearest_neighbours.restype = None
+
+    # utils.neighbours(np_carbon, np_oxygen, box, limit, size, vec, _output)
+    utils.nearest_neighbours(np_oxygen[0], np_oxygen, box,
+                             limit, oxygen.shape[0],
+                             vec, _output[0])
+    _output = _output.astype(int)
+
+    # sys.exit()
     # Initiates the array storing the AOP numbers
     aop = oxygen.copy()
     aop.loc[:, 'aop'] = 0.
@@ -49,12 +85,12 @@ if __name__ == "__main__":
     print("Elapsed time: {:.4f} s".format(t2 - t1))
     save_aop(aop.aop.values, oxygen, periodic)
 
-    methane = filter_data(atoms, ['C'])
+    carbon = filter_data(atoms, ['C'])
     t_metinit = time.time()
-    for i in range(methane.shape[0]):
+    for i in range(carbon.shape[0]):
         t_met_un = time.time()
         # Select an atom of methane
-        center = methane.iloc[i]
+        center = carbon.iloc[i]
 
         # Finds the nearest neighbours under a certain distance of a
         # given atom
@@ -76,7 +112,7 @@ if __name__ == "__main__":
                             (atoms.mol == low_aop.loc[index].mol)].squeeze()
             bonds = bonds.append(hydrogen_bonds(j, oxygen, hy1, hy2, box))
         print("mol = {}, x = {}"
-              .format(methane.iloc[i].mol, methane.iloc[i].x))
+              .format(carbon.iloc[i].mol, carbon.iloc[i].x))
         print("nw = {}, nh = {}, nb = {}"
               .format(neighbours.shape[0], low_aop.shape[0], bonds.shape[0]))
         t_met_done = time.time()
