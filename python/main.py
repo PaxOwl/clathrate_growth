@@ -40,31 +40,33 @@ if __name__ == "__main__":
                                                (0, 1), 1).astype(float))
     np_carbon = np.ascontiguousarray(np.delete(carbon.to_numpy(),
                                                (0, 1), 1).astype(float))
-    _output = np.ascontiguousarray(np.zeros((oxygen.shape[0],
-                                             oxygen.shape[0])).T)
+    _output = np.ascontiguousarray(np.zeros((carbon.shape[0],
+                                             oxygen.shape[0]))).astype(int)
     limit = 0.35
     vec = np.ascontiguousarray(np.zeros(3, dtype=float))
 
     _1ddoublepp = ndpointer(dtype=float, ndim=1, flags='C')
     _2ddoublepp = ndpointer(dtype=float, ndim=2, flags='C')
-    utils.neighbours.argtypes = [_1ddoublepp, _2ddoublepp,
+    _1dlongpp = ndpointer(dtype=np.int64, ndim=1, flags='C')
+    _2dlongpp = ndpointer(dtype=np.int64, ndim=2, flags='C')
+    utils.neighbours.argtypes = [_2ddoublepp, _2ddoublepp,
                                  _1ddoublepp, ctypes.c_double,
                                  ctypes.c_int, ctypes.c_int,
-                                 _1ddoublepp, _1ddoublepp]
+                                 _1ddoublepp, _2dlongpp]
     utils.neighbours.restype = None
     utils.nearest_neighbours.argtypes = [_1ddoublepp, _2ddoublepp,
                                          _1ddoublepp, ctypes.c_double,
                                          ctypes.c_int,
-                                         _1ddoublepp, _1ddoublepp]
+                                         _1ddoublepp, _1dlongpp]
     utils.nearest_neighbours.restype = None
 
-    # utils.neighbours(np_carbon, np_oxygen, box, limit, size, vec, _output)
-    utils.nearest_neighbours(np_oxygen[0], np_oxygen, box,
-                             limit, oxygen.shape[0],
-                             vec, _output[0])
-    _output = _output.astype(int)
+    utils.neighbours(np_carbon, np_oxygen, box, limit,
+                     np_carbon.shape[0], np_oxygen.shape[0], vec, _output)
+    # utils.nearest_neighbours(np_oxygen[47], np_oxygen, box,
+    #                          limit, oxygen.shape[0],
+    #                          vec, _output[0])
 
-    # sys.exit()
+    sys.exit()
     # Initiates the array storing the AOP numbers
     aop = oxygen.copy()
     aop.loc[:, 'aop'] = 0.
@@ -72,7 +74,7 @@ if __name__ == "__main__":
     t1 = time.time()
     for i in range(oxygen.shape[0] // 100):
         # Select an atom of oxygen
-        center = oxygen.iloc[i]
+        center = oxygen.iloc[47]
 
         # Finds the nearest neighbours under a certain distance of a
         # given atom
