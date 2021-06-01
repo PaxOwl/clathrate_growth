@@ -31,8 +31,8 @@ void norm_vec(double *vec) {
 
 void angle(double *v1, double *v2, double *theta) {
     double pi = 3.14159265359;
-    double dot = v1[0]  *v2[0] + v1[1]  *v2[1] + v1[2]  *v2[2];
-    theta[0] = acos(dot)  *180 / pi;
+    double dot = v1[0] * v2[0] + v1[1] * v2[1] + v1[2] * v2[2];
+    theta[0] = acos(dot);
 }
 
 void closest_atom(double *names, double *oxygens, double *hydrogens,
@@ -65,7 +65,7 @@ void closest_atom(double *names, double *oxygens, double *hydrogens,
 void nearest_neighbours(double *center, double (*neighbours)[3], double *box,
                         double l_lim, double h_lim,
                         int n_size, double *vec, long *out) {
-    double dst;
+    double temp_dst;
     size_t counter = 0;
     size_t i;
     for (i = 0; i < n_size; i++) {
@@ -75,9 +75,8 @@ void nearest_neighbours(double *center, double (*neighbours)[3], double *box,
             continue;
         }
         distance(center, neighbours[i], box, vec);
-        dst = sqrt(pow(vec[0], 2) + pow(vec[1], 2) + pow(vec[2], 2));
-        if (dst <= h_lim && dst >= l_lim) {
-//            printf("Condition passed for i = %lu, counter = %lu\n", i, counter);
+        temp_dst = sqrt(pow(vec[0], 2) + pow(vec[1], 2) + pow(vec[2], 2));
+        if (temp_dst <= h_lim && temp_dst >= l_lim) {
             out[counter] = i;
             counter++;
         }
@@ -89,7 +88,7 @@ void neighbours(double (*centers)[3], double (*neighbours)[3], double *box,
                 double *vec, long (*out)[n_size]) {
     size_t i;
     for (i = 0; i < c_size; i++) {
-//        printf("Atom %lu\n", i);
+        printf("%lu\n", i);
         nearest_neighbours(centers[i], neighbours, box,
                            h_lim, l_lim, n_size, vec, out[i]);
     }

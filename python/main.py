@@ -47,8 +47,8 @@ if __name__ == "__main__":
     aop.loc[:, 'aop'] = 0.
 
     t1 = time.time()
+    index = 0
     for index, i in ox_neigh_ids.iterrows():
-
         neigh = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z'])
         # Select an atom of oxygen
         center = oxygen.iloc[index]
@@ -56,10 +56,9 @@ if __name__ == "__main__":
             if np.isnan(j):
                 break
             neigh = neigh.append(oxygen.iloc[int(j)])
-
-
         # Computes the AOP for the selecter atom
-        # aop.iat[i, 5] = compute_aop(center, neighbours)
+        aop.iat[index, 5] = caop(center, neigh, box)
+        print(index)
     t2 = time.time()
     print("Elapsed time: {:.4f} s".format(t2 - t1))
     save_aop(aop.aop.values, oxygen, periodic)
