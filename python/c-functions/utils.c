@@ -63,9 +63,10 @@ void closest_atom(double *names, double *oxygens, double *hydrogens,
 }
 
 void nearest_neighbours(double *center, double (*neighbours)[3], double *box,
-                        double limit, int n_size, double *vec, long *out) {
+                        double h_lim, double l_lim,
+                        int n_size, double *vec, long *out) {
     double dst;
-    size_t counter = 1;
+    size_t counter = 0;
     size_t i;
     for (i = 0; i < n_size; i++) {
         if (center[0] == neighbours[i][0]
@@ -75,8 +76,8 @@ void nearest_neighbours(double *center, double (*neighbours)[3], double *box,
         }
         distance(center, neighbours[i], box, vec);
         dst = sqrt(pow(vec[0], 2) + pow(vec[1], 2) + pow(vec[2], 2));
-        if (dst <= limit) {
-            printf("Condition passed for i = %lu, counter = %lu\n", i, counter);
+        if (dst <= h_lim && dst >= l_lim) {
+//            printf("Condition passed for i = %lu, counter = %lu\n", i, counter);
             out[counter] = i;
             counter++;
         }
@@ -84,14 +85,12 @@ void nearest_neighbours(double *center, double (*neighbours)[3], double *box,
 }
 
 void neighbours(double (*centers)[3], double (*neighbours)[3], double *box,
-                double limit, int c_size, int n_size,
+                double h_lim, double l_lim, int c_size, int n_size,
                 double *vec, long (*out)[n_size]) {
     size_t i;
     for (i = 0; i < c_size; i++) {
-        printf("Atom %lu\n", i);
-        out[i][0] = i;
+//        printf("Atom %lu\n", i);
         nearest_neighbours(centers[i], neighbours, box,
-                           limit, n_size, vec, out[i]);
+                           h_lim, l_lim, n_size, vec, out[i]);
     }
-    printf("%ld", out[1][5]);
 }

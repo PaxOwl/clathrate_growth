@@ -5,7 +5,8 @@ void angle(double *v1, double *v2, double *theta);
 void closest_atom(double *names, double *oxygens, double *hydrogens,
                   double *box, double *out_name);
 void nearest_neighbours(double *center, double (*neighbours)[3], double *box,
-                        double limit, int n_size, double *vec, long *out);
+                        double h_lim, double l_lim,
+                        int n_size, double *vec, long *out);
 void neighbours(double (*centers)[3], double (*neighbours)[3], double *box,
-                double limit, int c_size, int n_size,
+                double h_lim, double l_lim, int c_size, int n_size,
                 double *vec, long (*out)[n_size]);
