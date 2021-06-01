@@ -38,14 +38,17 @@ if __name__ == "__main__":
     oxygen = filter_data(atoms, ['OW'])
     carbon = filter_data(atoms, ['C'])
 
-    outdf = neighbours(carbon, oxygen, box, 0.35, 0.0)
+    # Finds the nearest neighbours under a certain distance of a
+    # given atom
+    ox_neigh_ids = neighbours(oxygen, oxygen, box, 0.0, 0.35)
 
     # Initiates the array storing the AOP numbers
     aop = oxygen.copy()
     aop.loc[:, 'aop'] = 0.
 
     t1 = time.time()
-    for index, i in outdf.iterrows():
+    for index, i in ox_neigh_ids.iterrows():
+
         neigh = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z'])
         # Select an atom of oxygen
         center = oxygen.iloc[index]
@@ -53,11 +56,7 @@ if __name__ == "__main__":
             if np.isnan(j):
                 break
             neigh = neigh.append(oxygen.iloc[int(j)])
-            print("oui")
-        print("oui")
-        # Finds the nearest neighbours under a certain distance of a
-        # given atom
-        print("oui")
+
 
         # Computes the AOP for the selecter atom
         # aop.iat[i, 5] = compute_aop(center, neighbours)

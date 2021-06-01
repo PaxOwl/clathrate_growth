@@ -63,7 +63,7 @@ void closest_atom(double *names, double *oxygens, double *hydrogens,
 }
 
 void nearest_neighbours(double *center, double (*neighbours)[3], double *box,
-                        double h_lim, double l_lim,
+                        double l_lim, double h_lim,
                         int n_size, double *vec, long *out) {
     double dst;
     size_t counter = 0;
@@ -85,7 +85,7 @@ void nearest_neighbours(double *center, double (*neighbours)[3], double *box,
 }
 
 void neighbours(double (*centers)[3], double (*neighbours)[3], double *box,
-                double h_lim, double l_lim, int c_size, int n_size,
+                double l_lim, double h_lim, int c_size, int n_size,
                 double *vec, long (*out)[n_size]) {
     size_t i;
     for (i = 0; i < c_size; i++) {
@@ -93,8 +93,4 @@ void neighbours(double (*centers)[3], double (*neighbours)[3], double *box,
         nearest_neighbours(centers[i], neighbours, box,
                            h_lim, l_lim, n_size, vec, out[i]);
     }
-}
-
-void aop(double *center, double (*neighbours)[3]) {
-
 }

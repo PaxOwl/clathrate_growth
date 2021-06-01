@@ -17,7 +17,7 @@ _2dlongpp = ndpointer(dtype=np.int64, ndim=2, flags='C')
 
 
 def neighbours(df_centers: pd.DataFrame, df_neigh: pd.DataFrame,
-               box: np.ndarray, h_lim: float, l_lim: float):
+               box: np.ndarray, l_lim: float, h_lim: float):
 
     utils.neighbours.argtypes = [_2ddoublepp, _2ddoublepp,
                                  _1ddoublepp, ctypes.c_double, ctypes.c_double,
