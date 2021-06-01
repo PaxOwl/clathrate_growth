@@ -94,3 +94,7 @@ void neighbours(double (*centers)[3], double (*neighbours)[3], double *box,
                            h_lim, l_lim, n_size, vec, out[i]);
     }
 }
+
+void aop(double *center, double (*neighbours)[3]) {
+
+}

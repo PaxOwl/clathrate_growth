@@ -66,7 +66,7 @@ if __name__ == "__main__":
     #                  np_oxygen.shape[0], np_oxygen.shape[0], vec, _output)
 
     # _outdf = pd.DataFrame(_output)
-    _outdf = neighbours(oxygen, oxygen, box, 0.35, 0.0)
+    outdf = neighbours(carbon, oxygen, box, 0.35, 0.0)
     # _outdf = _outdf[_outdf[1] != -1]
     # _outdf = _outdf.replace([-1], np.nan)
     # _outdf.dropna(how='all', axis=1, inplace=True)
@@ -81,32 +81,21 @@ if __name__ == "__main__":
     aop.loc[:, 'aop'] = 0.
 
     t1 = time.time()
-    for i in range(oxygen.shape[0]):
-        print(i)
+    for index, i in outdf.iterrows():
         # Select an atom of oxygen
-        center = oxygen.iloc[i]
-
+        center = oxygen.iloc[index]
+        for j in i:
+            pass
+        print("oui")
         # Finds the nearest neighbours under a certain distance of a
         # given atom
-        _neighbours = nearest_neighbours(oxygen, center, 0.35,
-                                        box, periodic)
-        _iter = 0
-        dif = 0
-        for _, j in _neighbours.iterrows():
-            if _outdf.iloc[i][0] == np.nan:
-                break
-            elif int(j.mol[:-3]) != int(_outdf.iloc[i][_iter]) + 1:
-                print("Different")
-                dif += 1
-            _iter += 1
-        # print("oui")
+        print("oui")
 
         # Computes the AOP for the selecter atom
         # aop.iat[i, 5] = compute_aop(center, neighbours)
     t2 = time.time()
     print("C : {:.4f} s".format(t2c - t1c))
     print("Python : {:.4f} s".format(t2 - t1))
-    print("{} different neighbours".format(dif))
     sys.exit()
     print("Elapsed time: {:.4f} s".format(t2 - t1))
     save_aop(aop.aop.values, oxygen, periodic)
