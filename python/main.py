@@ -37,55 +37,23 @@ if __name__ == "__main__":
     # Retrieves only the oxygen atoms
     oxygen = filter_data(atoms, ['OW'])
     carbon = filter_data(atoms, ['C'])
-    # np_oxygen = np.ascontiguousarray(np.delete(oxygen.to_numpy(),
-    #                                            (0, 1), 1).astype(float))
-    # np_carbon = np.ascontiguousarray(np.delete(carbon.to_numpy(),
-    #                                            (0, 1), 1).astype(float))
-    # _output = np.ascontiguousarray(np.zeros((oxygen.shape[0],
-    #                                          oxygen.shape[0]))).astype(int)
-    # _output.fill(-1)
-    # limit = 0.35
-    # vec = np.ascontiguousarray(np.zeros(3, dtype=float))
 
-    # _1ddoublepp = ndpointer(dtype=float, ndim=1, flags='C')
-    # _2ddoublepp = ndpointer(dtype=float, ndim=2, flags='C')
-    # _1dlongpp = ndpointer(dtype=np.int64, ndim=1, flags='C')
-    # _2dlongpp = ndpointer(dtype=np.int64, ndim=2, flags='C')
-    # utils.neighbours.argtypes = [_2ddoublepp, _2ddoublepp,
-    #                              _1ddoublepp, ctypes.c_double,
-    #                              ctypes.c_int, ctypes.c_int,
-    #                              _1ddoublepp, _2dlongpp]
-    # utils.neighbours.restype = None
-    # utils.nearest_neighbours.argtypes = [_1ddoublepp, _2ddoublepp,
-    #                                      _1ddoublepp, ctypes.c_double,
-    #                                      ctypes.c_int,
-    #                                      _1ddoublepp, _1dlongpp]
-    # utils.nearest_neighbours.restype = None
-    t1c = time.time()
-    # utils.neighbours(np_oxygen, np_oxygen, box, limit,
-    #                  np_oxygen.shape[0], np_oxygen.shape[0], vec, _output)
-
-    # _outdf = pd.DataFrame(_output)
     outdf = neighbours(carbon, oxygen, box, 0.35, 0.0)
-    # _outdf = _outdf[_outdf[1] != -1]
-    # _outdf = _outdf.replace([-1], np.nan)
-    # _outdf.dropna(how='all', axis=1, inplace=True)
-    t2c = time.time()
-    # utils.nearest_neighbours(np_oxygen[47], np_oxygen, box,
-    #                          limit, oxygen.shape[0],
-    #                          vec, _output[0])
 
-    # sys.exit()
     # Initiates the array storing the AOP numbers
     aop = oxygen.copy()
     aop.loc[:, 'aop'] = 0.
 
     t1 = time.time()
     for index, i in outdf.iterrows():
+        neigh = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z'])
         # Select an atom of oxygen
         center = oxygen.iloc[index]
         for j in i:
-            pass
+            if np.isnan(j):
+                break
+            neigh = neigh.append(oxygen.iloc[int(j)])
+            print("oui")
         print("oui")
         # Finds the nearest neighbours under a certain distance of a
         # given atom
@@ -94,9 +62,6 @@ if __name__ == "__main__":
         # Computes the AOP for the selecter atom
         # aop.iat[i, 5] = compute_aop(center, neighbours)
     t2 = time.time()
-    print("C : {:.4f} s".format(t2c - t1c))
-    print("Python : {:.4f} s".format(t2 - t1))
-    sys.exit()
     print("Elapsed time: {:.4f} s".format(t2 - t1))
     save_aop(aop.aop.values, oxygen, periodic)
 
