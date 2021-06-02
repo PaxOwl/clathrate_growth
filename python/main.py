@@ -19,11 +19,10 @@ if __name__ == "__main__":
     atoms = load_atoms(nrows, filename)
 
     # Load the data of the selected frame in the DataFrame
-    # load_frame(trimmed_data, atoms, frame, nrows)
+    load_frame(trimmed_data, atoms, frame, nrows)
 
     # Load the size of the box
-    # box = load_box(box_file, frame)
-    box = np.array([1.20034886, 1.20034886, 1.20034886])
+    box = load_box(box_file, frame)
     # Retrieves only the oxygen atoms
     oxygen = filter_data(atoms, ['OW'])
 
@@ -32,7 +31,7 @@ if __name__ == "__main__":
     aop.loc[:, 'aop'] = 0.
 
     t1 = time.time()
-    for i in range(oxygen.shape[0] // 100):
+    for i in range(oxygen.shape[0]):
         # Select an atom of oxygen
         center = oxygen.iloc[i]
 
@@ -46,6 +45,7 @@ if __name__ == "__main__":
     t2 = time.time()
     print("Elapsed time: {:.4f} s".format(t2 - t1))
     save_aop(aop.aop.values, oxygen, periodic)
+    print("AOP values saved")
 
     methane = filter_data(atoms, ['C'])
     t_metinit = time.time()
