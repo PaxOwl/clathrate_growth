@@ -8,5 +8,6 @@ set xrange [0:10]
 set xlabel "x (nm)"
 set ylabel "aop"
 plot\
-    "../python/aop_periodic.dat" u 1:2 w l t "original aop",\
+    "../python/aop_periodic.dat" u 1:2 w l t "c aop",\
+    # "../python/aop_periodic_python.dat" u 1:2 w l t "python aop"
     
