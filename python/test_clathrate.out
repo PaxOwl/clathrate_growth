@@ -1,0 +1,35 @@
+Elapsed time: 0.0000 s
+4 neighbours found
+mol = 47CH4, x = 0.0
+nw = 4, nh = 4, nb = 5
+Elapsed time 0.06731939315795898
+20 neighbours found
+mol = 48CH4, x = 0.6000000238418579
+nw = 20, nh = 20, nb = 38
+Elapsed time 0.3356349468231201
+14 neighbours found
+mol = 49CH4, x = 0.6000000238418579
+nw = 14, nh = 14, nb = 22
+Elapsed time 0.2227792739868164
+11 neighbours found
+mol = 50CH4, x = 0.8999999761581421
+nw = 11, nh = 11, nb = 16
+Elapsed time 0.16754460334777832
+14 neighbours found
+mol = 51CH4, x = 0.0
+nw = 14, nh = 14, nb = 22
+Elapsed time 0.21356987953186035
+11 neighbours found
+mol = 52CH4, x = 0.6000000238418579
+nw = 11, nh = 11, nb = 17
+Elapsed time 0.16897153854370117
+11 neighbours found
+mol = 53CH4, x = 0.0
+nw = 11, nh = 11, nb = 17
+Elapsed time 0.16745853424072266
+14 neighbours found
+mol = 54CH4, x = 0.30000001192092896
+nw = 14, nh = 14, nb = 22
+Elapsed time 0.21119379997253418
+Total time 1.5545010566711426
+done

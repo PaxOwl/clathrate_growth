@@ -4,7 +4,7 @@ Core part of the program
 """
 from analysis import *
 from parameters import *
-
+import time
 
 frame = 0
 
@@ -19,7 +19,7 @@ if __name__ == "__main__":
     atoms = load_atoms(nrows, filename)
 
     # Load the data of the selected frame in the DataFrame
-    load_frame(trimmed_data, atoms, frame, nrows)
+    # load_frame(trimmed_data, atoms, frame, nrows)
 
     # Load the size of the box
     box = load_box(box_file, frame)
@@ -31,7 +31,7 @@ if __name__ == "__main__":
     aop = oxygen.copy()
     aop.loc[:, 'aop'] = 0.
 
-    # t1 = time.time()
+    t1 = time.time()
     for i in range(oxygen.shape[0] // 100):
         # Select an atom of oxygen
         center = oxygen.iloc[i]
@@ -73,11 +73,11 @@ if __name__ == "__main__":
             hy2 = atoms.loc[(atoms.atom == 'HW2') &
                             (atoms.mol == low_aop.loc[index].mol)].squeeze()
             bonds = bonds.append(hydrogen_bonds(j, oxygen, hy1, hy2, box))
-        print("mol = {}, x = {}"
+        print("mol = {}, x = {:.3f}"
               .format(methane.iloc[i].mol, methane.iloc[i].x))
         print("nw = {}, nh = {}, nb = {}"
               .format(neighbours.shape[0], low_aop.shape[0], bonds.shape[0]))
         t_met_done = time.time()
-        print("Elapsed time {}".format(t_met_done - t_met_un))
+        print("Elapsed time {:.4f} s".format(t_met_done - t_met_un))
     print("Total time {}".format(time.time() - t_metinit))
     print('done')
