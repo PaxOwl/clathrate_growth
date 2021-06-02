@@ -18,10 +18,6 @@ utils = cdll.LoadLibrary(so_file)
 frame = 0
 
 if __name__ == "__main__":
-
-    # hydrogen_bonds_test()
-    # sys.exit("Done")
-
     # Read the number of atoms (rows)
     nrows = count_atoms(filename)
 
@@ -34,7 +30,7 @@ if __name__ == "__main__":
     # Load the size of the box
     box = load_box(box_file, frame)
 
-    # Retrieves only the oxygen atoms
+    # Retrieves the oxygen and carbon atoms
     oxygen = filter_data(atoms, ['OW'])
     carbon = filter_data(atoms, ['C'])
 
@@ -46,6 +42,7 @@ if __name__ == "__main__":
     aop_values = oxygen.copy()
     aop_values.loc[:, 'aop'] = 0.
 
+    # Computes and stores the aop of the oxygen atoms
     t1 = time.time()
     index = 0
     for index, i in ox_neigh_ids.iterrows():
@@ -62,8 +59,7 @@ if __name__ == "__main__":
     t2 = time.time()
     print("Elapsed time: {:.4f} s".format(t2 - t1))
     save_aop(aop_values.aop.values, oxygen, periodic)
-    sys.exit()
-    carbon = filter_data(atoms, ['C'])
+
     t_metinit = time.time()
     for i in range(carbon.shape[0]):
         t_met_un = time.time()
