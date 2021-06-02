@@ -56,7 +56,6 @@ def neighbours(df_centers: pd.DataFrame, df_neigh: pd.DataFrame,
         for j in range(len(i)):
             if np.isnan(i[j]):
                 break
-            print(int(i[j]))
     return outdf
 
 def caop(df_center, neigh, box):
@@ -67,7 +66,8 @@ def caop(df_center, neigh, box):
                                             df_center.z]), dtype=float)
     np_neigh = np.ascontiguousarray(np.delete(neigh.to_numpy(),
                                               (0, 1), 1)).astype(float)
-    angles = np.zeros(neigh.shape[0] * (neigh.shape[0] + 1) // 2, dtype=float)
+    angles = np.zeros((neigh.shape[0] - 1) * neigh.shape[0] // 2,
+                      dtype=float)
     angles = np.ascontiguousarray(angles)
     angles.fill(-1)
     theta = np.ascontiguousarray(np.zeros(1, dtype=float))

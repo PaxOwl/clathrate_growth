@@ -30,7 +30,6 @@ void norm_vec(double *vec) {
 }
 
 void angle(double *v1, double *v2, double *theta) {
-    double pi = 3.14159265359;
     double dot = v1[0] * v2[0] + v1[1] * v2[1] + v1[2] * v2[2];
     theta[0] = acos(dot);
 }
@@ -88,7 +87,6 @@ void neighbours(double (*centers)[3], double (*neighbours)[3], double *box,
                 double *vec, long (*out)[n_size]) {
     size_t i;
     for (i = 0; i < c_size; i++) {
-        printf("%lu\n", i);
         nearest_neighbours(centers[i], neighbours, box,
                            h_lim, l_lim, n_size, vec, out[i]);
     }
@@ -97,16 +95,18 @@ void neighbours(double (*centers)[3], double (*neighbours)[3], double *box,
 void aop(double *center, double (*neighbours)[3], double *box,
          int n_size, double *vec1, double *vec2, double *theta, double *angles){
     size_t i;
-    size_t n_max = n_size - 1;
-    size_t n_min = 0;
     size_t iter = 0;
+    size_t n_min = 0;
     do {
-        for (i = n_min; i < n_max; i++) {
+        printf("n_min = %lu\n", n_min);
+        for (i = n_min; i < n_size; i++) {
             distance(center, neighbours[n_min], box, vec1);
             distance(center, neighbours[i + 1], box, vec2);
             angle(vec1, vec2, theta);
-            angles[i - n_min + n_min * n_size] = theta[0];
+            printf("%lu\n", iter);
+            angles[iter] = theta[0];
+            iter++;
         }
         n_min++;
-    } while (n_min < n_max);
+    } while (n_min < n_size + 1);
 }
