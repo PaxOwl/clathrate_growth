@@ -17,7 +17,6 @@ def count_atoms(file: str = "conf.gro") -> int:
 
     return int(nrow)
 
-
 def load_atoms(nrow: int, file: str = "conf.gro") -> pd.DataFrame:
     """
     Reads all the atoms and their coordinates in a given .gro file, then sorts

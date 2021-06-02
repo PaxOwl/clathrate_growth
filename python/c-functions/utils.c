@@ -93,20 +93,24 @@ void neighbours(double (*centers)[3], double (*neighbours)[3], double *box,
 }
 
 void aop(double *center, double (*neighbours)[3], double *box,
-         int n_size, double *vec1, double *vec2, double *theta, double *angles){
+         int n_size, double *vec1, double *vec2, double *theta,
+         double *angles, double *aop){
+    double pi = 3.14159265359;
     size_t i;
     size_t iter = 0;
     size_t n_min = 0;
     do {
-        printf("n_min = %lu\n", n_min);
-        for (i = n_min; i < n_size; i++) {
+        for (i = n_min; i < n_size - 1; i++) {
             distance(center, neighbours[n_min], box, vec1);
             distance(center, neighbours[i + 1], box, vec2);
             angle(vec1, vec2, theta);
-            printf("%lu\n", iter);
             angles[iter] = theta[0];
             iter++;
         }
         n_min++;
     } while (n_min < n_size + 1);
+    for (i = 0; i < iter; i++) {
+        aop[0] = aop[0] + pow(fabs(cos(angles[i]))u * cos(angles[i])
+                              + pow(cos(109.47 * pi / 180), 2), 2);
+    }
 }

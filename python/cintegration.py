@@ -26,8 +26,9 @@ utils.distance.argtypes = [_1ddoublepp, _1ddoublepp, _1ddoublepp, _1ddoublepp]
 utils.distance.restype = None
 utils.angle.argtypes = [_1ddoublepp, _1ddoublepp, _1ddoublepp]
 utils.angle.restype = None
-utils.aop.argtypes = [_1ddoublepp, _2ddoublepp, _1ddoublepp, ctypes.c_int,
-                      _1ddoublepp, _1ddoublepp, _1ddoublepp, _1ddoublepp]
+utils.aop.argtypes = [_1ddoublepp, _2ddoublepp, _1ddoublepp,
+                      ctypes.c_int, _1ddoublepp, _1ddoublepp,
+                      _1ddoublepp, _1ddoublepp, _1ddoublepp]
 utils.aop.restype = None
 
 def neighbours(df_centers: pd.DataFrame, df_neigh: pd.DataFrame,
@@ -71,33 +72,8 @@ def caop(df_center, neigh, box):
     angles = np.ascontiguousarray(angles)
     angles.fill(-1)
     theta = np.ascontiguousarray(np.zeros(1, dtype=float))
+    aop = np.ascontiguousarray(np.zeros(1, dtype=float))
 
     utils.aop(center, np_neigh, box, np_neigh.shape[0],
-              vec1, vec2, theta, angles)
-    print("oui")
-    # while True:
-    #     for i in range(len(neigh) - 1):
-    #         p1 = np.ascontiguousarray(np.array([neigh.iloc[0].x,
-    #                                             neigh.iloc[0].y,
-    #                                             neigh.iloc[0].z]),
-    #                                   dtype=float)
-    #         p2 = np.ascontiguousarray(np.array([neigh.iloc[i + 1].x,
-    #                                             neigh.iloc[i + 1].y,
-    #                                             neigh.iloc[i + 1].z]),
-    #                                   dtype=float)
-    #         utils.distance(center, p1, box, vec1)
-    #         utils.distance(center, p2, box, vec2)
-    #         utils.angle(vec1, vec2, theta)
-    #         angles.append(theta[0])
-    #
-    #     neigh = neigh.drop(neigh.index[0])
-    #
-    #     if len(neigh) <= 1:
-    #         break
-    # # Computes the AOP for the oxygen
-    # aop = 0
-    # for i in range(len(angles)):
-    #     aop += (np.abs(np.cos(angles[i]))
-    #             * np.cos(angles[i])
-    #             + np.cos(np.radians(109.47)) ** 2) ** 2
-    return aop
+              vec1, vec2, theta, angles, aop)
+    return aop[0]

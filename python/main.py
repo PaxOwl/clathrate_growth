@@ -61,8 +61,8 @@ if __name__ == "__main__":
         print(index)
     t2 = time.time()
     print("Elapsed time: {:.4f} s".format(t2 - t1))
-    save_aop(aop_values.aop_values.values, oxygen, periodic)
-
+    save_aop(aop_values.aop.values, oxygen, periodic)
+    sys.exit()
     carbon = filter_data(atoms, ['C'])
     t_metinit = time.time()
     for i in range(carbon.shape[0]):
