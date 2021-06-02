@@ -43,8 +43,8 @@ if __name__ == "__main__":
     ox_neigh_ids = neighbours(oxygen, oxygen, box, 0.0, 0.35)
 
     # Initiates the array storing the AOP numbers
-    aop = oxygen.copy()
-    aop.loc[:, 'aop'] = 0.
+    aop_values = oxygen.copy()
+    aop_values.loc[:, 'aop'] = 0.
 
     t1 = time.time()
     index = 0
@@ -57,11 +57,11 @@ if __name__ == "__main__":
                 break
             neigh = neigh.append(oxygen.iloc[int(j)])
         # Computes the AOP for the selecter atom
-        aop.iat[index, 5] = caop(center, neigh, box)
+        aop_values.iat[index, 5] = caop(center, neigh, box)
         print(index)
     t2 = time.time()
     print("Elapsed time: {:.4f} s".format(t2 - t1))
-    save_aop(aop.aop.values, oxygen, periodic)
+    save_aop(aop_values.aop_values.values, oxygen, periodic)
 
     carbon = filter_data(atoms, ['C'])
     t_metinit = time.time()
@@ -78,7 +78,7 @@ if __name__ == "__main__":
 
         # Filter the neighbours to keep the one with an aop < 0.4
         for index, j in low_aop.iterrows():
-            if aop.loc[aop.mol == j.mol].aop.values > 0.4:
+            if aop_values.loc[aop_values.mol == j.mol].aop_values.values > 0.4:
                 low_aop.drop(index)
 
         # Compute the hydrogen bonding of the returned molecules

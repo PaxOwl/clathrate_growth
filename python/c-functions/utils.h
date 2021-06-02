@@ -10,3 +10,5 @@ void nearest_neighbours(double *center, double (*neighbours)[3], double *box,
 void neighbours(double (*centers)[3], double (*neighbours)[3], double *box,
                 double l_lim, double h_lim, int c_size, int n_size,
                 double *vec, long (*out)[n_size]);
+void aop(double *center, double (*neighbours)[3], double *box,
+         int n_size, double *vec1, double *vec2, double *theta, double *angles);

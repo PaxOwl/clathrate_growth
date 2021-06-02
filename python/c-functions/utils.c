@@ -93,3 +93,20 @@ void neighbours(double (*centers)[3], double (*neighbours)[3], double *box,
                            h_lim, l_lim, n_size, vec, out[i]);
     }
 }
+
+void aop(double *center, double (*neighbours)[3], double *box,
+         int n_size, double *vec1, double *vec2, double *theta, double *angles){
+    size_t i;
+    size_t n_max = n_size - 1;
+    size_t n_min = 0;
+    size_t iter = 0;
+    do {
+        for (i = n_min; i < n_max; i++) {
+            distance(center, neighbours[n_min], box, vec1);
+            distance(center, neighbours[i + 1], box, vec2);
+            angle(vec1, vec2, theta);
+            angles[i - n_min + n_min * n_size] = theta[0];
+        }
+        n_min++;
+    } while (n_min < n_max);
+}
