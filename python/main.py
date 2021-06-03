@@ -12,6 +12,23 @@ from cintegration import *
 frame = 0
 
 if __name__ == "__main__":
+    # TEST HBONDS
+    # atoms = pd.read_csv('test_hbonds/out', sep=',',
+    #                    usecols=[0, 1, 3, 4, 5],
+    #                    names=['mol', 'atom', 'x', 'y', 'z'])
+    # box = np.array([3.12913551, 2.94142906, 3.61460741])
+    # oxygen = filter_data(atoms, ['OW'])
+    # hydrogen1 = filter_data(atoms, ['HW1'])
+    # hydrogen2 = filter_data(atoms, ['HW2'])
+    # count = 0
+    # for index, i in oxygen.iterrows():
+    #     hy1 = atoms.loc[(atoms.atom == 'HW1') & (atoms.mol == i.mol)].squeeze()
+    #     hy2 = atoms.loc[(atoms.atom == 'HW2') & (atoms.mol == i.mol)].squeeze()
+    #     count += hbonds(i, oxygen, hy1, hy2, box)
+    # print("\n", count)
+    # sys.exit()
+    # END OF TEST HBONDS
+
     # Read the number of atoms (rows)
     nrows = count_atoms(filename)
 
@@ -22,7 +39,8 @@ if __name__ == "__main__":
     load_frame(trimmed_data, atoms, frame, nrows)
 
     # Load the size of the box
-    box = load_box(box_file, frame)
+    # box = load_box(box_file, frame)
+    box = np.array([12.01647, 2.35141, 2.34885])
 
     # Retrieves the oxygen and carbon atoms
     oxygen = filter_data(atoms, ['OW'])
@@ -30,7 +48,7 @@ if __name__ == "__main__":
 
     # Finds the nearest neighbours under a certain distance of a
     # given atom
-    ox_neigh_ids = neighbours(oxygen, oxygen, box, 0., 0.35)
+    ox_neigh_ids = neighbours(oxygen, oxygen, box, 0.0, 0.35)
 
     # Initiates the array storing the AOP numbers
     aop_values = oxygen.copy()
@@ -38,20 +56,20 @@ if __name__ == "__main__":
 
     # Computes and stores the aop of the oxygen atoms
     t1 = time.time()
-    # for index, i in ox_neigh_ids.iterrows():
-    #     neigh_ox = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z'])
-    #     # Select an atom of oxygen
-    #     center = oxygen.iloc[index]
-    #     for j in i:
-    #         if np.isnan(j):
-    #             break
-    #         neigh_ox = neigh_ox.append(oxygen.iloc[int(j)])
-    #     # Computes the AOP for the selecter atom
-    #     aop_values.iat[index, 5] = caop(center, neigh_ox, box)
-    #     print(index)
-    # t2 = time.time()
-    # print("Elapsed time: {:.4f} s".format(t2 - t1))
-    # save_aop(aop_values.aop.values, oxygen, periodic)
+    for index, i in ox_neigh_ids.iterrows():
+        neigh_ox = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z'])
+        # Select an atom of oxygen
+        center = oxygen.iloc[index]
+        for j in i:
+            if np.isnan(j):
+                break
+            neigh_ox = neigh_ox.append(oxygen.iloc[int(j)])
+        # Computes the AOP for the selecter atom
+        aop_values.iat[index, 5] = caop(center, neigh_ox, box)
+        print(index)
+    t2 = time.time()
+    print("Elapsed time: {:.4f} s".format(t2 - t1))
+    save_aop(aop_values.aop.values, oxygen, periodic)
 
     ca_neigh_ids = neighbours(carbon, oxygen, box, 0., 0.35)
     t_metinit = time.time()
@@ -82,6 +100,6 @@ if __name__ == "__main__":
         print("mol = {}, x = {:.3f}"
               .format(carbon.iloc[index].mol, carbon.iloc[index].x))
         print("nw = {}, nh = {}, nb = {}"
-              .format(neigh_ca.shape[0], low_aop.shape[0], bonds.shape[0]))
+              .format(neigh_ca.shape[0], low_aop.shape[0], bonds))
     print("Total time {}".format(time.time() - t_metinit))
     print('done')

@@ -82,6 +82,7 @@ def caop(df_center, neigh, box):
 def hbonds(sr_center: pd.Series, df_oxygens: pd.DataFrame,
            sr_hydrogen1: pd.Series, sr_hydrogen2: pd.Series,
            box: np.ndarray):
+
     np_center = np.ascontiguousarray(np.array([sr_center.x,
                                                sr_center.y,
                                                sr_center.z]), dtype=float)
@@ -104,7 +105,8 @@ def hbonds(sr_center: pd.Series, df_oxygens: pd.DataFrame,
     utils.hydrogen_bonds(np_center, np_oxygens, np_hydrogens, box,
                          vec1, vec2, vec3, np_oxygens.shape[0],
                          closest, theta, bonds)
+    count = 0
     for i in bonds:
         if i == 1:
-            print("oui")
-    return bonds
+            count += 1
+    return count

@@ -49,15 +49,19 @@ void closest_atom(double *center, double *oxygens, double (*hydrogens)[3],
     distance(oxygens, hydrogens[1], box, do2h2);
 
     dsth1 = sqrt(pow(do1h1[0], 2) + pow(do1h1[1], 2) + pow(do1h1[2], 2))
-            + sqrt(pow(do1h1[0], 2) + pow(do2h1[1], 2) + pow(do2h1[2], 2));
+            + sqrt(pow(do2h1[0], 2) + pow(do2h1[1], 2) + pow(do2h1[2], 2));
     dsth2 = sqrt(pow(do1h2[0], 2) + pow(do1h2[1], 2) + pow(do1h2[2], 2))
             + sqrt(pow(do2h2[0], 2) + pow(do2h2[1], 2) + pow(do2h2[2], 2));
 
     if (dsth2 > dsth1) {
-        closest = hydrogens[0];
+        closest[0] = hydrogens[0][0];
+        closest[1] = hydrogens[0][1];
+        closest[2] = hydrogens[0][2];
     }
     else {
-        closest = hydrogens[1];
+        closest[0] = hydrogens[1][0];
+        closest[1] = hydrogens[1][1];
+        closest[2] = hydrogens[1][2];
     }
 }
 
@@ -137,11 +141,14 @@ void hydrogen_bonds(double *center, double (*oxygens)[3],
             closest_atom(center, oxygens[i], hydrogens, box, closest);
             distance(closest, center, box, vec2);
             distance(closest, oxygens[i], box, vec3);
+            printf("%f before\n", theta[0]);
             angle(vec2, vec3, theta);
+            printf("%f after\n", theta[0]);
             theta[0] = theta[0] * 180 / pi;
             if (theta[0] > 90 && theta[0] < 180) {
                 bonds[i] = 1;
             }
         }
+            theta[0] = 0;
     }
 }
