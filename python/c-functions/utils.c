@@ -107,8 +107,8 @@ void aop(double *center, double (*neighbours)[3], double *box,
         for (i = n_min; i < n_size - 1; i++) {
             distance(center, neighbours[n_min], box, vec1);
             distance(center, neighbours[i + 1], box, vec2);
-            norm_vec(vec1);
-            norm_vec(vec2);
+//            norm_vec(vec1);
+//            norm_vec(vec2);
             angle(vec1, vec2, theta);
             angles[iter] = theta[0];
             iter++;
@@ -141,9 +141,7 @@ void hydrogen_bonds(double *center, double (*oxygens)[3],
             closest_atom(center, oxygens[i], hydrogens, box, closest);
             distance(closest, center, box, vec2);
             distance(closest, oxygens[i], box, vec3);
-            printf("%f before\n", theta[0]);
             angle(vec2, vec3, theta);
-            printf("%f after\n", theta[0]);
             theta[0] = theta[0] * 180 / pi;
             if (theta[0] > 90 && theta[0] < 180) {
                 bonds[i] = 1;

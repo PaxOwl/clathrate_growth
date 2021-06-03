@@ -40,7 +40,7 @@ if __name__ == "__main__":
 
     # Load the size of the box
     # box = load_box(box_file, frame)
-    box = np.array([12.01647, 2.35141, 2.34885])
+    box = np.array([1.20034886, 1.20034886, 1.20034886])
 
     # Retrieves the oxygen and carbon atoms
     oxygen = filter_data(atoms, ['OW'])
@@ -71,7 +71,7 @@ if __name__ == "__main__":
     print("Elapsed time: {:.4f} s".format(t2 - t1))
     save_aop(aop_values.aop.values, oxygen, periodic)
 
-    ca_neigh_ids = neighbours(carbon, oxygen, box, 0., 0.35)
+    ca_neigh_ids = neighbours(carbon, oxygen, box, 0., 0.55)
     t_metinit = time.time()
     for index, i in ca_neigh_ids.iterrows():
         neigh_ca = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z'])
@@ -99,7 +99,7 @@ if __name__ == "__main__":
             bonds = hbonds(j, oxygen, hy1, hy2, box)
         print("mol = {}, x = {:.3f}"
               .format(carbon.iloc[index].mol, carbon.iloc[index].x))
-        print("nw = {}, nh = {}, nb = {}"
-              .format(neigh_ca.shape[0], low_aop.shape[0], bonds))
-    print("Total time {}".format(time.time() - t_metinit))
+        print("nw = {}, nh = {}"
+              .format(neigh_ca.shape[0], low_aop.shape[0]))
+    print("Total time {:.4f} s".format(time.time() - t_metinit))
     print('done')
