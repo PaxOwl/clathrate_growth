@@ -107,8 +107,8 @@ void aop(double *center, double (*neighbours)[3], double *box,
         for (i = n_min; i < n_size - 1; i++) {
             distance(center, neighbours[n_min], box, vec1);
             distance(center, neighbours[i + 1], box, vec2);
-//            norm_vec(vec1);
-//            norm_vec(vec2);
+            norm_vec(vec1);
+            norm_vec(vec2);
             angle(vec1, vec2, theta);
             angles[iter] = theta[0];
             iter++;
