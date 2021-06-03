@@ -64,7 +64,7 @@ if __name__ == "__main__":
         # Filter the neighbours to keep the one with an aop < 0.4
         for index, j in low_aop.iterrows():
             if aop.loc[aop.mol == j.mol].aop.values > 0.4:
-                low_aop.drop(index)
+                low_aop = low_aop.drop(index)
 
         # Compute the hydrogen bonding of the returned molecules
         bonds = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z', 'ox_mol'])
