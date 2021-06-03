@@ -30,6 +30,11 @@ utils.aop.argtypes = [_1ddoublepp, _2ddoublepp, _1ddoublepp,
                       ctypes.c_int, _1ddoublepp, _1ddoublepp,
                       _1ddoublepp, _1ddoublepp, _1ddoublepp]
 utils.aop.restype = None
+utils.hydrogen_bonds.argtypes = [_1ddoublepp, _2ddoublepp, _2ddoublepp,
+                                 _1ddoublepp, _1ddoublepp, _1ddoublepp,
+                                 _1ddoublepp, ctypes.c_int, _1ddoublepp,
+                                 _1ddoublepp, _1ddoublepp]
+utils.hydrogen_bonds.restype = None
 
 def neighbours(df_centers: pd.DataFrame, df_neigh: pd.DataFrame,
                box: np.ndarray, l_lim: float, h_lim: float):
@@ -53,18 +58,14 @@ def neighbours(df_centers: pd.DataFrame, df_neigh: pd.DataFrame,
     outdf = outdf.replace([-1], np.nan)
     outdf.dropna(how='all', axis=1, inplace=True)
 
-    for index, i in outdf.iterrows():
-        for j in range(len(i)):
-            if np.isnan(i[j]):
-                break
     return outdf
 
 def caop(df_center, neigh, box):
     vec1 = np.ascontiguousarray(np.zeros(3, dtype=float))
     vec2 = np.ascontiguousarray(np.zeros(3, dtype=float))
-    center = np.ascontiguousarray(np.array([df_center.x,
-                                            df_center.y,
-                                            df_center.z]), dtype=float)
+    np_center = np.ascontiguousarray(np.array([df_center.x,
+                                               df_center.y,
+                                               df_center.z]), dtype=float)
     np_neigh = np.ascontiguousarray(np.delete(neigh.to_numpy(),
                                               (0, 1), 1)).astype(float)
     angles = np.zeros((neigh.shape[0] - 1) * neigh.shape[0] // 2,
@@ -74,6 +75,36 @@ def caop(df_center, neigh, box):
     theta = np.ascontiguousarray(np.zeros(1, dtype=float))
     aop = np.ascontiguousarray(np.zeros(1, dtype=float))
 
-    utils.aop(center, np_neigh, box, np_neigh.shape[0],
+    utils.aop(np_center, np_neigh, box, np_neigh.shape[0],
               vec1, vec2, theta, angles, aop)
     return aop[0]
+
+def hbonds(sr_center: pd.Series, df_oxygens: pd.DataFrame,
+           sr_hydrogen1: pd.Series, sr_hydrogen2: pd.Series,
+           box: np.ndarray):
+    np_center = np.ascontiguousarray(np.array([sr_center.x,
+                                               sr_center.y,
+                                               sr_center.z]), dtype=float)
+    np_oxygens = np.ascontiguousarray(np.delete(df_oxygens.to_numpy(),
+                                                (0, 1), 1)).astype(float)
+    np_hydrogens = np.ascontiguousarray(np.array(([sr_hydrogen1.x,
+                                                   sr_hydrogen1.y,
+                                                   sr_hydrogen1.z],
+                                                  [sr_hydrogen2.x,
+                                                   sr_hydrogen2.y,
+                                                   sr_hydrogen2.z])),
+                                        dtype=float)
+    vec1 = np.ascontiguousarray(np.zeros(3, dtype=float))
+    vec2 = np.ascontiguousarray(np.zeros(3, dtype=float))
+    vec3 = np.ascontiguousarray(np.zeros(3, dtype=float))
+    closest = np.ascontiguousarray(np.zeros(3, dtype=float))
+    theta = np.ascontiguousarray(np.zeros(1, dtype=float))
+    bonds = np.ascontiguousarray(np.zeros(np_oxygens.shape[0], dtype=float))
+
+    utils.hydrogen_bonds(np_center, np_oxygens, np_hydrogens, box,
+                         vec1, vec2, vec3, np_oxygens.shape[0],
+                         closest, theta, bonds)
+    for i in bonds:
+        if i == 1:
+            print("oui")
+    return bonds

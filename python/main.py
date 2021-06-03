@@ -2,18 +2,12 @@
 """
 Core part of the program
 """
-import ctypes
 import time
 import sys
 from analysis import *
 from parameters import *
 from cintegration import *
-from ctypes import *
-from numpy.ctypeslib import ndpointer
 
-
-so_file = "c-functions/utils.so"
-utils = cdll.LoadLibrary(so_file)
 
 frame = 0
 
@@ -36,7 +30,7 @@ if __name__ == "__main__":
 
     # Finds the nearest neighbours under a certain distance of a
     # given atom
-    ox_neigh_ids = neighbours(oxygen, oxygen, box, 0.0, 0.35)
+    ox_neigh_ids = neighbours(oxygen, oxygen, box, 0., 0.35)
 
     # Initiates the array storing the AOP numbers
     aop_values = oxygen.copy()
@@ -44,52 +38,50 @@ if __name__ == "__main__":
 
     # Computes and stores the aop of the oxygen atoms
     t1 = time.time()
-    index = 0
-    for index, i in ox_neigh_ids.iterrows():
-        neigh = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z'])
-        # Select an atom of oxygen
-        center = oxygen.iloc[index]
+    # for index, i in ox_neigh_ids.iterrows():
+    #     neigh_ox = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z'])
+    #     # Select an atom of oxygen
+    #     center = oxygen.iloc[index]
+    #     for j in i:
+    #         if np.isnan(j):
+    #             break
+    #         neigh_ox = neigh_ox.append(oxygen.iloc[int(j)])
+    #     # Computes the AOP for the selecter atom
+    #     aop_values.iat[index, 5] = caop(center, neigh_ox, box)
+    #     print(index)
+    # t2 = time.time()
+    # print("Elapsed time: {:.4f} s".format(t2 - t1))
+    # save_aop(aop_values.aop.values, oxygen, periodic)
+
+    ca_neigh_ids = neighbours(carbon, oxygen, box, 0., 0.35)
+    t_metinit = time.time()
+    for index, i in ca_neigh_ids.iterrows():
+        neigh_ca = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z'])
+        # Select an atom of carbon
+        center = carbon.iloc[index]
+
         for j in i:
             if np.isnan(j):
                 break
-            neigh = neigh.append(oxygen.iloc[int(j)])
-        # Computes the AOP for the selecter atom
-        aop_values.iat[index, 5] = caop(center, neigh, box)
-        print(index)
-    t2 = time.time()
-    print("Elapsed time: {:.4f} s".format(t2 - t1))
-    save_aop(aop_values.aop.values, oxygen, periodic)
+            neigh_ca = neigh_ca.append(oxygen.iloc[int(j)])
 
-    t_metinit = time.time()
-    for i in range(carbon.shape[0]):
-        t_met_un = time.time()
-        # Select an atom of methane
-        center = carbon.iloc[i]
-
-        # Finds the nearest neighbours under a certain distance of a
-        # given atom
-        neighbours = nearest_neighbours(oxygen, center, 0.55, box, periodic)
-        print("{} neighbours found".format(neighbours.shape[0]))
-        low_aop = neighbours.copy()
-
+        low_aop = neigh_ca.copy()
         # Filter the neighbours to keep the one with an aop < 0.4
-        for index, j in low_aop.iterrows():
-            if aop_values.loc[aop_values.mol == j.mol].aop_values.values > 0.4:
-                low_aop.drop(index)
+        for jindex, j in low_aop.iterrows():
+            if aop_values.loc[aop_values.mol == j.mol].aop.values[0] > 0.4:
+                low_aop = low_aop.drop(jindex)
 
         # Compute the hydrogen bonding of the returned molecules
         bonds = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z', 'ox_mol'])
-        for index, j in low_aop.iterrows():
+        for jindex, j in low_aop.iterrows():
             hy1 = atoms.loc[(atoms.atom == 'HW1') &
-                            (atoms.mol == low_aop.loc[index].mol)].squeeze()
+                            (atoms.mol == low_aop.loc[jindex].mol)].squeeze()
             hy2 = atoms.loc[(atoms.atom == 'HW2') &
-                            (atoms.mol == low_aop.loc[index].mol)].squeeze()
-            bonds = bonds.append(hydrogen_bonds(j, oxygen, hy1, hy2, box))
-        print("mol = {}, x = {}"
-              .format(carbon.iloc[i].mol, carbon.iloc[i].x))
+                            (atoms.mol == low_aop.loc[jindex].mol)].squeeze()
+            bonds = hbonds(j, oxygen, hy1, hy2, box)
+        print("mol = {}, x = {:.3f}"
+              .format(carbon.iloc[index].mol, carbon.iloc[index].x))
         print("nw = {}, nh = {}, nb = {}"
-              .format(neighbours.shape[0], low_aop.shape[0], bonds.shape[0]))
-        t_met_done = time.time()
-        print("Elapsed time {}".format(t_met_done - t_met_un))
+              .format(neigh_ca.shape[0], low_aop.shape[0], bonds.shape[0]))
     print("Total time {}".format(time.time() - t_metinit))
     print('done')

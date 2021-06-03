@@ -34,8 +34,8 @@ void angle(double *v1, double *v2, double *theta) {
     theta[0] = acos(dot);
 }
 
-void closest_atom(double *names, double *oxygens, double *hydrogens,
-                  double *box, double *out_name) {
+void closest_atom(double *center, double *oxygens, double (*hydrogens)[3],
+                  double *box, double *closest) {
     double do1h1[3] = {0., 0., 0.};
     double do2h1[3] = {0., 0., 0.};
     double do1h2[3] = {0., 0., 0.};
@@ -43,10 +43,10 @@ void closest_atom(double *names, double *oxygens, double *hydrogens,
     double dsth1;
     double dsth2;
 
-    distance(&oxygens[0], &hydrogens[0], box, do1h1);
-    distance(&oxygens[1], &hydrogens[0], box, do2h1);
-    distance(&oxygens[0], &hydrogens[1], box, do1h2);
-    distance(&oxygens[1], &hydrogens[1], box, do2h2);
+    distance(center, hydrogens[0], box, do1h1);
+    distance(oxygens, hydrogens[0], box, do2h1);
+    distance(center, hydrogens[1], box, do1h2);
+    distance(oxygens, hydrogens[1], box, do2h2);
 
     dsth1 = sqrt(pow(do1h1[0], 2) + pow(do1h1[1], 2) + pow(do1h1[2], 2))
             + sqrt(pow(do1h1[0], 2) + pow(do2h1[1], 2) + pow(do2h1[2], 2));
@@ -54,10 +54,10 @@ void closest_atom(double *names, double *oxygens, double *hydrogens,
             + sqrt(pow(do2h2[0], 2) + pow(do2h2[1], 2) + pow(do2h2[2], 2));
 
     if (dsth2 > dsth1) {
-        out_name[0] = names[0];
+        closest = hydrogens[0];
     }
     else {
-        out_name[0] = names[1];
+        closest = hydrogens[1];
     }
 }
 
@@ -114,5 +114,34 @@ void aop(double *center, double (*neighbours)[3], double *box,
     for (i = 0; i < iter; i++) {
         aop[0] = aop[0] + pow(fabs(cos(angles[i])) * cos(angles[i])
                               + pow(cos(109.47 * pi / 180), 2), 2);
+    }
+}
+
+void hydrogen_bonds(double *center, double (*oxygens)[3],
+                    double (*hydrogens)[3], double *box,
+                    double *vec1, double *vec2, double* vec3,
+                    int ox_size, double *theta,
+                    double *closest, double* bonds) {
+    double pi = 3.14159265359;
+    size_t i;
+    double dst;
+    for (i = 0; i < ox_size; i++) {
+        if (center[0] == oxygens[i][0]
+            && center[1] == oxygens[i][1]
+            && center[2] == oxygens[i][2]) {
+            continue;
+        }
+        distance(center, oxygens[i], box, vec1);
+        dst = sqrt(pow(vec1[0], 2) + pow(vec1[1], 2) + pow(vec1[2], 2));
+        if (dst > 0.25 && dst < 0.35) {
+            closest_atom(center, oxygens[i], hydrogens, box, closest);
+            distance(closest, center, box, vec2);
+            distance(closest, oxygens[i], box, vec3);
+            angle(vec2, vec3, theta);
+            theta[0] = theta[0] * 180 / pi;
+            if (theta[0] > 90 && theta[0] < 180) {
+                bonds[i] = 1;
+            }
+        }
     }
 }
