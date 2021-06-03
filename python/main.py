@@ -22,7 +22,8 @@ if __name__ == "__main__":
     load_frame(trimmed_data, atoms, frame, nrows)
 
     # Load the size of the box
-    box = load_box(box_file, frame)
+    # box = load_box(box_file, frame)
+    box = np.array([1.20034886, 1.20034886, 1.20034886])
     # Retrieves only the oxygen atoms
     oxygen = filter_data(atoms, ['OW'])
 
