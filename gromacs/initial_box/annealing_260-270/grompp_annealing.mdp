@@ -1,7 +1,7 @@
 ; RUN CONTROL PARAMETERS
 integrator               = md
 dt                       = 0.001
-nsteps                   = 80000
+nsteps                   = 120000
 comm-mode                = linear
 
 ; OUTPUT CONTROL OPTIONS
@@ -43,8 +43,8 @@ compressibility          = 1.0e-6 1.0e-6 1.0e-6 0.0 0.0 0.0
 ; SIMULATED ANNEALING CONTROL
 annealing                = single
 annealing_npoints        = 2
-annealing_time           = 0 80
-annealing_temp           = 260 300
+annealing_time           = 0 120
+annealing_temp           = 260 270
 
 ; GENERATE VELOCITIES FOR STARTUP RUN
 gen-vel                  = yes
