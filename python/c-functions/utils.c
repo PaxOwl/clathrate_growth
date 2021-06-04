@@ -31,7 +31,10 @@ void norm_vec(double *vec) {
 
 void angle(double *v1, double *v2, double *theta) {
     double dot = v1[0] * v2[0] + v1[1] * v2[1] + v1[2] * v2[2];
-    theta[0] = acos(dot);
+    norm_vec(v1);
+    norm_vec(v2);
+    double n_dot = v1[0] * v2[0] + v1[1] * v2[1] + v1[2] * v2[2];
+    theta[0] = acos(dot / n_dot);
 }
 
 void closest_atom(double *center, double *oxygens, double (*hydrogens)[3],
@@ -107,15 +110,15 @@ void aop(double *center, double (*neighbours)[3], double *box,
         for (i = n_min; i < n_size - 1; i++) {
             distance(center, neighbours[n_min], box, vec1);
             distance(center, neighbours[i + 1], box, vec2);
-            norm_vec(vec1);
-            norm_vec(vec2);
             angle(vec1, vec2, theta);
             angles[iter] = theta[0];
             iter++;
         }
         n_min++;
     } while (n_min < n_size + 1);
+    printf("iter = %lu\n", iter);
     for (i = 0; i < iter; i++) {
+        printf("i = %lu\n", i);
         aop[0] = aop[0] + pow(fabs(cos(angles[i])) * cos(angles[i])
                               + pow(cos(109.47 * pi / 180), 2), 2);
     }
