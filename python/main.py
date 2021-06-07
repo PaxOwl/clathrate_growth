@@ -58,12 +58,14 @@ if __name__ == "__main__":
     t1 = time.time()
     for index, i in ox_neigh_ids.iterrows():
         neigh_ox = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z'])
+
         # Select an atom of oxygen
         center = oxygen.iloc[index]
         for j in i:
             if np.isnan(j):
                 break
             neigh_ox = neigh_ox.append(oxygen.iloc[int(j)])
+
         # Computes the AOP for the selecter atom
         aop_values.iat[index, 5] = caop(center, neigh_ox, box)
         print(index)
@@ -99,7 +101,7 @@ if __name__ == "__main__":
             bonds = hbonds(j, oxygen, hy1, hy2, box)
         print("mol = {}, x = {:.3f}"
               .format(carbon.iloc[index].mol, carbon.iloc[index].x))
-        print("nw = {}, nh = {}"
-              .format(neigh_ca.shape[0], low_aop.shape[0]))
+        print("nw = {}, nh = {}, nb = {}"
+              .format(neigh_ca.shape[0], low_aop.shape[0], bonds))
     print("Total time {:.4f} s".format(time.time() - t_metinit))
     print('done')
