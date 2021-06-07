@@ -107,9 +107,7 @@ void aop(double *center, double (*neighbours)[3], double *box,
         }
         n_min++;
     } while (n_min < n_size + 1);
-    printf("iter = %lu\n", iter);
     for (i = 0; i < iter; i++) {
-        printf("i = %lu\n", i);
         aop[0] = aop[0] + pow(fabs(cos(angles[i])) * cos(angles[i])
                               + pow(cos(109.47 * pi / 180), 2), 2);
     }
