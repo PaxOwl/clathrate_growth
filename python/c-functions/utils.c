@@ -7,7 +7,7 @@
 void periodic_conditions(double *delta, double *box) {
     size_t i;
     for(i = 0; i < 3; i++) {
-        delta[i] = delta[i] - round(delta[i] / box[i])  *box[i];
+        delta[i] = delta[i] - round(delta[i] / box[i]) * box[i];
     }
 }
 
@@ -21,17 +21,11 @@ void distance(double *p1, double *p2, double *box, double *vec) {
     periodic_conditions(vec, box);
 }
 
-void norm_vec(double *vec) {
-    double norm = sqrt(pow(vec[0], 2) + pow(vec[1], 2) + pow(vec[2], 2));
-    size_t i;
-    for (i = 0; i < 3; i++) {
-        vec[i] /= norm;
-    }
-}
-
 void angle(double *v1, double *v2, double *theta) {
     double dot = v1[0] * v2[0] + v1[1] * v2[1] + v1[2] * v2[2];
-    theta[0] = acos(dot);
+    double norm1 = sqrt(pow(v1[0], 2) + pow(v1[1], 2) + pow(v1[2], 2));
+    double norm2 = sqrt(pow(v2[0], 2) + pow(v2[1], 2) + pow(v2[2], 2));
+    theta[0] = acos(dot / (norm1 * norm2));
 }
 
 void closest_atom(double *center, double *oxygens, double (*hydrogens)[3],
@@ -125,7 +119,7 @@ void hydrogen_bonds(double *center, double (*oxygens)[3],
                     double (*hydrogens)[3], double *box,
                     double *vec1, double *vec2, double* vec3,
                     int ox_size, double *theta,
-                    double *closest, double* bonds) {
+                    double *closest, double *bonds) {
     double pi = 3.14159265359;
     size_t i;
     double dst;
@@ -141,8 +135,6 @@ void hydrogen_bonds(double *center, double (*oxygens)[3],
             closest_atom(center, oxygens[i], hydrogens, box, closest);
             distance(closest, center, box, vec2);
             distance(closest, oxygens[i], box, vec3);
-            norm_vec(vec1);
-            norm_vec(vec2);
             angle(vec2, vec3, theta);
             theta[0] = theta[0] * 180 / pi;
             if (theta[0] > 90 && theta[0] < 180) {

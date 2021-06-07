@@ -1,6 +1,5 @@
 void distance(double *p1, double *p2, double *box, double *vec);
 void periodic_conditions(double *delta, double *box);
-void norm_vec(double *vec);
 void angle(double *v1, double *v2, double *theta);
 void closest_atom(double *center, double *oxygens, double (*hydrogens)[3],
                   double *box, double *closest);

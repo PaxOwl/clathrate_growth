@@ -36,7 +36,7 @@ if __name__ == "__main__":
     atoms = load_atoms(nrows, filename)
 
     # Load the data of the selected frame in the DataFrame
-    load_frame(trimmed_data, atoms, frame, nrows)
+    # load_frame(trimmed_data, atoms, frame, nrows)
 
     # Load the size of the box
     # box = load_box(box_file, frame)
