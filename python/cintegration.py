@@ -105,8 +105,8 @@ def hbonds(sr_center: pd.Series, df_oxygens: pd.DataFrame,
     utils.hydrogen_bonds(np_center, np_oxygens, np_hydrogens, box,
                          vec1, vec2, vec3, np_oxygens.shape[0],
                          closest, theta, bonds)
-    count = 0
-    for i in bonds:
+    bonds_lst = []
+    for index, i in enumerate(bonds):
         if i == 1:
-            count += 1
-    return count
+            bonds_lst.append(index)
+    return len(bonds_lst)

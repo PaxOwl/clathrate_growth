@@ -92,13 +92,13 @@ if __name__ == "__main__":
                 low_aop = low_aop.drop(jindex)
 
         # Compute the hydrogen bonding of the returned molecules
-        bonds = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z', 'ox_mol'])
+        bonds = 0
         for jindex, j in low_aop.iterrows():
             hy1 = atoms.loc[(atoms.atom == 'HW1') &
                             (atoms.mol == low_aop.loc[jindex].mol)].squeeze()
             hy2 = atoms.loc[(atoms.atom == 'HW2') &
                             (atoms.mol == low_aop.loc[jindex].mol)].squeeze()
-            bonds = hbonds(j, oxygen, hy1, hy2, box)
+            bonds += hbonds(j, oxygen, hy1, hy2, box)
         print("mol = {}, x = {:.3f}"
               .format(carbon.iloc[index].mol, carbon.iloc[index].x))
         print("nw = {}, nh = {}, nb = {}"

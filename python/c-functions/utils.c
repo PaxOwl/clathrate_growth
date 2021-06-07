@@ -31,10 +31,7 @@ void norm_vec(double *vec) {
 
 void angle(double *v1, double *v2, double *theta) {
     double dot = v1[0] * v2[0] + v1[1] * v2[1] + v1[2] * v2[2];
-    norm_vec(v1);
-    norm_vec(v2);
-    double n_dot = v1[0] * v2[0] + v1[1] * v2[1] + v1[2] * v2[2];
-    theta[0] = acos(dot / n_dot);
+    theta[0] = acos(dot);
 }
 
 void closest_atom(double *center, double *oxygens, double (*hydrogens)[3],
@@ -56,7 +53,7 @@ void closest_atom(double *center, double *oxygens, double (*hydrogens)[3],
     dsth2 = sqrt(pow(do1h2[0], 2) + pow(do1h2[1], 2) + pow(do1h2[2], 2))
             + sqrt(pow(do2h2[0], 2) + pow(do2h2[1], 2) + pow(do2h2[2], 2));
 
-    if (dsth2 > dsth1) {
+    if (dsth2 >= dsth1) {
         closest[0] = hydrogens[0][0];
         closest[1] = hydrogens[0][1];
         closest[2] = hydrogens[0][2];
@@ -144,6 +141,8 @@ void hydrogen_bonds(double *center, double (*oxygens)[3],
             closest_atom(center, oxygens[i], hydrogens, box, closest);
             distance(closest, center, box, vec2);
             distance(closest, oxygens[i], box, vec3);
+            norm_vec(vec1);
+            norm_vec(vec2);
             angle(vec2, vec3, theta);
             theta[0] = theta[0] * 180 / pi;
             if (theta[0] > 90 && theta[0] < 180) {
