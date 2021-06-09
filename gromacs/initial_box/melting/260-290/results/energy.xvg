@@ -1,0 +1,27 @@
+# This file was created Wed Jun  9 17:14:13 2021
+# Created by:
+#                       :-) GROMACS - gmx energy, 2021 (-:
+# 
+# Executable:   /usr/local/gromacs/bin/gmx
+# Data prefix:  /usr/local/gromacs
+# Working dir:  /home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/gromacs/initial_box/melting/260-290/results
+# Command line:
+#   gmx energy
+# gmx energy is part of G R O M A C S:
+#
+# S  C  A  M  O  R  G
+#
+@    title "GROMACS Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(K)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Temperature"
+    0.000000  258.571747
+   10.000000  279.238037
+   20.000000  289.042847
