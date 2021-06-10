@@ -116,8 +116,10 @@ def hbonds(sr_center: pd.Series, df_oxygens: pd.DataFrame,
     return df_bonds
 
 
-def clath_phase(df_small: pd.DataFrame, df_large: pd.DataFrame):
+def clath_phase(df_small: pd.DataFrame, df_large: pd.DataFrame,
+                box: np.ndarray):
     xmin = np.ascontiguousarray(np.zeros(1, dtype=float))
+    xmin[0] = box[0]
     xmax = np.ascontiguousarray(np.zeros(1, dtype=float))
     np_small = np.ascontiguousarray(np.delete(df_small.to_numpy(),
                                               (0, 1, 3, 4), 1)).astype(float)
@@ -127,9 +129,7 @@ def clath_phase(df_small: pd.DataFrame, df_large: pd.DataFrame):
     np_large = np_large.reshape(df_large.shape[0])
 
     utils.clath_size(np_small, np_large,
-                     np_large.shape[0], np_small.shape[0],
+                     np_small.shape[0], np_large.shape[0],
                      xmin, xmax)
-    print(xmax[0])
-    print(xmin[0])
 
     return xmax[0] - xmin[0]

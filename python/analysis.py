@@ -39,7 +39,8 @@ def load_atoms(nrow: int, file: str = "conf.gro") -> pd.DataFrame:
 def load_frame(file: str, atoms: pd.DataFrame, frame: int, nrow: int):
 
     # Loads data
-    data = pd.read_csv(file, nrows=nrow, names=['x', 'y', 'z'],
+    data = pd.read_csv(file, nrows=nrow, skiprows=frame * nrow,
+                       names=['x', 'y', 'z'],
                        dtype={'x': np.float32,
                               'y': np.float32,
                               'z': np.float32})
