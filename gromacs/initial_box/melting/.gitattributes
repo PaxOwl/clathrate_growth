@@ -1,0 +1,4 @@
+260-270/melted/traj.trr filter=lfs diff=lfs merge=lfs -text
+260-280/melted/traj.trr filter=lfs diff=lfs merge=lfs -text
+260-290/melted/traj.trr filter=lfs diff=lfs merge=lfs -text
+260-300/melted/traj.trr filter=lfs diff=lfs merge=lfs -text

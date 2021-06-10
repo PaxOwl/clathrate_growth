@@ -1,0 +1,79 @@
+                   :-) GROMACS - gmx mdrun, VERSION 5.1.2 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, VERSION 5.1.2
+Executable:   /Softs/lumiere/gromacs/gcc/5.1.2/bin/gmx_mpi
+Data prefix:  /Softs/lumiere/gromacs/gcc/5.1.2
+Command line:
+  gmx_mpi mdrun -s topol.tpr -g md.log -o traj.trr -c conf.gro
+
+
+Number of logical cores detected (16) does not match the number reported by OpenMP (1).
+Consider setting the launch configuration manually!
+
+Running on 1 node with total 16 cores, 16 logical cores
+Hardware detected on host node2-16 (the node of MPI rank 0):
+  CPU info:
+    Vendor: GenuineIntel
+    Brand:  Intel(R) Xeon(R) CPU E5-2640 v3 @ 2.60GHz
+    SIMD instructions most likely to fit this hardware: AVX2_256
+    SIMD instructions selected at GROMACS compile time: SSE4.1
+
+Compiled SIMD instructions: SSE4.1, GROMACS could use AVX2_256 on this machine, which is better
+
+Reading file topol.tpr, VERSION 5.1.2 (single precision)
+Changing nstlist from 10 to 25, rlist from 0.953 to 0.982
+
+The number of OpenMP threads was set by environment variable OMP_NUM_THREADS to 1
+Using 16 MPI processes
+Using 1 OpenMP thread per MPI process
+
+
+Non-default thread affinity set probably by the OpenMP library,
+disabling internal thread affinity
+
+Back Off! I just backed up ener.edr to ./#ener.edr.1#
+starting mdrun 'Methane in water'
+20000 steps,     20.0 ps.
+
+NOTE: Turning on dynamic load balancing
+
+
+Writing final coordinates.
+
+Back Off! I just backed up conf.gro to ./#conf.gro.1#
+
+ Average load imbalance: 3.4 %
+ Part of the total run time spent waiting due to load imbalance: 2.2 %
+ Steps where the load balancing was limited by -rdd, -rcon and/or -dds: X 0 %
+
+
+               Core t (s)   Wall t (s)        (%)
+       Time:      428.502       26.775     1600.4
+                 (ns/day)    (hour/ns)
+Performance:       64.541        0.372
+
+gcq#339: "Look at these, my work-strong arms" (P.J. Harvey)
+
