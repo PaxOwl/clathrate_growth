@@ -12,23 +12,6 @@ from cintegration import *
 frame = 0
 
 if __name__ == "__main__":
-    # TEST HBONDS
-    # atoms = pd.read_csv('test_hbonds/out', sep=',',
-    #                    usecols=[0, 1, 3, 4, 5],
-    #                    names=['mol', 'atom', 'x', 'y', 'z'])
-    # box = np.array([3.12913551, 2.94142906, 3.61460741])
-    # oxygen = filter_data(atoms, ['OW'])
-    # hydrogen1 = filter_data(atoms, ['HW1'])
-    # hydrogen2 = filter_data(atoms, ['HW2'])
-    # count = 0
-    # for index, i in oxygen.iterrows():
-    #     hy1 = atoms.loc[(atoms.atom == 'HW1') & (atoms.mol == i.mol)].squeeze()
-    #     hy2 = atoms.loc[(atoms.atom == 'HW2') & (atoms.mol == i.mol)].squeeze()
-    #     count += hbonds(i, oxygen, hy1, hy2, box)
-    # print("\n", count)
-    # sys.exit()
-    # END OF TEST HBONDS
-
     # Read the number of atoms (rows)
     nrows = count_atoms(filename)
 
@@ -74,6 +57,11 @@ if __name__ == "__main__":
 
     ca_neigh_ids = neighbours(carbon, oxygen, box, 0., 0.55)
     t_metinit = time.time()
+    cages_small = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z'])
+    cages_large = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z'])
+    cages_inter = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z'])
+    cages_irreg = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z'])
+    alone_met = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z'])
     for index, i in ca_neigh_ids.iterrows():
         neigh_ca = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z'])
         # Select an atom of carbon
@@ -91,16 +79,39 @@ if __name__ == "__main__":
                 low_aop = low_aop.drop(jindex)
 
         # Compute the hydrogen bonding of the returned molecules
-        bonds = 0
+        bonds = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z', 'wat'])
         for jindex, j in low_aop.iterrows():
             hy1 = atoms.loc[(atoms.atom == 'HW1') &
                             (atoms.mol == low_aop.loc[jindex].mol)].squeeze()
             hy2 = atoms.loc[(atoms.atom == 'HW2') &
                             (atoms.mol == low_aop.loc[jindex].mol)].squeeze()
-            bonds += hbonds(j, oxygen, hy1, hy2, box)
+            bonds = bonds.append(hbonds(j, low_aop, hy1, hy2, box),
+                                 ignore_index=True)
+        sort_bonds = bonds.copy()
+        for jindex, j in bonds.iterrows():
+            neigh = bonds[bonds.wat == j.mol]
+            if neigh.shape[0] == 0:
+                sort_bonds = sort_bonds.drop(jindex)
+
+        if low_aop.shape[0] == 20:
+            cages_small = cages_small.append(center)
+        elif low_aop.shape[0] == 24:
+            cages_large = cages_large.append(center)
+        elif 10 <= low_aop.shape[0] <= 13:
+            cages_inter = cages_inter.append(center)
+        elif (low_aop.shape[0] >= 14
+              & low_aop.shape[0] != 20
+              & low_aop.shape[0] != 24):
+            cages_irreg = cages_irreg.append(center)
+        else:
+            alone_met = alone_met.append(center)
+
         print("mol = {}, x = {:.3f}"
               .format(carbon.iloc[index].mol, carbon.iloc[index].x))
         print("nw = {}, nh = {}, nb = {}"
-              .format(neigh_ca.shape[0], low_aop.shape[0], bonds))
+              .format(neigh_ca.shape[0], low_aop.shape[0],
+                      sort_bonds.shape[0]))
+    size = clath_phase(cages_small, cages_large)
+    print("Size of the clathrate phase: {} A".format(size))
     print("Total time {:.4f} s".format(time.time() - t_metinit))
     print('done')

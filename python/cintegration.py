@@ -35,6 +35,9 @@ utils.hydrogen_bonds.argtypes = [_1ddoublepp, _2ddoublepp, _2ddoublepp,
                                  _1ddoublepp, ctypes.c_int, _1ddoublepp,
                                  _1ddoublepp, _1ddoublepp]
 utils.hydrogen_bonds.restype = None
+utils.clath_size.argtypes = [_1ddoublepp, _1ddoublepp, ctypes.c_int,
+                             ctypes.c_int, _1ddoublepp, _1ddoublepp]
+utils.clath_size.restype = None
 
 def neighbours(df_centers: pd.DataFrame, df_neigh: pd.DataFrame,
                box: np.ndarray, l_lim: float, h_lim: float):
@@ -105,8 +108,26 @@ def hbonds(sr_center: pd.Series, df_oxygens: pd.DataFrame,
     utils.hydrogen_bonds(np_center, np_oxygens, np_hydrogens, box,
                          vec1, vec2, vec3, np_oxygens.shape[0],
                          closest, theta, bonds)
-    bonds_lst = []
+    df_bonds = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z', 'wat'])
     for index, i in enumerate(bonds):
         if i == 1:
-            bonds_lst.append(index)
-    return len(bonds_lst)
+            df_bonds = df_bonds.append(df_oxygens.iloc[index])
+    df_bonds.loc[:, 'wat'] = sr_center.mol
+    return df_bonds
+
+
+def clath_phase(df_small: pd.DataFrame, df_large: pd.DataFrame):
+    xmin = np.ascontiguousarray(np.zeros(1, dtype=float))
+    xmax = np.ascontiguousarray(np.zeros(1, dtype=float))
+    np_small = np.ascontiguousarray(np.delete(df_small.to_numpy(),
+                                              (0, 1, 3, 4), 1)).astype(float)
+    np_large = np.ascontiguousarray(np.delete(df_large.to_numpy(),
+                                              (0, 1, 3, 4), 1)).astype(float)
+    np_small = np_small.reshape(df_small.shape[0])
+    np_large = np_large.reshape(df_large.shape[0])
+
+    utils.clath_size(np_small, np_large,
+                     np_large.shape[0], np_small.shape[0],
+                     xmin, xmax)
+
+    return xmax[0] - xmin[0]
