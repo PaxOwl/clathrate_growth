@@ -129,5 +129,7 @@ def clath_phase(df_small: pd.DataFrame, df_large: pd.DataFrame):
     utils.clath_size(np_small, np_large,
                      np_large.shape[0], np_small.shape[0],
                      xmin, xmax)
+    print(xmax[0])
+    print(xmin[0])
 
     return xmax[0] - xmin[0]

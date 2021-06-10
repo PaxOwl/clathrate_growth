@@ -7,3 +7,5 @@ latex/
 .idea/
 python/__pycache__/
 *.trr
+*.dump
+*.trim

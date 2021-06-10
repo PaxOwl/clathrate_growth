@@ -4,8 +4,7 @@ This file contains the different constants and parameters to be used
 
 
 periodic = True
-filename = "conf.gro"
-box_file = "box_size"
-trimmed_data = 'trimmed_data'
-nframes = 4001
-aop_radius = 0.55
+filename = "data/melt300.tgro"
+box_file = "data/melt300.box"
+trimmed_data = 'data/melt300.trim'
+nframes = 2002

@@ -112,6 +112,6 @@ if __name__ == "__main__":
               .format(neigh_ca.shape[0], low_aop.shape[0],
                       sort_bonds.shape[0]))
     size = clath_phase(cages_small, cages_large)
-    print("Size of the clathrate phase: {} A".format(size))
+    print("Size of the clathrate phase: {:.4f} nm".format(size))
     print("Total time {:.4f} s".format(time.time() - t_metinit))
     print('done')

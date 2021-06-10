@@ -4,7 +4,6 @@ This file sets-up and arranges the data to be used
 import time
 import numpy as np
 import pandas as pd
-from parameters import aop_radius
 
 
 def count_atoms(file: str = "conf.gro") -> int:
