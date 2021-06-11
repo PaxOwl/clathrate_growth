@@ -3,16 +3,20 @@
 Core part of the program
 """
 import time
-import sys
 from analysis import *
 from parameters import *
 from cintegration import *
 
 
 if __name__ == "__main__":
-    size = np.zeros(2)
-    for iteration in [0, 1]:
-        frame = 2000 * iteration
+    cframes = 10
+    frames_list = [i * (nframes - 1) // (cframes - 1) for i in range(cframes)]
+    frames = np.array(frames_list, dtype=int)
+    size = np.zeros(frames.shape[0])
+    for f, iteration in enumerate(frames):
+
+        print("-------------------- FRAME {:>4} --------------------\n"
+              .format(iteration))
         # Read the number of atoms (rows)
         nrows = count_atoms(filename)
 
@@ -20,10 +24,10 @@ if __name__ == "__main__":
         atoms = load_atoms(nrows, filename)
 
         # Load the data of the selected frame in the DataFrame
-        load_frame(trimmed_data, atoms, frame, nrows)
+        load_frame(trimmed_data, atoms, iteration, nrows)
 
         # Load the size of the box
-        box = load_box(box_file, frame)
+        box = load_box(box_file, iteration)
 
         # Retrieves the oxygen and carbon atoms
         oxygen = filter_data(atoms, ['OW'])
@@ -39,6 +43,7 @@ if __name__ == "__main__":
 
         # Computes and stores the aop of the oxygen atoms
         t1 = time.time()
+        print("Computing AOP ...")
         for index, i in ox_neigh_ids.iterrows():
             neigh_ox = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z'])
 
@@ -51,9 +56,8 @@ if __name__ == "__main__":
 
             # Computes the AOP for the selecter atom
             aop_values.iat[index, 5] = caop(center, neigh_ox, box)
-            print(index)
         t2 = time.time()
-        print("Elapsed time: {:.4f} s".format(t2 - t1))
+        print("Done. Elapsed time: {:.3f} s\n".format(t2 - t1))
         save_aop(aop_values.aop.values, oxygen, periodic)
 
         ca_neigh_ids = neighbours(carbon, oxygen, box, 0., 0.55)
@@ -63,6 +67,8 @@ if __name__ == "__main__":
         cages_inter = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z'])
         cages_irreg = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z'])
         alone_met = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z'])
+        t3 = time.time()
+        print("Computing neighbours with low AOP and hydrogen bonds ...")
         for index, i in ca_neigh_ids.iterrows():
             neigh_ca = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z'])
             # Select an atom of carbon
@@ -83,9 +89,11 @@ if __name__ == "__main__":
             bonds = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z', 'wat'])
             for jindex, j in low_aop.iterrows():
                 hy1 = atoms.loc[(atoms.atom == 'HW1') &
-                                (atoms.mol == low_aop.loc[jindex].mol)].squeeze()
+                                (atoms.mol == low_aop.loc[jindex].mol)]\
+                    .squeeze()
                 hy2 = atoms.loc[(atoms.atom == 'HW2') &
-                                (atoms.mol == low_aop.loc[jindex].mol)].squeeze()
+                                (atoms.mol == low_aop.loc[jindex].mol)]\
+                    .squeeze()
                 bonds = bonds.append(hbonds(j, low_aop, hy1, hy2, box),
                                      ignore_index=True)
             sort_bonds = bonds.copy()
@@ -96,25 +104,31 @@ if __name__ == "__main__":
 
             if low_aop.shape[0] == 20:
                 cages_small = cages_small.append(center)
+                print("{} / x = {:>7.4f} / Small cage".format(center.mol,
+                                                            center.x))
             elif low_aop.shape[0] == 24:
                 cages_large = cages_large.append(center)
+                print("{} / x = {:>7.4f} / Large cage".format(center.mol,
+                                                            center.x))
             elif 10 <= low_aop.shape[0] <= 13:
                 cages_inter = cages_inter.append(center)
+                print("{} / x = {:>7.4f} / Interface cage".format(center.mol,
+                                                                center.x))
             elif (low_aop.shape[0] >= 14
                   & low_aop.shape[0] != 20
                   & low_aop.shape[0] != 24):
                 cages_irreg = cages_irreg.append(center)
+                print("{} / x = {:>7.4f} / Irregular cage".format(center.mol,
+                                                                center.x))
             else:
                 alone_met = alone_met.append(center)
+                print("{} / x = {:>7.4f} / Not in a cage".format(center.mol,
+                                                               center.x))
+        size[f] = clath_phase(cages_small, cages_large, box)
+        t4 = time.time()
+        print("Done. Elapsed time: {:.3f} s".format(t4 - t3))
+        print("Total time {:.3f} s".format(t4 - t1))
+        print("\n\n")
 
-            print("mol = {}, x = {:.3f}"
-                  .format(carbon.iloc[index].mol, carbon.iloc[index].x))
-            print("nw = {}, nh = {}, nb = {}"
-                  .format(neigh_ca.shape[0], low_aop.shape[0],
-                          sort_bonds.shape[0]))
-        size[iteration] = clath_phase(cages_small, cages_large, box)
-        print("Size of the clathrate phase: {:.3f} nm".format(size[iteration]))
-        print("Total time {:.4f} s".format(time.time() - t_metinit))
-        print('done')
-    print("Frame 1   : {:.3f} nm".format(size[0]))
-    print("Frame 2000: {:.3f} nm".format(size[1]))
+    for index, iteration in enumerate(frames):
+        print("Frame {}: {:.3f} nm".format(iteration, size[index]))

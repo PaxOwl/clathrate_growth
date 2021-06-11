@@ -39,6 +39,7 @@ utils.clath_size.argtypes = [_1ddoublepp, _1ddoublepp, ctypes.c_int,
                              ctypes.c_int, _1ddoublepp, _1ddoublepp]
 utils.clath_size.restype = None
 
+
 def neighbours(df_centers: pd.DataFrame, df_neigh: pd.DataFrame,
                box: np.ndarray, l_lim: float, h_lim: float):
     np_center = np.ascontiguousarray(np.delete(df_centers.to_numpy(),
@@ -63,6 +64,7 @@ def neighbours(df_centers: pd.DataFrame, df_neigh: pd.DataFrame,
 
     return outdf
 
+
 def caop(df_center, neigh, box):
     vec1 = np.ascontiguousarray(np.zeros(3, dtype=float))
     vec2 = np.ascontiguousarray(np.zeros(3, dtype=float))
@@ -81,6 +83,7 @@ def caop(df_center, neigh, box):
     utils.aop(np_center, np_neigh, box, np_neigh.shape[0],
               vec1, vec2, theta, angles, aop)
     return aop[0]
+
 
 def hbonds(sr_center: pd.Series, df_oxygens: pd.DataFrame,
            sr_hydrogen1: pd.Series, sr_hydrogen2: pd.Series,

@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.0 (TeX Live 2021/Arch Linux)  (format=lualatex 2021.5.26)  11 JUN 2021 09:37
+This is LuaHBTeX, Version 1.13.0 (TeX Live 2021/Arch Linux)  (format=lualatex 2021.5.26)  11 JUN 2021 10:27
  system commands enabled.
  file:line:error style messages enabled.
 **/home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/latex/master.tex
@@ -47,7 +47,7 @@ luaotfload | db : Font names database loaded from /home/cyril/.texlive/texmf-var
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
-) (/home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/latex/../../preamble.tex (/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
+) (/home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/latex/preamble.tex (/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2020/09/23 v2.17i AMS math features
 \@mathmargin=\skip49
 
@@ -513,12 +513,12 @@ braces):
 >  {french/localnumeral}  =>  {polyglossia@C@localnumeral}
 >  {french/Localnumeral}  =>  {polyglossia@C@localnumeral}.
 Module polyglossia Info: Language data for french
+(polyglossia)            hyphenation	
+(polyglossia)            righthyphenmin	2
+(polyglossia)            patterns	hyph-fr.pat.txt
 (polyglossia)            lefthyphenmin	2
 (polyglossia)            loader	loadhyph-fr.tex
-(polyglossia)            hyphenation	
-(polyglossia)            synonyms	patois,francais
-(polyglossia)            patterns	hyph-fr.pat.txt
-(polyglossia)            righthyphenmin	2 on input line 12
+(polyglossia)            synonyms	patois,francais on input line 12
 Module polyglossia Info: Language french was not yet loaded; created with id 2 on input line 12
 Lua-only attribute polyglossia_punct = 4
 Package polyglossia Info: Option: French, variant=french.
@@ -1738,25 +1738,15 @@ LaTeX Info: Redefining \ttfamily on input line 4.
 
 \openout2 = title.aux
  (/home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/latex/title.tex
-
-LaTeX Warning: File `figures/logo-ubfc.png' not found on input line 6.
-
-
-/home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/latex/title.tex:6: Package luatex.def Error: File `figures/logo-ubfc.png' not found: using draft setting.
-
-See the luatex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.6 ...cs[width=.7\linewidth]{figures/logo-ubfc.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
+<figures/logo-ubfc.png, id=28, 120.51022pt x 56.43083pt>
+File: figures/logo-ubfc.png Graphic file (type png)
+<use figures/logo-ubfc.png>
+Package luatex.def Info: figures/logo-ubfc.png  used on input line 6.
+(luatex.def)             Requested size: 318.66948pt x 149.23355pt.
 ) [0
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}</home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/latex/figures/logo-ubfc.png>]
 \openout2 = report.aux
  (/home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/latex/report.tex) [1
 
@@ -1819,26 +1809,26 @@ LaTeX Info: Redefining \sffamily on input line 26.
 LaTeX Info: Redefining \ttfamily on input line 26.
  (/home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/latex/report.aux))
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: 9814C2D956916ADB9290ECA4E25C967A;103.
+(rerunfilecheck)             Checksum: 610A4DC87C70F1E5B62EEE9B4CC9FFA2;548.
 Package logreq Info: Writing requests to 'master.run.xml'.
 
 \openout1 = master.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 37203 strings out of 478531
+ 37159 strings out of 478531
  125056,1977958 words of node,token memory allocated
  842 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 3 glue, 5 kern, 1 penalty, 1 glyph, 9 attribute, 117 glue_spec, 9 attribute_list, 3 write nodes
-   avail lists: 1:4,2:186,3:38,4:18,5:60,6:14,7:312,8:6,9:104,10:1,11:6
- 55769 multiletter control sequences out of 65536+600000
- 91 fonts using 32044231 bytes
- 103i,11n,131p,581b,1709s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/fonts/ttf-linux-libertine/LinLibertine_R.otf></usr/share/fonts/ttf-linux-libertine/LinLibertine_RB.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf>
-Output written on master.pdf (2 pages, 13586 bytes).
+   avail lists: 1:4,2:213,3:118,4:18,5:62,6:24,7:352,8:14,9:124,10:1,11:22
+ 55764 multiletter control sequences out of 65536+600000
+ 91 fonts using 32044311 bytes
+ 103i,11n,131p,575b,1709s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/fonts/ttf-linux-libertine/LinLibertine_R.otf></usr/share/fonts/ttf-linux-libertine/LinLibertine_RB.otf>
+Output written on master.pdf (2 pages, 139640 bytes).
 
-PDF statistics: 46 PDF objects out of 1000 (max. 8388607)
- 30 compressed objects within 1 object stream
- 5 named destinations out of 1000 (max. 131072)
- 9 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 61 PDF objects out of 1000 (max. 8388607)
+ 46 compressed objects within 1 object stream
+ 10 named destinations out of 1000 (max. 131072)
+ 49 words of extra memory for PDF output out of 10000 (max. 100000000)
 

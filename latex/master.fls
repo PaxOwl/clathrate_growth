@@ -57,8 +57,8 @@ INPUT /usr/share/texmf-dist/tex/latex/base/size10.clo
 INPUT /usr/share/texmf-dist/tex/latex/base/size10.clo
 INPUT /home/cyril/.texlive/texmf-var/luatex-cache/generic/names/luaotfload-names.luc
 INPUT /home/cyril/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc
-INPUT /home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/latex/../../preamble.tex
-INPUT /home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/latex/../../preamble.tex
+INPUT /home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/latex/preamble.tex
+INPUT /home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/latex/preamble.tex
 INPUT /usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
 INPUT /usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
 INPUT /usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
@@ -548,6 +548,9 @@ INPUT /home/cyril/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmmono8-regu
 OUTPUT /home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/latex/title.aux
 INPUT /home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/latex/title.tex
 INPUT /home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/latex/title.tex
+INPUT /home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/latex/figures/logo-ubfc.png
+INPUT /home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/latex/figures/logo-ubfc.png
+INPUT /home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/latex/figures/logo-ubfc.png
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 OUTPUT /home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/latex/report.aux
 INPUT /home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/latex/report.tex

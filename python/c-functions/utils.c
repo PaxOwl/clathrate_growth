@@ -144,21 +144,22 @@ void hydrogen_bonds(double *center, double (*oxygens)[3],
 }
 
 void clath_size(double *small, double *large, int n_small, int n_large,
-          double *xmin, double *xmax) {
+                double *small_size, double *large_size,
+                double *xmin, double *xmax) {
     for (size_t i; i < n_small; i++) {
-        if (small[i] > xmax[0]) {
-            xmax[0] = small[i];
+        if (small[i] + small_size[0] > xmax[0]) {
+            xmax[0] = small[i] + small_size[0];
         }
-        if (small[i] < xmin[0]) {
-            xmin[0] = small[i];
+        if (small[i] - small_size[0] < xmin[0]) {
+            xmin[0] = small[i] - small_size[0];
         }
     }
     for (size_t i; i < n_large; i++) {
-        if (large[i] > xmax[0]) {
-            xmax[0] = large[i];
+        if (large[i] + large_size[0] > xmax[0]) {
+            xmax[0] = large[i] + large_size[0];
         }
-        if (large[i] < xmin[0]) {
-            xmin[0] = large[i];
+        if (large[i] - large_size[0] < xmin[0]) {
+            xmin[0] = large[i] - large_size[0];
         }
     }
 }

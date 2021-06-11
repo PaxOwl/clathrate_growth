@@ -18,4 +18,5 @@ void hydrogen_bonds(double *center, double (*oxygens)[3],
                     int ox_size, double *theta,
                     double *closest, double* bonds);
 void clath_size(double *small, double *large, int n_small, int n_large,
-          double *xmin, double *xmax);
+                double *small_size, double *large_size,
+                double *xmin, double *xmax);

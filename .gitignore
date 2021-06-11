@@ -3,7 +3,7 @@ python/dump_traj
 python/trimmed_data
 docs/
 figures/
-latex/notes-gromacs.tex
+latex/
 .idea/
 python/__pycache__/
 *.trr
