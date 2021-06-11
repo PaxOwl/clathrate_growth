@@ -3,9 +3,10 @@ python/dump_traj
 python/trimmed_data
 docs/
 figures/
-latex/
+latex/notes-gromacs.tex
 .idea/
 python/__pycache__/
 *.trr
 *.dump
 *.trim
+*.box
