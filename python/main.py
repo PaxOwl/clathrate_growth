@@ -104,31 +104,30 @@ if __name__ == "__main__":
 
             if low_aop.shape[0] == 20:
                 cages_small = cages_small.append(center)
-                print("{} / x = {:>7.4f} / Small cage".format(center.mol,
-                                                            center.x))
+                print("{} - x = {:>7.4f} - Small cage".format(center.mol,
+                                                              center.x))
             elif low_aop.shape[0] == 24:
                 cages_large = cages_large.append(center)
-                print("{} / x = {:>7.4f} / Large cage".format(center.mol,
-                                                            center.x))
+                print("{} - x = {:>7.4f} - Large cage".format(center.mol,
+                                                              center.x))
             elif 10 <= low_aop.shape[0] <= 13:
                 cages_inter = cages_inter.append(center)
-                print("{} / x = {:>7.4f} / Interface cage".format(center.mol,
-                                                                center.x))
+                print("{} - x = {:>7.4f} - Interface cage".format(center.mol,
+                                                                  center.x))
             elif (low_aop.shape[0] >= 14
                   & low_aop.shape[0] != 20
                   & low_aop.shape[0] != 24):
                 cages_irreg = cages_irreg.append(center)
-                print("{} / x = {:>7.4f} / Irregular cage".format(center.mol,
-                                                                center.x))
+                print("{} - x = {:>7.4f} - Irregular cage".format(center.mol,
+                                                                  center.x))
             else:
                 alone_met = alone_met.append(center)
-                print("{} / x = {:>7.4f} / Not in a cage".format(center.mol,
-                                                               center.x))
+                print("{} - x = {:>7.4f} - Not in a cage".format(center.mol,
+                                                                 center.x))
         size[f] = clath_phase(cages_small, cages_large, box)
         t4 = time.time()
         print("Done. Elapsed time: {:.3f} s".format(t4 - t3))
-        print("Total time {:.3f} s".format(t4 - t1))
-        print("\n\n")
+        print("Total time {:.3f} s\n".format(t4 - t1))
 
     for index, iteration in enumerate(frames):
-        print("Frame {}: {:.3f} nm".format(iteration, size[index]))
+        print("Frame {:>4}: {:.3f} nm".format(iteration, size[index]))
