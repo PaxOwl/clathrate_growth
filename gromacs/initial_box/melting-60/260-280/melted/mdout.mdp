@@ -2,7 +2,7 @@
 ;	File 'mdout.mdp' was generated
 ;	By user: ctsilefski (1607)
 ;	On host: mesoshared
-;	At date: Wed Jun 16 11:49:11 2021
+;	At date: Sat Jun 19 14:41:27 2021
 
 ;
 
@@ -158,7 +158,7 @@ print-nose-hoover-chain-variables = no
 tc-grps                  = system
 ; Time constant (ps) and reference temperature (K)
 tau-t                    = 0.1
-ref-t                    = 270
+ref-t                    = 280
 ; pressure coupling     
 pcoupl                   = berendsen
 pcoupltype               = anisotropic

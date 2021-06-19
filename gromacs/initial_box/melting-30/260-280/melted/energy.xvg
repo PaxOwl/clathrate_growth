@@ -1,15 +1,15 @@
-# This file was created Thu Jun 10 09:57:35 2021
+# This file was created Sat Jun 19 19:55:07 2021
 # Created by:
 #                       :-) GROMACS - gmx energy, 2021 (-:
 # 
 # Executable:   /usr/local/gromacs/bin/gmx
 # Data prefix:  /usr/local/gromacs
-# Working dir:  /home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/gromacs/initial_box/melting/260-280/melted
+# Working dir:  /home/cyril/Documents/FAC/MASTER-1/SEMESTER-8/LAB/gromacs/initial_box/melting-30/260-280/melted
 # Command line:
 #   gmx energy
 # gmx energy is part of G R O M A C S:
 #
-# Great Red Owns Many ACres of Sand 
+# Great Red Oystrich Makes All Chemists Sane
 #
 @    title "GROMACS Energies"
 @    xaxis  label "Time (ps)"

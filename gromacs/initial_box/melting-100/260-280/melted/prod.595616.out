@@ -38,7 +38,7 @@ Consider setting the launch configuration manually!
 Running on 2 nodes with total 32 cores, 32 logical cores
   Cores per node:           16
   Logical cores per node:   16
-Hardware detected on host node2-44 (the node of MPI rank 0):
+Hardware detected on host node2-18 (the node of MPI rank 0):
   CPU info:
     Vendor: GenuineIntel
     Brand:  Intel(R) Xeon(R) CPU E5-2640 v3 @ 2.60GHz
@@ -48,7 +48,7 @@ Hardware detected on host node2-44 (the node of MPI rank 0):
 Compiled SIMD instructions: SSE4.1, GROMACS could use AVX2_256 on this machine, which is better
 
 Reading file topol.tpr, VERSION 5.1.2 (single precision)
-Changing nstlist from 10 to 25, rlist from 0.954 to 0.983
+Changing nstlist from 10 to 25, rlist from 0.954 to 0.984
 
 The number of OpenMP threads was set by environment variable OMP_NUM_THREADS to 1
 
@@ -77,7 +77,7 @@ Back Off! I just backed up conf.gro to ./#conf.gro.2#
  Average load imbalance: 4.5 %
  Part of the total run time spent waiting due to load imbalance: 3.4 %
  Steps where the load balancing was limited by -rdd, -rcon and/or -dds: X 0 %
- Average PME mesh/force load: 0.406
+ Average PME mesh/force load: 0.403
  Part of the total run time spent waiting due to PP/PME imbalance: 12.5 %
 
 NOTE: 12.5 % performance was lost because the PME ranks
@@ -87,10 +87,10 @@ NOTE: 12.5 % performance was lost because the PME ranks
 
 
                Core t (s)   Wall t (s)        (%)
-       Time:   509287.739    15918.166     3199.4
-                         4h25:18
+       Time:   518003.248    16188.454     3199.8
+                         4h29:48
                  (ns/day)    (hour/ns)
-Performance:      108.555        0.221
+Performance:      106.743        0.225
 
-gcq#218: "Wild Pointers Couldn't Drag Me Away" (K.A. Feenstra)
+gcq#196: "Garbage Collecting..." (GNU Emacs)
 
