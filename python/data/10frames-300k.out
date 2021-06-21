@@ -1,7 +1,7 @@
 -------------------- FRAME    0 --------------------
 
 Computing AOP ...
-Done. Elapsed time: 13.455 s
+Done. Elapsed time: 13.874 s
 
 Computing neighbours with low AOP and hydrogen bonds ...
 1657CH4 - x =  3.7170 - Irregular cage
@@ -281,13 +281,18 @@ Computing neighbours with low AOP and hydrogen bonds ...
 1985CH4 - x =  9.3721 - Irregular cage
 1987CH4 - x = 11.5520 - Not in a cage
 1988CH4 - x =  1.8920 - Irregular cage
-Done. Elapsed time: 44.928 s
-Total time 58.553 s
+Done. Elapsed time: 45.971 s
+Total time 60.010 s
+
+Small cages: 28 found
+Large cages: 49 found
+Interface cages: 21 found
+Irregular cages: 145 found
 
 -------------------- FRAME  222 --------------------
 
 Computing AOP ...
-Done. Elapsed time: 13.773 s
+Done. Elapsed time: 14.707 s
 
 Computing neighbours with low AOP and hydrogen bonds ...
 1657CH4 - x =  3.9217 - Large cage
@@ -541,13 +546,18 @@ Computing neighbours with low AOP and hydrogen bonds ...
 1985CH4 - x =  9.6110 - Irregular cage
 1987CH4 - x =  0.3293 - Irregular cage
 1988CH4 - x =  2.3703 - Interface cage
-Done. Elapsed time: 42.278 s
-Total time 56.224 s
+Done. Elapsed time: 42.407 s
+Total time 57.287 s
+
+Small cages: 30 found
+Large cages: 58 found
+Interface cages: 17 found
+Irregular cages: 109 found
 
 -------------------- FRAME  444 --------------------
 
 Computing AOP ...
-Done. Elapsed time: 14.450 s
+Done. Elapsed time: 13.965 s
 
 Computing neighbours with low AOP and hydrogen bonds ...
 1657CH4 - x =  4.0958 - Large cage
@@ -786,13 +796,18 @@ Computing neighbours with low AOP and hydrogen bonds ...
 1983CH4 - x = 10.6870 - Not in a cage
 1987CH4 - x =  0.2421 - Irregular cage
 1988CH4 - x =  0.3174 - Irregular cage
-Done. Elapsed time: 39.544 s
-Total time 54.174 s
+Done. Elapsed time: 40.102 s
+Total time 54.229 s
+
+Small cages: 25 found
+Large cages: 44 found
+Interface cages: 10 found
+Irregular cages: 130 found
 
 -------------------- FRAME  666 --------------------
 
 Computing AOP ...
-Done. Elapsed time: 14.116 s
+Done. Elapsed time: 15.110 s
 
 Computing neighbours with low AOP and hydrogen bonds ...
 1657CH4 - x =  4.1250 - Irregular cage
@@ -1015,13 +1030,18 @@ Computing neighbours with low AOP and hydrogen bonds ...
 1984CH4 - x =  0.5511 - Irregular cage
 1985CH4 - x =  1.7482 - Irregular cage
 1988CH4 - x = 10.6318 - Irregular cage
-Done. Elapsed time: 37.986 s
-Total time 52.273 s
+Done. Elapsed time: 38.833 s
+Total time 54.120 s
+
+Small cages: 22 found
+Large cages: 39 found
+Interface cages: 9 found
+Irregular cages: 127 found
 
 -------------------- FRAME  888 --------------------
 
 Computing AOP ...
-Done. Elapsed time: 14.086 s
+Done. Elapsed time: 14.036 s
 
 Computing neighbours with low AOP and hydrogen bonds ...
 1657CH4 - x =  4.0844 - Large cage
@@ -1259,13 +1279,18 @@ Computing neighbours with low AOP and hydrogen bonds ...
 1984CH4 - x = 10.0948 - Irregular cage
 1987CH4 - x = 10.8204 - Irregular cage
 1988CH4 - x =  3.0961 - Irregular cage
-Done. Elapsed time: 39.833 s
-Total time 54.098 s
+Done. Elapsed time: 39.345 s
+Total time 53.546 s
+
+Small cages: 26 found
+Large cages: 56 found
+Interface cages: 5 found
+Irregular cages: 119 found
 
 -------------------- FRAME 1111 --------------------
 
 Computing AOP ...
-Done. Elapsed time: 14.107 s
+Done. Elapsed time: 14.223 s
 
 Computing neighbours with low AOP and hydrogen bonds ...
 1657CH4 - x =  4.1078 - Large cage
@@ -1496,13 +1521,18 @@ Computing neighbours with low AOP and hydrogen bonds ...
 1982CH4 - x =  7.0571 - Large cage
 1984CH4 - x =  9.7465 - Irregular cage
 1988CH4 - x =  3.1942 - Irregular cage
-Done. Elapsed time: 39.481 s
-Total time 53.761 s
+Done. Elapsed time: 38.917 s
+Total time 53.304 s
+
+Small cages: 24 found
+Large cages: 57 found
+Interface cages: 7 found
+Irregular cages: 106 found
 
 -------------------- FRAME 1333 --------------------
 
 Computing AOP ...
-Done. Elapsed time: 14.259 s
+Done. Elapsed time: 14.709 s
 
 Computing neighbours with low AOP and hydrogen bonds ...
 1657CH4 - x =  4.1157 - Large cage
@@ -1736,13 +1766,18 @@ Computing neighbours with low AOP and hydrogen bonds ...
 1981CH4 - x =  9.1109 - Small cage
 1982CH4 - x =  7.0621 - Large cage
 1988CH4 - x =  2.7270 - Irregular cage
-Done. Elapsed time: 41.275 s
-Total time 55.707 s
+Done. Elapsed time: 39.821 s
+Total time 54.698 s
+
+Small cages: 26 found
+Large cages: 64 found
+Interface cages: 4 found
+Irregular cages: 104 found
 
 -------------------- FRAME 1555 --------------------
 
 Computing AOP ...
-Done. Elapsed time: 14.593 s
+Done. Elapsed time: 14.314 s
 
 Computing neighbours with low AOP and hydrogen bonds ...
 1657CH4 - x =  4.0500 - Irregular cage
@@ -1970,13 +2005,18 @@ Computing neighbours with low AOP and hydrogen bonds ...
 1985CH4 - x =  0.5145 - Irregular cage
 1986CH4 - x = 10.9169 - Not in a cage
 1988CH4 - x =  2.9956 - Irregular cage
-Done. Elapsed time: 38.460 s
-Total time 53.231 s
+Done. Elapsed time: 37.489 s
+Total time 51.970 s
+
+Small cages: 18 found
+Large cages: 35 found
+Interface cages: 7 found
+Irregular cages: 136 found
 
 -------------------- FRAME 1777 --------------------
 
 Computing AOP ...
-Done. Elapsed time: 14.676 s
+Done. Elapsed time: 14.443 s
 
 Computing neighbours with low AOP and hydrogen bonds ...
 1657CH4 - x =  4.1151 - Irregular cage
@@ -2208,13 +2248,18 @@ Computing neighbours with low AOP and hydrogen bonds ...
 1983CH4 - x = 10.9865 - Not in a cage
 1985CH4 - x =  0.3164 - Irregular cage
 1987CH4 - x = 11.0474 - Not in a cage
-Done. Elapsed time: 39.494 s
-Total time 54.350 s
+Done. Elapsed time: 37.863 s
+Total time 52.474 s
+
+Small cages: 25 found
+Large cages: 52 found
+Interface cages: 8 found
+Irregular cages: 113 found
 
 -------------------- FRAME 2000 --------------------
 
 Computing AOP ...
-Done. Elapsed time: 14.494 s
+Done. Elapsed time: 13.961 s
 
 Computing neighbours with low AOP and hydrogen bonds ...
 1657CH4 - x =  4.0878 - Irregular cage
@@ -2451,9 +2496,15 @@ Computing neighbours with low AOP and hydrogen bonds ...
 1983CH4 - x = 10.9639 - Irregular cage
 1985CH4 - x = 11.0647 - Irregular cage
 1987CH4 - x =  3.5123 - Interface cage
-Done. Elapsed time: 40.098 s
-Total time 54.774 s
+Done. Elapsed time: 37.881 s
+Total time 52.007 s
 
+Small cages: 21 found
+Large cages: 47 found
+Interface cages: 12 found
+Irregular cages: 123 found
+
+Width of the clathrate phase:
 Frame    0: 6.728 nm
 Frame  222: 6.235 nm
 Frame  444: 5.928 nm
@@ -2464,3 +2515,5 @@ Frame 1333: 5.740 nm
 Frame 1555: 5.436 nm
 Frame 1777: 5.435 nm
 Frame 2000: 5.102 nm
+Phase delta: 1.626540184020996
+Total time of the computation: 552.770 s

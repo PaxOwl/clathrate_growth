@@ -1,17 +1,24 @@
 % Some basic packages
 \usepackage{amsmath,amsthm, amssymb}
-\usepackage{unicode-math}
+\usepackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
 \usepackage[locale=UK]{siunitx}
 \usepackage{empheq}
 
 \usepackage{polyglossia}
+\usepackage{fvextra}
 \usepackage{csquotes}
-\setmainfont{Linux Libertine O}
+% \setmainfont{Linux Libertine O}
+\setmainfont{AdobeGaramondPro}[
+    Extension           = .ttf,
+    UprightFont         = *Regular,
+    BoldFont            = *Bold,
+    ItalicFont          = *Italic,
+    BoldItalicFont      = *BoldItalic
+]
 
 \setdefaultlanguage{english}
 \setotherlanguage{french}
 
-\usepackage[sorting=none]{biblatex}
 \usepackage{url}
 \usepackage{graphicx}
 \usepackage{float}
@@ -28,6 +35,7 @@
 \usepackage{subcaption}
 \usepackage{multicol}
 \usepackage{xcolor}
+\usepackage{lipsum}
 
 % Fancy script capitals
 \usepackage{mathrsfs}
@@ -35,6 +43,11 @@
 
 % Bold math
 \usepackage{bm}
+
+% Bibliography
+\usepackage[sorting=none]{biblatex}
+\addbibresource{biblio.bib}
+\renewbibmacro{in:}{}
 
 % Some shortcuts
 \newcommand\N{\ensuremath{\mathbb{N}}}
@@ -45,7 +58,7 @@
 \newcommand\C{\ensuremath{\mathbb{C}}}
 
 % Chemical formula
-\usepackage{mhchem}
+\usepackage[version=4]{mhchem}
 
 % Code highlighting
 \usepackage{minted}
@@ -156,11 +169,11 @@
 % My name for when I print my lecture notes to use for an open book exam.
 % \fancyhead[LE,RO]{Gilles Castel}
 
-\fancyhead[RO,LE]{\@lecture} % Right odd,  Left even
-\fancyhead[RE,LO]{}          % Right even, Left odd
+\fancyhead[RO,L]{\@lecture} % Right odd,  Left even
+\fancyhead[R,LO]{}          % Right even, Left odd
 
-\fancyfoot[RO,LE]{}  % Right odd,  Left even
-\fancyfoot[RE,LO]{}          % Right even, Left odd
+\fancyfoot[RO,L]{}  % Right odd,  Left even
+\fancyfoot[R,LO]{}          % Right even, Left odd
 \fancyfoot[C]{\thepage}     % Center
 
 \makeatother

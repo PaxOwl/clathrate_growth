@@ -181,9 +181,9 @@ def save_aop(aop: np.ndarray, oxygen: pd.DataFrame, periodic: bool):
     output = output[output[:, 0].argsort()]
 
     if periodic:
-        np.savetxt('aop_periodic.dat', output)
+        np.savetxt('data/aop_periodic.dat', output)
     else:
-        np.savetxt('aop.dat', output)
+        np.savetxt('data/aop.dat', output)
 
 
 def hydrogen_bonds(center: pd.Series, oxygen: pd.DataFrame,

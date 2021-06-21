@@ -13,6 +13,7 @@ if __name__ == "__main__":
     frames_list = [i * (nframes - 1) // (cframes - 1) for i in range(cframes)]
     frames = np.array(frames_list, dtype=int)
     size = np.zeros(frames.shape[0])
+    total_time = time.time()
     for f, iteration in enumerate(frames):
 
         print("-------------------- FRAME {:>4} --------------------\n"
@@ -128,6 +129,19 @@ if __name__ == "__main__":
         t4 = time.time()
         print("Done. Elapsed time: {:.3f} s".format(t4 - t3))
         print("Total time {:.3f} s\n".format(t4 - t1))
+        print("Small cages: {} found".format(cages_small.shape[0]))
+        print("Large cages: {} found".format(cages_large.shape[0]))
+        print("Interface cages: {} found".format(cages_inter.shape[0]))
+        print("Irregular cages: {} found\n".format(cages_irreg.shape[0]))
 
+    print("Width of the clathrate phase:")
     for index, iteration in enumerate(frames):
         print("Frame {:>4}: {:.3f} nm".format(iteration, size[index]))
+    print("Phase delta: {:.3f} nm".format(abs(size[size.shape[0] - 1] - size[0])))
+    ending_time = time.time()
+    width = np.zeros((size.shape[0], 2))
+    width[:, 0] = tmax / 2000 * frames[:]
+    width[:, 1] = size[:]
+    np.savetxt('data/width.dat', width)
+    print("Total time of the computation: {:.3f} s"
+          .format(ending_time - total_time))

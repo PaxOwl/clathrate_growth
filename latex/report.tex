@@ -1,11 +1,139 @@
+\newpage
 \section{Introduction}
 
-\section{Clathrate}
+\section{Clathrates, nucleation and growth}
 
-\section{Algorithm}
+Clathrate hydrates are cristalline inclusion compounds in which water molecules form, via hydrogen bonding, a network of polyhedral cages trapping guest molecules. Put simply, clathrates can be seen as another form of solid water. An ``empty'' clathrate cannot exist, the stability of a clathrate is guaranteed by the presence of the guest molecule. They were discovered in 1810 by Humphry Davy, and were considered only as laboratory curiosities at first. But then, Hammerschmidt discovered in 1934 that clathrates hydrates can form inside oil and gas pipelines, creating a plug that could damage the equipment, or at least reduce the flow. That is the reason why researches about them were getting more and more active since the 1950's.
 
-\section{Analysis}
+Among the multiple applications of clathrates one can note:
+\begin{itemize}
+    \item Storage and transport of natural gases or dihydrogen. The latter option is very interesting since the storage of dihydrogen is hard at the moment
+    \item A way of reducing cooling systems energy consumption and environmental impact
+\end{itemize}
 
+There are signs of great natural reserves of methane in clathrates, formed without human action. These kind of reserve can be found in the permafrost and the ocean floor. These estimated reserves are way beyond every other fossile energy combined, and are related to the formation and dissociation of these structures.
+
+My work is about methane hydrates, mainly their formation and growth.
+
+Some information about nucleation:
+\begin{enumerate}
+    \item The nucleation of clathrates is a stochastic process and is really hard to predict. This aspect gets in the way of the comprehension of the mechanisms behind nucleation. This aspect comes from the fact that the formation of the structure requires a very precise molecular configuration
+    \item The nucleation can be homogenous or heterogenous and happens usually at an interface (fluid + solid, gas + liquid, liquid + liquid). In case of a heterogenous nucleation, the energy needed to move from a state to clathrate is lessened.
+    \item Hydrate seem to have a ``memory effect'' which causes a quick re-formation of the hydrate if it is not given the time to completely melt or if heated close to the dissociation temperature
+\end{enumerate}
+After the nucleation comes the growth, where mass and heat transfer become of major importance. However, the nucleation parameters are still important during the growth.
+
+The question of growth and nucleation at a molecular level is a scientific challenge for mainly 2 reasons:
+\begin{enumerate}
+    \item The stochastic nature of this phenomenon
+    \item It is hard to perform an experimental study at small time and space scales, at which hydrates form
+\end{enumerate}
+That is where computer simulations arrive, and more specifically molecular dynamics, even if they tend to stray away from the experimental conditions of clathrates formation, they are still a powerful tool to learn more about clathrates.
+
+
+\section{Algorithms}
+
+\subsection{About Molecular Dynamics}
+
+Molecular Dynamics Simulation can be compared to a real experiment:
+
+\setlength{\columnseprule}{0.4pt}
+\setlength{\columnsep}{1cm}
+\begin{multicols}{2}
+    Experiment
+    
+    \begin{enumerate}
+        \item We prepare a sample of the material that we wish to study
+        \item We connect this sample to a measuring instrument and we measure the property of interest during a certain time interval\\
+          The longer we average, the more accurate our measurement becomes
+    \end{enumerate}
+    \columnbreak
+
+    Simulation
+    
+    \begin{enumerate}
+        \item We select a model system consisting of $N$ particles and we solve \textsc{Newton}'s equations of motion for this system until the properties of the system no longer change with time (we equilibrate the system)
+        \item After equilibration, we perform the actual measurement
+    \end{enumerate}
+\end{multicols}
+In order to make a simulation in molecular dynamics, we have to express the observable quantity as a function of the position and momentum.
+
+We will consider a simple program:
+\begin{enumerate}
+    \item Initialize the system (initial position and velocities) in function of the thermodynamic conditions wanted
+    \item Compute the force on all particles, that means taking into account all the neighboring particles (longest part)
+    \item Integrate \textsc{Newton}'s equations of motion
+    \item Increase the time by the timestep $\Delta t$
+    \item Compute and print the average of measured quantities and stop
+\end{enumerate}
+This algorithm applies for a simple atomic system. In this algorithm, the longest part is the calculation of the force acting on the particles. However, time is not an issue, it must indeed be taken into account, but there is more. Computations in molecular dynamics take a really long time, and need a lot of integration steps to reach thermodynamic equilibrium, especially when dealing with growth processes. Therefore it is better to have an algorithm as accurate as possible than a fast one in order to minimize the error on the molecular interaction energy computation.
+
+When talking about simulation, one can think of the Monte Carlo method, which is a non-time dependant simulation consisting of a random sample taken from a population and statistical analysis of the results. However, this method will not work in this kind of study. We are interested in the trajectory of the particles throughout the simulation, the growth process is dynamic and is function of the time, therefore molecular dynamics simulations are more appropriate.
+
+\subsection{Numerical methodology}
+All the molecular dynamics simulations done in this project are made with the program GROMACS\footnote{GROningen MAchine for Chemical Simulations}
+
+This study will use a system composed of 3 phases. The methane gas phase, the hydrate phase and the liquid phase with the following compositions:
+
+\begin{itemize}
+    \item methane gas phase: 160 methane molecules
+    \item hydrate phase: 184 water molecules and 44 methane molecules
+    \item liquid phase:
+        \subitem one slab of 736 water molecules
+        \subitem one slab of 736 water molecules and 128 methane molecules (supersaturated water slab)
+\end{itemize}
+
+The dynamic simulation of the system is done in multiple steps:
+
+The first step is a minimization of the energy of the system. After that, an equilibration (relaxation) is done at a temperature of \SI{200}{\kelvin} and a pressure of \SI{30}{\mega\pascal} for \SI{20}{\pico\second}. Once the system is equilibrated, we heat it (annealing) at a rate of \SI{0.5}{\kelvin\per\pico\second}. After the annealing, the system is in conditions to observe clathrate growth. The next step is then an NPT simulation for \SI{40}{\nano\second} at \SI{30}{\mega\pascal} to obtain the growth of clathrates.
+
+Once this simulation is done, we can start the study on the melting of the clathrates. For that we start another batch of simulations. For all the following simulations, the starting system will be taken just after the NPT simulation at \SI{260}{\kelvin}. The melting is done in two steps: firstly we heat the system to the desired temperature, then we once again do an NPT simulation at the desired temperature, this time for \SI{20}{\nano\second}. These melting simulations will be done for several barostats: 10, 30, 60 and \SI{100}{\mega\pascal}. For each barostat, the system will be heated to 270, 280, 290 and \SI{300}{\kelvin}.
+
+\subsection{Analysis algorithm}
+There are 3 methods that we will use to sort and identify the different structures. The number of water molecule in the neighbourhood of a methane molecule, the AOP of each water molecule in this neighbourhood and the hydrogen bonds between these molecules.
+
+The first step in the analysis is to search for neighbouring water molecules for every methane molecule. In practice, the search is made between the carbon atom of the considered molecule and the neighbouring oxygen atoms. Any oxygen atom located in a radius of \SI{5.5}{\angstrom} of the atom of interest is considered a neighbour. The number of neighbours for each methane molecule is noted $n_w$.
+
+Among these molecules, we once again search for neighbours, this time the center molecule is a water molecule and we search for neighbouring water molecules in a radius of \SI{3.5}{\angstrom}.
+These neighbours are used to compute an index called the Angular Order Parameter (AOP). This index gives us information concerning the structure of a water molecule.
+\[
+    \text{AOP} = \sum \left( \left( \left|\cos \theta \right| \cos \theta \right) + \cos^2 (109.47)\right)^2
+\]
+where $\theta$ is the angle between any pair of oxygen atoms in the neighbouring of the atom of interest (taken as the elbow of the angle). For example if an oxygen has 4 atoms in its neighbourhood, there are 6 angles to consider. The value of the AOP indicates the structure the considered water molecule belongs to:
+
+\begin{itemize}
+    \item AOP = \num{0}: ice
+    \item AOP = \num{0.1}: hydrate cristaline structure
+    \item AOP = \num{0.8}: liquid water (amorphous)
+\end{itemize}
+
+These values are averages, and for this study we will only consider molecules with an AOP < \num{0.4}, considered hydrate-like molecules. The number of hydrate-like molecules among the neighbours is noted $n_h$.
+
+The last point to consider is the hydrogen bonding between the water molecules. Since the oxygen has a high electronegativity, there is a high chance of hydrogen bonding with other water molecules if certain conditions are met. These conditions are the following:
+
+\begin{itemize}
+    \item $\SI{2.5}{\angstrom} < d_{\ce{O}\ce{O}} < \SI{3.5}{\angstrom}$ with $d_{\ce{O}^1\ce{O}^2}$ the distance between the 2 oxygen atoms 
+    \item looking at the molecule with the potential donor hydrogens, we take the hydrogen the closer to both oxygen atoms (distance $\ce{O}^1-\ce{H}-\ce{O}^2$), the angle $\widehat{\ce{O}^1\ce{H}\ce{O}^2}$ must be between \SI{90}{\degree} and \SI{180}{\degree}
+\end{itemize}
+If these 2 conditions are met, the hydrogen is considered a donor atom and a hydrogen bond is counted between the 2 molecules. The number of hydrogen bonds among the hydrate-like molecules in the neighbourhood of a methane molecule is noted $n_b$.
+
+\section{Results}
+\begin{itemize}
+    \item \textit{Presentation of results}
+    \item \textit{Confrontation with the results from Tung et al. \cite{tung}}
+\end{itemize}
 \section{Conclusion}
 
+\newpage
+\nocite{*}
+\begin{multicols}{2}
+    [\center{\printbibheading}]
+    \printbibliography[heading=none]
+\end{multicols}
+
+\newpage
 \section{Appendices}
+\begin{itemize}
+    \item \textit{Description of the means used for the analysis program}
+    \item \textit{Some more snapshots from the simulations (maybe)}
+\end{itemize}
