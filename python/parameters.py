@@ -3,9 +3,10 @@ This file contains the different constants and parameters to be used
 """
 
 
-periodic = True
-filename = "data/melt300.tgro"
-box_file = "data/melt300.box"
-trimmed_data = 'data/melt300.trim'
+filename = 'data/100melt280'
+wext = '-width.dat'
+gro_file = filename + '.tgro'
+box_file = filename + '.box'
+trim_file = filename + '.trim'
 nframes = 2001
 tmax = 20.

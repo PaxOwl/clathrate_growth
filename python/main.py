@@ -19,13 +19,13 @@ if __name__ == "__main__":
         print("-------------------- FRAME {:>4} --------------------\n"
               .format(iteration))
         # Read the number of atoms (rows)
-        nrows = count_atoms(filename)
+        nrows = count_atoms(gro_file)
 
         # Loads the atoms in a pandas DataFrame
-        atoms = load_atoms(nrows, filename)
+        atoms = load_atoms(nrows, gro_file)
 
         # Load the data of the selected frame in the DataFrame
-        load_frame(trimmed_data, atoms, iteration, nrows)
+        load_frame(trim_file, atoms, iteration, nrows)
 
         # Load the size of the box
         box = load_box(box_file, iteration)
@@ -59,7 +59,7 @@ if __name__ == "__main__":
             aop_values.iat[index, 5] = caop(center, neigh_ox, box)
         t2 = time.time()
         print("Done. Elapsed time: {:.3f} s\n".format(t2 - t1))
-        save_aop(aop_values.aop.values, oxygen, periodic)
+        save_aop(aop_values.aop.values, oxygen, filename)
 
         ca_neigh_ids = neighbours(carbon, oxygen, box, 0., 0.55)
         t_metinit = time.time()
@@ -137,11 +137,12 @@ if __name__ == "__main__":
     print("Width of the clathrate phase:")
     for index, iteration in enumerate(frames):
         print("Frame {:>4}: {:.3f} nm".format(iteration, size[index]))
-    print("Phase delta: {:.3f} nm".format(abs(size[size.shape[0] - 1] - size[0])))
+    print("Phase delta: {:.3f} nm"
+          .format(abs(size[size.shape[0] - 1] - size[0])))
     ending_time = time.time()
     width = np.zeros((size.shape[0], 2))
     width[:, 0] = tmax / 2000 * frames[:]
     width[:, 1] = size[:]
-    np.savetxt('data/width.dat', width)
+    np.savetxt(filename + wext, width)
     print("Total time of the computation: {:.3f} s"
           .format(ending_time - total_time))

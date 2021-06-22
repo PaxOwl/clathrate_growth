@@ -172,19 +172,14 @@ def compute_aop(center: pd.DataFrame, neighbours: pd.DataFrame):
     return aop
 
 
-def save_aop(aop: np.ndarray, oxygen: pd.DataFrame, periodic: bool):
+def save_aop(aop: np.ndarray, oxygen: pd.DataFrame, filename: str):
     output = np.zeros((aop.shape[0], 2))
     output[:, 1] = aop
     for i in range(aop.shape[0]):
         output[i, 0] = oxygen.iloc[i].x
 
     output = output[output[:, 0].argsort()]
-
-    if periodic:
-        np.savetxt('data/aop_periodic.dat', output)
-    else:
-        np.savetxt('data/aop.dat', output)
-
+    np.savetxt(filename + '-aop.dat', output)
 
 def hydrogen_bonds(center: pd.Series, oxygen: pd.DataFrame,
                    hydrogen1: pd.Series, hydrogen2: pd.Series,
