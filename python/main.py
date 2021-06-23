@@ -2,17 +2,13 @@
 """
 Core part of the program
 """
-import sys
 import time
 from analysis import *
 from parameters import *
 from cintegration import *
-from width_avg import *
 
 
 if __name__ == "__main__":
-    width_average()
-    sys.exit()
     cframes = 100
     frames_list = [i * (nframes - 1) // (cframes - 1) for i in range(cframes)]
     frames = np.array(frames_list, dtype=int)
