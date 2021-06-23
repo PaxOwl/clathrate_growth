@@ -3,10 +3,10 @@ This file contains the different constants and parameters to be used
 """
 
 
-filename = 'data/100melt310'
+filename = 'data/growth'
 wext = '-width.dat'
 gro_file = filename + '.tgro'
 box_file = filename + '.box'
 trim_file = filename + '.trim'
-nframes = 2001
-tmax = 20.
+nframes = 4001
+tmax = 40.

@@ -2,14 +2,18 @@
 """
 Core part of the program
 """
+import sys
 import time
 from analysis import *
 from parameters import *
 from cintegration import *
+from width_avg import *
 
 
 if __name__ == "__main__":
-    cframes = 10
+    width_average()
+    sys.exit()
+    cframes = 100
     frames_list = [i * (nframes - 1) // (cframes - 1) for i in range(cframes)]
     frames = np.array(frames_list, dtype=int)
     size = np.zeros(frames.shape[0])
@@ -141,7 +145,7 @@ if __name__ == "__main__":
           .format(abs(size[size.shape[0] - 1] - size[0])))
     ending_time = time.time()
     width = np.zeros((size.shape[0], 2))
-    width[:, 0] = tmax / 2000 * frames[:]
+    width[:, 0] = tmax / nframes * frames[:]
     width[:, 1] = size[:]
     np.savetxt(filename + wext, width)
     print("Total time of the computation: {:.3f} s"
