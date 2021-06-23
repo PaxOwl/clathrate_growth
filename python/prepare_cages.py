@@ -1,14 +1,14 @@
 import numpy as np
 
 
-INPUT = "data/10frames30-300k"
+INPUT = "data/growth"
 OUTPUT = INPUT + "-cages.dat"
 SMALL = INPUT + "-small.dat"
 LARGE = INPUT + "-large.dat"
 INTER = INPUT + "-inter.dat"
 IRREG = INPUT + "-irreg.dat"
 
-width = np.loadtxt("data/60melt310-width.dat")
+width = np.loadtxt("data/growth-width.dat")
 smallin = np.loadtxt(SMALL)
 largein = np.loadtxt(LARGE)
 interin = np.loadtxt(INTER)
