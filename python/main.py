@@ -9,6 +9,7 @@ from cintegration import *
 
 
 if __name__ == "__main__":
+    # Prepares for the number of frames to compute
     cframes = 100
     frames_list = [i * (nframes - 1) // (cframes - 1) for i in range(cframes)]
     frames = np.array(frames_list, dtype=int)
@@ -50,6 +51,8 @@ if __name__ == "__main__":
 
             # Select an atom of oxygen
             center = oxygen.iloc[index]
+
+            # Retrieves the neighbours
             for j in i:
                 if np.isnan(j):
                     break

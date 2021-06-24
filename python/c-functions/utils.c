@@ -5,6 +5,7 @@
 
 
 void periodic_conditions(double *delta, double *box) {
+    // Apply the periodic conditions for the distance computations
     size_t i;
     for(i = 0; i < 3; i++) {
         delta[i] = delta[i] - round(delta[i] / box[i]) * box[i];
@@ -12,6 +13,8 @@ void periodic_conditions(double *delta, double *box) {
 }
 
 void distance(double *p1, double *p2, double *box, double *vec) {
+    // Computes the distance between 2 points with respect to the periodic
+    // conditions
     double dx = p2[0] - p1[0];
     double dy = p2[1] - p1[1];
     double dz = p2[2] - p1[2];
@@ -22,6 +25,7 @@ void distance(double *p1, double *p2, double *box, double *vec) {
 }
 
 void angle(double *v1, double *v2, double *theta) {
+    // Computes the angle between 2 vectors
     double dot = v1[0] * v2[0] + v1[1] * v2[1] + v1[2] * v2[2];
     double norm1 = sqrt(pow(v1[0], 2) + pow(v1[1], 2) + pow(v1[2], 2));
     double norm2 = sqrt(pow(v2[0], 2) + pow(v2[1], 2) + pow(v2[2], 2));
@@ -30,6 +34,8 @@ void angle(double *v1, double *v2, double *theta) {
 
 void closest_atom(double *center, double *oxygens, double (*hydrogens)[3],
                   double *box, double *closest) {
+    // Finds the closest atom to a pair of atoms between 2
+    // Used for the hydrogen bond computation
     double do1h1[3] = {0., 0., 0.};
     double do2h1[3] = {0., 0., 0.};
     double do1h2[3] = {0., 0., 0.};
@@ -62,6 +68,7 @@ void closest_atom(double *center, double *oxygens, double (*hydrogens)[3],
 void nearest_neighbours(double *center, double (*neighbours)[3], double *box,
                         double l_lim, double h_lim,
                         int n_size, double *vec, long *out) {
+    // Finds the nearest neighbours of an atom
     double temp_dst;
     size_t counter = 0;
     size_t i;
@@ -83,6 +90,8 @@ void nearest_neighbours(double *center, double (*neighbours)[3], double *box,
 void neighbours(double (*centers)[3], double (*neighbours)[3], double *box,
                 double l_lim, double h_lim, int c_size, int n_size,
                 double *vec, long (*out)[n_size]) {
+    // Use the nearest_neighbours() function to find the nearest neighbours for
+    // several atoms
     size_t i;
     for (i = 0; i < c_size; i++) {
         nearest_neighbours(centers[i], neighbours, box,
@@ -93,6 +102,7 @@ void neighbours(double (*centers)[3], double (*neighbours)[3], double *box,
 void aop(double *center, double (*neighbours)[3], double *box,
          int n_size, double *vec1, double *vec2, double *theta,
          double *angles, double *aop){
+    // Compute the aop for a given atom
     double pi = 3.14159265359;
     size_t i;
     size_t iter = 0;
@@ -118,6 +128,7 @@ void hydrogen_bonds(double *center, double (*oxygens)[3],
                     double *vec1, double *vec2, double* vec3,
                     int ox_size, double *theta,
                     double *closest, double *bonds) {
+    // Computes the hydrogen bonds for a given atom
     double pi = 3.14159265359;
     size_t i;
     double dst;
@@ -146,6 +157,7 @@ void hydrogen_bonds(double *center, double (*oxygens)[3],
 void clath_size(double *small, double *large, int n_small, int n_large,
                 double *small_size, double *large_size,
                 double *xmin, double *xmax) {
+    // Computes the size of the clathrate phase
     for (size_t i; i < n_small; i++) {
         if (small[i] + small_size[0] > xmax[0]) {
             xmax[0] = small[i] + small_size[0];

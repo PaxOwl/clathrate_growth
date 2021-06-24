@@ -8,8 +8,8 @@ LABEL = "y = 0.12868123x + 1.96174358"
 set obj 1 rect at 25, 3 size char strlen(LABEL), char 2
 set obj 1 front
 set label at 25, 3 LABEL front center
-set xlabel "time (ns)"
-set ylabel "width (nm)"
+set xlabel "Time (ns)"
+set ylabel "Width (nm)"
 plot\
     "../python/data/growth-width.dat" u 1:2 w l t "Simulated growth",\
     "../python/data/growth-linreg.dat" u 1:2 w l t "Linear fit"

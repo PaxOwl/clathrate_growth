@@ -16,12 +16,12 @@ def count_atoms(file: str = "conf.gro") -> int:
     return int(nrow)
 
 
-def load_atoms(nrow: int, file: str = "conf.gro") -> pd.DataFrame:
+def load_atoms(nrow: int, file: str) -> pd.DataFrame:
     """
     Reads all the atoms and their coordinates in a given .gro file, then sorts
     them in the Atom dataclass
     :param nrow: int, number of atoms contained in the file
-    :param file: str, name of the file to read (conf.gro by default)
+    :param file: str, name of the file to read
     :return: a ndarray containing all the Atom dataclasses
     """
 
@@ -37,7 +37,14 @@ def load_atoms(nrow: int, file: str = "conf.gro") -> pd.DataFrame:
 
 
 def load_frame(file: str, atoms: pd.DataFrame, frame: int, nrow: int):
-
+    """
+    Load data for the selected frame
+    :param file:  str, name of the file to read
+    :param atoms: DataFrame, atoms coordinates and molecules
+    :param frame: int, index of the frame
+    :param nrow: int, number of rows in the file
+    :return: the atoms DataFrame with updated positions
+    """
     # Loads data
     data = pd.read_csv(file, nrows=nrow, skiprows=frame * nrow,
                        names=['x', 'y', 'z'],
@@ -54,11 +61,22 @@ def load_frame(file: str, atoms: pd.DataFrame, frame: int, nrow: int):
 
 
 def load_box(file: str, frame: int) -> np.ndarray:
+    """
+    Loads the size of the box for the desired frame
+    :param file:  str, name of the file to read
+    :param frame: int, index of the frame
+    :return: a ndarray containing the 3 sizes of the box
+    """
     return np.loadtxt(file, max_rows=3, skiprows=3 * frame)
 
 
 def filter_data(data: pd.DataFrame, keep: list):
-
+    """
+    Filters the data to keep only the rows corresponding to the desired atoms
+    :param data: DataFrame,
+    :param keep: list, the names of the atoms to keep
+    :return: a filtered DataFrame containing only the desired atoms
+    """
     lst = []
     for element in keep:
         lst.append(data[(data.atom == element)])
@@ -66,6 +84,31 @@ def filter_data(data: pd.DataFrame, keep: list):
 
     return output.sort_index()
 
+
+def save_aop(aop: np.ndarray, oxygen: pd.DataFrame, file: str):
+    """
+    Saves to AOP for plotting purposes
+    :param aop: ndarray, values of the aop
+    :param oxygen: DataFrame, oxygens atoms with positions and molecules
+    :param file: str, name of the file to write to
+    :return: 
+    """
+    output = np.zeros((aop.shape[0], 2))
+    output[:, 1] = aop
+    for i in range(aop.shape[0]):
+        output[i, 0] = oxygen.iloc[i].x
+
+    output = output[output[:, 0].argsort()]
+    np.savetxt(file + '-aop.dat', output)
+
+
+"""
+-------------------------------------------------------------------------------
+All functions past this limit are old python functions not used anymore by
+the program, I keep them as a trace a research and as such, they lack
+documentation
+-------------------------------------------------------------------------------
+"""
 
 def periodic_conditions(d: list, box: np.ndarray):
     d[0] = d[0] - int(round(d[0] / box[0])) * box[0]
@@ -172,15 +215,6 @@ def compute_aop(center: pd.DataFrame, neighbours: pd.DataFrame):
     return aop
 
 
-def save_aop(aop: np.ndarray, oxygen: pd.DataFrame, filename: str):
-    output = np.zeros((aop.shape[0], 2))
-    output[:, 1] = aop
-    for i in range(aop.shape[0]):
-        output[i, 0] = oxygen.iloc[i].x
-
-    output = output[output[:, 0].argsort()]
-    np.savetxt(filename + '-aop.dat', output)
-
 def hydrogen_bonds(center: pd.Series, oxygen: pd.DataFrame,
                    hydrogen1: pd.Series, hydrogen2: pd.Series,
                    box: np.ndarray):
@@ -203,37 +237,3 @@ def hydrogen_bonds(center: pd.Series, oxygen: pd.DataFrame,
                     bonds.loc[bonds.shape[0] - 1, 'ox_mol'] = i.mol
 
     return bonds
-
-
-def hydrogen_bonds_test():
-    data = pd.read_csv('test_hbonds/out', sep=',',
-                       usecols=[0, 1, 3, 4, 5],
-                       names=['mol', 'atom', 'x', 'y', 'z'])
-    box = np.array([3.12913551, 2.94142906, 3.61460741])
-    oxygen = filter_data(data, ['OW'])
-    hydrogen1 = filter_data(data, ['HW1'])
-    hydrogen2 = filter_data(data, ['HW2'])
-    bonds = pd.DataFrame(columns=['mol', 'atom', 'x', 'y', 'z', 'ox_mol'])
-    # i is the oxygen atom of the considered molecule
-    for index, i in oxygen.iterrows():
-        # j is the oxygen atom of the neigbour molecule
-        for jdex, j in oxygen.iterrows():
-            if i.mol == j.mol:
-                pass
-            else:
-                dst, _ = distance(i, j, box, True)
-                if 0.25 <= dst <= 0.35:
-                    # Finds the closest hydrogen
-                    hy1 = hydrogen1.loc[hydrogen1.mol == i.mol].squeeze()
-                    hy2 = hydrogen2.loc[hydrogen2.mol == i.mol].squeeze()
-                    hydrogen_atom = closest_atom(i, j, hy1, hy2, box)
-                    # Compute the angle
-                    theta = angle(hydrogen_atom[0], i, j, box)
-                    if 90 < theta < 180:
-                        bonds = bonds.append(hydrogen_atom[0],
-                                             ignore_index=True)
-                        bonds.loc[bonds.shape[0] - 1, 'ox_mol'] = j.mol
-                        print("Bond added between {} and {}"
-                              .format(i.mol, j.mol))
-        if index >= 50:
-            break

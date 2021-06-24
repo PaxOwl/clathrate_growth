@@ -154,16 +154,25 @@ The first part of this study is about the growth of clathrates at \SI{30}{\mega\
     \label{fig:snaps-prod}
 \end{figure}
 
-On the \autoref{fig:snap1-prod}, compared to \autoref{fig:snap-equil}, we can see a bit of a clathrate shape at the middle, it is because when the heating was approaching \SI{260}{\kelvin}, the system was almost at the conditions required for the formation of clathrate, therefore cages already started forming at that point.
+On the \autoref{fig:snap1-prod}, we can see a bit of a clathrate shape in the middle, it is because when the heating was approaching \SI{260}{\kelvin}, the system was almost at the conditions required for the formation of clathrate, therefore cages already started forming at that point.
 
 On \autoref{fig:snap2-prod} and \autoref{fig:snap3-prod}, we notice that as the clathrate phase widens, the gas of methane to the right of the figures is slowly decreasing. 
-The following figure shows the width of the clathrate phase during the growth process:
+The \autoref{fig:width-growth} shows the width of the clathrate phase during the growth process.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.99\linewidth]{figures/growth-width.pdf}
     \caption{Width of the clathrate phase during growth process}
-    \label{fig:width-grows}
+    \label{fig:width-growth}
 \end{figure}
+
+The clathrate phase constantly switches between increasing and decreasing its size, but looking at the big picture, the phase width is expanding. I think that this pulse, along with the high peaks between 5 and \SI{15}{\nano\second} are due to the precision of the program to detect the boundaries of the clathrate phase. The program only looks for the highest and lowest values of the $x$ position for the carbon atom among the small and large cages, but it does not take into account the size of the cage. In practice, the width of the phase will always be a bit higher than the computed width since the last small and large cages (just before the interface cages) are ``cut'' in half (because the program only looks at the $x$ position of the carbon atom, supposed to be at the center of the cage).
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.99\linewidth]{figures/growth-cages.pdf}
+    \caption{Distribution of cages during the growth} \label{fig:growth-cages}
+\end{figure}
+
 
 \subsection{Melt}
 The second part of this study concerns the melt of the clathrates. Unlike the growth of the clathrates, the melting simulation was done at different pressures: 10, 30, 60 and \SI{100}{\mega\pascal}. The following table shows the results for the melting simulations.
