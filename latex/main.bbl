@@ -1,0 +1,168 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{tung}{article}{}
+      \name{author}{1}{}{%
+        {{hash=462228472e1f6a771b3ca3d940253684}{%
+           family={al},
+           familyi={a\bibinitperiod},
+           given={Tung\bibnamedelima Y.},
+           giveni={T\bibinitperiod\bibinitdelim Y\bibinitperiod},
+           prefix={et},
+           prefixi={e\bibinitperiod}}}%
+      }
+      \strng{namehash}{462228472e1f6a771b3ca3d940253684}
+      \strng{fullhash}{462228472e1f6a771b3ca3d940253684}
+      \strng{bibnamehash}{462228472e1f6a771b3ca3d940253684}
+      \strng{authorbibnamehash}{462228472e1f6a771b3ca3d940253684}
+      \strng{authornamehash}{462228472e1f6a771b3ca3d940253684}
+      \strng{authorfullhash}{462228472e1f6a771b3ca3d940253684}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Journal of Physical Chemistry B}
+      \field{number}{33}
+      \field{title}{The Growth of Structure I Methane Hydrate from Molecular Dynamics Simulations}
+      \field{volume}{114}
+      \field{year}{2010}
+      \field{pages}{10804\bibrangedash 10813}
+      \range{pages}{10}
+    \endentry
+    \entry{thesis}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=2db02cd18350d05715c0f6f3f5fb171c}{%
+           family={A.},
+           familyi={A\bibinitperiod},
+           given={Patt},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{2db02cd18350d05715c0f6f3f5fb171c}
+      \strng{fullhash}{2db02cd18350d05715c0f6f3f5fb171c}
+      \strng{bibnamehash}{2db02cd18350d05715c0f6f3f5fb171c}
+      \strng{authorbibnamehash}{2db02cd18350d05715c0f6f3f5fb171c}
+      \strng{authornamehash}{2db02cd18350d05715c0f6f3f5fb171c}
+      \strng{authorfullhash}{2db02cd18350d05715c0f6f3f5fb171c}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Simulation moléculaire d’hydrates de gaz mixtes en conditions astrophysique}
+      \field{type}{phdthesis}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \true{nocite}
+    \endentry
+    \entry{sloan}{book}{}
+      \name{author}{2}{}{%
+        {{hash=24a453fbed7f68e1c1604ecebb120e98}{%
+           family={E.},
+           familyi={E\bibinitperiod},
+           given={Dendy\bibnamedelima Sloan},
+           giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=92023b0b083e271e73f873e79c5448e5}{%
+           family={A.},
+           familyi={A\bibinitperiod},
+           given={Koh\bibnamedelima C.},
+           giveni={K\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {CRC Press}%
+      }
+      \strng{namehash}{c8dc33a22b4396e07ec61236f07bebba}
+      \strng{fullhash}{c8dc33a22b4396e07ec61236f07bebba}
+      \strng{bibnamehash}{c8dc33a22b4396e07ec61236f07bebba}
+      \strng{authorbibnamehash}{c8dc33a22b4396e07ec61236f07bebba}
+      \strng{authornamehash}{c8dc33a22b4396e07ec61236f07bebba}
+      \strng{authorfullhash}{c8dc33a22b4396e07ec61236f07bebba}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Clathrate Hydrates of Natural Gases Third Edition}
+      \field{year}{2007}
+      \true{nocite}
+    \endentry
+    \entry{mds}{book}{}
+      \name{author}{2}{}{%
+        {{hash=5154b950d17cd775f59fbd83ad0b88fe}{%
+           family={D.},
+           familyi={D\bibinitperiod},
+           given={Frenkel},
+           giveni={F\bibinitperiod}}}%
+        {{hash=73602ffd72e402c872d9dd92fe3535d5}{%
+           family={B.},
+           familyi={B\bibinitperiod},
+           given={Smit},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Academic Press}%
+      }
+      \strng{namehash}{a700f289f2c34446482f64a45d67df0b}
+      \strng{fullhash}{a700f289f2c34446482f64a45d67df0b}
+      \strng{bibnamehash}{a700f289f2c34446482f64a45d67df0b}
+      \strng{authorbibnamehash}{a700f289f2c34446482f64a45d67df0b}
+      \strng{authornamehash}{a700f289f2c34446482f64a45d67df0b}
+      \strng{authorfullhash}{a700f289f2c34446482f64a45d67df0b}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Understanding Molecular Simulation}
+      \field{year}{1996}
+      \true{nocite}
+    \endentry
+    \entry{jinlong}{article}{}
+      \name{author}{1}{}{%
+        {{hash=87dc6aa02000d9b3af4578ca950b663d}{%
+           family={al},
+           familyi={a\bibinitperiod},
+           given={Cui\bibnamedelima J.},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
+           prefix={et},
+           prefixi={e\bibinitperiod}}}%
+      }
+      \strng{namehash}{87dc6aa02000d9b3af4578ca950b663d}
+      \strng{fullhash}{87dc6aa02000d9b3af4578ca950b663d}
+      \strng{bibnamehash}{87dc6aa02000d9b3af4578ca950b663d}
+      \strng{authorbibnamehash}{87dc6aa02000d9b3af4578ca950b663d}
+      \strng{authornamehash}{87dc6aa02000d9b3af4578ca950b663d}
+      \strng{authorfullhash}{87dc6aa02000d9b3af4578ca950b663d}
+      \field{extraname}{2}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Chinese Journal of Chemical Engineering}
+      \field{number}{9}
+      \field{title}{Fundamental mechanisms and phenomena of clathrate hydrate nucleation}
+      \field{volume}{27}
+      \field{year}{2019}
+      \true{nocite}
+      \field{pages}{2014\bibrangedash 2025}
+      \range{pages}{12}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

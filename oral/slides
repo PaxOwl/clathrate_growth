@@ -1,0 +1,16 @@
+\documentclass[aspectratio=169]{beamer}
+\input{theme-settings}
+\input{../../beamer-preamble}
+\title{Investigation of the growth of methane clathrate hydrates using molecular simulations}
+\date{July 5th}
+\author{Cyril Tsilefski}
+\institute{Université de Bourgogne Franche-Comté\\[\medskipamount]
+           \includegraphics[height=.1\linewidth]{../figures/logo-ubfc.png}
+           \hspace{0.1\linewidth}
+           \includegraphics[height=.1\linewidth]{../figures/logo-UTINAM.jpg}}
+
+\begin{document}
+\begin{frame}
+    \titlepage
+\end{frame}
+\end{document}

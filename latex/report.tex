@@ -1,11 +1,14 @@
 \newpage
 \section{Introduction}
+Discovered in 1810 by Humphry Davy, clathrate hydrates are cristalline inclusion compounds in which water molecules form, via hydrogen bonding, a network of polyhedral cages trapping guest molecules. Put simply, clathrates can be seen as another form of solid water. At first, they were considered only as laboratory curiosities. But then, Hammerschmidt discovered in 1934 that clathrates hydrates can form inside oil and gas pipelines, creating a plug that could damage the equipment, or at least reduce the flow. That is the reason why researches about them were getting more and more active since the 1950's.
+
+We have yet to discover all the properties of the clathrates and that explains why they are still an active field of research.
+
+This study will focus on the analysis of the growth and melt of the clathrates under different conditions of pressure and temperature, and the protocol is based on a paper written in 2010 by \textit{Tung et al.}\cite{tung}.
 
 \section{Clathrates, nucleation and growth}
 
-Clathrate hydrates are cristalline inclusion compounds in which water molecules form, via hydrogen bonding, a network of polyhedral cages trapping guest molecules. Put simply, clathrates can be seen as another form of solid water. An ``empty'' clathrate cannot exist, the stability of a clathrate is guaranteed by the presence of the guest molecule. They were discovered in 1810 by Humphry Davy, and were considered only as laboratory curiosities at first. But then, Hammerschmidt discovered in 1934 that clathrates hydrates can form inside oil and gas pipelines, creating a plug that could damage the equipment, or at least reduce the flow. That is the reason why researches about them were getting more and more active since the 1950's.
-
-Among the multiple applications of clathrates one can note:
+An ``empty'' clathrate cannot exist, the stability of a clathrate is guaranteed by the presence of the guest molecule. Among the multiple applications of clathrates one can note:
 \begin{itemize}
     \item Storage and transport of natural gases or dihydrogen. The latter option is very interesting since the storage of dihydrogen is hard at the moment
     \item A way of reducing cooling systems energy consumption and environmental impact
@@ -13,7 +16,7 @@ Among the multiple applications of clathrates one can note:
 
 There are signs of great natural reserves of methane in clathrates, formed without human action. These kind of reserve can be found in the permafrost and the ocean floor. These estimated reserves are way beyond every other fossile energy combined, and are related to the formation and dissociation of these structures.
 
-My work is about methane hydrates, mainly their formation and growth.
+My work is about methane hydrates, mainly their formation, growth and melt.
 
 Some information about nucleation:
 \begin{enumerate}
@@ -73,7 +76,7 @@ When talking about simulation, one can think of the Monte Carlo method, which is
 \subsection{Numerical methodology}
 All the molecular dynamics simulations done in this project are made with the program GROMACS\footnote{GROningen MAchine for Chemical Simulations}
 
-This study will use a system composed of 3 phases. The methane gas phase, the hydrate phase and the liquid phase with the following compositions:
+This study will use a system composed of 3 phases enclosed in a periodic box of initial dimensions $x = \SI{12.8}{\nano\meter}, y = \SI{2.45}{\nano\meter}, z = \SI{2.45}{\nano\meter}$. The methane gas phase, the hydrate phase and the liquid phase, with the following compositions:
 
 \begin{itemize}
     \item methane gas phase: 160 methane molecules
@@ -83,11 +86,13 @@ This study will use a system composed of 3 phases. The methane gas phase, the hy
         \subitem one slab of 736 water molecules and 128 methane molecules (supersaturated water slab)
 \end{itemize}
 
+Periodic box means that we consider a box without boundaries where the upper-side of the box is connected to its lower-side. Same goes for the lateral sides.  
+
 The dynamic simulation of the system is done in multiple steps:
 
-The first step is a minimization of the energy of the system. After that, an equilibration (relaxation) is done at a temperature of \SI{200}{\kelvin} and a pressure of \SI{30}{\mega\pascal} for \SI{20}{\pico\second}. Once the system is equilibrated, we heat it (annealing) at a rate of \SI{0.5}{\kelvin\per\pico\second}. After the annealing, the system is in conditions to observe clathrate growth. The next step is then an NPT simulation for \SI{40}{\nano\second} at \SI{30}{\mega\pascal} to obtain the growth of clathrates.
+The first step is a minimization of the energy of the system. After that, an equilibration (relaxation) is done at a temperature of \SI{200}{\kelvin} and a pressure of \SI{30}{\mega\pascal} for \SI{20}{\pico\second}. Once the system is equilibrated, we heat it (annealing) at a rate of \SI{0.5}{\kelvin\per\pico\second}. After the annealing, the system is in good conditions to observe clathrate growth. The next step is then an NPT simulation for \SI{40}{\nano\second} at \SI{30}{\mega\pascal} and \SI{260}{\kelvin} to obtain the growth of clathrates.
 
-Once this simulation is done, we can start the study on the melt of the clathrates. For that we start another batch of simulations. For all the following simulations, the starting system will be taken just after the NPT simulation at \SI{260}{\kelvin}. The melt is done in two steps: firstly we heat the system to the desired temperature, then we once again do an NPT simulation at the desired temperature, this time for \SI{20}{\nano\second}. These melt simulations will be done for several barostats: 10, 30, 60 and \SI{100}{\mega\pascal}. For each barostat, the system will be heated to 270, 280, 290 and \SI{300}{\kelvin}.
+Once this simulation is done, we can start the study on the melt of the clathrates. For that we start another batch of simulations. For all the following simulations, the starting system will be taken just after the NPT simulation at \SI{260}{\kelvin}. The melt is done in two steps: firstly we heat the system to the desired temperature, then we once again do an NPT simulation at the desired temperature, this time for \SI{20}{\nano\second}. These melt simulations will be done for several barostats: 10, 30, 60 and \SI{100}{\mega\pascal}. For each barostat, the system will be heated to 270, 280, 290 and \SI{300}{\kelvin}. For 60 and \SI{100}{\mega\pascal}, the system will also be heated at \SI{310}{\kelvin}.
 
 The main objectives here are to find the equilibrium point of the clathrate at different pressures, the temperature at which this equilibrium is broken (called melting point), find the distribution of cages (small, large, interface and irregular) at different point of the simulation.
 
@@ -120,13 +125,12 @@ The last point to consider is the hydrogen bonding between the water molecules. 
 \end{itemize}
 If these 2 conditions are met, the hydrogen is considered a donor atom and a hydrogen bond is counted between the 2 molecules. The number of hydrogen bonds among the hydrate-like molecules in the neighbourhood of a methane molecule is noted $n_b$.
 
-After the computation of these 3 numbers, we can recognise clathrates. If $n_w = n_h = 24$ and $n_b = 36$, the methane is imprisonned in a large cage; if $n_w = n_h = 20$ and $n_b = 30$, the methane is imprisonned in a small cage; if $10 < n_h < 13$, the methane is in a half-complete cage (interface cage); if $n_h \leq 14$ and $n_h \neq 20, 24$, the methane is in an irregular cage; if anything else, the methane is not considered in a cage.
+After the computation of these 3 numbers, we can identify clathrates. If $n_w = n_h = 24$ and $n_b = 36$, the methane is imprisonned in a large cage; if $n_w = n_h = 20$ and $n_b = 30$, the methane is imprisonned in a small cage; if $10 < n_h < 13$, the methane is in a half-complete cage (interface cage); if $n_h \leq 14$ and $n_h \neq 20, 24$, the methane is in an irregular cage; if anything else, the methane is not considered in a cage.
 
-A point of interest is the width of the clathrate phase throughout the melt simulation. Once we know which molecule is/is not in a cage, it is rather easy to find the width of the clathrate phase. We take the carbon atoms in large and small cages and compute the difference between the lowest and the highest values of $x$. That gives us a rough idea of the width of the clathrate phase for the frame. Doing this for several frame of the same simulation shows us if the phase if reducing or not and therefore, if the clathrates are melting.
+A point of interest is the width of the clathrate phase throughout the melt simulation. Once we know which molecule is/is not in a cage, it is rather easy to find the width of the clathrate phase. We take the carbon atoms in large and small cages and compute the difference between the lowest and the highest values of $x$. That gives us a rough idea of the width of the clathrate phase for the frame. Doing this for several frames of the same simulation shows us if the phase size is reducing or not and therefore, if the clathrates are melting.
 
 \newpage
 \section{Results and discussion}
-
 \subsection{Growth}
 The first part of this study is about the growth of clathrates at \SI{30}{\mega\pascal} and \SI{260}{\kelvin}. What follows are 3 snapshots taken at the beginning, halfway through and at the end of the simulation.
 
@@ -154,10 +158,10 @@ The first part of this study is about the growth of clathrates at \SI{30}{\mega\
     \label{fig:snaps-prod}
 \end{figure}
 
-On the \autoref{fig:snap1-prod}, we can see a bit of a clathrate shape in the middle, it is because when the heating was approaching \SI{260}{\kelvin}, the system was almost at the conditions required for the formation of clathrate, therefore cages already started forming at that point.
+On the \autoref{fig:snap1-prod}, we can see a bit of a clathrate shape in the middle, it is because when the heating was approaching \SI{260}{\kelvin}, the system was almost at the conditions required for the formation of clathrate and methane molecules were moving to the liquid phase, therefore cages already started forming at that point.
 
-On \autoref{fig:snap2-prod} and \autoref{fig:snap3-prod}, we notice that as the clathrate phase widens, the gas of methane to the right of the figures is slowly decreasing. 
-The \autoref{fig:width-growth} shows the width of the clathrate phase during the growth process.
+On \autoref{fig:snap2-prod} and \autoref{fig:snap3-prod}, we notice that as the clathrate phase widens, the gas of methane to the right of the figures is slowly thining down. 
+
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.99\linewidth]{figures/growth-width.pdf}
@@ -165,7 +169,8 @@ The \autoref{fig:width-growth} shows the width of the clathrate phase during the
     \label{fig:width-growth}
 \end{figure}
 
-The clathrate phase constantly switches between increasing and decreasing its size, but looking at the big picture, the phase width is expanding. I think that this pulse, along with the high peaks between 5 and \SI{15}{\nano\second} are due to the precision of the program to detect the boundaries of the clathrate phase. The program only looks for the highest and lowest values of the $x$ position for the carbon atom among the small and large cages, but it does not take into account the size of the cage. In practice, the width of the phase will always be a bit higher than the computed width since the last small and large cages (just before the interface cages) are ``cut'' in half (because the program only looks at the $x$ position of the carbon atom, supposed to be at the center of the cage).
+The \autoref{fig:width-growth} shows the width of the clathrate phase during the growth process.
+The growth rate of clathrates is somewhat linear, with variations along the simulation. In this simulation the rate was about \SI{0.129}{\nano\meter\per\nano\second}, which is close to the experimental and computational results mentioned in \textit{Tung et al.}'s paper. The clathrate phase constantly switches between increasing and decreasing its size, but looking at the big picture, the phase width is expanding. I think that this pulse is due to the precision of the program to detect the boundaries of the clathrate phase. The program only looks for the highest and lowest values of the $x$ position for the carbon atom among the small and large cages, but it does not take into account the size of the cage. In practice, the width of the phase will always be a bit higher than the computed width since the last small and large cages (just before the interface cages) are ``cut'' in half (because the program only looks at the $x$ position of the carbon atom, supposed to be at the center of the cage). Concerning the high peaks between 5 and \SI{15}{\nano\second}, it could be explained if at some point, the system gets carried away and speeds up the simulation, along with cases of false positive (typically cages forming inside the liquid phase).
 
 \begin{figure}[htbp]
     \centering
@@ -173,6 +178,7 @@ The clathrate phase constantly switches between increasing and decreasing its si
     \caption{Distribution of cages during the growth} \label{fig:growth-cages}
 \end{figure}
 
+The \autoref{fig:growth-cages} show the distributions of the different detected cages during the growth of the clathrates. We see that at the beginning of the simulation, there is a small number of small and large cages, a bit more of interface cages and a lot of irregular cages. As the simulation goes on, the number of small and large cages increases and the one of interface cages decreases. Since the interface cages are considered as incomplete cages, the decreasing number over time indicates that the cages are most likely forming themselves completely, which would also explain the rise of small and large cages. Everything called irregular cages correspond to methane molecules close to 14 or more water cages, but with a symmetry that does not ressemble the one of a clathrate. Finally, the ``not in a cage'' category corresponds to every other methane molecule. Since most of the methane molecules in liquid and clathrate phases are surrounded with water molecules, most of the methane in this category are in the methane gas phase. Its number decreases, confirming that the methane molecules are indeed caught by the forming clathrates. 
 
 \subsection{Melt}
 The second part of this study concerns the melt of the clathrates. Unlike the growth of the clathrates, the melting simulation was done at different pressures: 10, 30, 60 and \SI{100}{\mega\pascal}. The following table shows the results for the melting simulations.
@@ -189,7 +195,7 @@ The second part of this study concerns the melt of the clathrates. Unlike the gr
         }
         \toprule
         {Pressure} & {Simulation time} & {Melting temperature} & {Melting rate}\\
-        {(\si{\mega\pascal})} & {(\si{\nano\second})} & {(\si{\kelvin})} & {(\si{\angstrom\per\nano\second})}\\
+        {(\si{\mega\pascal})} & {(\si{\nano\second})} & {(\si{\kelvin})} & {(\si{\nano\meter\per\nano\second})}\\
         \midrule
          10 & 20 & 295 \pm 10 & 0.130\\
          30 & 20 & 295 \pm 10 & 0.081\\
@@ -200,10 +206,47 @@ The second part of this study concerns the melt of the clathrates. Unlike the gr
     \caption{Conditions and results for the melt of clathrates}
     \label{tab:melting}
 \end{table}
-This first thing we notice is that for a higher pressure, the temperature needed for the clathrate to melt is higher aswell. It was expected since as predicted by thermodynamics, an increase in pressure without volume change induces a higher temperature to reach melting point.
-\section{Conclusion}
+This first thing we notice is that for a higher pressure, the temperature needed for the clathrate to melt is higher aswell. It was expected since as predicted by thermodynamics, an increase in pressure without volume change induces a higher temperature required to reach melting point. These results, although a lot less precise than those of \textit{Tung et al.}, are in the same range 
 
-\newpage
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.99\linewidth]{figures/10frame100-310k-cages.pdf}
+    \caption{Cages for a melting simulation at \SI{100}{\mega\pascal} and \SI{310}{\kelvin}}
+    \label{fig:cages-100-310}
+\end{figure}
+
+The \autoref{fig:cages-100-310} shows the distribution of cages for the simulation at \SI{100}{\mega\pascal} at a temperature higher than the melting point. Not only the small and large cages, but the interface cages number decrease aswell after the melting temperature is crossed. Naturally, as cages melt, they release the enclosed methane molecule, therefore the number of methane that are not in a cage increases.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.99\linewidth]{figures/100energy.pdf}
+    \caption{Potential energy for a melting simulation at \SI{100}{\mega\pascal}}
+    \label{fig:energy-100}
+\end{figure}
+
+The state of the system can also be studied by looking at the potential energy. In \autoref{fig:energy-100}, we see that before reaching the melting temperature, the potential energy decreases, but once the melting temperature is crossed, the potential energy increases. A rise of potential energy means that the system is melting, while a drop in potential energy indicates that the system crystalizes.
+
+One more thing that we can consider to check our results is the AOP. The \autoref{fig:100aop300} show the AOP for the melting simulation at \SI{100}{\mega\pascal} and \SI{310}{\kelvin}. As stated earlier, the AOP of water molecules that are part of a clathrate cage is low. Here, we see that the AOP somewhat corresponds to the target value ($< 0.4$) between around 2 and \SI{6}{\nano\meter}. Comparing it with a snapshot from the same frame (\autoref{fig:100snap310}), we see that the positions of the clathrate phase correspond. We can also see that the AOP after \SI{10}{\nano\meter} is rising a little, it is because the system is periodic, some molecules of water went to the other side of the box, in the gas phase, therefore we have a bit of computed AOP at the end of the box.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.9\linewidth]{figures/100aop310.pdf}
+    \caption{AOP at the end of the melting simulation for \SI{100}{\mega\pascal} and \SI{310}{\kelvin}}
+    \label{fig:100aop300}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.99\linewidth]{figures/100melt310frame2001.png}
+    \caption{Snapshot of the melting at \SI{100}{\mega\pascal}, \SI{310}{\kelvin} and \SI{20}{\nano\second}}
+    \label{fig:100snap310}
+\end{figure}
+
+\section{Conclusion}
+As stated earlier, the simulation of growth and melt of clathrates via molecular dynamics requires a great computational power due to the complexity of the system, the analysis was also a rather long task. The calculations may be simple, but with the number of atoms in the systems, even the simplest calculation can take some time. The study was carried out for different thermodynamic conditions in order to analyse the behavior of such a system and the analysis was conducted following the guidelines stated by \textit{Tung et al.}.
+
+Since there are a lot of underwater pipelines, the simulations at different pressures give an idea of the temperature conditions for the growth and melt of clathrate at different depth levels (\SI{100}{\mega\pascal} corresponds rougthly to the pressure at the bottom of the Mariana Trench). The further down we go, the higher the temperature must be for the clathrates to melt completely. Such a condition constitute a challenge as the deeper we go, the colder it gets.
+
 \nocite{*}
 \begin{multicols}{2}
     [\center{\printbibheading}]
@@ -212,7 +255,22 @@ This first thing we notice is that for a higher pressure, the temperature needed
 
 \newpage
 \section{Appendices}
-\begin{itemize}
-    \item \textit{Description of the means used for the analysis program (docs)}
-    \item \textit{Some more snapshots from the simulations (maybe)}
-\end{itemize}
+\subsection{About the code}
+The molecular dynamics simulations ran on the computing center, and the analysis on my computer (Intel i5-8365 vPro, \SI{8}{\giga B} RAM, running on Arch Linux 5.10). The analysis for a single frame took about \SI{1}{\minute} for my computer.
+
+Initially, the code was written in Python. However, due to heavy computations, the code was too slow to get results on time. I rewrote most of the heavy functions in C, compiled them as shared objects (.so files) and used them in the Python code. This method allowed me to run the analysis way faster (more than a hundredfold faster). However this came with a cost, using the C integration ``broke'' the program and I could not make it run on Windows (apparently due to versions conflict for the module \mintinline{python}{ctypes}), it only works on my linux machine.
+
+The code is provided with the report, but it requires heavy input files (200+ \si{\mega B}) that I cannot provide to work. These input files are the positions of each atom at each timestep (frame).
+
+All the framework of the project was made in python, the file \textit{main.py} pilots the program; the file \textit{analysis.py} contains quality of life functions, basic functions, and the Python functions that have be replaced with C functions for speed purposes; the file \textit{cintegration.py} contains the functions used to bridge between Python and C; the file \textit{parameters.py} contains the input parameters (filename, number of frames and max time).
+
+Each computation involving distances in the code must respect the periodic conditions as follows:
+
+Let $d_i = i_2 - i_1$ and $i \in \{x, y, z\}$, then the periodic conditions applied for the system are:
+
+\[
+    d_i = d_i - \text{int}\left(\dfrac{d_i}{box_i}\right) \times box_i\\
+\]
+with $box_i$ a dimension of the box.
+
+As C functions could not return values for Python (the memory gets erased before Python gets the chance to retrieve the data), for each call of C inside Python, I had to provide a variable to store the result, this is the reason why there are a lot of pointers in the C code.

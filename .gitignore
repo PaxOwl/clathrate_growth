@@ -4,6 +4,7 @@ python/trimmed_data
 docs/
 figures/
 latex/
+oral/
 .idea/
 python/__pycache__/
 *.trr
